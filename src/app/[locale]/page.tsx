@@ -2,6 +2,7 @@ import Link from "next/link";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { localePath } from "@/lib/routes";
+import { images } from "@/lib/images";
 import { notFound } from "next/navigation";
 import SectionHeading from "@/components/SectionHeading";
 import { ButtonLink } from "@/components/Button";
@@ -22,39 +23,46 @@ export default async function HomePage({
     <>
       {/* ----------------------------------------------------------------- Hero */}
       <section className="relative overflow-hidden bg-navy text-white">
+        {/* Background photograph — navy shows through if it fails to load. */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-[0.06]"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
-            backgroundSize: "32px 32px",
-          }}
+          className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-25"
+          style={{ backgroundImage: `url('${images.hero}')` }}
+        />
+        {/* Tonal overlays for legibility and classic depth. */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-navy/95 via-navy/85 to-navy"
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute -top-24 end-[-10%] h-96 w-96 rounded-full bg-gold/20 blur-3xl"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-l from-navy/40 to-transparent"
         />
-        <div className="container-x relative grid items-center gap-12 py-20 sm:py-28 lg:grid-cols-12">
-          <div className="animate-rise lg:col-span-7">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-wider text-gold-400">
-              <ScaleIcon className="h-4 w-4" />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -top-24 end-[-10%] h-96 w-96 rounded-full bg-gold/15 blur-3xl"
+        />
+        <div className="container-x relative grid items-center gap-12 py-24 sm:py-32 lg:grid-cols-12">
+          <div className="animate-rise lg:col-span-8">
+            {/* Classic eyebrow with a flanking gold rule. */}
+            <span className="inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-gold-400">
+              <span aria-hidden className="h-px w-8 bg-gold-400/50" />
               {home.hero.eyebrow}
             </span>
-            <h1 className="mt-6 max-w-2xl text-balance text-4xl font-semibold leading-[1.1] text-white sm:text-5xl lg:text-6xl">
+            <h1 className="mt-6 max-w-3xl text-balance font-serif text-4xl leading-[1.12] text-white sm:text-5xl lg:text-[3.5rem]">
               {home.hero.title}
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/70">
+            <p className="mt-7 max-w-xl text-lg leading-relaxed text-white/75">
               {home.hero.subtitle}
             </p>
-            <div className="mt-9 flex flex-wrap gap-3">
+            <div className="mt-10 flex flex-wrap gap-3">
               <ButtonLink href={localePath(typedLocale, "/contact")} variant="primary">
                 {home.hero.ctaPrimary}
                 <ArrowIcon className="h-4 w-4 rtl:-scale-x-100" />
               </ButtonLink>
               <Link
                 href={localePath(typedLocale, "/practice-areas")}
-                className="inline-flex items-center justify-center gap-2 rounded-md border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:border-gold/50 hover:text-gold-400"
+                className="inline-flex items-center justify-center gap-2 rounded-md border border-white/25 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:border-gold/60 hover:bg-white/5 hover:text-gold-400"
               >
                 {home.hero.ctaSecondary}
               </Link>
@@ -63,7 +71,7 @@ export default async function HomePage({
         </div>
 
         {/* Stats strip */}
-        <div className="relative border-t border-white/10 bg-navy-700/40">
+        <div className="relative border-t border-white/10 bg-navy/50 backdrop-blur-sm">
           <dl className="container-x grid grid-cols-2 gap-y-8 py-10 lg:grid-cols-4">
             {home.stats.map((stat) => (
               <div key={stat.label} className="text-center">
@@ -155,12 +163,22 @@ export default async function HomePage({
       </section>
 
       {/* ------------------------------------------------------------ CTA band */}
-      <section className="bg-navy">
-        <div className="container-x flex flex-col items-center gap-6 py-16 text-center">
-          <h2 className="max-w-2xl text-3xl text-white sm:text-4xl">
+      <section className="relative overflow-hidden bg-navy">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-20"
+          style={{ backgroundImage: `url('${images.cta}')` }}
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy via-navy/90 to-navy/80"
+        />
+        <div className="container-x relative flex flex-col items-center gap-6 py-20 text-center">
+          <span aria-hidden className="h-px w-12 bg-gold/50" />
+          <h2 className="max-w-2xl font-serif text-3xl text-white sm:text-4xl">
             {home.ctaBand.title}
           </h2>
-          <p className="max-w-xl text-white/70">{home.ctaBand.body}</p>
+          <p className="max-w-xl text-white/75">{home.ctaBand.body}</p>
           <ButtonLink href={localePath(typedLocale, "/contact")} variant="primary">
             {home.ctaBand.cta}
             <ArrowIcon className="h-4 w-4 rtl:-scale-x-100" />

@@ -18,7 +18,7 @@ const csp = [
   "default-src 'self'",
   `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' blob: data:",
+  "img-src 'self' blob: data: https://images.unsplash.com",
   "font-src 'self'",
   `connect-src 'self'${isDev ? " ws:" : ""}`,
   "object-src 'none'",
@@ -59,6 +59,11 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   // Never advertise the framework version to attackers.
   poweredByHeader: false,
+  // Allow optimizing stock photos served from Unsplash (placeholders until the
+  // firm's real photography is added to /public).
+  images: {
+    remotePatterns: [{ protocol: "https", hostname: "images.unsplash.com" }],
+  },
   // Trailing-slash off keeps canonical URLs clean for SEO.
   async headers() {
     return [
