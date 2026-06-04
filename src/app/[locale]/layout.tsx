@@ -55,7 +55,10 @@ export async function generateMetadata({
       title: dict.meta.defaultTitle,
       description: dict.meta.defaultDescription,
     },
-    robots: { index: true, follow: true },
+    robots:
+      process.env.SITE_NOINDEX === "true"
+        ? { index: false, follow: false }
+        : { index: true, follow: true },
   };
 }
 
