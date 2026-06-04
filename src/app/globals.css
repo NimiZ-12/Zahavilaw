@@ -43,39 +43,46 @@
   --font-serif: var(--font-frank);
 }
 
-* {
-  border-color: var(--border);
-}
+/* Base element styles live in @layer base so Tailwind utilities (e.g.
+   text-white on a heading over a dark background) reliably override them.
+   Unlayered rules would otherwise win over Tailwind's layered utilities. */
+@layer base {
+  * {
+    border-color: var(--border);
+  }
 
-html {
-  scroll-behavior: smooth;
-}
+  html {
+    scroll-behavior: smooth;
+  }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
 
-h1, h2, h3, h4 {
-  font-family: var(--font-serif), Georgia, serif;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  color: var(--navy);
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif), Georgia, serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--navy);
+  }
 }
 
 /* Logical-property helpers so the same classes work in RTL and LTR. */
-.section {
-  padding-block: clamp(3.5rem, 8vw, 7rem);
-}
+@layer components {
+  .section {
+    padding-block: clamp(3.5rem, 8vw, 7rem);
+  }
 
-.container-x {
-  margin-inline: auto;
-  width: 100%;
-  max-width: 78rem;
-  padding-inline: 1.25rem;
+  .container-x {
+    margin-inline: auto;
+    width: 100%;
+    max-width: 78rem;
+    padding-inline: 1.25rem;
+  }
 }
 
 /* Subtle entrance animation respected only when motion is allowed. */
