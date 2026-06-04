@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+/* ----------------------------------------------------------------------------
+   Design tokens — Zahavi Law
+   Minimalist, professional palette: deep navy + warm gold ("זהב") accent.
+---------------------------------------------------------------------------- */
+:root {
+  --background: #ffffff;
+  --surface: #f7f6f3;
+  --surface-2: #efece5;
+  --foreground: #161a24;
+  --muted: #5b6170;
+  --border: #e4e1da;
+
+  --navy: #161a24;
+  --navy-700: #1f2533;
+  --navy-600: #2b3346;
+
+  --gold: #b08433;
+  --gold-600: #97702a;
+  --gold-400: #c9a24b;
+  --gold-soft: #f3ecdd;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+
+  --color-navy: var(--navy);
+  --color-navy-700: var(--navy-700);
+  --color-navy-600: var(--navy-600);
+
+  --color-gold: var(--gold);
+  --color-gold-600: var(--gold-600);
+  --color-gold-400: var(--gold-400);
+  --color-gold-soft: var(--gold-soft);
+
+  --font-sans: var(--font-heebo);
+  --font-serif: var(--font-frank);
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--navy);
+}
+
+/* Logical-property helpers so the same classes work in RTL and LTR. */
+.section {
+  padding-block: clamp(3.5rem, 8vw, 7rem);
+}
+
+.container-x {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 78rem;
+  padding-inline: 1.25rem;
+}
+
+/* Subtle entrance animation respected only when motion is allowed. */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-rise {
+  animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-rise { animation: none; }
+}
+
+/* Accessible focus ring for keyboard users. */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+::selection {
+  background: var(--gold-soft);
+  color: var(--navy);
+}
