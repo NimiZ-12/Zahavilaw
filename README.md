@@ -53,6 +53,17 @@ npm run lint    # בדיקת ESLint
 > אם המשתנים אינם מוגדרים, הטופס עדיין יעבוד — הפנייה תתקבל אך לא תסונכרן,
 > כדי לאפשר פיתוח ובדיקה ללא חשבון Monday.
 
+### יצירת הלוח אוטומטית / Automated board setup
+
+במקום ליצור את הלוח ידנית, הריצו את סקריפט ההקמה. הוא יוצר לוח עם כל העמודות
+הנכונות ומדפיס את משתני הסביבה המדויקים להעתקה אל `.env.local`:
+
+```bash
+MONDAY_API_TOKEN=<הטוקן-שלכם> npm run setup:monday
+```
+
+הסקריפט (`scripts/setup-monday.mjs`) רק **יוצר** לוח חדש — הוא לעולם לא מוחק דבר.
+
 **מיפוי עמודות** — `MONDAY_COLUMN_MAP` ממפה את שדות הפנייה
 (`email`, `phone`, `subject`, `message`, `preferredTime`, `locale`, `source`)
 למזהי העמודות בלוח שלכם. שם הלקוח נשמר כשם הפריט. דוגמה:
@@ -60,6 +71,22 @@ npm run lint    # בדיקת ESLint
 ```json
 {"email":"email","phone":"phone","subject":"text","message":"long_text"}
 ```
+
+## 🔐 אבטחה / Security
+
+- **כותרות אבטחה** על כל בקשה (`next.config.ts`): Content-Security-Policy,
+  HSTS, `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`,
+  Referrer-Policy, Permissions-Policy, Cross-Origin-Opener-Policy. כותרת
+  `X-Powered-By` מוסתרת.
+- **הגנת CSRF** — נקודת הקצה `/api/contact` דוחה בקשות חוצות-מקור (בדיקת Origin).
+- **הגבלת קצב** — עד 5 פניות לדקה לכל כתובת IP (`src/lib/rate-limit.ts`),
+  למניעת ספאם וניצול לרעה.
+- **ולידציה והגבלות** — בדיקת קלט, הגבלת גודל גוף הבקשה, ומלכודת ספאם (honeypot).
+- **סודות בצד השרת בלבד** — טוקן ה-Monday נטען עם `server-only` ולעולם לא נחשף
+  לדפדפן.
+
+> CSP מוגדר כעת במצב **סטטי-ידידותי** (האתר נשאר סטטי — מהיר ועמיד יותר לעומסים).
+> אם בעתיד יתווסף אזור אישי ללקוחות, ניתן לשדרג ל-CSP מבוסס nonce.
 
 ## 🗂️ מבנה הפרויקט / Project Structure
 

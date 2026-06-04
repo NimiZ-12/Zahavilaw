@@ -63,11 +63,16 @@ function buildColumnValues(lead: Lead, map: ColumnMap): Record<string, unknown> 
     if (columnId && value) values[columnId] = value;
   };
 
-  // Monday's typed columns expect specific shapes.
-  if (map.email) values[map.email] = { email: lead.email, text: lead.email };
-  if (map.phone) values[map.phone] = lead.phone;
+  // Monday's typed columns expect specific shapes — these match the column
+  // types created by scripts/setup-monday.mjs (email, long_text, text).
+  if (map.email && lead.email) {
+    values[map.email] = { email: lead.email, text: lead.email };
+  }
+  if (map.message && lead.message) {
+    values[map.message] = { text: lead.message };
+  }
+  set("phone", lead.phone);
   set("subject", lead.subject);
-  set("message", lead.message);
   set("preferredTime", lead.preferredTime);
   set("locale", lead.locale);
   set("source", lead.source);
@@ -122,7 +127,7 @@ export async function createMondayLead(lead: Lead): Promise<MondayResult> {
       headers: {
         "Content-Type": "application/json",
         Authorization: token,
-        "API-Version": "2024-01",
+        "API-Version": "2024-10",
       },
       body: JSON.stringify({ query, variables }),
       // Never cache a mutation.
