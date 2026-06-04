@@ -2,27 +2,28 @@
 /* ----------------------------------------------------------------------------
  * Monday.com board bootstrapper for the Zahavi Law website.
  *
- * Creates a leads board with the columns the contact form needs, then prints
- * the exact environment variables to paste into `.env.local`.
+ * Creates a leads board with the columns the contact form needs, then writes
+ * the matching variables straight into `.env.local` (and prints them too).
  *
- * Usage:
- *   MONDAY_API_TOKEN=xxxxx node scripts/setup-monday.mjs
+ * Usage (any of these):
+ *   npm run setup:monday                 → asks for the token interactively
+ *   npm run setup:monday -- <API_TOKEN>  → token as an argument
+ *   MONDAY_API_TOKEN=<token> npm run setup:monday
  *
  * Safe to read first: it only CREATES a new board (it never deletes anything).
- * Re-running it creates another, separate board.
  * -------------------------------------------------------------------------- */
+
+import fs from "node:fs";
+import path from "node:path";
+import readline from "node:readline";
+import { fileURLToPath } from "node:url";
 
 const API_URL = "https://api.monday.com/v2";
 const API_VERSION = "2024-10";
+const SITE_URL = "https://www.zahavilaw.com";
 
-const token = process.env.MONDAY_API_TOKEN;
-if (!token) {
-  console.error(
-    "\n✖ חסר טוקן. הריצו כך:\n" +
-      "   MONDAY_API_TOKEN=<הטוקן-שלכם> node scripts/setup-monday.mjs\n",
-  );
-  process.exit(1);
-}
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ENV_PATH = path.resolve(__dirname, "..", ".env.local");
 
 const BOARD_NAME = "לידים מהאתר – משרד עורכי דין זהבי";
 const GROUP_NAME = "פניות חדשות מהאתר";
@@ -40,7 +41,28 @@ const COLUMNS = [
   { field: null, title: "סטטוס טיפול", type: "status" },
 ];
 
-async function gql(query, variables = {}) {
+function ask(question) {
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
+  return new Promise((resolve) =>
+    rl.question(question, (answer) => {
+      rl.close();
+      resolve(answer.trim());
+    }),
+  );
+}
+
+async function getToken() {
+  const fromArg = process.argv[2];
+  if (fromArg) return fromArg.trim();
+  if (process.env.MONDAY_API_TOKEN) return process.env.MONDAY_API_TOKEN.trim();
+  const entered = await ask("\nהדביקו כאן את ה-API Token של Monday ולחצו Enter:\n> ");
+  return entered;
+}
+
+async function gql(token, query, variables = {}) {
   const res = await fetch(API_URL, {
     method: "POST",
     headers: {
@@ -50,7 +72,16 @@ async function gql(query, variables = {}) {
     },
     body: JSON.stringify({ query, variables }),
   });
-  const json = await res.json();
+  const text = await res.text();
+  let json;
+  try {
+    json = JSON.parse(text);
+  } catch {
+    throw new Error(
+      `התקבלה תשובה לא צפויה מהשרת (קוד ${res.status}). ` +
+        `ודאו שיש חיבור לאינטרנט ושהטוקן תקין.`,
+    );
+  }
   if (json.errors?.length || json.error_message) {
     const msg =
       json.errors?.map((e) => e.message).join("; ") || json.error_message;
@@ -59,13 +90,41 @@ async function gql(query, variables = {}) {
   return json.data;
 }
 
+/** Write the managed keys into .env.local, preserving any other lines. */
+function writeEnvFile(vars) {
+  const managed = Object.keys(vars);
+  let preserved = "";
+  if (fs.existsSync(ENV_PATH)) {
+    fs.copyFileSync(ENV_PATH, `${ENV_PATH}.bak`);
+    preserved = fs
+      .readFileSync(ENV_PATH, "utf8")
+      .split(/\r?\n/)
+      .filter((line) => {
+        const key = line.split("=")[0].trim();
+        return key && !managed.includes(key);
+      })
+      .join("\n")
+      .trim();
+  }
+  const block = managed.map((k) => `${k}=${vars[k]}`).join("\n");
+  const content = (preserved ? `${preserved}\n\n` : "") + block + "\n";
+  fs.writeFileSync(ENV_PATH, content, "utf8");
+}
+
 async function main() {
+  const token = await getToken();
+  if (!token) {
+    console.error("\n✖ לא הוזן טוקן. צאו והריצו שוב.\n");
+    process.exit(1);
+  }
+
   console.log("\n⏳ מתחבר ל-Monday ובודק את הטוקן...");
-  const me = await gql(`query { me { name email } }`);
+  const me = await gql(token, `query { me { name email } }`);
   console.log(`✓ מחובר כ-${me.me.name} (${me.me.email})`);
 
   console.log(`⏳ יוצר לוח: "${BOARD_NAME}"...`);
   const board = await gql(
+    token,
     `mutation ($name: String!) {
        create_board(board_name: $name, board_kind: public) { id }
      }`,
@@ -76,6 +135,7 @@ async function main() {
 
   console.log(`⏳ יוצר קבוצה: "${GROUP_NAME}"...`);
   const group = await gql(
+    token,
     `mutation ($boardId: ID!, $name: String!) {
        create_group(board_id: $boardId, group_name: $name) { id }
      }`,
@@ -87,6 +147,7 @@ async function main() {
   const columnMap = {};
   for (const col of COLUMNS) {
     const created = await gql(
+      token,
       `mutation ($boardId: ID!, $title: String!, $type: ColumnType!) {
          create_column(board_id: $boardId, title: $title, column_type: $type) {
            id
@@ -99,20 +160,30 @@ async function main() {
     console.log(`✓ עמודה "${col.title}" (${col.type}) → ${id}`);
   }
 
-  const envLines = [
-    "",
-    "─".repeat(64),
-    "✅  הלוח מוכן! העתיקו את השורות הבאות אל הקובץ .env.local :",
-    "─".repeat(64),
-    `MONDAY_API_TOKEN=${token}`,
-    `MONDAY_BOARD_ID=${boardId}`,
-    `MONDAY_GROUP_ID=${groupId}`,
-    `MONDAY_COLUMN_MAP=${JSON.stringify(columnMap)}`,
-    "─".repeat(64),
-    `🔗  פתחו את הלוח: https://view.monday.com/boards/${boardId}`,
-    "",
-  ];
-  console.log(envLines.join("\n"));
+  const vars = {
+    NEXT_PUBLIC_SITE_URL: SITE_URL,
+    MONDAY_API_TOKEN: token,
+    MONDAY_BOARD_ID: boardId,
+    MONDAY_GROUP_ID: groupId,
+    MONDAY_COLUMN_MAP: JSON.stringify(columnMap),
+  };
+  writeEnvFile(vars);
+
+  console.log(
+    [
+      "",
+      "─".repeat(64),
+      `✅  הכול מוכן! הקובץ .env.local נכתב אוטומטית עם הערכים:`,
+      "─".repeat(64),
+      ...Object.entries(vars).map(([k, v]) => `${k}=${v}`),
+      "─".repeat(64),
+      `🔗  הלוח שלך: https://view.monday.com/boards/${boardId}`,
+      "",
+      "הצעד הבא: הריצו  npm run dev  ומלאו את הטופס באתר כדי לבדוק שהפנייה",
+      "נכנסת ללוח. (כדי לפרוס לאוויר — הוסיפו את אותם משתנים בהגדרות האירוח.)",
+      "",
+    ].join("\n"),
+  );
 }
 
 main().catch((err) => {
