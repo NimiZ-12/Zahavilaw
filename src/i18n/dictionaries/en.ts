@@ -43,8 +43,7 @@ const en: Dictionary = {
     stats: [
       { value: "30+", label: "Years of experience" },
       { value: "1,500+", label: "Satisfied clients" },
-      { value: "92%", label: "Cases resolved successfully" },
-      { value: "24/7", label: "Availability" },
+      { value: "24/6", label: "Availability" },
     ],
     intro: {
       eyebrow: "Why Zahavi - Pretty & Co.",

@@ -75,7 +75,7 @@ export default async function HomePage({
 
         {/* Stats strip */}
         <div className="relative border-t border-white/10 bg-navy/50 backdrop-blur-sm">
-          <dl className="container-x grid grid-cols-2 gap-y-8 py-10 lg:grid-cols-4">
+          <dl className="container-x grid grid-cols-3 gap-y-8 py-10">
             {home.stats.map((stat) => (
               <div key={stat.label} className="text-center">
                 <dt className="sr-only">{stat.label}</dt>

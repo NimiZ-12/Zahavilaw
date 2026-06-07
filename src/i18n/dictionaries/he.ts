@@ -43,8 +43,7 @@ const he: Dictionary = {
     stats: [
       { value: "+30", label: "שנות ניסיון משפטי" },
       { value: "+1,500", label: "לקוחות מרוצים" },
-      { value: "92%", label: "תיקים שהסתיימו בהצלחה" },
-      { value: "24/7", label: "זמינות ומענה" },
+      { value: "24/6", label: "זמינות ומענה" },
     ],
     intro: {
       eyebrow: "למה משרד זהבי-פריטי",
