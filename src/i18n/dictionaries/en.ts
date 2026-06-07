@@ -41,7 +41,7 @@ const en: Dictionary = {
       ctaSecondary: "Our practice areas",
     },
     stats: [
-      { value: "20+", label: "Years of experience" },
+      { value: "30+", label: "Years of experience" },
       { value: "1,500+", label: "Satisfied clients" },
       { value: "92%", label: "Cases resolved successfully" },
       { value: "24/7", label: "Availability" },
@@ -53,7 +53,7 @@ const en: Dictionary = {
       features: [
         {
           title: "Proven experience",
-          body: "Over two decades of courtroom representation and negotiation in complex matters.",
+          body: "Over 30 years of courtroom representation and negotiation in complex matters.",
         },
         {
           title: "Personal attention",
