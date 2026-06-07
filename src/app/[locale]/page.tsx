@@ -6,7 +6,8 @@ import { images } from "@/lib/images";
 import { notFound } from "next/navigation";
 import SectionHeading from "@/components/SectionHeading";
 import { ButtonLink } from "@/components/Button";
-import { ArrowIcon, ScaleIcon, CheckIcon } from "@/components/Icons";
+import { ArrowIcon, CheckIcon } from "@/components/Icons";
+import { practiceAreaIcons } from "@/lib/practice-icons";
 
 export default async function HomePage({
   params,
@@ -139,14 +140,16 @@ export default async function HomePage({
           </div>
 
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {practiceAreas.items.map((area) => (
+            {practiceAreas.items.map((area) => {
+              const AreaIcon = practiceAreaIcons[area.slug];
+              return (
               <Link
                 key={area.slug}
                 href={localePath(typedLocale, `/practice-areas/${area.slug}`)}
                 className="group flex flex-col rounded-xl border border-border bg-white p-7 transition-all hover:-translate-y-0.5 hover:border-gold/40 hover:shadow-md"
               >
-                <span className="grid h-12 w-12 place-items-center rounded-lg bg-navy text-gold-400 transition-colors group-hover:bg-gold group-hover:text-white">
-                  <ScaleIcon className="h-6 w-6" />
+                <span className="grid h-14 w-14 place-items-center rounded-lg bg-gold-soft ring-1 ring-border transition-colors group-hover:ring-gold/40">
+                  <AreaIcon className="h-7 w-7" />
                 </span>
                 <h3 className="mt-5 text-xl transition-colors group-hover:text-gold">
                   {area.title}
@@ -159,7 +162,8 @@ export default async function HomePage({
                   <ArrowIcon className="h-4 w-4 transition-transform group-hover:translate-x-1 rtl:-scale-x-100 rtl:group-hover:-translate-x-1" />
                 </span>
               </Link>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

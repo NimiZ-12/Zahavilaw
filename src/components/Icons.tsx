@@ -79,3 +79,64 @@ export const ScaleIcon = (p: IconProps) => (
     <path d="M5 8 2.5 14a3 3 0 0 0 5 0L5 8Zm14 0-2.5 6a3 3 0 0 0 5 0L19 8Z" />
   </svg>
 );
+
+// ---------------------------------------------------------------------------
+// Two-tone (navy + gold) geometric marks for the practice-area cards. Each is
+// built from two flat shapes — a navy primary form and a gold accent — on a
+// shared 40×40 grid so the set reads as one consistent family.
+
+type MarkProps = SVGProps<SVGSVGElement>;
+
+const mark = {
+  width: 28,
+  height: 28,
+  viewBox: "0 0 40 40",
+  fill: "none",
+  "aria-hidden": true,
+};
+
+export const FamilyLawIcon = (p: MarkProps) => (
+  <svg {...mark} {...p}>
+    <circle cx="16" cy="20" r="11" fill="var(--color-navy)" />
+    <circle cx="26" cy="20" r="9" fill="var(--color-gold-400)" />
+  </svg>
+);
+
+export const RealEstateIcon = (p: MarkProps) => (
+  <svg {...mark} {...p}>
+    <rect x="6" y="14" width="11" height="20" fill="var(--color-navy)" />
+    <rect x="20" y="20" width="11" height="14" fill="var(--color-gold-400)" />
+  </svg>
+);
+
+export const LaborLawIcon = (p: MarkProps) => (
+  <svg {...mark} {...p}>
+    <rect x="6" y="12" width="28" height="22" rx="3" fill="var(--color-navy)" />
+    <rect x="16" y="6" width="8" height="8" rx="2" fill="var(--color-navy)" />
+    <rect x="6" y="20" width="28" height="5" fill="var(--color-gold-400)" />
+  </svg>
+);
+
+export const LitigationIcon = (p: MarkProps) => (
+  <svg {...mark} {...p}>
+    <polygon points="20,5 35,18 5,18" fill="var(--color-navy)" />
+    <rect x="9" y="20" width="4" height="12" fill="var(--color-gold-400)" />
+    <rect x="18" y="20" width="4" height="12" fill="var(--color-gold-400)" />
+    <rect x="27" y="20" width="4" height="12" fill="var(--color-gold-400)" />
+    <rect x="6" y="33" width="28" height="3" fill="var(--color-navy)" />
+  </svg>
+);
+
+export const CommercialIcon = (p: MarkProps) => (
+  <svg {...mark} {...p}>
+    <polygon points="20,4 34,12 34,28 20,36 6,28 6,12" fill="var(--color-navy)" />
+    <polygon points="20,14 28,26 12,26" fill="var(--color-gold-400)" />
+  </svg>
+);
+
+export const WillsEstatesIcon = (p: MarkProps) => (
+  <svg {...mark} {...p}>
+    <rect x="9" y="6" width="18" height="26" rx="1" fill="var(--color-navy)" />
+    <circle cx="27" cy="29" r="7" fill="var(--color-gold-400)" />
+  </svg>
+);
