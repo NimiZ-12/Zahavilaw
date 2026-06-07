@@ -139,6 +139,9 @@ export interface Dictionary {
       message: string;
       messagePlaceholder: string;
       preferredTime: string;
+      preferredTimePlaceholder: string;
+      preferredTimeNote: string;
+      preferredTimeWeekendError: string;
       consent: string;
       submit: string;
       submitting: string;

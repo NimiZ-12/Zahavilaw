@@ -244,7 +244,12 @@ const en: Dictionary = {
       subjectPlaceholder: "Choose an area",
       message: "Brief description",
       messagePlaceholder: "Tell us briefly how we can help...",
-      preferredTime: "Preferred meeting time (optional)",
+      preferredTime: "Preferred meeting day (optional)",
+      preferredTimePlaceholder: "Choose a preferred date",
+      preferredTimeNote:
+        "* The requested date does not constitute a confirmed appointment. The meeting time will be set and confirmed in coordination with a member of our office.",
+      preferredTimeWeekendError:
+        "The office operates Sunday–Thursday only. Please choose a date that is not a Friday or Saturday.",
       consent:
         "I agree to be contacted regarding my inquiry. Details will be stored in accordance with the privacy policy.",
       submit: "Send inquiry",

@@ -10,6 +10,27 @@ type FieldErrors = Partial<Record<"name" | "phone" | "email" | "consent", string
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+/* The office operates Sunday (0) through Thursday (4); Friday/Saturday are
+   excluded from the date picker's selectable range. */
+function isWeekend(dateStr: string): boolean {
+  const day = new Date(`${dateStr}T00:00:00`).getDay();
+  return day === 5 || day === 6;
+}
+
+function toDateInputValue(date: Date): string {
+  return date.toISOString().slice(0, 10);
+}
+
+/** Earliest selectable date: the next day that isn't a Friday or Saturday. */
+function earliestSelectableDate(): string {
+  const date = new Date();
+  date.setDate(date.getDate() + 1);
+  while (date.getDay() === 5 || date.getDay() === 6) {
+    date.setDate(date.getDate() + 1);
+  }
+  return toDateInputValue(date);
+}
+
 export default function ContactForm({
   locale,
   dict,
@@ -22,6 +43,20 @@ export default function ContactForm({
 
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<FieldErrors>({});
+  const [preferredDate, setPreferredDate] = useState("");
+  const [preferredDateError, setPreferredDateError] = useState("");
+  const minDate = earliestSelectableDate();
+
+  function onPreferredDateChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const value = event.target.value;
+    if (value && isWeekend(value)) {
+      setPreferredDate("");
+      setPreferredDateError(t.preferredTimeWeekendError);
+      return;
+    }
+    setPreferredDate(value);
+    setPreferredDateError("");
+  }
 
   function validate(form: HTMLFormElement): FieldErrors {
     const data = new FormData(form);
@@ -50,7 +85,7 @@ export default function ContactForm({
       email: data.get("email"),
       subject: data.get("subject"),
       message: data.get("message"),
-      preferredTime: data.get("preferredTime"),
+      preferredTime: preferredDate,
       company: data.get("company"), // honeypot
       consent: data.get("consent") === "on",
       locale,
@@ -65,6 +100,8 @@ export default function ContactForm({
       if (!res.ok) throw new Error("request failed");
       setStatus("success");
       form.reset();
+      setPreferredDate("");
+      setPreferredDateError("");
     } catch {
       setStatus("error");
     }
@@ -166,9 +203,20 @@ export default function ContactForm({
         <input
           id="preferredTime"
           name="preferredTime"
-          type="text"
-          className={fieldClass}
+          type="date"
+          min={minDate}
+          value={preferredDate}
+          onChange={onPreferredDateChange}
+          placeholder={t.preferredTimePlaceholder}
+          className={`${fieldClass} text-start`}
+          dir="ltr"
+          aria-invalid={!!preferredDateError}
+          aria-describedby="preferredTime-note"
         />
+        {preferredDateError && <p className={errorClass}>{preferredDateError}</p>}
+        <p id="preferredTime-note" className="mt-1.5 text-xs leading-relaxed text-muted">
+          {t.preferredTimeNote}
+        </p>
       </div>
 
       <div>
