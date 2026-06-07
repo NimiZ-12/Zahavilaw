@@ -229,7 +229,7 @@ const he: Dictionary = {
     emailLabel: "אימייל",
     email: "office@zahavilaw.com",
     addressLabel: "כתובת",
-    address: "דרך מנחם בגין 7, רמת גן 5268102, בית גיבור ספורט, קומה 23",
+    addressLines: ["דרך מנחם בגין 7, רמת גן 5268102,", "בית גיבור ספורט, קומה 23"],
     hoursLabel: "שעות פעילות",
     hours: "ימים א׳–ה׳, 09:00–18:00",
     form: {

@@ -24,10 +24,10 @@ export default function JsonLd({
     url: `${SITE_URL}${localePath(locale, "/")}`,
     telephone: contact.phone,
     email: contact.email,
-    image: `${SITE_URL}/og-image.png`,
+    image: `${SITE_URL}/og-image.jpg`,
     address: {
       "@type": "PostalAddress",
-      streetAddress: contact.address,
+      streetAddress: contact.addressLines.join(", "),
       addressCountry: "IL",
     },
     areaServed: { "@type": "Country", name: "Israel" },

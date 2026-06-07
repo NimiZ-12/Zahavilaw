@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { localePath } from "@/lib/routes";
-import { whatsappLink, WHATSAPP_NUMBER_DISPLAY } from "@/lib/contact";
+import { whatsappLink, WHATSAPP_NUMBER_DISPLAY, wazeLink } from "@/lib/contact";
 import SectionHeading from "@/components/SectionHeading";
 import ContactForm from "@/components/ContactForm";
 import { PhoneIcon, MailIcon, PinIcon, ClockIcon, WhatsappIcon } from "@/components/Icons";
@@ -56,7 +56,12 @@ export default async function ContactPage({
       href: `mailto:${contact.email}`,
       ltr: true,
     },
-    { icon: PinIcon, label: contact.addressLabel, value: contact.address },
+    {
+      icon: PinIcon,
+      label: contact.addressLabel,
+      value: contact.addressLines,
+      href: wazeLink,
+    },
     { icon: ClockIcon, label: contact.hoursLabel, value: contact.hours },
   ];
 
@@ -92,7 +97,13 @@ export default async function ContactPage({
                         className="block font-medium text-navy"
                         dir={d.ltr ? "ltr" : undefined}
                       >
-                        {d.value}
+                        {Array.isArray(d.value)
+                          ? d.value.map((line, i) => (
+                              <span key={i} className="block">
+                                {line}
+                              </span>
+                            ))
+                          : d.value}
                       </span>
                     </span>
                   </>

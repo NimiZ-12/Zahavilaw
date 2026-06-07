@@ -229,7 +229,7 @@ const en: Dictionary = {
     emailLabel: "Email",
     email: "office@zahavilaw.com",
     addressLabel: "Address",
-    address: "Menachem Begin 7, Ramat Gan 5268102, Beit Gibor Sport, Floor 23",
+    addressLines: ["Menachem Begin 7, Ramat Gan 5268102,", "Beit Gibor Sport, Floor 23"],
     hoursLabel: "Office hours",
     hours: "Sun–Thu, 09:00–18:00",
     form: {

@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { localePath, navItems } from "@/lib/routes";
+import { wazeLink } from "@/lib/contact";
 import Logo from "./Logo";
 import { PhoneIcon, MailIcon, PinIcon } from "./Icons";
 
@@ -85,7 +86,18 @@ export default function Footer({
               </li>
               <li className="flex items-start gap-2.5">
                 <PinIcon className="mt-0.5 h-4 w-4 shrink-0 text-gold-400" />
-                <span className="text-white/60">{contact.address}</span>
+                <a
+                  href={wazeLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/60 transition-colors hover:text-gold-400"
+                >
+                  {contact.addressLines.map((line, i) => (
+                    <span key={i} className="block">
+                      {line}
+                    </span>
+                  ))}
+                </a>
               </li>
             </ul>
           </div>

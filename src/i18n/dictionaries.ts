@@ -123,7 +123,7 @@ export interface Dictionary {
     emailLabel: string;
     email: string;
     addressLabel: string;
-    address: string;
+    addressLines: string[];
     hoursLabel: string;
     hours: string;
     form: {
