@@ -13,6 +13,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import Analytics from "@/components/Analytics";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -93,6 +94,7 @@ export default async function LocaleLayout({
       suppressHydrationWarning
     >
       <body className="flex min-h-full flex-col bg-background">
+        <Analytics />
         <JsonLd locale={typedLocale} dict={dict} />
         <Header locale={typedLocale} nav={dict.nav} brandName={dict.brand.short} />
         <main id="main" className="flex-1">

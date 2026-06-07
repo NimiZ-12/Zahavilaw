@@ -344,9 +344,9 @@ const en: Dictionary = {
           ],
         },
         {
-          heading: "9. Cookies",
+          heading: "9. Cookies and Analytics",
           paragraphs: [
-            "The site uses only limited technical means essential to its operation and security. The site does not use advertising cookies or marketing tracking of visitors. You may configure your browser to block cookies, though this may affect some site features.",
+            "The site uses technical means essential to its operation and security. In addition, the site may use Google Analytics to produce anonymous statistical data about how the site is used (such as the number of visitors and pages viewed), in order to improve the browsing experience. This service uses cookies and may collect usage data in accordance with Google's privacy policy. The site does not use advertising cookies for targeted advertising. You may configure your browser to block cookies, though this may affect some site features.",
           ],
         },
         {
