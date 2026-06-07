@@ -13,10 +13,10 @@ const unsplash = (id: string, w = 2000, q = 68) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=${q}`;
 
 export const images = {
-  // Grand law library / classical interior — prestige.
-  hero: unsplash("1521587760476-6c12a4b040da"),
+  // Looking up at corporate towers — prestige, matches the reference hero.
+  hero: unsplash("1486406146926-c627a92ad1ab"),
   // Office desk with books and documents.
   about: unsplash("1450101499163-c8848c66ca85"),
-  // Architectural lines — used behind the closing call-to-action.
-  cta: unsplash("1486406146926-c627a92ad1ab"),
+  // Grand law library / classical interior, behind the closing call-to-action.
+  cta: unsplash("1521587760476-6c12a4b040da"),
 };

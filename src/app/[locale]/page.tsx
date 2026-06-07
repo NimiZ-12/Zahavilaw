@@ -23,39 +23,41 @@ export default async function HomePage({
     <>
       {/* ----------------------------------------------------------------- Hero */}
       <section className="relative overflow-hidden bg-navy text-white">
-        {/* Background photograph — navy shows through if it fails to load. */}
+        {/* Full-bleed background photograph — navy shows through if it fails. */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-25"
+          className="pointer-events-none absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url('${images.hero}')` }}
         />
-        {/* Tonal overlays for legibility and classic depth. */}
+        {/* Scrim: darken toward the bottom where the panel and stats sit. */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-navy/95 via-navy/85 to-navy"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy via-navy/45 to-navy/25"
         />
+        {/* Gold dot-grid accent, echoing the reference's geometric motif. */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 bg-gradient-to-l from-navy/40 to-transparent"
+          className="pointer-events-none absolute bottom-10 end-8 hidden h-28 w-36 opacity-70 md:block"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 1.5px 1.5px, var(--gold) 1.5px, transparent 0)",
+            backgroundSize: "18px 18px",
+          }}
         />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -top-24 end-[-10%] h-96 w-96 rounded-full bg-gold/15 blur-3xl"
-        />
-        <div className="container-x relative grid items-center gap-12 py-24 sm:py-32 lg:grid-cols-12">
-          <div className="animate-rise lg:col-span-8">
-            {/* Classic eyebrow with a flanking gold rule. */}
+        <div className="container-x relative flex min-h-[34rem] items-end py-16 lg:min-h-[40rem]">
+          {/* Solid navy panel holding the headline — the prestige reference look. */}
+          <div className="animate-rise w-full max-w-xl bg-navy/95 p-8 shadow-2xl ring-1 ring-white/10 sm:p-10">
             <span className="inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-gold-400">
               <span aria-hidden className="h-px w-8 bg-gold-400/50" />
               {home.hero.eyebrow}
             </span>
-            <h1 className="mt-6 max-w-3xl text-balance font-serif text-4xl leading-[1.12] text-white sm:text-5xl lg:text-[3.5rem]">
+            <h1 className="mt-5 text-balance font-serif text-4xl leading-[1.14] text-white sm:text-5xl">
               {home.hero.title}
             </h1>
-            <p className="mt-7 max-w-xl text-lg leading-relaxed text-white/75">
+            <p className="mt-5 text-base leading-relaxed text-white/75">
               {home.hero.subtitle}
             </p>
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-wrap gap-3">
               <ButtonLink href={localePath(typedLocale, "/contact")} variant="primary">
                 {home.hero.ctaPrimary}
                 <ArrowIcon className="h-4 w-4 rtl:-scale-x-100" />
