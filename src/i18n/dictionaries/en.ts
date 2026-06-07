@@ -173,11 +173,12 @@ const en: Dictionary = {
   },
   about: {
     eyebrow: "About the Firm",
-    title: "Commitment, professionalism and a human approach",
-    lead: "Zahavi Law Offices was founded on the belief that quality legal representation must be both accessible and personal.",
+    title: "Commitment, professionalism and a personal touch",
+    lead: "Zahavi Law Offices was founded on the belief that quality legal representation must be professional, personal and accessible.",
     body: [
-      "The firm provides legal services to a wide range of clients — individuals, families and businesses — across diverse fields. We believe there is a person behind every case, which is why we make a point of understanding the full story before building the legal strategy.",
-      "Over the years we have gained extensive experience managing complex proceedings, negotiating and representing clients in courts at every instance. We combine deep legal knowledge with creative thinking and a full commitment to achieving the best outcome for our clients.",
+      "The firm is led by Ron Zahavi, Adv. and Anat Zahavi, Adv., two founding partners who combine extensive practical experience with hands-on involvement in every case. We believe there is a person behind every matter, which is why we take the time to understand the full story before building the right strategy together with you.",
+      "We provide comprehensive legal services to individuals, families and businesses across family law, real estate, labor law, civil and commercial litigation, commercial and corporate law, and wills and estates. In every field, we combine deep legal knowledge with strategic thinking to reach the right, most effective outcome for you.",
+      "We believe quality representation requires close, consistent guidance — not being passed between staff along the way, but the personal presence of your attorney from start to finish. That's how we ensure high availability, clear communication and a full commitment to achieving the best possible result for our clients.",
     ],
     valuesTitle: "The values that lead us",
     values: [
