@@ -50,11 +50,20 @@ export async function generateMetadata({
       description: dict.meta.defaultDescription,
       locale: locale === "he" ? "he_IL" : "en_US",
       url: localePath(locale, "/"),
+      images: [
+        {
+          url: "/og-image.jpg",
+          width: 1200,
+          height: 630,
+          alt: dict.brand.name,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: dict.meta.defaultTitle,
       description: dict.meta.defaultDescription,
+      images: ["/og-image.jpg"],
     },
     robots:
       process.env.SITE_NOINDEX === "true"

@@ -269,6 +269,143 @@ const en: Dictionary = {
     privacy: "Privacy Policy",
     accessibility: "Accessibility Statement",
   },
+  legal: {
+    privacy: {
+      title: "Privacy Policy",
+      metaDescription:
+        "The privacy policy of Zahavi - Pretty & Co. Law Offices — what information we collect on this site, how it is used, and your rights under Israel's Privacy Protection Law.",
+      lastUpdated: "Last updated: June 2026",
+      intro:
+        "Zahavi - Pretty & Co. Law Offices (“the Firm”, “we”) respects your privacy and is committed to protecting the personal information you provide through this website. This policy explains what information we collect, how it is used, with whom it may be shared, and what your rights are.",
+      sections: [
+        {
+          heading: "1. Information We Collect",
+          paragraphs: [
+            "We collect personal information that you choose to provide through the site's contact form, as well as limited technical information collected automatically for security and proper operation of the site.",
+          ],
+          items: [
+            "Information you submit in the contact form: full name, phone number, email address, subject of inquiry, message content, and preferred contact time.",
+            "Technical information collected automatically: IP address, browser type, and basic usage data — used to secure the site, prevent abuse, and operate the request rate-limiting mechanism.",
+          ],
+        },
+        {
+          heading: "2. How We Use the Information",
+          items: [
+            "Responding to inquiries and scheduling consultation meetings.",
+            "Providing legal services and handling your matter, should you choose to engage the Firm.",
+            "Maintaining the security of the site and preventing misuse of the contact form.",
+            "Complying with legal obligations applicable to the Firm.",
+          ],
+        },
+        {
+          heading: "3. Basis for Providing Information and Consent",
+          paragraphs: [
+            "You provide your information voluntarily and are under no legal obligation to do so, but without basic contact details we will be unable to get back to you. By submitting the form and checking the consent box, you confirm the collection and use of your information in accordance with this policy.",
+          ],
+        },
+        {
+          heading: "4. Sharing Information with Third Parties",
+          paragraphs: [
+            "The Firm does not sell or rent your personal information. Your information may be processed and stored by service providers acting on our behalf, including:",
+          ],
+          items: [
+            "A customer-relationship-management (CRM) provider, where inquiries are stored for tracking and handling.",
+            "The site's hosting provider and the technical infrastructure on which it runs.",
+            "Competent authorities or other parties — where required by law, court order, or to protect the Firm's rights.",
+          ],
+        },
+        {
+          heading: "5. Transfer of Information Outside Israel",
+          paragraphs: [
+            "Some of our service providers may store or process information on servers located outside Israel. In such cases we act to ensure the transfer is carried out in accordance with Israel's Privacy Protection Law and its regulations, and subject to appropriate safeguards.",
+          ],
+        },
+        {
+          heading: "6. Information Security",
+          paragraphs: [
+            "We apply reasonable security measures in accordance with the Privacy Protection Regulations (Data Security), 2017, including encryption of traffic between your browser and the site. However, no measure provides absolute protection, and we cannot fully guarantee the security of information transmitted over the internet.",
+          ],
+        },
+        {
+          heading: "7. Data Retention",
+          paragraphs: [
+            "Information is retained for as long as necessary to fulfil the purposes for which it was collected, including handling your inquiry and providing services, and for the period required to meet the legal and professional obligations applicable to the Firm. Thereafter the information is deleted or kept in a non-identifying form.",
+          ],
+        },
+        {
+          heading: "8. Your Rights",
+          paragraphs: [
+            "Under Israel's Privacy Protection Law, 5741-1981, you have the following rights:",
+          ],
+          items: [
+            "The right to inspect information held about you in the Firm's databases.",
+            "The right to request the correction of information that is inaccurate, incomplete, unclear, or out of date.",
+            "The right to request deletion of the information, subject to the law and to the retention obligations applicable to the Firm.",
+          ],
+        },
+        {
+          heading: "9. Cookies",
+          paragraphs: [
+            "The site uses only limited technical means essential to its operation and security. The site does not use advertising cookies or marketing tracking of visitors. You may configure your browser to block cookies, though this may affect some site features.",
+          ],
+        },
+        {
+          heading: "10. Changes to This Policy",
+          paragraphs: [
+            "The Firm may update this policy from time to time. The updated version will be published on this page and will apply from the date of its publication. We recommend reviewing the policy periodically.",
+          ],
+        },
+        {
+          heading: "11. Contact Us About Privacy",
+          paragraphs: [
+            "For any question or request regarding this policy or your personal information, you may contact us by phone at +972-3-7555222, by email at office@zahavilaw.com, or at Menachem Begin 7, Ramat Gan.",
+          ],
+        },
+      ],
+    },
+    accessibility: {
+      title: "Accessibility Statement",
+      metaDescription:
+        "The accessibility statement of the Zahavi - Pretty & Co. Law Offices website — our commitment to accessibility, the adjustments made, and how to contact our accessibility coordinator.",
+      lastUpdated: "Last updated: June 2026",
+      intro:
+        "Zahavi - Pretty & Co. Law Offices attaches great importance to providing an accessible and equal service to the entire public, including persons with disabilities, and works to make its website accessible in accordance with the Equal Rights for Persons with Disabilities Law, 5758-1998, and the Equal Rights for Persons with Disabilities Regulations (Service Accessibility Adjustments), 5773-2013.",
+      sections: [
+        {
+          heading: "Level of Accessibility",
+          paragraphs: [
+            "The site was built with the aim of meeting the requirements of Israeli Standard IS 5568 for web content accessibility, which is based on the WCAG 2.0 guidelines at Level AA. We continuously work to improve the site's level of accessibility.",
+          ],
+        },
+        {
+          heading: "Accessibility Adjustments Implemented",
+          items: [
+            "Full keyboard navigation, including a “skip to content” link at the top of every page.",
+            "Semantic page structure with a correct heading hierarchy to support screen readers.",
+            "Alternative text for images and informative graphic icons.",
+            "Sufficient color contrast between text and background.",
+            "Clear focus indication for keyboard users.",
+            "Full support for Hebrew (right-to-left) and English (left-to-right) directionality.",
+            "Responsive design adapted to a range of screen sizes and devices.",
+            "Respecting the user's preference for reduced motion (prefers-reduced-motion).",
+          ],
+        },
+        {
+          heading: "Known Limitations",
+          paragraphs: [
+            "Despite our efforts to make all components of the site accessible, some parts or content may not yet be fully accessible, or may include third-party content not under the Firm's control. We continue to work on fixing and improving accessibility on an ongoing basis.",
+          ],
+        },
+        {
+          heading: "Accessibility Inquiries and Coordinator",
+          paragraphs: [
+            "If you encounter any difficulty browsing the site, or have a comment or request regarding accessibility, we would be glad to hear from you and will make every effort to respond promptly.",
+            "Accessibility coordinator: you may contact us by phone at +972-3-7555222, by email at office@zahavilaw.com, or at Menachem Begin 7, Ramat Gan.",
+          ],
+        },
+      ],
+    },
+  },
 };
 
 export default en;

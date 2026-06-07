@@ -28,6 +28,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.7,
       });
     }
+
+    // Legal pages.
+    for (const path of ["/privacy", "/accessibility"]) {
+      entries.push({
+        url: `${SITE_URL}${localePath(locale, path)}`,
+        lastModified,
+        changeFrequency: "yearly",
+        priority: 0.3,
+      });
+    }
   }
 
   return entries;

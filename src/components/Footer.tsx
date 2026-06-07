@@ -94,10 +94,24 @@ export default function Footer({
         <p className="mt-12 border-t border-white/10 pt-6 text-xs leading-relaxed text-white/40">
           {footer.disclaimer}
         </p>
-        <div className="mt-4 flex flex-col gap-2 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-4 flex flex-col gap-3 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} {brand.name}. {footer.rights}.
           </p>
+          <nav className="flex items-center gap-4" aria-label={footer.quickLinks}>
+            <Link
+              href={localePath(locale, "/privacy")}
+              className="transition-colors hover:text-gold-400"
+            >
+              {footer.privacy}
+            </Link>
+            <Link
+              href={localePath(locale, "/accessibility")}
+              className="transition-colors hover:text-gold-400"
+            >
+              {footer.accessibility}
+            </Link>
+          </nav>
         </div>
       </div>
     </footer>

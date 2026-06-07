@@ -25,6 +25,20 @@ export interface TeamMember {
   bio: string;
 }
 
+export interface LegalSection {
+  heading: string;
+  paragraphs?: string[];
+  items?: string[];
+}
+
+export interface LegalPage {
+  title: string;
+  metaDescription: string;
+  lastUpdated: string;
+  intro: string;
+  sections: LegalSection[];
+}
+
 export interface Dictionary {
   brand: {
     name: string;
@@ -146,6 +160,10 @@ export interface Dictionary {
     disclaimer: string;
     privacy: string;
     accessibility: string;
+  };
+  legal: {
+    privacy: LegalPage;
+    accessibility: LegalPage;
   };
 }
 
