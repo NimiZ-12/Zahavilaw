@@ -2,14 +2,14 @@ import type { Dictionary } from "../dictionaries";
 
 const en: Dictionary = {
   brand: {
-    name: "Zahavi Law Offices",
-    short: "Zahavi & Co.",
+    name: "Zahavi - Pretty & Co. Law Offices",
+    short: "Zahavi - Pretty & Co.",
     tagline: "Professional, personal and precise legal representation",
   },
   meta: {
-    defaultTitle: "Zahavi Law Offices | Professional Legal Representation",
+    defaultTitle: "Zahavi - Pretty & Co. Law Offices | Professional Legal Representation",
     defaultDescription:
-      "Zahavi Law Offices provides comprehensive legal counsel in family, real estate, labor, commercial and litigation law. Initial consultation, high availability and a personal approach for every client.",
+      "Zahavi - Pretty & Co. Law Offices provides comprehensive legal counsel in family, real estate, labor, commercial and litigation law. Initial consultation, high availability and a personal approach for every client.",
     keywords: [
       "lawyer",
       "law firm",
@@ -36,7 +36,7 @@ const en: Dictionary = {
       eyebrow: "Law Offices",
       title: "Legal solutions that protect what matters most",
       subtitle:
-        "Zahavi Law combines deep legal experience with a personal approach and full availability, guiding you with confidence through every legal process — from the first meeting to the result.",
+        "Zahavi - Pretty & Co. combines deep legal experience with a personal approach and full availability, guiding you with confidence through every legal process — from the first meeting to the result.",
       ctaPrimary: "Book a consultation",
       ctaSecondary: "Our practice areas",
     },
@@ -47,7 +47,7 @@ const en: Dictionary = {
       { value: "24/7", label: "Availability" },
     ],
     intro: {
-      eyebrow: "Why Zahavi Law",
+      eyebrow: "Why Zahavi - Pretty & Co.",
       title: "Legal counsel you can feel the difference in",
       body: "We believe every client deserves a personal approach, full transparency and a legal strategy tailored precisely to their needs. The firm emphasizes availability, clear communication and a determined fight for your interests.",
       features: [
@@ -174,7 +174,7 @@ const en: Dictionary = {
   about: {
     eyebrow: "About the Firm",
     title: "Commitment, professionalism and a personal touch",
-    lead: "Zahavi Law Offices was founded on the belief that quality legal representation must be professional, personal and accessible.",
+    lead: "Zahavi - Pretty & Co. Law Offices was founded on the belief that quality legal representation must be professional, personal and accessible.",
     body: [
       "The firm is led by Ron Zahavi, Adv. and Anat Zahavi, Adv., two founding partners who combine extensive practical experience with hands-on involvement in every case. We believe there is a person behind every matter, which is why we take the time to understand the full story before building the right strategy together with you.",
       "We provide comprehensive legal services to individuals, families and businesses across family law, real estate, labor law, civil and commercial litigation, commercial and corporate law, and wills and estates. In every field, we combine deep legal knowledge with strategic thinking to reach the right, most effective outcome for you.",
