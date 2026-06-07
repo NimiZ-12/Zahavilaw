@@ -105,6 +105,7 @@ export interface Dictionary {
     phoneLabel: string;
     phone: string;
     whatsappLabel: string;
+    whatsappFloatingLabel: string;
     emailLabel: string;
     email: string;
     addressLabel: string;

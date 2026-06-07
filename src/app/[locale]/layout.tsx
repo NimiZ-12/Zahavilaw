@@ -12,6 +12,7 @@ import { SITE_URL, localePath } from "@/lib/routes";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -89,6 +90,7 @@ export default async function LocaleLayout({
           {children}
         </main>
         <Footer locale={typedLocale} dict={dict} />
+        <WhatsAppButton label={dict.contact.whatsappFloatingLabel} />
       </body>
     </html>
   );

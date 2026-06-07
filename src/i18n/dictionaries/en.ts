@@ -221,6 +221,7 @@ const en: Dictionary = {
     phoneLabel: "Phone",
     phone: "+972-3-7555222",
     whatsappLabel: "WhatsApp",
+    whatsappFloatingLabel: "Chat with us on WhatsApp",
     emailLabel: "Email",
     email: "office@zahavilaw.com",
     addressLabel: "Address",
