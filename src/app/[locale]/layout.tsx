@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { heebo, frankRuhl } from "../fonts";
+import { heebo } from "../fonts";
 import {
   locales,
   localeDirection,
@@ -79,7 +79,7 @@ export default async function LocaleLayout({
     <html
       lang={typedLocale}
       dir={localeDirection[typedLocale]}
-      className={`${heebo.variable} ${frankRuhl.variable} h-full`}
+      className={`${heebo.variable} h-full`}
       suppressHydrationWarning
     >
       <body className="flex min-h-full flex-col bg-background">

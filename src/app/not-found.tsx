@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { heebo, frankRuhl } from "./fonts";
+import { heebo } from "./fonts";
 import { defaultLocale, localeDirection } from "@/i18n/config";
 import { localePath } from "@/lib/routes";
 
@@ -8,7 +8,7 @@ export default function NotFound() {
     <html
       lang={defaultLocale}
       dir={localeDirection[defaultLocale]}
-      className={`${heebo.variable} ${frankRuhl.variable} h-full`}
+      className={`${heebo.variable} h-full`}
     >
       <body className="grid min-h-full place-items-center bg-background px-6">
         <div className="text-center">
