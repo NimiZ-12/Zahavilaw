@@ -183,16 +183,20 @@ const en: Dictionary = {
     valuesTitle: "The values that lead us",
     values: [
       {
-        title: "Professionalism",
-        body: "Staying current with case law and legislation, and investing in every case as if it were the only one.",
+        title: "Experience",
+        body: "Years of representing clients in court and at the negotiation table, in complex cases at every instance.",
       },
       {
-        title: "Integrity",
-        body: "Fair treatment, full transparency and a commitment to what we promise.",
+        title: "Field Experts",
+        body: "Deep, current legal knowledge across each of the firm's practice areas.",
       },
       {
-        title: "Determination",
-        body: "An uncompromising fight for your rights, at every stage of the process.",
+        title: "Personal Attention",
+        body: "Close guidance from your attorney throughout the process — never passed between staff.",
+      },
+      {
+        title: "Trust & Transparency",
+        body: "Clear fee agreements up front, honest communication and follow-through on what we promise.",
       },
     ],
   },
