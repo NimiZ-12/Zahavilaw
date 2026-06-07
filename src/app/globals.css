@@ -7,7 +7,6 @@
 :root {
   --background: #ffffff;
   --surface: #f7f6f3;
-  --surface-2: #efece5;
   --foreground: #161a24;
   --muted: #5b6170;
   --border: #e4e1da;
@@ -25,7 +24,6 @@
 @theme inline {
   --color-background: var(--background);
   --color-surface: var(--surface);
-  --color-surface-2: var(--surface-2);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-border: var(--border);

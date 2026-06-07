@@ -52,9 +52,16 @@ export function rateLimit(
   return { ok: true, remaining: limit - existing.count, retryAfter };
 }
 
-/** Best-effort client IP from common proxy headers. */
+/** Best-effort client IP from common proxy headers.
+ *
+ * Prefer `x-real-ip`: the hosting platform (Vercel) overwrites it with the true
+ * peer address, so a client can't forge it. The left-most `x-forwarded-for`
+ * entry, by contrast, is client-supplied — a caller can rotate fake values
+ * there to dodge per-IP throttling — so we only fall back to it. */
 export function clientIp(headers: Headers): string {
+  const realIp = headers.get("x-real-ip");
+  if (realIp) return realIp.trim();
   const forwarded = headers.get("x-forwarded-for");
   if (forwarded) return forwarded.split(",")[0].trim();
-  return headers.get("x-real-ip") || "unknown";
+  return "unknown";
 }

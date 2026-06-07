@@ -73,13 +73,6 @@ export const CheckIcon = (p: IconProps) => (
   </svg>
 );
 
-export const ScaleIcon = (p: IconProps) => (
-  <svg {...base} {...p}>
-    <path d="M12 3v18M7 21h10M12 6 5 8m7-2 7 2" />
-    <path d="M5 8 2.5 14a3 3 0 0 0 5 0L5 8Zm14 0-2.5 6a3 3 0 0 0 5 0L19 8Z" />
-  </svg>
-);
-
 // ---------------------------------------------------------------------------
 // Two-tone (navy + gold) geometric marks for the practice-area cards. Each is
 // built from two flat shapes — a navy primary form and a gold accent — on a

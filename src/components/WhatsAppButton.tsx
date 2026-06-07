@@ -1,11 +1,10 @@
 import { WhatsappIcon } from "./Icons";
-
-const WHATSAPP_NUMBER = "972544484034";
+import { whatsappLink } from "@/lib/contact";
 
 export default function WhatsAppButton({ label }: { label: string }) {
   return (
     <a
-      href={`https://wa.me/${WHATSAPP_NUMBER}`}
+      href={whatsappLink}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}

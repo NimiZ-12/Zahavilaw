@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { localePath } from "@/lib/routes";
+import { whatsappLink, WHATSAPP_NUMBER_DISPLAY } from "@/lib/contact";
 import SectionHeading from "@/components/SectionHeading";
 import ContactForm from "@/components/ContactForm";
 import { PhoneIcon, MailIcon, PinIcon, ClockIcon, WhatsappIcon } from "@/components/Icons";
@@ -33,8 +34,6 @@ export default async function ContactPage({
   const dict = await getDictionary(typedLocale);
   const { contact } = dict;
 
-  const waNumber = contact.phone.replace(/[^\d]/g, "");
-
   const details = [
     {
       icon: PhoneIcon,
@@ -46,8 +45,8 @@ export default async function ContactPage({
     {
       icon: WhatsappIcon,
       label: contact.whatsappLabel,
-      value: contact.phone,
-      href: `https://wa.me/${waNumber}`,
+      value: WHATSAPP_NUMBER_DISPLAY,
+      href: whatsappLink,
       ltr: true,
     },
     {
