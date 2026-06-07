@@ -100,7 +100,10 @@ export default function Header({
           className="border-t border-border bg-white lg:hidden"
           onClick={() => setOpen(false)}
         >
-          <nav className="container-x flex flex-col gap-1 py-4" aria-label={nav.menu}>
+          <div className="container-x py-4">
+            <Logo locale={locale} name={brandName} />
+          </div>
+          <nav className="container-x flex flex-col gap-1 border-t border-border py-4" aria-label={nav.menu}>
             {navItems.map((item) => (
               <Link
                 key={item.key}
