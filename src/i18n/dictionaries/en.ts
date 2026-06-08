@@ -50,6 +50,7 @@ const en: Dictionary = {
       title: "Among Our Clients",
       items: [
         { name: "Sela" },
+        { name: "Jacobs Farm" },
         { name: "Burgeranch" },
         { name: "Tiv Taam" },
         { name: "Beinleumi TECH" },

@@ -50,6 +50,7 @@ const he: Dictionary = {
       title: "בין לקוחותינו",
       items: [
         { name: "Sela" },
+        { name: "משק יעקבס" },
         { name: "בורגראנץ׳" },
         { name: "טיב טעם" },
         { name: "בינלאומי TECH" },
