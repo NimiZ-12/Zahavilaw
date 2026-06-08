@@ -94,16 +94,25 @@
 }
 
 /* Infinite horizontal marquee for the client-logo strip. The track holds two
-   identical copies of the logos; translating by -50% loops seamlessly. */
+   identical groups, each at least the container width; translating the track
+   by -50% scrolls exactly one group, so the loop is seamless with no gap. */
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
 
 .marquee-track {
-  display: flex;
-  width: max-content;
   animation: marquee 40s linear infinite;
+}
+
+/* Flip the scroll direction in RTL so logos enter from the correct side. */
+[dir="rtl"] .marquee-track {
+  animation-name: marquee-rtl;
+}
+
+@keyframes marquee-rtl {
+  from { transform: translateX(0); }
+  to { transform: translateX(50%); }
 }
 
 /* Pause on hover so visitors can read a logo. */
@@ -114,15 +123,10 @@
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .animate-rise { animation: none; }
-  .marquee-track {
-    animation: none;
-    width: 100%;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2.5rem 4rem;
-  }
-  /* Avoid showing each logo twice when the animation is disabled. */
+  .marquee-track { animation: none; }
+  /* Show a single, centered, wrapping row when motion is disabled. */
   .marquee-track > [aria-hidden="true"] { display: none; }
+  .marquee-track > .marquee-group { flex-wrap: wrap; justify-content: center; gap: 2.5rem 4rem; }
 }
 
 /* Accessible focus ring for keyboard users. */
