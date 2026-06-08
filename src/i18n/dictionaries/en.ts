@@ -239,15 +239,107 @@ const en: Dictionary = {
     groups: [
       {
         heading: "Articles",
-        items: [],
-      },
-      {
-        heading: "Articles & Publications",
-        items: [],
-      },
-      {
-        heading: "Selected Court Decisions",
-        items: [],
+        items: [
+          {
+            title: "Employee accrued 134 vacation days against his contract — awarded nearly NIS 250,000",
+            source: "ynet",
+            field: "Labor Law",
+            date: "November 2025",
+            excerpt:
+              "The labor court awarded an employee nearly a quarter of a million shekels for vacation days accrued contrary to the terms of his employment contract.",
+            href: "https://www.ynet.co.il/economy/article/r1ctbmxs0",
+          },
+          {
+            title: "Owner of the prestigious \"Chateau Golan\" winery loses her full claim and is charged costs",
+            source: "PsakDin",
+            field: "Labor Law",
+            date: "January 2018",
+            excerpt:
+              "A claim of some NIS 660,000, including reimbursement of severance pay, was dismissed in full, and the court ordered the claimant to pay substantial costs.",
+            href: "https://www.psakdin.co.il/Lawyers/www.mako.co.il/finances-law/work/Article-6fa34e38739d161006.htm",
+          },
+          {
+            title: "Dismissed after refusing dangerous work — \"Minofei Avi\" to compensate",
+            source: "mako",
+            field: "Labor Law",
+            date: "September 2018",
+            excerpt:
+              "An employee dismissed after refusing to perform work that endangered his safety was awarded compensation from the employer.",
+            href: "https://www.mako.co.il/finances-law/work/Article-467b7835cc5ba91027.htm",
+          },
+          {
+            title: "City of Bat Yam unlawfully deducted sick days from a teacher",
+            source: "PsakDin",
+            field: "Labor Law",
+            date: "December 2017",
+            excerpt:
+              "The labor court ruled that the deduction of sick days was unlawful and ordered the municipality to refund the amounts.",
+            href: "https://www.psakdin.co.il/Document/עיריית-בת-ים-ניכתה-מעובדת-שכר-שלא-כדין,-ביה-ד-פגיעה-חמורה",
+          },
+          {
+            title: "Over a small letter: awarded severance pay even though they kept working",
+            source: "mako",
+            field: "Labor Law",
+            date: "December 2017",
+            excerpt:
+              "Precise wording of a letter entitled the employees to severance pay, even though they continued in their roles.",
+            href: "https://www.mako.co.il/finances-law/work/Article-6f353c59be48061006.htm?sCh=3d385dd2dd5d4110&pId=563116731",
+          },
+          {
+            title: "Loan or investment? A family dispute over a farmstead will cost a couple NIS 1.4 million",
+            source: "mako",
+            field: "Real Estate",
+            date: "August 2024",
+            excerpt:
+              "The dispute over the status of funds transferred to purchase the farmstead was decided, and the couple was ordered to pay some NIS 1.4 million.",
+            href: "https://www.mako.co.il/finances-law/property-law/Article-e4121216f572191026.htm",
+          },
+          {
+            title: "Allocation of a plot in a moshav fell through — and the buyer will be compensated",
+            source: "Calcalist",
+            field: "Real Estate & Cooperatives",
+            date: "June 2024",
+            excerpt:
+              "The plot allocation in the moshav was never completed, and the court awarded the buyer compensation — an issue in the realm of cooperatives and urban renewal.",
+            href: "https://www.calcalist.co.il/local/articles/0,7340,L-3724291,00.html",
+          },
+          {
+            title: "A \"continuing son\" sued to share the farm with his brother — how did the court rule?",
+            source: "Calcalist",
+            field: "Real Estate",
+            date: "November 2017",
+            excerpt:
+              "A real estate and inheritance dispute over the status of a \"continuing son\" required to share the agricultural farm with his brother.",
+            href: "https://www.calcalist.co.il/local/articles/0,7340,L-3719551,00.html",
+          },
+          {
+            title: "A diamond venture turned out to be a scam — the investor will get her money back",
+            source: "ynet",
+            field: "Family Law & Contracts",
+            date: "August 2017",
+            excerpt:
+              "A diamond investment venture that proved to be a scam; the court ordered the investor's funds to be returned.",
+            href: "https://www.ynet.co.il/articles/0,7340,L-5061164,00.html",
+          },
+          {
+            title: "Court approved: the electric company will run a free hotline and pay NIS 1.4 million to Holocaust survivors",
+            source: "Calcalist",
+            field: "Class Actions",
+            date: "April 2017",
+            excerpt:
+              "As part of a class action settlement, the electric company will operate a free service hotline and set aside NIS 1.4 million for Holocaust survivors.",
+            href: "https://www.calcalist.co.il/local/articles/0,7340,L-3711795,00.html",
+          },
+          {
+            title: "Court approved a class action against Bezeq: allegedly misled customers in advertising",
+            source: "ynet",
+            field: "Class Actions",
+            date: "May 2010",
+            excerpt:
+              "The court approved the hearing of a class action against Bezeq, alleging that it misled customers through its advertising.",
+            href: "https://www.ynet.co.il/articles/0,7340,L-5341000,00.html",
+          },
+        ],
       },
     ],
   },

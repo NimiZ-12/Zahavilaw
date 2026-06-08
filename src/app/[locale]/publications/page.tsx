@@ -66,6 +66,11 @@ export default async function PublicationsPage({
                   {group.items.map((item, i) => {
                     const card = (
                       <article className="flex h-full flex-col rounded-xl border border-border bg-white p-7 transition-all hover:-translate-y-0.5 hover:border-gold/40 hover:shadow-md">
+                        {item.field && (
+                          <span className="mb-3 inline-flex w-fit rounded-full bg-gold-soft px-3 py-1 text-xs font-semibold text-gold-600">
+                            {item.field}
+                          </span>
+                        )}
                         <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-gold">
                           <span>{item.source}</span>
                           {item.date && (

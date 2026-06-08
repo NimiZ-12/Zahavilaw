@@ -31,6 +31,8 @@ export interface PublicationItem {
   title: string;
   /** Where it was published, e.g. "פסקדין", "נבו", a newspaper, etc. */
   source: string;
+  /** Legal field label used to classify the item, e.g. "דיני עבודה". Optional. */
+  field?: string;
   /** Free-text date label, e.g. "מרץ 2024". Optional. */
   date?: string;
   /** Short summary / excerpt. Optional. */
