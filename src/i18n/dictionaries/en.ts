@@ -52,7 +52,7 @@ const en: Dictionary = {
         { name: "Sela" },
         { name: "Jacobs Farm", logo: "/clients/jacobs-farm.png" },
         { name: "Burgeranch", logo: "/clients/burgeranch.png" },
-        { name: "Tiv Taam" },
+        { name: "Tiv Taam", logo: "/clients/tiv-taam.png" },
         { name: "Beinleumi TECH", logo: "/clients/beinleumi-tech.png" },
         { name: "Prytek", logo: "/clients/prytek.png" },
         { name: "Agudat Lechem", logo: "/clients/agudat-lechem.png" },

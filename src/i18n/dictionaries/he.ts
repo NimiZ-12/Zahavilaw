@@ -52,7 +52,7 @@ const he: Dictionary = {
         { name: "Sela" },
         { name: "משק יעקבס", logo: "/clients/jacobs-farm.png" },
         { name: "בורגראנץ׳", logo: "/clients/burgeranch.png" },
-        { name: "טיב טעם" },
+        { name: "טיב טעם", logo: "/clients/tiv-taam.png" },
         { name: "בינלאומי TECH", logo: "/clients/beinleumi-tech.png" },
         { name: "Prytek", logo: "/clients/prytek.png" },
         { name: "אגדת לחם", logo: "/clients/agudat-lechem.png" },
