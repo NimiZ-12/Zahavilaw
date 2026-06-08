@@ -91,29 +91,16 @@ const en: Dictionary = {
     needHelp: "Need advice in this area?",
     items: [
       {
-        slug: "family-law",
-        title: "Family Law",
-        summary: "Divorce, custody, support and prenuptial agreements with sensitivity.",
+        slug: "litigation",
+        title: "Civil & Commercial Litigation",
+        summary: "Managing civil and commercial claims and disputes in court.",
         description:
-          "Family law requires a rare combination of legal professionalism and human sensitivity. The firm guides clients through divorce, custody and visitation, support, division of property and prenuptial agreements — aiming for the fairest and calmest solution for you and your children.",
+          "Successful litigation begins with strategy. The firm handles complex civil and commercial proceedings at every instance, with meticulous preparation, smart management of evidence and a constant pursuit of the best outcome — by settlement or judgment.",
         points: [
-          "Representation in divorce proceedings before the family court and rabbinical court",
-          "Prenuptial, divorce and cohabitation agreements",
-          "Custody, visitation and child and spousal support",
-          "Division of property and balancing of resources between spouses",
-        ],
-      },
-      {
-        slug: "real-estate",
-        title: "Real Estate",
-        summary: "Real estate transactions, sale contracts, urban renewal and taxation.",
-        description:
-          "A real estate transaction is often the largest deal of one's life. The firm guides buyers, sellers and developers through every stage — from due diligence to land registry — fully protecting your interests and minimizing risk.",
-        points: [
-          "Guidance in the sale and purchase of apartments and commercial properties",
-          "Title due diligence and registration with the Land Registry and Israel Land Authority",
-          "Urban renewal projects — TAMA 38 and evacuation-reconstruction",
-          "Tax planning and real estate taxation aspects of the deal",
+          "Contractual, monetary and tort claims",
+          "Commercial disputes between partners and shareholders",
+          "Applications for interim relief, attachments and injunctions",
+          "Representation in mediation and arbitration",
         ],
       },
       {
@@ -130,16 +117,16 @@ const en: Dictionary = {
         ],
       },
       {
-        slug: "litigation",
-        title: "Civil & Commercial Litigation",
-        summary: "Managing civil and commercial claims and disputes in court.",
+        slug: "real-estate",
+        title: "Real Estate",
+        summary: "Real estate transactions, sale contracts, urban renewal and taxation.",
         description:
-          "Successful litigation begins with strategy. The firm handles complex civil and commercial proceedings at every instance, with meticulous preparation, smart management of evidence and a constant pursuit of the best outcome — by settlement or judgment.",
+          "A real estate transaction is often the largest deal of one's life. The firm guides buyers, sellers and developers through every stage — from due diligence to land registry — fully protecting your interests and minimizing risk.",
         points: [
-          "Contractual, monetary and tort claims",
-          "Commercial disputes between partners and shareholders",
-          "Applications for interim relief, attachments and injunctions",
-          "Representation in mediation and arbitration",
+          "Guidance in the sale and purchase of apartments and commercial properties",
+          "Title due diligence and registration with the Land Registry and Israel Land Authority",
+          "Urban renewal projects — TAMA 38 and evacuation-reconstruction",
+          "Tax planning and real estate taxation aspects of the deal",
         ],
       },
       {
@@ -166,6 +153,19 @@ const en: Dictionary = {
           "Obtaining inheritance and probate orders",
           "Estate administration and representation of estate administrators",
           "Representation in objections and inheritance disputes",
+        ],
+      },
+      {
+        slug: "family-law",
+        title: "Family Law",
+        summary: "Divorce, custody, support and prenuptial agreements with sensitivity.",
+        description:
+          "Family law requires a rare combination of legal professionalism and human sensitivity. The firm guides clients through divorce, custody and visitation, support, division of property and prenuptial agreements — aiming for the fairest and calmest solution for you and your children.",
+        points: [
+          "Representation in divorce proceedings before the family court and rabbinical court",
+          "Prenuptial, divorce and cohabitation agreements",
+          "Custody, visitation and child and spousal support",
+          "Division of property and balancing of resources between spouses",
         ],
       },
     ],
