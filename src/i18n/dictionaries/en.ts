@@ -49,7 +49,7 @@ const en: Dictionary = {
     clients: {
       title: "Among Our Clients",
       items: [
-        { name: "Sela" },
+        { name: "Sela", logo: "/clients/sela.png" },
         { name: "Jacobs Farm", logo: "/clients/jacobs-farm.png" },
         { name: "Burgeranch", logo: "/clients/burgeranch.png" },
         { name: "Tiv Taam", logo: "/clients/tiv-taam.png" },

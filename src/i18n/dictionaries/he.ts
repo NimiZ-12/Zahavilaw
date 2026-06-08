@@ -49,7 +49,7 @@ const he: Dictionary = {
     clients: {
       title: "בין לקוחותינו",
       items: [
-        { name: "Sela" },
+        { name: "Sela", logo: "/clients/sela.png" },
         { name: "משק יעקבס", logo: "/clients/jacobs-farm.png" },
         { name: "בורגראנץ׳", logo: "/clients/burgeranch.png" },
         { name: "טיב טעם", logo: "/clients/tiv-taam.png" },
