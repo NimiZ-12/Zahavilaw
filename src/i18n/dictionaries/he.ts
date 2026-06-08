@@ -236,7 +236,32 @@ const he: Dictionary = {
       "כתבות, פרסומים ופסקי דין נבחרים המעידים על פעילות המשרד ועל הניסיון המקצועי שלו.",
     empty: "התוכן בהכנה ויעודכן בקרוב.",
     readMore: "לכתבה המלאה",
+    // ----------------------------------------------------------------------
+    // מקורות מאמרים שהלקוח סיפק (ממתינים לכותרת/תאריך/תקציר — לא ניתן למשוך
+    // אוטומטית בסביבה הנוכחית; הדומיינים חסומים ב-allowlist). הסיווג להלן
+    // נגזר מנתיב ה-URL. כשהתוכן יגיע — להוסיף כ-PublicationItem תחת "מאמרים".
+    //   דיני עבודה:
+    //     https://www.mako.co.il/finances-law/work/Article-467b7835cc5ba91027.htm
+    //     https://www.mako.co.il/finances-law/work/Article-6f353c59be48061006.htm
+    //     https://www.psakdin.co.il/Lawyers/www.mako.co.il/finances-law/work/Article-6fa34e38739d161006.htm
+    //   מקרקעין:
+    //     https://www.mako.co.il/finances-law/property-law/Article-e4121216f572191026.htm
+    //   כלכלי/מסחרי:
+    //     https://www.ynet.co.il/economy/article/r1ctbmxs0
+    //   לסיווג לפי תוכן (אין מידע ב-URL):
+    //     https://www.ynet.co.il/articles/0,7340,L-5341000,00.html
+    //     https://www.ynet.co.il/articles/0,7340,L-5061164,00.html
+    //     https://www.calcalist.co.il/local/articles/0,7340,L-3724291,00.html
+    //     https://www.calcalist.co.il/local/articles/0,7340,L-3719551,00.html
+    //     https://www.calcalist.co.il/local/articles/0,7340,L-3711795,00.html
+    //   פסק דין (דיני עבודה):
+    //     https://www.psakdin.co.il/Document/עיריית-בת-ים-ניכתה-מעובדת-שכר-שלא-כדין
+    // ----------------------------------------------------------------------
     groups: [
+      {
+        heading: "מאמרים",
+        items: [],
+      },
       {
         heading: "כתבות ופרסומים",
         items: [],
