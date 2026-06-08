@@ -1,4 +1,4 @@
-import { WhatsappIcon } from "./Icons";
+import { WhatsappLogoIcon } from "./Icons";
 import { whatsappLink } from "@/lib/contact";
 
 export default function WhatsAppButton({ label }: { label: string }) {
@@ -11,7 +11,7 @@ export default function WhatsAppButton({ label }: { label: string }) {
       title={label}
       className="fixed bottom-6 left-6 z-50 grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform hover:scale-105 hover:shadow-xl"
     >
-      <WhatsappIcon className="h-7 w-7" />
+      <WhatsappLogoIcon className="h-7 w-7" />
     </a>
   );
 }
