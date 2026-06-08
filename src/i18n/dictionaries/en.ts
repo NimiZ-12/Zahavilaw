@@ -50,10 +50,12 @@ const en: Dictionary = {
       title: "Among Our Clients",
       items: [
         { name: "Sela" },
-        { name: "Jacobs Farm" },
-        { name: "Burgeranch" },
+        { name: "Jacobs Farm", logo: "/clients/jacobs-farm.png" },
+        { name: "Burgeranch", logo: "/clients/burgeranch.png" },
         { name: "Tiv Taam" },
-        { name: "Beinleumi TECH" },
+        { name: "Beinleumi TECH", logo: "/clients/beinleumi-tech.png" },
+        { name: "Prytek", logo: "/clients/prytek.png" },
+        { name: "Agudat Lechem", logo: "/clients/agudat-lechem.png" },
       ],
     },
     intro: {

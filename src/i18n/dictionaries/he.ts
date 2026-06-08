@@ -50,10 +50,12 @@ const he: Dictionary = {
       title: "בין לקוחותינו",
       items: [
         { name: "Sela" },
-        { name: "משק יעקבס" },
-        { name: "בורגראנץ׳" },
+        { name: "משק יעקבס", logo: "/clients/jacobs-farm.png" },
+        { name: "בורגראנץ׳", logo: "/clients/burgeranch.png" },
         { name: "טיב טעם" },
-        { name: "בינלאומי TECH" },
+        { name: "בינלאומי TECH", logo: "/clients/beinleumi-tech.png" },
+        { name: "Prytek", logo: "/clients/prytek.png" },
+        { name: "אגדת לחם", logo: "/clients/agudat-lechem.png" },
       ],
     },
     intro: {
