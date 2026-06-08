@@ -25,6 +25,20 @@ export interface TeamMember {
   bio: string;
 }
 
+/** A single press article, media mention, or court decision. */
+export interface PublicationItem {
+  /** Headline / case name as it should appear. */
+  title: string;
+  /** Where it was published, e.g. "פסקדין", "נבו", a newspaper, etc. */
+  source: string;
+  /** Free-text date label, e.g. "מרץ 2024". Optional. */
+  date?: string;
+  /** Short summary / excerpt. Optional. */
+  excerpt?: string;
+  /** External link to the full article / decision. Optional. */
+  href?: string;
+}
+
 export interface LegalSection {
   heading: string;
   paragraphs?: string[];
@@ -55,6 +69,7 @@ export interface Dictionary {
     about: string;
     practiceAreas: string;
     team: string;
+    publications: string;
     contact: string;
     cta: string;
     skipToContent: string;
@@ -110,6 +125,17 @@ export interface Dictionary {
     title: string;
     subtitle: string;
     members: TeamMember[];
+  };
+  publications: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    /** Shown when there are no items yet. */
+    empty: string;
+    /** Call-to-action label on each card linking out. */
+    readMore: string;
+    /** Optional section groupings. Items live under each group. */
+    groups: { heading: string; items: PublicationItem[] }[];
   };
   contact: {
     eyebrow: string;

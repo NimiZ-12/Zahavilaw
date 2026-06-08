@@ -26,6 +26,7 @@ const en: Dictionary = {
     about: "About",
     practiceAreas: "Practice Areas",
     team: "Our Team",
+    publications: "Publications & Media",
     contact: "Contact",
     cta: "Book a Meeting",
     skipToContent: "Skip to main content",
@@ -213,6 +214,24 @@ const en: Dictionary = {
         name: "Anat Zahavi, Adv.",
         role: "Founding Partner",
         bio: "Leads the firm's family law, real estate, and wills & estates practices, guiding clients with sensitivity and professionalism through life's most significant moments.",
+      },
+    ],
+  },
+  publications: {
+    eyebrow: "Publications & Media",
+    title: "The Firm in the Media",
+    subtitle:
+      "Selected articles, publications and court decisions reflecting the firm's work and professional experience.",
+    empty: "Content is being prepared and will be updated soon.",
+    readMore: "Read full article",
+    groups: [
+      {
+        heading: "Articles & Publications",
+        items: [],
+      },
+      {
+        heading: "Selected Court Decisions",
+        items: [],
       },
     ],
   },

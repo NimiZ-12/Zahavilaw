@@ -25,4 +25,6 @@ export const images = {
   practiceAreas: unsplash("1505664194779-8beaceb93744"),
   // Professional handshake — behind the Contact page banner.
   contact: unsplash("1521791136064-7986c2920216"),
+  // Newspapers / press — behind the Publications & Media banner.
+  publications: unsplash("1504711434969-e33886168f5c"),
 };
