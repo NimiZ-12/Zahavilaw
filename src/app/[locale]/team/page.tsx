@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { localePath } from "@/lib/routes";
+import { images } from "@/lib/images";
 import SectionHeading from "@/components/SectionHeading";
 
 export async function generateMetadata({
@@ -43,8 +44,17 @@ export default async function TeamPage({
 
   return (
     <>
-      <section className="border-b border-border bg-surface">
-        <div className="container-x py-16 sm:py-20">
+      <section className="relative overflow-hidden border-b border-white/10 bg-navy">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-60"
+          style={{ backgroundImage: `url('${images.team}')` }}
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy via-navy/60 to-navy/35"
+        />
+        <div className="container-x relative py-16 sm:py-20">
           <SectionHeading
             as="h1"
             eyebrow={team.eyebrow}
