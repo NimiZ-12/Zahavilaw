@@ -402,6 +402,7 @@ const en: Dictionary = {
       "The content on this site does not constitute legal advice and is no substitute for individual counsel. Do not rely on the site's content without consulting an attorney.",
     privacy: "Privacy Policy",
     accessibility: "Accessibility Statement",
+    secure: "SSL Secured Site",
   },
   legal: {
     privacy: {

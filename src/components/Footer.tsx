@@ -4,7 +4,7 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import { localePath, navItems } from "@/lib/routes";
 import { wazeLink } from "@/lib/contact";
 import Logo from "./Logo";
-import { PhoneIcon, MailIcon, PinIcon } from "./Icons";
+import { PhoneIcon, MailIcon, PinIcon, LockIcon } from "./Icons";
 
 export default function Footer({
   locale,
@@ -103,7 +103,14 @@ export default function Footer({
           </div>
         </div>
 
-        <p className="mt-12 border-t border-white/10 pt-6 text-xs leading-relaxed text-white/40">
+        <div className="mt-12 flex border-t border-white/10 pt-6">
+          <span className="inline-flex items-center gap-2 rounded-full border border-gold-400/30 bg-white/5 px-3.5 py-1.5 text-xs font-medium text-gold-400">
+            <LockIcon className="h-3.5 w-3.5" />
+            {footer.secure}
+          </span>
+        </div>
+
+        <p className="mt-6 text-xs leading-relaxed text-white/40">
           {footer.disclaimer}
         </p>
         <div className="mt-4 flex flex-col gap-3 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">

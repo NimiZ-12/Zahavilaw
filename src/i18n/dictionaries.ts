@@ -198,6 +198,8 @@ export interface Dictionary {
     disclaimer: string;
     privacy: string;
     accessibility: string;
+    /** Label for the "SSL secured site" trust badge. */
+    secure: string;
   };
   legal: {
     privacy: LegalPage;

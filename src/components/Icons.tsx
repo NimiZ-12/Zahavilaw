@@ -53,6 +53,14 @@ export const ClockIcon = (p: IconProps) => (
   </svg>
 );
 
+export const LockIcon = (p: IconProps) => (
+  <svg {...base} {...p}>
+    <rect x="4" y="11" width="16" height="9" rx="2" />
+    <path d="M8 11V7a4 4 0 0 1 8 0v4" />
+    <path d="M12 15v2" />
+  </svg>
+);
+
 export const WhatsappIcon = (p: IconProps) => (
   <svg {...base} {...p}>
     <path d="M3 21l1.65-4.8a8 8 0 1 1 3.4 3.32L3 21Z" />
