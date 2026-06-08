@@ -64,10 +64,10 @@ export default async function PracticeAreaPage({
             <ArrowIcon className="h-4 w-4 -scale-x-100 rtl:scale-x-100" />
             {practiceAreas.backToAll}
           </Link>
-          <h1 className="mt-6 max-w-3xl text-4xl text-white sm:text-5xl">
+          <h1 className="mt-6 max-w-3xl text-4xl text-gold-400 sm:text-5xl">
             {area.title}
           </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/70">
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-gold-400/70">
             {area.summary}
           </p>
         </div>
