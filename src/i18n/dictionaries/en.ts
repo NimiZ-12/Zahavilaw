@@ -37,7 +37,7 @@ const en: Dictionary = {
       eyebrow: "Law Offices",
       title: "Legal solutions that protect what matters most",
       subtitle:
-        "Zahavi - Pretty & Co. combines deep legal experience with a personal approach and full availability, guiding you with confidence through every legal process — from the first meeting to the result.",
+        "Zahavi - Pretty & Co. combines extensive legal experience with a personal approach and full availability, guiding you with confidence through every legal process — from the first meeting to the desired result.",
       ctaPrimary: "Book a consultation",
       ctaSecondary: "Our practice areas",
     },
@@ -59,17 +59,17 @@ const en: Dictionary = {
       ],
     },
     intro: {
-      eyebrow: "Why Zahavi - Pretty & Co.",
-      title: "Legal counsel you can feel the difference in",
-      body: "We believe every client deserves a personal approach, full transparency and a legal strategy tailored precisely to their needs. The firm emphasizes availability, clear communication and a determined fight for your interests.",
+      eyebrow: "Why choose Zahavi - Pretty & Co.",
+      title: "Legal counsel that makes the difference",
+      body: "We believe every client deserves a personal approach, full transparency and a legal strategy tailored precisely to their needs. The firm is committed to availability, clear communication and a determined fight for your interests.",
       features: [
         {
           title: "Proven experience",
-          body: "Over 30 years of courtroom representation and negotiation in complex matters.",
+          body: "Over 30 years of experience in courtroom representation and in negotiating complex matters.",
         },
         {
           title: "Personal attention",
-          body: "Close guidance from a firm attorney throughout the entire process — no hand-offs.",
+          body: "Close guidance from a firm attorney throughout the entire process, without your case being passed from one person to another.",
         },
         {
           title: "Full transparency",
@@ -77,7 +77,7 @@ const en: Dictionary = {
         },
         {
           title: "High availability",
-          body: "Fast responses by phone, WhatsApp and email — because knowing someone is there brings peace of mind.",
+          body: "Fast responses by phone, WhatsApp and email — because knowing there is someone to turn to brings peace of mind.",
         },
       ],
     },
@@ -108,7 +108,7 @@ const en: Dictionary = {
         title: "Civil & Commercial Litigation",
         summary: "Managing civil and commercial claims and disputes in court.",
         description:
-          "Successful litigation begins with strategy. The firm handles complex civil and commercial proceedings at every instance, with meticulous preparation, smart management of evidence and a constant pursuit of the best outcome — by settlement or judgment.",
+          "Successful litigation begins with strategy. The firm handles complex civil and commercial proceedings at every instance, with meticulous preparation, judicious management of the evidence and a constant pursuit of the best outcome — by settlement or judgment.",
         points: [
           "Contractual, monetary and tort claims",
           "Commercial disputes between partners and shareholders",
@@ -134,7 +134,7 @@ const en: Dictionary = {
         title: "Real Estate",
         summary: "Real estate transactions, sale contracts, urban renewal and taxation.",
         description:
-          "A real estate transaction is often the largest deal of one's life. The firm guides buyers, sellers and developers through every stage — from due diligence to land registry — fully protecting your interests and minimizing risk.",
+          "A real estate transaction is often the largest deal of a person's life. The firm guides buyers, sellers and developers through every stage — from due diligence to land registry — fully protecting your interests and minimizing risk.",
         points: [
           "Guidance in the sale and purchase of apartments and commercial properties",
           "Title due diligence and registration with the Land Registry and Israel Land Authority",
@@ -196,10 +196,10 @@ const en: Dictionary = {
     values: [
       {
         title: "Experience",
-        body: "Years of representing clients in court and at the negotiation table, in complex cases at every instance.",
+        body: "Many years of representing clients in court and at the negotiation table, in complex cases at every instance.",
       },
       {
-        title: "Field Experts",
+        title: "Professional Expertise",
         body: "Deep, current legal knowledge across each of the firm's practice areas.",
       },
       {
