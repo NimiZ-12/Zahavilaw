@@ -238,6 +238,10 @@ const en: Dictionary = {
     readMore: "Read full article",
     groups: [
       {
+        heading: "Articles",
+        items: [],
+      },
+      {
         heading: "Articles & Publications",
         items: [],
       },
