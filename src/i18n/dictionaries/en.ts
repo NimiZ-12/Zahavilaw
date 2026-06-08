@@ -46,6 +46,15 @@ const en: Dictionary = {
       { value: "1,500+", label: "Satisfied clients" },
       { value: "24/6", label: "Availability" },
     ],
+    clients: {
+      title: "Among Our Clients",
+      items: [
+        { name: "Sela" },
+        { name: "Burgeranch" },
+        { name: "Tiv Taam" },
+        { name: "Beinleumi TECH" },
+      ],
+    },
     intro: {
       eyebrow: "Why Zahavi - Pretty & Co.",
       title: "Legal counsel you can feel the difference in",

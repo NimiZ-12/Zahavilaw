@@ -8,6 +8,7 @@ import SectionHeading from "@/components/SectionHeading";
 import { ButtonLink } from "@/components/Button";
 import { ArrowIcon, CheckIcon } from "@/components/Icons";
 import { practiceAreaIcons } from "@/lib/practice-icons";
+import ClientsMarquee from "@/components/ClientsMarquee";
 
 export default async function HomePage({
   params,
@@ -92,6 +93,9 @@ export default async function HomePage({
           </dl>
         </div>
       </section>
+
+      {/* ------------------------------------------------------- Client logos */}
+      <ClientsMarquee clients={home.clients} />
 
       {/* -------------------------------------------------------------- Why us */}
       <section className="section">

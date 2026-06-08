@@ -84,6 +84,11 @@ export interface Dictionary {
       ctaSecondary: string;
     };
     stats: { value: string; label: string }[];
+    clients: {
+      title: string;
+      /** Each client: display name plus an optional logo image path in /public. */
+      items: { name: string; logo?: string }[];
+    };
     intro: {
       eyebrow: string;
       title: string;

@@ -46,6 +46,15 @@ const he: Dictionary = {
       { value: "1,500+", label: "לקוחות מרוצים" },
       { value: "24/6", label: "זמינות ומענה" },
     ],
+    clients: {
+      title: "בין לקוחותינו",
+      items: [
+        { name: "Sela" },
+        { name: "בורגראנץ׳" },
+        { name: "טיב טעם" },
+        { name: "בינלאומי TECH" },
+      ],
+    },
     intro: {
       eyebrow: "למה משרד זהבי-פריטי",
       title: "ליווי משפטי שמרגישים בו את ההבדל",

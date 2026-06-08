@@ -93,9 +93,36 @@
   animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+/* Infinite horizontal marquee for the client-logo strip. The track holds two
+   identical copies of the logos; translating by -50% loops seamlessly. */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+
+/* Pause on hover so visitors can read a logo. */
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .animate-rise { animation: none; }
+  .marquee-track {
+    animation: none;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.5rem 4rem;
+  }
+  /* Avoid showing each logo twice when the animation is disabled. */
+  .marquee-track > [aria-hidden="true"] { display: none; }
 }
 
 /* Accessible focus ring for keyboard users. */
