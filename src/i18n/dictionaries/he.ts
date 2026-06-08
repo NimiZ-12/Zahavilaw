@@ -261,6 +261,8 @@ const he: Dictionary = {
       required: "שדה חובה",
       invalidEmail: "כתובת אימייל לא תקינה",
       consentRequired: "יש לאשר את יצירת הקשר כדי להמשיך",
+      captchaRequired: "יש לאשר שאינכם רובוט לפני השליחה",
+      captchaError: "אימות האבטחה נכשל. אנא נסו שוב.",
     },
   },
   footer: {

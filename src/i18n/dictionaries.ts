@@ -152,6 +152,8 @@ export interface Dictionary {
       required: string;
       invalidEmail: string;
       consentRequired: string;
+      captchaRequired: string;
+      captchaError: string;
     };
   };
   footer: {

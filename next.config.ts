@@ -16,16 +16,16 @@ const isDev = process.env.NODE_ENV === "development";
  */
 const csp = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""} https://www.googletagmanager.com`,
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""} https://www.googletagmanager.com https://challenges.cloudflare.com`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' blob: data: https://images.unsplash.com https://www.googletagmanager.com https://www.google-analytics.com",
   "font-src 'self'",
-  `connect-src 'self'${isDev ? " ws:" : ""} https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com`,
+  `connect-src 'self'${isDev ? " ws:" : ""} https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://challenges.cloudflare.com`,
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",
   "frame-ancestors 'none'",
-  "frame-src 'none'",
+  "frame-src https://challenges.cloudflare.com",
   "manifest-src 'self'",
   "upgrade-insecure-requests",
 ]

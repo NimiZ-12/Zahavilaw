@@ -1,14 +1,22 @@
 "use client";
 
 import { useState } from "react";
+import Script from "next/script";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { CheckIcon } from "./Icons";
 
 type Status = "idle" | "submitting" | "success" | "error";
-type FieldErrors = Partial<Record<"name" | "phone" | "email" | "consent", string>>;
+type FieldErrors = Partial<Record<"name" | "phone" | "email" | "consent" | "captcha", string>>;
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+
+declare global {
+  interface Window {
+    turnstile?: { reset: (widget?: string | HTMLElement) => void };
+  }
+}
 
 /* The office operates Sunday (0) through Thursday (4); Friday/Saturday are
    excluded from the date picker's selectable range. */
@@ -67,7 +75,13 @@ export default function ContactForm({
     if (!email) next.email = t.required;
     else if (!EMAIL_RE.test(email)) next.email = t.invalidEmail;
     if (data.get("consent") !== "on") next.consent = t.consentRequired;
+    if (!String(data.get("cf-turnstile-response") || "").trim()) next.captcha = t.captchaRequired;
     return next;
+  }
+
+  function resetCaptcha(form: HTMLFormElement) {
+    const widget = form.querySelector<HTMLElement>(".cf-turnstile");
+    if (widget) window.turnstile?.reset(widget);
   }
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -88,6 +102,7 @@ export default function ContactForm({
       preferredTime: preferredDate,
       company: data.get("company"), // honeypot
       consent: data.get("consent") === "on",
+      captchaToken: data.get("cf-turnstile-response"),
       locale,
     };
 
@@ -97,6 +112,12 @@ export default function ContactForm({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
+      if (res.status === 403) {
+        setErrors({ captcha: t.captchaError });
+        setStatus("idle");
+        resetCaptcha(form);
+        return;
+      }
       if (!res.ok) throw new Error("request failed");
       setStatus("success");
       form.reset();
@@ -104,6 +125,7 @@ export default function ContactForm({
       setPreferredDateError("");
     } catch {
       setStatus("error");
+      resetCaptcha(form);
     }
   }
 
@@ -248,6 +270,14 @@ export default function ContactForm({
         <span>{t.consent}</span>
       </label>
       {errors.consent && <p className={`${errorClass} -mt-3`}>{errors.consent}</p>}
+
+      {TURNSTILE_SITE_KEY && (
+        <div>
+          <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer />
+          <div className="cf-turnstile" data-sitekey={TURNSTILE_SITE_KEY} data-language={locale} />
+          {errors.captcha && <p className={errorClass}>{errors.captcha}</p>}
+        </div>
+      )}
 
       {status === "error" && (
         <div className="rounded-md border border-red-200 bg-red-50 p-3 text-sm text-red-700">

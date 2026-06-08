@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createMondayLead, type Lead } from "@/lib/monday";
 import { rateLimit, clientIp } from "@/lib/rate-limit";
+import { verifyTurnstile } from "@/lib/turnstile";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -35,9 +36,9 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: false, error: "forbidden" }, { status: 403 });
   }
 
-  // 2. Throttle per IP (5 requests / minute).
+  // 2. Throttle per IP (2 requests / minute).
   const ip = clientIp(request.headers);
-  const limit = rateLimit(`contact:${ip}`, 5, 60_000);
+  const limit = rateLimit(`contact:${ip}`, 2, 60_000);
   if (!limit.ok) {
     return NextResponse.json(
       { ok: false, error: "rate_limited" },
@@ -67,6 +68,12 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: true });
   }
 
+  // 5. CAPTCHA — verify the Cloudflare Turnstile token before doing anything else.
+  const captchaOk = await verifyTurnstile(asString(body.captchaToken, 4000), ip);
+  if (!captchaOk) {
+    return NextResponse.json({ ok: false, error: "captcha_failed" }, { status: 403 });
+  }
+
   const lead: Lead = {
     name: asString(body.name, 120),
     email: asString(body.email, 160),
@@ -78,7 +85,7 @@ export async function POST(request: NextRequest) {
     source: "website-contact-form",
   };
 
-  // 5. Validate.
+  // 6. Validate.
   const errors: Record<string, string> = {};
   if (!lead.name) errors.name = "required";
   if (!lead.phone) errors.phone = "required";
@@ -90,7 +97,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: false, errors }, { status: 422 });
   }
 
-  // 6. Sync to the CRM.
+  // 7. Sync to the CRM.
   const result = await createMondayLead(lead);
 
   if (!result.ok) {

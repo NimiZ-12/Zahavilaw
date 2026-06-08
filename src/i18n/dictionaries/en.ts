@@ -261,6 +261,8 @@ const en: Dictionary = {
       required: "Required field",
       invalidEmail: "Invalid email address",
       consentRequired: "Please confirm consent to continue",
+      captchaRequired: "Please verify you're not a robot before sending",
+      captchaError: "Security verification failed. Please try again.",
     },
   },
   footer: {
