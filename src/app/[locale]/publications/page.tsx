@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
@@ -6,6 +7,20 @@ import { localePath } from "@/lib/routes";
 import { images } from "@/lib/images";
 import SectionHeading from "@/components/SectionHeading";
 import { ArrowIcon } from "@/components/Icons";
+
+/**
+ * Maps an article's legal-field label to one of a small set of neutral stock
+ * photos. Keeps cards visual without ever reusing imagery from the news
+ * sources themselves (copyright + duplicate-content concerns).
+ */
+function fieldImage(field?: string): string | null {
+  if (!field) return null;
+  if (field.includes("עבודה") || field.includes("Labor")) return images.articleFields.labor;
+  if (field.includes("מקרקע") || field.includes("Real Estate")) return images.articleFields.realEstate;
+  if (field.includes("משפחה") || field.includes("Family")) return images.articleFields.family;
+  if (field.includes("ייצוגי") || field.includes("Class Action")) return images.articleFields.classAction;
+  return null;
+}
 
 export async function generateMetadata({
   params,
@@ -64,8 +79,22 @@ export default async function PublicationsPage({
               ) : (
                 <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                   {group.items.map((item, i) => {
+                    const photo = fieldImage(item.field);
                     const card = (
-                      <article className="flex h-full flex-col rounded-xl border border-border bg-white p-7 transition-all hover:-translate-y-0.5 hover:border-gold/40 hover:shadow-md">
+                      <article className="flex h-full flex-col overflow-hidden rounded-xl border border-border bg-white transition-all hover:-translate-y-0.5 hover:border-gold/40 hover:shadow-md">
+                        {photo && (
+                          <div className="relative h-40 w-full overflow-hidden">
+                            <Image
+                              src={photo}
+                              alt=""
+                              fill
+                              sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                              className="object-cover"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-navy/50 via-navy/0 to-navy/0" />
+                          </div>
+                        )}
+                        <div className="flex flex-1 flex-col p-7">
                         {item.field && (
                           <span className="mb-3 inline-flex w-fit rounded-full bg-gold-soft px-3 py-1 text-xs font-semibold text-gold-600">
                             {item.field}
@@ -96,6 +125,7 @@ export default async function PublicationsPage({
                             <ArrowIcon className="h-4 w-4 transition-transform group-hover:translate-x-1 rtl:-scale-x-100 rtl:group-hover:-translate-x-1" />
                           </span>
                         )}
+                        </div>
                       </article>
                     );
                     return (
