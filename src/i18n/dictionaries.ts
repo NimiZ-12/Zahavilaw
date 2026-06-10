@@ -26,8 +26,8 @@ export interface TeamMember {
   role: string;
   /** Short summary shown on the team grid card. */
   bio: string;
-  /** Fuller biography shown on the member's individual profile page. */
-  about: string;
+  /** Fuller biography shown on the member's individual profile page, one entry per paragraph. */
+  about: string[];
   /** Practice-area slugs this member specializes in, shown on their profile page. */
   practiceAreaSlugs: string[];
 }

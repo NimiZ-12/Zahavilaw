@@ -91,8 +91,12 @@ export default async function TeamMemberPage({
 
       <section className="section">
         <div className="container-x grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-7">
-            <p className="text-lg leading-relaxed text-muted">{member.about}</p>
+          <div className="lg:col-span-7 space-y-5">
+            {member.about.map((paragraph, i) => (
+              <p key={i} className="text-lg leading-relaxed text-muted">
+                {paragraph}
+              </p>
+            ))}
           </div>
 
           <aside className="lg:col-span-5">
