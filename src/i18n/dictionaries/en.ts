@@ -220,7 +220,7 @@ const en: Dictionary = {
       {
         name: "Ron Zahavi, Adv.",
         role: "Founding Partner",
-        bio: "Specializes in civil and commercial litigation and corporate law, with extensive experience managing complex court cases and guiding businesses from formation through growth.",
+        bio: "A member of the Israel Bar Association since 1996, with broad expertise across every facet of real estate law — from sale and purchase transactions to dealings with the Israel Land Authority, agricultural land and smallholdings, and TAMA 38 urban-renewal projects. He guides commercial companies from formation through to managing crises among shareholders, and represents clients in civil, commercial and administrative claims and petitions before every court and tribunal.",
       },
       {
         name: "Anat Zahavi, Adv.",
