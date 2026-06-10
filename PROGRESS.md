@@ -47,6 +47,20 @@ Router) + Tailwind v4. המטרות: מראה מקצועי/יוקרתי, נגי�
 - **אבטחה**: security headers + CSP (`next.config.ts`), הגנת CSRF + rate-limit על
   `/api/contact`, honeypot, ולידציה. CSP מתיר תמונות מ-`images.unsplash.com`.
 
+## 🚀 צ'קליסט לפני עליה לאוויר (לטיפול הלקוח)
+1. **חיבור דומיין** — Vercel → Settings → Domains → להוסיף `www.zahavilaw.com`
+   ו-`zahavilaw.com`, ולעדכן רשומות DNS אצל ספק הדומיין (A → IP של Vercel,
+   CNAME `www` → `cname.vercel-dns.com`, הערכים המדויקים מוצגים ב-Vercel).
+2. **הסרת `SITE_NOINDEX`** — Vercel → Settings → Environment Variables, למחוק
+   או להעביר ל-`false`, ואז Redeploy. **לעשות רק ביום העלייה לאוויר בפועל.**
+3. **אימות 11 קישורי "מאמרים"** — לעבור על מדור פרסומים ולוודא שכל קישור מוביל
+   לכתבה הנכונה (השיוך נעשה בניחוש לפי תחום/תאריך).
+4. **Monday CRM** — לוודא ש-`MONDAY_API_TOKEN`, `MONDAY_BOARD_ID`,
+   `MONDAY_GROUP_ID`, `MONDAY_COLUMN_MAP` מוגדרים ב-Vercel Environment Variables.
+5. **Google Analytics** — לחבר Tag ID כשעולים לאוויר (אופציונלי).
+6. **תמונות אמיתיות** — להחליף את תמונות הסטוק מ-Unsplash (`src/lib/images.ts`)
+   בתמונות אמיתיות של המשרד/הצוות, כשיהיו זמינות.
+
 ## 🔁 שיטת עבודה
 - אני דוחף לענף → Vercel מעדכן את `zahavilaw.vercel.app` תוך ~דקה → הלקוח מרענן ורואה.
 - הלקוח עובד על **Mac** (וגם נייד). לא טכני — להסביר בפשטות ולהימנע מהעמסת שלבים.
