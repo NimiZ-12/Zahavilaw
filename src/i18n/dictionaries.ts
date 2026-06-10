@@ -20,9 +20,16 @@ export interface PracticeArea {
 }
 
 export interface TeamMember {
+  /** URL-safe identifier used for the member's individual profile page. */
+  slug: string;
   name: string;
   role: string;
+  /** Short summary shown on the team grid card. */
   bio: string;
+  /** Fuller biography shown on the member's individual profile page. */
+  about: string;
+  /** Practice-area slugs this member specializes in, shown on their profile page. */
+  practiceAreaSlugs: string[];
 }
 
 /** A single press article, media mention, or court decision. */
@@ -131,6 +138,12 @@ export interface Dictionary {
     eyebrow: string;
     title: string;
     subtitle: string;
+    /** Label for the link/button on each team card leading to the member's profile. */
+    viewProfile: string;
+    /** Link text on a member's profile page back to the team grid. */
+    backToTeam: string;
+    /** Heading for the practice-area badges on a member's profile page. */
+    areasOfPractice: string;
     members: TeamMember[];
   };
   publications: {

@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { localePath } from "@/lib/routes";
 import { images } from "@/lib/images";
 import SectionHeading from "@/components/SectionHeading";
+import { ArrowIcon } from "@/components/Icons";
 
 export async function generateMetadata({
   params,
@@ -67,21 +69,28 @@ export default async function TeamPage({
       <section className="section">
         <div className="container-x grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {team.members.map((member) => (
-            <article
-              key={member.name}
-              className="flex flex-col rounded-xl border border-border bg-white p-7 text-center transition-shadow hover:shadow-md"
+            <Link
+              key={member.slug}
+              href={localePath(locale, `/team/${member.slug}`)}
+              className="group flex flex-col rounded-xl border border-border bg-white p-7 text-center transition-all hover:-translate-y-0.5 hover:border-gold/40 hover:shadow-md"
             >
               <span className="mx-auto grid h-20 w-20 place-items-center rounded-full bg-navy font-serif text-2xl font-semibold text-gold-400">
                 {initials(member.name)}
               </span>
-              <h2 className="mt-5 text-xl">{member.name}</h2>
+              <h2 className="mt-5 text-xl transition-colors group-hover:text-gold">
+                {member.name}
+              </h2>
               <p className="mt-1 text-sm font-medium uppercase tracking-wide text-gold">
                 {member.role}
               </p>
-              <p className="mt-4 text-sm leading-relaxed text-muted">
+              <p className="mt-4 flex-1 text-sm leading-relaxed text-muted">
                 {member.bio}
               </p>
-            </article>
+              <span className="mt-5 inline-flex items-center justify-center gap-1.5 text-sm font-medium text-gold">
+                {team.viewProfile}
+                <ArrowIcon className="h-4 w-4 transition-transform group-hover:translate-x-1 rtl:-scale-x-100 rtl:group-hover:-translate-x-1" />
+              </span>
+            </Link>
           ))}
         </div>
       </section>

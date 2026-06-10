@@ -216,16 +216,27 @@ const en: Dictionary = {
     eyebrow: "The Team",
     title: "The people behind the firm",
     subtitle: "An experienced team of attorneys who guide you personally every step of the way.",
+    viewProfile: "View full profile",
+    backToTeam: "Back to the team",
+    areasOfPractice: "Areas of Practice",
     members: [
       {
+        slug: "ron-zahavi",
         name: "Ron Zahavi, Adv.",
         role: "Founding Partner",
         bio: "A member of the Israel Bar Association since 1996, with broad expertise across every facet of real estate law — from sale and purchase transactions to dealings with the Israel Land Authority, agricultural land and smallholdings, and TAMA 38 urban-renewal projects. He guides commercial companies from formation through to managing crises among shareholders, and represents clients in civil, commercial and administrative claims and petitions before every court and tribunal.",
+        about:
+          "Ron Zahavi, Adv. is a founding partner of the firm and has been a member of the Israel Bar Association since 1996. Over the course of his career he has built broad expertise across every facet of real estate law — from sale and purchase transactions, through dealings with the Israel Land Authority, agricultural land and smallholdings, to TAMA 38 urban-renewal projects, co-ownership agreements and the dissolution of shared ownership. Alongside this, he guides commercial companies throughout their lifecycle — from formation and founders' agreements, through ongoing commercial transactions and arrangements, to managing crises among shareholders and with suppliers, customers and creditors. His litigation experience spans civil, commercial and administrative law, including class actions, shareholder disputes, complex contractual disputes, and inheritance and estate matters, before every court and tribunal. His work is grounded in close, hands-on involvement in every case, alongside a commitment to availability and professional service.",
+        practiceAreaSlugs: ["real-estate", "commercial", "litigation", "wills-estates"],
       },
       {
+        slug: "anat-zahavi",
         name: "Anat Zahavi, Adv.",
         role: "Founding Partner",
         bio: "Leads the firm's family law, real estate, and wills & estates practices, guiding clients with sensitivity and professionalism through life's most significant moments.",
+        about:
+          "Anat Zahavi, Adv. is a founding partner of the firm and leads its family law, real estate, and wills & estates practices. In family law, she guides clients through divorce proceedings, prenuptial and financial agreements, child custody and child support matters, with an emphasis on swift, sensitive resolutions wherever possible. In wills and estates, she assists clients with drafting wills, obtaining inheritance and probate orders, and represents clients in disputes between heirs. In real estate, she specializes in the sale and purchase of apartments and properties, and in arranging shared ownership of family assets. Her approach combines legal professionalism with genuine human sensitivity, in recognition that these are often the most significant moments in a client's life.",
+        practiceAreaSlugs: ["family-law", "wills-estates", "real-estate"],
       },
     ],
   },
