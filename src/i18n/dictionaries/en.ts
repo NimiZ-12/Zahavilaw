@@ -35,9 +35,9 @@ const en: Dictionary = {
   home: {
     hero: {
       eyebrow: "Law Offices",
-      title: "Legal solutions that protect what matters most",
+      title: "By your side, every step of the way",
       subtitle:
-        "At Zahavi - Pretty & Co. we combine professional depth and strategic thinking with the personal involvement of the partners in every case — providing you with steadfast representation, in every field and at every stage, from the first meeting to achieving the result.",
+        "Zahavi - Pretty & Co. combines extensive legal experience with professional depth, strategic thinking and the personal involvement of the partners in every case, guiding you with confidence in every field and at every stage — from the first meeting to the desired result.",
       ctaPrimary: "Book a consultation",
       ctaSecondary: "Our practice areas",
     },
@@ -189,7 +189,7 @@ const en: Dictionary = {
     lead: "Zahavi - Pretty & Co. Law Offices is a boutique firm providing clients — companies, business owners, families and individuals — with senior, personal legal representation across a broad range of legal fields.",
     body: [
       "The firm is led by Ron Zahavi, Adv. and Anat Zahavi, Adv., two founding partners and members of the Israel Bar Association since 1996, with a combined experience of over three decades. We believe quality legal representation requires the personal involvement of a partner in every case — both strategically and tactically — rather than being passed between staff along the way.",
-      "Daily engagement across a wide range of civil law fields is one of the firm's key strengths: complex civil-commercial litigation, guiding companies and businesses in commercial and corporate matters, real estate in all its aspects, labor law from the employer's perspective, as well as family law and wills and estates. This broad perspective allows us to understand every dispute or transaction in its full context, and to build the right strategy for each client.",
+      "Daily engagement across a wide range of legal fields is one of the firm's key strengths: complex civil-commercial litigation, guiding companies and businesses in commercial and corporate matters, real estate in all its aspects, labor law from the employer's perspective, as well as family law and wills and estates. This broad perspective allows us to understand every dispute or transaction in its full context, and to build the right strategy for each client.",
       "Among the firm's clients, past and present, are some of the largest and best-known companies in the Israeli economy — in food and fast-food retail, telecom and hi-tech, import and export, construction and industry — alongside business people, private individuals and families seeking professional guidance through significant moments in their lives. Every client, large or small, receives the same level of commitment, availability and professionalism.",
     ],
     valuesTitle: "The values that lead us",
