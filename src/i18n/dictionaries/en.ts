@@ -34,7 +34,7 @@ const en: Dictionary = {
   },
   home: {
     hero: {
-      eyebrow: "Law Offices",
+      eyebrow: "A Boutique Law Firm",
       title: "Legal solutions that protect what matters most",
       subtitle:
         "Zahavi - Pretty & Co. combines extensive legal experience with a personal approach and full availability, guiding you with confidence through every legal process — from the first meeting to the desired result.",
@@ -60,24 +60,24 @@ const en: Dictionary = {
     },
     intro: {
       eyebrow: "Why choose Zahavi - Pretty & Co.",
-      title: "Legal counsel that makes the difference",
-      body: "We believe every client deserves a personal approach, full transparency and a legal strategy tailored precisely to their needs. The firm is committed to availability, clear communication and a determined fight for your interests.",
+      title: "Senior experience, personal partner attention",
+      body: "Zahavi - Pretty & Co. is a boutique firm offering broad, multidisciplinary legal counsel across civil and commercial law, representing leading companies alongside private individuals and families in complex disputes and transactions before every court and tribunal. The firm is led by two founding partners, members of the Israel Bar Association since 1996, who are personally involved in every case — both strategically and tactically — from start to finish.",
       features: [
         {
-          title: "Proven experience",
-          body: "Over 30 years of experience in courtroom representation and in negotiating complex matters.",
+          title: "Senior experience since 1996",
+          body: "Three decades of courtroom representation and negotiation in complex civil, commercial and business matters.",
         },
         {
-          title: "Personal attention",
-          body: "Close guidance from a firm attorney throughout the entire process, without your case being passed from one person to another.",
+          title: "Personal partner involvement",
+          body: "Every case is handled personally and closely by one of the founding partners, from initial strategy to final outcome.",
         },
         {
-          title: "Full transparency",
-          body: "Clear fee agreements set in advance, with no surprises and no fine print.",
+          title: "Multidisciplinary perspective",
+          body: "Combining civil-commercial litigation, corporate law, real estate, labor law, family law and inheritance — for a complete and effective solution.",
         },
         {
-          title: "High availability",
-          body: "Fast responses by phone, WhatsApp and email — because knowing there is someone to turn to brings peace of mind.",
+          title: "Uncompromising availability",
+          body: "Fast responses, clear communication and full commitment to your interests throughout the entire process.",
         },
       ],
     },
@@ -185,26 +185,26 @@ const en: Dictionary = {
   },
   about: {
     eyebrow: "About the Firm",
-    title: "Commitment, professionalism and a personal touch",
-    lead: "Zahavi - Pretty & Co. Law Offices was founded on the belief that quality legal representation must be professional, personal and accessible.",
+    title: "Senior, personal and multidisciplinary legal counsel",
+    lead: "Zahavi - Pretty & Co. Law Offices is a boutique firm providing clients — companies, business owners, families and individuals — with senior, personal legal representation across a broad range of civil law fields.",
     body: [
-      "The firm is led by Ron Zahavi, Adv. and Anat Zahavi, Adv., two founding partners who combine extensive practical experience with hands-on involvement in every case. We believe there is a person behind every matter, which is why we take the time to understand the full story before building the right strategy together with you.",
-      "We provide comprehensive legal services to individuals, families and businesses across family law, real estate, labor law, civil and commercial litigation, commercial and corporate law, and wills and estates. In every field, we combine deep legal knowledge with strategic thinking to reach the right, most effective outcome for you.",
-      "We believe quality representation requires close, consistent guidance — not being passed between staff along the way, but the personal presence of your attorney from start to finish. That's how we ensure high availability, clear communication and a full commitment to achieving the best possible result for our clients.",
+      "The firm is led by Ron Zahavi, Adv. and Anat Zahavi, Adv., two founding partners and members of the Israel Bar Association since 1996, with a combined experience of over three decades. We believe quality legal representation requires the personal involvement of a partner in every case — both strategically and tactically — rather than being passed between staff along the way.",
+      "Daily engagement across a wide range of civil law fields is one of the firm's key strengths: complex civil-commercial litigation, guiding companies and businesses in commercial and corporate matters, real estate in all its aspects, labor law from the employer's perspective, as well as family law and wills and estates. This broad perspective allows us to understand every dispute or transaction in its full context, and to build the right strategy for each client.",
+      "Among the firm's clients, past and present, are some of the largest and best-known companies in the Israeli economy — in food and fast-food retail, telecom and hi-tech, import and export, construction and industry — alongside private individuals and families seeking professional guidance through significant moments in their lives. Every client, large or small, receives the same level of commitment, availability and professionalism.",
     ],
     valuesTitle: "The values that lead us",
     values: [
       {
-        title: "Experience",
-        body: "Many years of representing clients in court and at the negotiation table, in complex cases at every instance.",
+        title: "Senior Experience",
+        body: "Over three decades of representation before every court and tribunal, and of negotiating complex matters.",
       },
       {
-        title: "Professional Expertise",
-        body: "Deep, current legal knowledge across each of the firm's practice areas.",
+        title: "Personal Partner Involvement",
+        body: "Every case is personally guided by one of the founding partners, from start to finish.",
       },
       {
-        title: "Personal Attention",
-        body: "Close guidance from your attorney throughout the process — never passed between staff.",
+        title: "Multidisciplinary Perspective",
+        body: "Combining litigation, corporate and commercial law, real estate, labor law and family law.",
       },
       {
         title: "Trust & Transparency",
