@@ -34,10 +34,10 @@ const en: Dictionary = {
   },
   home: {
     hero: {
-      eyebrow: "A Boutique Law Firm",
+      eyebrow: "Law Offices",
       title: "Legal solutions that protect what matters most",
       subtitle:
-        "Zahavi - Pretty & Co. combines extensive legal experience with a personal approach and full availability, guiding you with confidence through every legal process — from the first meeting to the desired result.",
+        "At Zahavi - Pretty & Co. we combine professional depth and strategic thinking with the personal involvement of the partners in every case — providing you with steadfast representation, in every field and at every stage, from the first meeting to achieving the result.",
       ctaPrimary: "Book a consultation",
       ctaSecondary: "Our practice areas",
     },
@@ -60,11 +60,11 @@ const en: Dictionary = {
     },
     intro: {
       eyebrow: "Why choose Zahavi - Pretty & Co.",
-      title: "Senior experience, personal partner attention",
-      body: "Zahavi - Pretty & Co. is a boutique firm offering broad, multidisciplinary legal counsel across civil and commercial law, representing leading companies alongside private individuals and families in complex disputes and transactions before every court and tribunal. The firm is led by two founding partners, members of the Israel Bar Association since 1996, who are personally involved in every case — both strategically and tactically — from start to finish.",
+      title: "Accumulated experience, personal partner attention",
+      body: "Zahavi - Pretty & Co. provides its clients with broad, multidisciplinary legal counsel, guiding companies, businesses, families and private individuals through every legal juncture — from litigation and business advisory, through real estate and labor law, to family law, wills and estates. The firm is led by two founding partners, members of the Israel Bar Association since 1996, who are personally involved in every case — both strategically and tactically — from start to finish.",
       features: [
         {
-          title: "Senior experience since 1996",
+          title: "Experience since 1996",
           body: "Three decades of courtroom representation and negotiation in complex civil, commercial and business matters.",
         },
         {
@@ -73,7 +73,7 @@ const en: Dictionary = {
         },
         {
           title: "Multidisciplinary perspective",
-          body: "Combining civil-commercial litigation, corporate law, real estate, labor law, family law and inheritance — for a complete and effective solution.",
+          body: "An answer to every legal need across the firm's practice areas, drawing on deep familiarity with each one and a complete view of your matter.",
         },
         {
           title: "Uncompromising availability",
@@ -186,16 +186,16 @@ const en: Dictionary = {
   about: {
     eyebrow: "About the Firm",
     title: "Senior, personal and multidisciplinary legal counsel",
-    lead: "Zahavi - Pretty & Co. Law Offices is a boutique firm providing clients — companies, business owners, families and individuals — with senior, personal legal representation across a broad range of civil law fields.",
+    lead: "Zahavi - Pretty & Co. Law Offices is a boutique firm providing clients — companies, business owners, families and individuals — with senior, personal legal representation across a broad range of legal fields.",
     body: [
       "The firm is led by Ron Zahavi, Adv. and Anat Zahavi, Adv., two founding partners and members of the Israel Bar Association since 1996, with a combined experience of over three decades. We believe quality legal representation requires the personal involvement of a partner in every case — both strategically and tactically — rather than being passed between staff along the way.",
       "Daily engagement across a wide range of civil law fields is one of the firm's key strengths: complex civil-commercial litigation, guiding companies and businesses in commercial and corporate matters, real estate in all its aspects, labor law from the employer's perspective, as well as family law and wills and estates. This broad perspective allows us to understand every dispute or transaction in its full context, and to build the right strategy for each client.",
-      "Among the firm's clients, past and present, are some of the largest and best-known companies in the Israeli economy — in food and fast-food retail, telecom and hi-tech, import and export, construction and industry — alongside private individuals and families seeking professional guidance through significant moments in their lives. Every client, large or small, receives the same level of commitment, availability and professionalism.",
+      "Among the firm's clients, past and present, are some of the largest and best-known companies in the Israeli economy — in food and fast-food retail, telecom and hi-tech, import and export, construction and industry — alongside business people, private individuals and families seeking professional guidance through significant moments in their lives. Every client, large or small, receives the same level of commitment, availability and professionalism.",
     ],
     valuesTitle: "The values that lead us",
     values: [
       {
-        title: "Senior Experience",
+        title: "Accumulated Experience",
         body: "Over three decades of representation before every court and tribunal, and of negotiating complex matters.",
       },
       {
