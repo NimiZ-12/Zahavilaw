@@ -274,7 +274,7 @@ const he: Dictionary = {
             date: "ינואר 2018",
             excerpt:
               "תביעה בסך כ-660 אלף ש״ח, ובכללה החזר פיצויי פיטורים, נדחתה מכל וכל, ובית הדין חייב את התובעת בהוצאות גבוהות.",
-            href: "https://www.psakdin.co.il/Lawyers/www.mako.co.il/finances-law/work/Article-6fa34e38739d161006.htm",
+            href: "https://www.mako.co.il/finances-law/work/Article-6fa34e38739d161006.htm",
           },
           {
             title: "פוטר לאחר שסירב לעבודה מסוכנת — „מנופי אבי” תפצה",

@@ -274,7 +274,7 @@ const en: Dictionary = {
             date: "January 2018",
             excerpt:
               "A claim of some NIS 660,000, including reimbursement of severance pay, was dismissed in full, and the court ordered the claimant to pay substantial costs.",
-            href: "https://www.psakdin.co.il/Lawyers/www.mako.co.il/finances-law/work/Article-6fa34e38739d161006.htm",
+            href: "https://www.mako.co.il/finances-law/work/Article-6fa34e38739d161006.htm",
           },
           {
             title: "Dismissed after refusing dangerous work — \"Minofei Avi\" to compensate",
