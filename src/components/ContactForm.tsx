@@ -75,7 +75,8 @@ export default function ContactForm({
     if (!email) next.email = t.required;
     else if (!EMAIL_RE.test(email)) next.email = t.invalidEmail;
     if (data.get("consent") !== "on") next.consent = t.consentRequired;
-    if (!String(data.get("cf-turnstile-response") || "").trim()) next.captcha = t.captchaRequired;
+    if (TURNSTILE_SITE_KEY && !String(data.get("cf-turnstile-response") || "").trim())
+      next.captcha = t.captchaRequired;
     return next;
   }
 

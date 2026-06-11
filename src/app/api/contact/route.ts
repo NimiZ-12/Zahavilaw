@@ -69,9 +69,15 @@ export async function POST(request: NextRequest) {
   }
 
   // 5. CAPTCHA — verify the Cloudflare Turnstile token before doing anything else.
-  const captchaOk = await verifyTurnstile(asString(body.captchaToken, 4000), ip);
-  if (!captchaOk) {
-    return NextResponse.json({ ok: false, error: "captcha_failed" }, { status: 403 });
+  // When Turnstile isn't configured yet, skip verification rather than reject
+  // every submission; the honeypot, CSRF check and rate limit still apply.
+  if (process.env.TURNSTILE_SECRET_KEY) {
+    const captchaOk = await verifyTurnstile(asString(body.captchaToken, 4000), ip);
+    if (!captchaOk) {
+      return NextResponse.json({ ok: false, error: "captcha_failed" }, { status: 403 });
+    }
+  } else {
+    console.warn("contact: TURNSTILE_SECRET_KEY not set — captcha verification skipped");
   }
 
   const lead: Lead = {
