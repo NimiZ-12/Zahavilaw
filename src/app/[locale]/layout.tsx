@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { notFound } from "next/navigation";
 import { heebo } from "../fonts";
 import {
@@ -102,6 +103,7 @@ export default async function LocaleLayout({
         </main>
         <Footer locale={typedLocale} dict={dict} />
         <WhatsAppButton label={dict.contact.whatsappFloatingLabel} />
+        <SpeedInsights />
       </body>
     </html>
   );
