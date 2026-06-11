@@ -4,6 +4,7 @@ import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { localePath } from "@/lib/routes";
 import { images } from "@/lib/images";
+import HeroImagePreload from "@/components/HeroImagePreload";
 import { whatsappLink, WHATSAPP_NUMBER_DISPLAY, wazeLink } from "@/lib/contact";
 import SectionHeading from "@/components/SectionHeading";
 import ContactForm from "@/components/ContactForm";
@@ -68,6 +69,7 @@ export default async function ContactPage({
 
   return (
     <>
+      <HeroImagePreload src={images.contact} />
       <section className="relative overflow-hidden border-b border-white/10 bg-navy">
         <div
           aria-hidden

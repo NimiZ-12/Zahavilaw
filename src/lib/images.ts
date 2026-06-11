@@ -9,7 +9,7 @@
    URL ever fails to load the section still looks intentional (never broken).
 ---------------------------------------------------------------------------- */
 
-const unsplash = (id: string, w = 2000, q = 68) =>
+const unsplash = (id: string, w = 1600, q = 55) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=${q}`;
 
 export const images = {

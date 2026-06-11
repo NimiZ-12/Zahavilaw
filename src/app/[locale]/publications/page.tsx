@@ -5,6 +5,7 @@ import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { localePath } from "@/lib/routes";
 import { images } from "@/lib/images";
+import HeroImagePreload from "@/components/HeroImagePreload";
 import SectionHeading from "@/components/SectionHeading";
 import { ArrowIcon } from "@/components/Icons";
 
@@ -49,6 +50,7 @@ export default async function PublicationsPage({
 
   return (
     <>
+      <HeroImagePreload src={images.publications} />
       <section className="relative overflow-hidden border-b border-white/10 bg-navy">
         <div
           aria-hidden

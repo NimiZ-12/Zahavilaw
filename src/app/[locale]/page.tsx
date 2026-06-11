@@ -3,6 +3,7 @@ import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { localePath } from "@/lib/routes";
 import { images } from "@/lib/images";
+import HeroImagePreload from "@/components/HeroImagePreload";
 import { notFound } from "next/navigation";
 import SectionHeading from "@/components/SectionHeading";
 import { ButtonLink } from "@/components/Button";
@@ -23,6 +24,7 @@ export default async function HomePage({
 
   return (
     <>
+      <HeroImagePreload src={images.hero} />
       {/* ----------------------------------------------------------------- Hero */}
       <section className="relative overflow-hidden bg-navy text-white">
         {/* Full-bleed background photograph — navy shows through if it fails. */}
