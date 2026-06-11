@@ -265,7 +265,7 @@ const he: Dictionary = {
             date: "נובמבר 2025",
             excerpt:
               "בית הדין לעבודה פסק לעובד פיצוי של כרבע מיליון ש״ח בגין ימי חופשה שנצברו בניגוד להוראות חוזה ההעסקה.",
-            href: "https://www.ynet.co.il/economy/article/r1ctbmxs0",
+            href: "https://www.mako.co.il/finances-law/work/Article-467b7835cc5ba91027.htm",
           },
           {
             title: "בעלת היקב היוקרתי „שאטו גולן” נדחתה במלוא תביעתה וחויבה בהוצאות",
@@ -283,7 +283,7 @@ const he: Dictionary = {
             date: "ספטמבר 2018",
             excerpt:
               "עובד שפוטר לאחר שסירב לבצע עבודה שסיכנה את שלומו זכה בפיצוי מהמעסיק.",
-            href: "https://www.mako.co.il/finances-law/work/Article-467b7835cc5ba91027.htm",
+            href: "https://www.ynet.co.il/articles/0,7340,L-5341000,00.html",
           },
           {
             title: "עיריית בת ים ניכתה ממורה ימי מחלה שלא כדין",
@@ -319,7 +319,7 @@ const he: Dictionary = {
             date: "יוני 2024",
             excerpt:
               "הקצאת המגרש במושב לא הושלמה, ובית המשפט פסק לרוכש פיצוי — סוגיה בתחום ההתחדשות והאגודות השיתופיות.",
-            href: "https://www.calcalist.co.il/local/articles/0,7340,L-3724291,00.html",
+            href: "https://www.ynet.co.il/economy/article/r1ctbmxs0",
           },
           {
             title: "„בן ממשיך” נתבע לחלוק את המשק עם אחיו — מה נפסק?",
@@ -328,7 +328,7 @@ const he: Dictionary = {
             date: "נובמבר 2017",
             excerpt:
               "סכסוך מקרקעין וירושה סביב מעמדו של „בן ממשיך” שנדרש לחלוק את המשק החקלאי עם אחיו.",
-            href: "https://www.calcalist.co.il/local/articles/0,7340,L-3719551,00.html",
+            href: "https://www.calcalist.co.il/local/articles/0,7340,L-3724291,00.html",
           },
           {
             title: "מיזם יהלומים התברר כתרגיל עוקץ — המשקיעה תקבל את כספה חזרה",
@@ -337,7 +337,7 @@ const he: Dictionary = {
             date: "אוגוסט 2017",
             excerpt:
               "מיזם השקעה ביהלומים שהתברר כתרגיל עוקץ; בית המשפט הורה על השבת כספי המשקיעה.",
-            href: "https://www.ynet.co.il/articles/0,7340,L-5061164,00.html",
+            href: "https://www.calcalist.co.il/local/articles/0,7340,L-3719551,00.html",
           },
           {
             title: "ביהמ״ש אישר: חברת החשמל תפעיל מוקד חינמי ותשלם 1.4 מיליון ש״ח לניצולי שואה",
@@ -355,7 +355,7 @@ const he: Dictionary = {
             date: "מאי 2010",
             excerpt:
               "בית המשפט אישר בירור תובענה ייצוגית נגד בזק בטענה כי הטעתה לקוחות באמצעות פרסומות.",
-            href: "https://www.ynet.co.il/articles/0,7340,L-5341000,00.html",
+            href: "https://www.ynet.co.il/articles/0,7340,L-5061164,00.html",
           },
         ],
       },

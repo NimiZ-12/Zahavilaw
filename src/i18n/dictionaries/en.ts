@@ -265,7 +265,7 @@ const en: Dictionary = {
             date: "November 2025",
             excerpt:
               "The labor court awarded an employee nearly a quarter of a million shekels for vacation days accrued contrary to the terms of his employment contract.",
-            href: "https://www.ynet.co.il/economy/article/r1ctbmxs0",
+            href: "https://www.mako.co.il/finances-law/work/Article-467b7835cc5ba91027.htm",
           },
           {
             title: "Owner of the prestigious \"Chateau Golan\" winery loses her full claim and is charged costs",
@@ -283,7 +283,7 @@ const en: Dictionary = {
             date: "September 2018",
             excerpt:
               "An employee dismissed after refusing to perform work that endangered his safety was awarded compensation from the employer.",
-            href: "https://www.mako.co.il/finances-law/work/Article-467b7835cc5ba91027.htm",
+            href: "https://www.ynet.co.il/articles/0,7340,L-5341000,00.html",
           },
           {
             title: "City of Bat Yam unlawfully deducted sick days from a teacher",
@@ -319,7 +319,7 @@ const en: Dictionary = {
             date: "June 2024",
             excerpt:
               "The plot allocation in the moshav was never completed, and the court awarded the buyer compensation — an issue in the realm of cooperatives and urban renewal.",
-            href: "https://www.calcalist.co.il/local/articles/0,7340,L-3724291,00.html",
+            href: "https://www.ynet.co.il/economy/article/r1ctbmxs0",
           },
           {
             title: "A \"continuing son\" sued to share the farm with his brother — how did the court rule?",
@@ -328,7 +328,7 @@ const en: Dictionary = {
             date: "November 2017",
             excerpt:
               "A real estate and inheritance dispute over the status of a \"continuing son\" required to share the agricultural farm with his brother.",
-            href: "https://www.calcalist.co.il/local/articles/0,7340,L-3719551,00.html",
+            href: "https://www.calcalist.co.il/local/articles/0,7340,L-3724291,00.html",
           },
           {
             title: "A diamond venture turned out to be a scam — the investor will get her money back",
@@ -337,7 +337,7 @@ const en: Dictionary = {
             date: "August 2017",
             excerpt:
               "A diamond investment venture that proved to be a scam; the court ordered the investor's funds to be returned.",
-            href: "https://www.ynet.co.il/articles/0,7340,L-5061164,00.html",
+            href: "https://www.calcalist.co.il/local/articles/0,7340,L-3719551,00.html",
           },
           {
             title: "Court approved: the electric company will run a free hotline and pay NIS 1.4 million to Holocaust survivors",
@@ -355,7 +355,7 @@ const en: Dictionary = {
             date: "May 2010",
             excerpt:
               "The court approved the hearing of a class action against Bezeq, alleging that it misled customers through its advertising.",
-            href: "https://www.ynet.co.il/articles/0,7340,L-5341000,00.html",
+            href: "https://www.ynet.co.il/articles/0,7340,L-5061164,00.html",
           },
         ],
       },
