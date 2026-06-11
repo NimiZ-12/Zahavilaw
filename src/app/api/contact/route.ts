@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createMondayLead, type Lead } from "@/lib/monday";
+import { sendLeadEmail } from "@/lib/email";
 import { rateLimit, clientIp } from "@/lib/rate-limit";
 import { verifyTurnstile } from "@/lib/turnstile";
 
@@ -103,18 +104,29 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: false, errors }, { status: 422 });
   }
 
-  // 7. Sync to the CRM.
-  const result = await createMondayLead(lead);
+  // 7. Deliver the lead: CRM sync and email notification run in parallel.
+  // The submission succeeds if at least one channel got it, so a Monday
+  // outage never loses a lead (and vice versa).
+  const [crm, email] = await Promise.all([
+    createMondayLead(lead),
+    sendLeadEmail(lead),
+  ]);
 
-  if (!result.ok) {
-    // The lead is valid; only the CRM sync failed. Surface a 502 so the client
+  if (!crm.ok && !email.ok) {
+    // The lead is valid; only delivery failed. Surface a 502 so the client
     // can show a graceful error, but log enough to recover the lead manually.
-    console.error("[contact] Lead accepted but CRM sync failed:", lead.email);
+    console.error("[contact] Lead accepted but all delivery failed:", lead.email);
     return NextResponse.json(
       { ok: false, error: "sync_failed" },
       { status: 502 },
     );
   }
+  if (!crm.ok) {
+    console.error("[contact] CRM sync failed (email delivered):", lead.email);
+  }
+  if (!email.ok) {
+    console.error("[contact] Email failed (CRM delivered):", lead.email);
+  }
 
-  return NextResponse.json({ ok: true, itemId: result.itemId ?? null });
+  return NextResponse.json({ ok: true, itemId: crm.itemId ?? null });
 }
