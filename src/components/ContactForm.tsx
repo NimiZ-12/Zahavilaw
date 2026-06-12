@@ -15,8 +15,14 @@ const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 declare global {
   interface Window {
     turnstile?: { reset: (widget?: string | HTMLElement) => void };
+    gtag?: (...args: unknown[]) => void;
   }
 }
+
+/* GA4 key event configured in Google Analytics and imported into Google Ads
+   as the "Submit lead form" conversion — fired once per successful
+   submission so Ads can attribute leads to campaigns. */
+const LEAD_CONVERSION_EVENT = "הפניה_מהקמפיין_לאתר";
 
 /* The office operates Sunday (0) through Thursday (4); Friday/Saturday are
    excluded from the date picker's selectable range. */
@@ -120,6 +126,7 @@ export default function ContactForm({
         return;
       }
       if (!res.ok) throw new Error("request failed");
+      window.gtag?.("event", LEAD_CONVERSION_EVENT);
       setStatus("success");
       form.reset();
       setPreferredDate("");
