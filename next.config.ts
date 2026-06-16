@@ -64,6 +64,14 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [{ protocol: "https", hostname: "images.unsplash.com" }],
   },
+  async redirects() {
+    return [
+      // Legacy/crawled Hebrew-slug URLs that Google indexed before the
+      // locale-prefixed routing (/he/practice-areas/...) was established.
+      { source: "/%D7%A2%D7%95%D7%A8%D7%9A-%D7%93%D7%99%D7%9F-%D7%93%D7%99%D7%A0%D7%99-%D7%A2%D7%91%D7%95%D7%93%D7%94", destination: "/he/practice-areas/labor", permanent: true },
+      { source: "/%D7%A2%D7%95%D7%A8%D7%9A-%D7%93%D7%99%D7%9F-%D7%93%D7%99%D7%A0%D7%99-%D7%A2%D7%91%D7%95%D7%93%D7%94/", destination: "/he/practice-areas/labor", permanent: true },
+    ];
+  },
   // Trailing-slash off keeps canonical URLs clean for SEO.
   async headers() {
     return [
