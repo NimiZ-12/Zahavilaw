@@ -175,10 +175,10 @@ const en: Dictionary = {
         description:
           "Family law requires a rare combination of legal professionalism and human sensitivity. The firm guides clients through proceedings, handles division of property, mediation and prenuptial agreements — aiming for the fairest and calmest solution for you and your children.",
         points: [
-          "Prenuptial, divorce and cohabitation agreements",
-          "Mediation and out-of-court dispute resolution",
-          "Comprehensive legal guidance through family court proceedings",
-          "Division of property and balancing of resources between spouses",
+          "Guiding clients through legal proceedings",
+          "Mediation",
+          "Prenuptial agreements and cohabitation agreements",
+          "Strategic management of property division and balancing of resources between spouses",
         ],
       },
     ],
