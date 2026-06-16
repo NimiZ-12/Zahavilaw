@@ -171,13 +171,13 @@ const en: Dictionary = {
       {
         slug: "family-law",
         title: "Family Law",
-        summary: "Divorce, custody, support and prenuptial agreements with sensitivity.",
+        summary: "Prenuptial agreements, mediation and comprehensive legal guidance through proceedings.",
         description:
-          "Family law requires a rare combination of legal professionalism and human sensitivity. The firm guides clients through divorce, custody and visitation, support, division of property and prenuptial agreements — aiming for the fairest and calmest solution for you and your children.",
+          "Family law requires a rare combination of legal professionalism and human sensitivity. The firm guides clients through proceedings, handles division of property, mediation and prenuptial agreements — aiming for the fairest and calmest solution for you and your children.",
         points: [
-          "Representation in divorce proceedings before the family court and rabbinical court",
           "Prenuptial, divorce and cohabitation agreements",
-          "Custody, visitation and child and spousal support",
+          "Mediation and out-of-court dispute resolution",
+          "Comprehensive legal guidance through family court proceedings",
           "Division of property and balancing of resources between spouses",
         ],
       },
