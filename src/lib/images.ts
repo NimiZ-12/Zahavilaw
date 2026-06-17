@@ -35,7 +35,7 @@ export const images = {
     realEstate: unsplash("1486406146926-c627a92ad1ab", 1200),
     family: unsplash("1517048676732-d65bc937f952", 1200),
     classAction: unsplash("1450101499163-c8848c66ca85", 1200),
-    defamation: unsplash("1529156069898-49953e39b3ac", 1200),
+    defamation: unsplash("1593115057322-e94b77572f20", 1200),
   },
 };
 
