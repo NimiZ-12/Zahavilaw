@@ -20,6 +20,7 @@ function fieldImage(field?: string): string | null {
   if (field.includes("מקרקע") || field.includes("Real Estate")) return images.articleFields.realEstate;
   if (field.includes("משפחה") || field.includes("Family")) return images.articleFields.family;
   if (field.includes("ייצוגי") || field.includes("Class Action")) return images.articleFields.classAction;
+  if (field.includes("לשון הרע") || field.includes("Defamation")) return images.articleFields.defamation;
   return null;
 }
 
