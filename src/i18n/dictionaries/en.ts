@@ -259,6 +259,15 @@ const en: Dictionary = {
         heading: "Articles",
         items: [
           {
+            title: "Shaming of an ultra-Orthodox student: her classmates ordered to pay NIS 144,000",
+            source: "mako",
+            field: "Defamation",
+            date: "June 2026",
+            excerpt:
+              "The court awarded NIS 144,000 in damages in a shaming case brought against classmates who targeted an ultra-Orthodox student.",
+            href: "https://www.mako.co.il/finances-law/law-general/Article-ec1aeec6ff4de91026.htm",
+          },
+          {
             title: "Employee accrued 134 vacation days against his contract — awarded nearly NIS 250,000",
             source: "ynet",
             field: "Labor Law",

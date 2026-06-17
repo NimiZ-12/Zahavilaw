@@ -259,6 +259,15 @@ const he: Dictionary = {
         heading: "מאמרים",
         items: [
           {
+            title: "שיימינג על תלמידה חרדית: חברותיה ישלמו 144 אלף שקל",
+            source: "mako",
+            field: "לשון הרע",
+            date: "יוני 2026",
+            excerpt:
+              "בית המשפט פסק פיצויים בסך 144 אלף שקל בתיק שיימינג שנערך כלפי תלמידה חרדית על ידי חברותיה.",
+            href: "https://www.mako.co.il/finances-law/law-general/Article-ec1aeec6ff4de91026.htm",
+          },
+          {
             title: "עובד צבר 134 ימי חופשה בניגוד לחוזה ויקבל כרבע מיליון ש״ח",
             source: "ynet",
             field: "דיני עבודה",
