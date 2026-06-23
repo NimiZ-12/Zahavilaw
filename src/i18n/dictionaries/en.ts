@@ -263,6 +263,11 @@ const en: Dictionary = {
             title: "Labor Law – Lawful Employee Termination",
             date: "June 2026",
           },
+          {
+            id: "kyQIXcARZUs",
+            title: "Labor Law – Freelancer Rights",
+            date: "June 2026",
+          },
         ],
         items: [],
       },
