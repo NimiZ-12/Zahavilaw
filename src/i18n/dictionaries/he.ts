@@ -256,6 +256,17 @@ const he: Dictionary = {
     readMore: "לכתבה המלאה",
     groups: [
       {
+        heading: "סרטונים",
+        videos: [
+          {
+            id: "H5QCZkxlM4Q",
+            title: "דיני עבודה - פיטורי עובדים כדין",
+            date: "יוני 2026",
+          },
+        ],
+        items: [],
+      },
+      {
         heading: "מאמרים",
         items: [
           {

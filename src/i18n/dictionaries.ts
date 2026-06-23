@@ -155,7 +155,7 @@ export interface Dictionary {
     /** Call-to-action label on each card linking out. */
     readMore: string;
     /** Optional section groupings. Items live under each group. */
-    groups: { heading: string; items: PublicationItem[] }[];
+    groups: { heading: string; items: PublicationItem[]; videos?: { id: string; title: string; date?: string }[] }[];
   };
   contact: {
     eyebrow: string;

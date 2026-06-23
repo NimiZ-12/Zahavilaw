@@ -8,6 +8,7 @@ import { images } from "@/lib/images";
 import HeroImagePreload from "@/components/HeroImagePreload";
 import SectionHeading from "@/components/SectionHeading";
 import { ArrowIcon } from "@/components/Icons";
+import VideoCard from "@/components/VideoCard";
 
 /**
  * Maps an article's legal-field label to one of a small set of neutral stock
@@ -77,9 +78,18 @@ export default async function PublicationsPage({
           {publications.groups.map((group) => (
             <div key={group.heading}>
               <h2 className="text-2xl">{group.heading}</h2>
-              {group.items.length === 0 ? (
+              {"videos" in group && group.videos && group.videos.length > 0 && (
+                <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                  {group.videos.map((v) => (
+                    <li key={v.id}>
+                      <VideoCard id={v.id} title={v.title} date={v.date} />
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {group.items.length === 0 && !("videos" in group && group.videos?.length) ? (
                 <p className="mt-6 text-muted">{publications.empty}</p>
-              ) : (
+              ) : group.items.length > 0 ? (
                 <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                   {group.items.map((item, i) => {
                     const photo = fieldImage(item.field);
@@ -149,7 +159,7 @@ export default async function PublicationsPage({
                     );
                   })}
                 </ul>
-              )}
+              ) : null}
             </div>
           ))}
         </div>

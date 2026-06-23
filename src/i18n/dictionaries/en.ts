@@ -256,6 +256,17 @@ const en: Dictionary = {
     readMore: "Read full article",
     groups: [
       {
+        heading: "Videos",
+        videos: [
+          {
+            id: "H5QCZkxlM4Q",
+            title: "Labor Law – Lawful Employee Termination",
+            date: "June 2026",
+          },
+        ],
+        items: [],
+      },
+      {
         heading: "Articles",
         items: [
           {
