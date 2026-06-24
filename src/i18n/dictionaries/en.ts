@@ -268,6 +268,11 @@ const en: Dictionary = {
             title: "Labor Law – Freelancer Rights",
             date: "June 2026",
           },
+          {
+            id: "ug6ziO-AJrI",
+            title: 'Labor Law – "Invisible" Overtime',
+            date: "June 2026",
+          },
         ],
         items: [],
       },
