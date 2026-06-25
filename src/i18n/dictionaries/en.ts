@@ -210,12 +210,30 @@ const en: Dictionary = {
         title: "Commercial & Corporate",
         summary: "Company formation, commercial contracts, ongoing counsel and deals.",
         description:
-          "Behind every successful business stands a solid legal foundation. The firm guides companies and entrepreneurs from formation through growth — drafting contracts, founder and investment agreements, and providing ongoing legal counsel that lets you focus on your business.",
+          "Behind every successful business stands a solid legal foundation. The firm guides companies, entrepreneurs and business owners from formation through growth — drafting contracts, founders' agreements, ongoing management and commercial transactions. Looking for a lawyer for your business? Contact us and we will define your needs together.",
         points: [
           "Formation of companies, partnerships and founders' agreements",
           "Drafting commercial contracts and engagement agreements",
           "Guidance through transactions, investments and mergers",
           "Ongoing legal counsel (retainer) for businesses",
+        ],
+        faq: [
+          {
+            q: "What is the difference between a limited company and a partnership?",
+            a: "A limited company (Ltd.) is a separate legal entity from its owners — the personal liability of shareholders is limited to the capital they invested. A partnership, by contrast, does not limit personal liability, and partners may bear personal responsibility for debts. For most businesses a limited company is preferable, but the choice depends on the structure and operational needs.",
+          },
+          {
+            q: "Why is it important to draft a founders' agreement at the outset?",
+            a: "A founders' agreement sets the rules of the game from day one: share allocation, decision-making authority, what happens if a founder leaves, and exit and buy-out mechanisms. Without one, future disputes between partners can paralyse the company — and sometimes bring its operations to a halt entirely.",
+          },
+          {
+            q: "What does ongoing legal counsel (retainer) include?",
+            a: "Ongoing counsel gives you direct access to a lawyer for your business's day-to-day needs — reviewing contracts, answering legal questions, accompanying negotiations and early warning of legal risks. It is an investment that saves the higher costs of dealing with problems that could have been prevented.",
+          },
+          {
+            q: "What should I check in a contract with a supplier or client?",
+            a: "Critical aspects include: payment terms and deadlines, limitation-of-liability clauses, dispute resolution mechanisms, termination conditions, confidentiality and non-compete provisions — and above all, clear definitions of each party's obligations. A contract written in vague terms is a recipe for conflict.",
+          },
         ],
       },
       {
