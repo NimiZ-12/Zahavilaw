@@ -107,14 +107,36 @@ const en: Dictionary = {
       {
         slug: "litigation",
         title: "Civil & Commercial Litigation",
-        summary: "Managing civil and commercial claims and disputes in court.",
+        summary: "Managing complex civil and commercial claims at every court level, representing clients in business disputes and enforcing rights in court.",
         description:
-          "Successful litigation begins with strategy. The firm handles complex civil and commercial proceedings at every instance, with meticulous preparation, judicious management of the evidence and a constant pursuit of the best outcome — by settlement or judgment.",
+          "A lawsuit or commercial dispute demands professional, strategic representation from the very first moment. The firm handles complex civil and commercial proceedings at every level — with meticulous preparation, a strategy tailored to the client's needs, and a partner personally present throughout the process to achieve the best possible outcome — by settlement or judgment. Involved in a dispute? Plaintiff or defendant? Don't wait — contact us now and we will assess the options together.",
         points: [
           "Contractual, monetary and tort claims",
-          "Commercial disputes between partners and shareholders",
+          "Representation and management of commercial disputes between partners and shareholders",
           "Applications for interim relief, attachments and injunctions",
           "Representation in mediation and arbitration",
+        ],
+        faq: [
+          {
+            q: "What is the difference between civil litigation, arbitration and mediation?",
+            a: "Civil litigation takes place in court and ends with a binding judgment. Mediation is a voluntary process in which a neutral third party helps the parties reach an agreement. Arbitration is conducted outside court before an agreed arbitrator. Each has advantages depending on the circumstances.",
+          },
+          {
+            q: "What is an injunction and when is one sought?",
+            a: "An injunction is a temporary order requiring the opposing party to refrain from a specific action until the case is decided. It is sought when there is concern about irreversible harm — for example, the sale of a disputed asset, breach of a confidentiality agreement, or ongoing infringement of rights.",
+          },
+          {
+            q: "How long does a court proceeding take?",
+            a: "The duration depends on the complexity of the case and the conduct of the parties. Simple claims may conclude within one to two years; complex cases can take longer. In many cases it is possible to reach a settlement outside court in a shorter timeframe.",
+          },
+          {
+            q: "Who pays legal costs?",
+            a: "The court typically orders the losing party to pay legal costs, but the amount is at the court's discretion and does not necessarily cover all attorney's fees in full.",
+          },
+          {
+            q: "Can I sue even without a written contract?",
+            a: "Yes. An oral agreement is as binding as a written one, though it is harder to prove its terms. The court will consider evidence such as correspondence, witness testimony and payments made.",
+          },
         ],
       },
       {
@@ -155,14 +177,32 @@ const en: Dictionary = {
       {
         slug: "real-estate",
         title: "Real Estate",
-        summary: "Real estate transactions, sale contracts, urban renewal and taxation.",
+        summary: "Sale and purchase transactions, title due diligence, real estate contracts, urban renewal and property taxation.",
         description:
-          "A real estate transaction is often the largest deal of a person's life. The firm guides buyers, sellers and developers through every stage — from due diligence to land registry — fully protecting your interests and minimizing risk.",
+          "A real estate transaction is often the most significant financial decision of a person's life — and therefore requires meticulous legal guidance at every stage. The firm guides buyers, sellers and developers from the initial title check through to final registration at the Land Registry, with a partner personally involved in every deal. Buying or selling a property? Have questions about real estate? Contact us and we will be glad to guide you.",
         points: [
           "Guidance in the sale and purchase of apartments and commercial properties",
           "Title due diligence and registration with the Land Registry and Israel Land Authority",
           "Urban renewal projects — TAMA 38 and evacuation-reconstruction",
           "Tax planning and real estate taxation aspects of the deal",
+        ],
+        faq: [
+          {
+            q: "What should I check before buying an apartment?",
+            a: "Before signing a contract you should verify: the property's registration at the Land Registry, absence of liens and encumbrances, building permits, debts to the local authority, building rights and planning status. A lawyer who carries out these checks protects you from unwelcome surprises after the purchase.",
+          },
+          {
+            q: "What is the difference between TAMA 38 and evacuation-reconstruction?",
+            a: "TAMA 38 is a programme for strengthening existing buildings against earthquakes while adding floors. Evacuation-reconstruction involves demolishing the existing building and constructing a new, larger one. In both cases residents receive a new, improved apartment, but the contracts with the developer require close legal supervision.",
+          },
+          {
+            q: "What is betterment tax and who pays it?",
+            a: "Betterment tax (mas shevah) is a tax on the profit from selling real estate. It is generally paid by the seller, though there are exemptions — for example on the sale of a qualifying residential apartment. It is worth assessing the situation before signing.",
+          },
+          {
+            q: "At what stage should a lawyer get involved in a real estate deal?",
+            a: "At the negotiation stage, before signing. Early involvement allows problems to be identified before you commit, the contract to be drafted in a way that protects your interests, and the tax aspects to be properly planned.",
+          },
         ],
       },
       {
