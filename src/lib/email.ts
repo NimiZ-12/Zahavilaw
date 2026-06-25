@@ -23,7 +23,6 @@ export interface Lead {
 const DEFAULT_RECIPIENTS = [
   "office@zahavilaw.com",
   "ron@zahavilaw.com",
-  "nimrod@zahavilaw.com",
 ];
 
 function escapeHtml(value: string): string {
