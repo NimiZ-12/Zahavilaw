@@ -241,12 +241,30 @@ const en: Dictionary = {
         title: "Wills & Estates",
         summary: "Drafting wills, probate orders, estate administration and disputes.",
         description:
-          "Proper planning of the transfer of assets between generations brings peace of mind and prevents disputes. The firm drafts wills, handles inheritance and probate proceedings, and represents clients in inheritance disputes with sensitivity to family and to the testator's wishes.",
+          "Proper planning of the transfer of assets between generations brings peace of mind and prevents disputes. The firm drafts wills, handles inheritance and probate proceedings, and represents clients in disputes — with sensitivity to the family and to the testator's wishes.",
         points: [
           "Drafting wills and agreements between heirs",
           "Obtaining inheritance and probate orders",
           "Estate administration and representation of estate administrators",
           "Representation in objections and inheritance disputes",
+        ],
+        faq: [
+          {
+            q: "Does a will have to be in writing?",
+            a: "The law recognises four types of will: handwritten, witnessed, before an authority, and oral (in special circumstances only). The most common and secure form is a witnessed will — a written document signed in the presence of two witnesses. Professional drafting by a lawyer ensures the will is valid and resistant to future challenge.",
+          },
+          {
+            q: "What is the difference between an inheritance order and a probate order?",
+            a: "An inheritance order is issued when a person dies without a will — the court determines the heirs according to law. A probate order validates an existing will and gives it binding legal force. Both orders are required for the transfer of assets and registration at the Land Registry.",
+          },
+          {
+            q: "Who can contest a will?",
+            a: "Anyone who would have been entitled to inherit had there been no will — a statutory heir — may file an objection to its probate. Common grounds include formal defects, undue influence, lack of legal capacity at the time the will was made, or a claim that the will does not reflect the deceased's true wishes.",
+          },
+          {
+            q: "How long does it take to obtain an inheritance order?",
+            a: "In straightforward cases — typically several months from filing the application with the Registrar of Inheritance Affairs. When there are disputes between heirs, or when an objection to a will is filed, the process may take years. Early engagement with a lawyer allows the process to be streamlined.",
+          },
         ],
       },
       {
