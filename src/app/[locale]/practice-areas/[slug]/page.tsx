@@ -90,6 +90,19 @@ export default async function PracticeAreaPage({
                 </li>
               ))}
             </ul>
+            {area.faq && area.faq.length > 0 && (
+              <div className="mt-12">
+                <h2 className="text-2xl">{practiceAreas.faqTitle}</h2>
+                <dl className="mt-6 space-y-6">
+                  {area.faq.map((item) => (
+                    <div key={item.q} className="rounded-xl border border-border bg-surface p-6">
+                      <dt className="font-semibold text-navy">{item.q}</dt>
+                      <dd className="mt-2 text-sm leading-relaxed text-muted">{item.a}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            )}
           </div>
 
           <aside className="lg:col-span-5">

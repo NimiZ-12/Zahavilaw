@@ -17,6 +17,7 @@ export interface PracticeArea {
   summary: string;
   description: string;
   points: string[];
+  faq?: { q: string; a: string }[];
 }
 
 export interface TeamMember {
@@ -123,6 +124,7 @@ export interface Dictionary {
     learnMore: string;
     backToAll: string;
     inThisArea: string;
+    faqTitle: string;
     needHelp: string;
     items: PracticeArea[];
   };

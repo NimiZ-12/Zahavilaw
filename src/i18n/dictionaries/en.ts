@@ -101,6 +101,7 @@ const en: Dictionary = {
     learnMore: "Learn more",
     backToAll: "Back to all areas",
     inThisArea: "What we do in this area",
+    faqTitle: "Frequently Asked Questions",
     needHelp: "Need advice in this area?",
     items: [
       {
@@ -119,14 +120,36 @@ const en: Dictionary = {
       {
         slug: "labor-law",
         title: "Labor Law",
-        summary: "Representing employees and employers, dismissals, rights and contracts.",
+        summary: "Representing employees and employers, guiding individuals and companies through legal proceedings at all levels, employment agreements and protecting your rights when violated.",
         description:
-          "Labor law balances employee rights with employer needs. The firm represents both employees and employers — in wage and rights claims, dismissal proceedings, employment agreements and labor disputes — before the labor court and beyond.",
+          "Dismissal, a pre-termination hearing, unpaid wages? These are stressful events that demand a fast and precise response. Our firm represents employees and employers at all levels — guiding companies and individuals through proceedings, employment agreements and labor disputes, with a partner personally involved in every case. Unsure of your rights? Feel your rights have been violated? Need legal advice? Don't wait — leave your details now and we will get back to you promptly.",
         points: [
-          "Claims for rights, wages, severance pay and wage differentials",
-          "Guidance through hearings, dismissals and constructive dismissal",
+          "Guidance through hearings, dismissals and labor disputes",
+          "Claims for rights, compensation and social benefits",
           "Drafting employment, confidentiality and non-compete agreements",
-          "Representation before the regional and national labor courts",
+          "Dismissals during reserve duty, pregnancy or workplace discrimination",
+        ],
+        faq: [
+          {
+            q: "What is a pre-termination hearing and why does it matter?",
+            a: "A pre-termination hearing is a mandatory procedure before any dismissal, in which the employer must allow the employee to state their case. A hearing conducted unlawfully may render the dismissal invalid. Early preparation with a lawyer can change the outcome.",
+          },
+          {
+            q: "Am I entitled to severance pay?",
+            a: "As a general rule, an employee who has worked more than one year with the same employer is entitled to severance pay. There are exceptions and grounds for dismissal that affect entitlement. A review of your employment circumstances will allow us to give you a precise answer.",
+          },
+          {
+            q: "I was dismissed during pregnancy — what are my rights?",
+            a: "Dismissal during pregnancy without approval from the Ministry of Labor is generally completely prohibited. An employee dismissed in this situation may seek cancellation of the dismissal and compensation. It is important to seek legal advice immediately upon receiving notice of dismissal.",
+          },
+          {
+            q: "I was dismissed after returning from reserve duty — is that lawful?",
+            a: "The law prohibits dismissal of an employee within 30 days of completing reserve service, without special approval. Dismissal during this period is presumed to be unlawful. Contact us to have the circumstances examined.",
+          },
+          {
+            q: "How long do I have to file a claim?",
+            a: "Claims for wrongful dismissal, wage withholding and social benefits are subject to limitation periods ranging from one to seven years, depending on the type of claim. The sooner you act, the better the prospects for preserving evidence and options.",
+          },
         ],
       },
       {
