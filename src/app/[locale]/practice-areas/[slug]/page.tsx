@@ -105,7 +105,7 @@ export default async function PracticeAreaPage({
             )}
           </div>
 
-          <aside className="lg:col-span-5">
+          <aside className="lg:col-span-5 lg:pl-6">
             <div className="sticky top-24 rounded-2xl border border-border bg-surface p-8">
               <h2 className="text-xl">{practiceAreas.needHelp}</h2>
               <p className="mt-3 text-sm leading-relaxed text-muted">
