@@ -279,6 +279,24 @@ const en: Dictionary = {
           "Prenuptial agreements and cohabitation agreements",
           "Strategic management of property division and balancing of resources between spouses",
         ],
+        faq: [
+          {
+            q: "Does a prenuptial agreement require court approval?",
+            a: "Yes. A prenuptial agreement must be approved by a family court or a notary before it acquires binding legal force. Professional drafting is essential — agreements prepared without legal advice may be invalid or produce unintended consequences.",
+          },
+          {
+            q: "What is the advantage of mediation over court proceedings?",
+            a: "Mediation allows the parties to reach agreements quietly and with less hostility, while preserving a functional relationship — especially important when there are shared children. It is faster, more efficient, less expensive, and its outcomes are controlled by the parties rather than left to a judge's discretion.",
+          },
+          {
+            q: "How is property divided in a divorce?",
+            a: "In Israel the principle of \"resource balancing\" applies — assets accumulated during the marriage are divided equally between the parties, except for inheritances and personal gifts received. This mechanism applies at the end of the marriage, unless a prenuptial agreement sets out a different arrangement.",
+          },
+          {
+            q: "What can be determined in a prenuptial agreement?",
+            a: "Almost every financial aspect of the marriage: separation of assets, maintenance arrangements in the event of separation, division of specific assets, pension rights and more. A prenuptial agreement can be made before or during the marriage, and gives both parties certainty and security.",
+          },
+        ],
       },
     ],
   },
