@@ -1,5 +1,15 @@
 import "server-only";
-import type { Lead } from "./monday";
+
+export interface Lead {
+  name: string;
+  email: string;
+  phone: string;
+  subject?: string;
+  message?: string;
+  preferredTime?: string;
+  locale: string;
+  source: string;
+}
 
 /* ----------------------------------------------------------------------------
    Email notification for new leads, sent through the Resend HTTP API
