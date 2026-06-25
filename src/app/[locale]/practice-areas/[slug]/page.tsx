@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import TrackableLink from "@/components/TrackableLink";
 import { isLocale, locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { localePath } from "@/lib/routes";
@@ -106,13 +107,14 @@ export default async function PracticeAreaPage({
                 <ArrowIcon className="h-4 w-4 rtl:-scale-x-100" />
               </ButtonLink>
               <div className="mt-6 border-t border-border pt-6 text-sm">
-                <a
+                <TrackableLink
                   href={`tel:${dict.contact.phone}`}
+                  method="phone"
                   className="font-medium text-navy hover:text-gold"
                   dir="ltr"
                 >
                   {dict.contact.phone}
-                </a>
+                </TrackableLink>
               </div>
             </div>
           </aside>

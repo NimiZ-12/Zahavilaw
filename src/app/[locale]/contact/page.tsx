@@ -9,6 +9,7 @@ import { whatsappLink, WHATSAPP_NUMBER_DISPLAY, wazeLink } from "@/lib/contact";
 import SectionHeading from "@/components/SectionHeading";
 import ContactForm from "@/components/ContactForm";
 import { PhoneIcon, MailIcon, PinIcon, ClockIcon, WhatsappIcon } from "@/components/Icons";
+import TrackableLink from "@/components/TrackableLink";
 
 export async function generateMetadata({
   params,
@@ -43,6 +44,7 @@ export default async function ContactPage({
       value: contact.phone,
       href: `tel:${contact.phone}`,
       ltr: true,
+      method: "phone" as const,
     },
     {
       icon: WhatsappIcon,
@@ -50,6 +52,7 @@ export default async function ContactPage({
       value: WHATSAPP_NUMBER_DISPLAY,
       href: whatsappLink,
       ltr: true,
+      method: "whatsapp" as const,
     },
     {
       icon: MailIcon,
@@ -122,7 +125,18 @@ export default async function ContactPage({
                 );
                 return (
                   <li key={d.label}>
-                    {d.href ? (
+                    {d.href && "method" in d ? (
+                      <TrackableLink
+                        href={d.href}
+                        method={d.method as "phone" | "whatsapp"}
+                        className="flex items-center gap-4 transition-colors hover:text-gold"
+                        {...(d.href.startsWith("http")
+                          ? { target: "_blank", rel: "noopener noreferrer" }
+                          : {})}
+                      >
+                        {content}
+                      </TrackableLink>
+                    ) : d.href ? (
                       <a
                         href={d.href}
                         className="flex items-center gap-4 transition-colors hover:text-gold"

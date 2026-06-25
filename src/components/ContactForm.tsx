@@ -127,6 +127,7 @@ export default function ContactForm({
       }
       if (!res.ok) throw new Error("request failed");
       window.gtag?.("event", LEAD_CONVERSION_EVENT);
+      window.gtag?.("event", "contact_lead", { method: "form" });
       setStatus("success");
       form.reset();
       setPreferredDate("");
