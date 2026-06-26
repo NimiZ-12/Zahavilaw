@@ -76,8 +76,13 @@ export default async function TeamMemberPage({
             {team.backToTeam}
           </Link>
           <div className="mt-6 flex flex-col items-start gap-6 sm:flex-row sm:items-center">
-            <span className="grid h-24 w-24 shrink-0 place-items-center rounded-full bg-white/10 font-serif text-3xl font-semibold text-gold-400 ring-1 ring-gold-400/30">
-              {initials(member.name)}
+            <span className="relative block h-28 w-28 shrink-0 overflow-hidden rounded-full bg-white/10 ring-2 ring-gold-400/30">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`/team/${member.slug}.jpg`}
+                alt={member.name}
+                className="h-full w-full object-cover object-top"
+              />
             </span>
             <div>
               <h1 className="text-4xl text-gold-400 sm:text-5xl">{member.name}</h1>

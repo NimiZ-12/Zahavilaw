@@ -76,8 +76,13 @@ export default async function TeamPage({
               href={localePath(locale, `/team/${member.slug}`)}
               className="group flex flex-col rounded-xl border border-border bg-white p-7 text-center transition-all hover:-translate-y-0.5 hover:border-gold/40 hover:shadow-md"
             >
-              <span className="mx-auto grid h-20 w-20 place-items-center rounded-full bg-navy font-serif text-2xl font-semibold text-gold-400">
-                {initials(member.name)}
+              <span className="relative mx-auto block h-24 w-24 overflow-hidden rounded-full bg-navy ring-2 ring-gold/20">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`/team/${member.slug}.jpg`}
+                  alt={member.name}
+                  className="h-full w-full object-cover object-top"
+                />
               </span>
               <h2 className="mt-5 text-xl transition-colors group-hover:text-gold">
                 {member.name}
