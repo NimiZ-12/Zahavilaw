@@ -117,6 +117,9 @@ const nextConfig: NextConfig = {
       // סיפורי-הצלחה — success stories
       { source: "/%D7%A1%D7%99%D7%A4%D7%95%D7%A8%D7%99-%D7%94%D7%A6%D7%9C%D7%97%D7%94", destination: "/he/publications", permanent: true },
       { source: "/%D7%A1%D7%99%D7%A4%D7%95%D7%A8%D7%99-%D7%94%D7%A6%D7%9C%D7%97%D7%94/", destination: "/he/publications", permanent: true },
+      // ייצוג-בבית-הדין-לעבודה — representation in labor court
+      { source: "/%D7%99%D7%99%D7%A6%D7%95%D7%92-%D7%91%D7%91%D7%99%D7%AA-%D7%94%D7%93%D7%99%D7%9F-%D7%9C%D7%A2%D7%91%D7%95%D7%93%D7%94", destination: "/he/practice-areas/labor-law", permanent: true },
+      { source: "/%D7%99%D7%99%D7%A6%D7%95%D7%92-%D7%91%D7%91%D7%99%D7%AA-%D7%94%D7%93%D7%99%D7%9F-%D7%9C%D7%A2%D7%91%D7%95%D7%93%D7%94/", destination: "/he/practice-areas/labor-law", permanent: true },
     ];
   },
   // Trailing-slash off keeps canonical URLs clean for SEO.
