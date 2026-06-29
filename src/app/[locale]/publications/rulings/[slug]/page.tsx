@@ -77,39 +77,30 @@ export default async function RulingPage({
       <section className="section">
         <div className="container-x">
           <div className="overflow-hidden rounded-2xl border border-border bg-surface shadow-sm">
-            <object
-              data={pdf}
-              type="application/pdf"
+            <iframe
+              src={pdf}
+              title={ruling.title}
               className="h-[80vh] w-full"
-              aria-label={ruling.title}
-            >
-              <div className="flex flex-col items-center gap-4 p-10 text-center">
-                <p className="text-muted">
-                  {typedLocale === "he"
-                    ? "לא ניתן להציג את הקובץ בדפדפן זה."
-                    : "This browser cannot display the file inline."}
-                </p>
-                <a
-                  href={pdf}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-sm font-medium text-gold hover:text-gold-600"
-                >
-                  {publications.readRuling}
-                  <ArrowIcon className="h-4 w-4 rtl:-scale-x-100" />
-                </a>
-              </div>
-            </object>
+            />
           </div>
-          <a
-            href={pdf}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-gold hover:text-gold-600"
-          >
-            {publications.readRuling}
-            <ArrowIcon className="h-4 w-4 rtl:-scale-x-100" />
-          </a>
+          <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
+            <a
+              href={pdf}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-gold hover:text-gold-600"
+            >
+              {typedLocale === "he" ? "פתיחת הקובץ בחלון חדש" : "Open the file in a new tab"}
+              <ArrowIcon className="h-4 w-4 rtl:-scale-x-100" />
+            </a>
+            <a
+              href={pdf}
+              download
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-muted hover:text-navy"
+            >
+              {typedLocale === "he" ? "הורדת הקובץ" : "Download the file"}
+            </a>
+          </div>
         </div>
       </section>
     </>

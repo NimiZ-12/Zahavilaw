@@ -24,8 +24,8 @@ const csp = [
   "object-src 'self'",
   "base-uri 'self'",
   "form-action 'self'",
-  "frame-ancestors 'none'",
-  "frame-src https://challenges.cloudflare.com https://www.youtube-nocookie.com",
+  "frame-ancestors 'self'",
+  "frame-src 'self' https://challenges.cloudflare.com https://www.youtube-nocookie.com",
   "manifest-src 'self'",
   "upgrade-insecure-requests",
 ]
@@ -41,7 +41,9 @@ const securityHeaders = [
     value: "max-age=63072000; includeSubDomains; preload",
   },
   // Defense-in-depth against clickjacking (alongside frame-ancestors).
-  { key: "X-Frame-Options", value: "DENY" },
+  // SAMEORIGIN still blocks cross-site framing but lets our own pages embed
+  // same-origin assets such as the court-ruling PDF viewer.
+  { key: "X-Frame-Options", value: "SAMEORIGIN" },
   // Stop browsers from MIME-sniffing responses.
   { key: "X-Content-Type-Options", value: "nosniff" },
   // Don't leak full URLs to other origins.

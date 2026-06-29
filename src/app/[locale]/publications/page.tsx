@@ -94,28 +94,30 @@ export default async function PublicationsPage({
                     <li key={ruling.slug}>
                       <Link
                         href={localePath(locale, `/publications/rulings/${ruling.slug}`)}
-                        className="group flex h-full flex-col rounded-xl border border-border bg-white p-7 transition-all hover:-translate-y-0.5 hover:border-gold/40 hover:shadow-md"
+                        className="group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-white transition-all hover:-translate-y-0.5 hover:border-gold/40 hover:shadow-md"
                       >
-                        <span className="grid h-11 w-11 place-items-center rounded-lg bg-gold-soft ring-1 ring-border transition-colors group-hover:ring-gold/40">
-                          <svg
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="1.6"
-                            className="h-5 w-5 text-gold-600"
-                            aria-hidden
-                          >
-                            <path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z" />
-                            <path d="M14 3v5h5" />
-                          </svg>
-                        </span>
-                        <h3 className="mt-4 flex-1 text-lg leading-snug text-navy">
-                          {ruling.title}
-                        </h3>
-                        <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-gold">
-                          {publications.readRuling}
-                          <ArrowIcon className="h-4 w-4 transition-transform group-hover:translate-x-1 rtl:-scale-x-100 rtl:group-hover:-translate-x-1" />
-                        </span>
+                        <div className="relative h-40 w-full overflow-hidden">
+                          <Image
+                            src={images.ruling}
+                            alt=""
+                            fill
+                            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                            className="object-cover"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-navy/10 to-navy/0" />
+                          <span className="absolute bottom-3 right-3 rtl:right-3 ltr:left-3 inline-flex rounded-full bg-gold-soft px-3 py-1 text-xs font-semibold text-gold-600">
+                            {group.heading}
+                          </span>
+                        </div>
+                        <div className="flex flex-1 flex-col p-7">
+                          <h3 className="flex-1 text-lg leading-snug text-navy">
+                            {ruling.title}
+                          </h3>
+                          <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-gold">
+                            {publications.readRuling}
+                            <ArrowIcon className="h-4 w-4 transition-transform group-hover:translate-x-1 rtl:-scale-x-100 rtl:group-hover:-translate-x-1" />
+                          </span>
+                        </div>
                       </Link>
                     </li>
                   ))}
