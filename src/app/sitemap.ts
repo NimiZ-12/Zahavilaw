@@ -29,6 +29,28 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       });
     }
 
+    // Individual team-member profiles.
+    for (const member of dict.team.members) {
+      entries.push({
+        url: `${SITE_URL}${localePath(locale, `/team/${member.slug}`)}`,
+        lastModified,
+        changeFrequency: "yearly",
+        priority: 0.5,
+      });
+    }
+
+    // Court-ruling reader pages.
+    for (const group of dict.publications.groups) {
+      for (const ruling of group.rulings ?? []) {
+        entries.push({
+          url: `${SITE_URL}${localePath(locale, `/publications/rulings/${ruling.slug}`)}`,
+          lastModified,
+          changeFrequency: "yearly",
+          priority: 0.5,
+        });
+      }
+    }
+
     // Legal pages.
     for (const path of ["/privacy", "/accessibility"]) {
       entries.push({

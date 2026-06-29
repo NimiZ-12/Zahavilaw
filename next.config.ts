@@ -67,11 +67,56 @@ const nextConfig: NextConfig = {
     remotePatterns: [{ protocol: "https", hostname: "images.unsplash.com" }],
   },
   async redirects() {
+    // Legacy WordPress Hebrew-slug URLs that Google indexed before the site was
+    // rebuilt on locale-prefixed routing (/he/...). Each old URL 301s to its
+    // closest equivalent so years of ranking authority flow to the new pages
+    // instead of hitting a 404.
+    //
+    // IMPORTANT: Googlebot and browsers request these paths percent-encoded
+    // (%D7%..), and Next.js matches `source` against that encoded pathname — a
+    // raw-Hebrew source string does NOT match. Sources below are therefore
+    // percent-encoded, with both trailing-slash and non-slash variants (old WP
+    // URLs ended in "/"). Generated with encodeURI() of each Hebrew slug.
     return [
-      // Legacy/crawled Hebrew-slug URLs that Google indexed before the
-      // locale-prefixed routing (/he/practice-areas/...) was established.
-      { source: "/עורך-דין-דיני-עבודה", destination: "/he/practice-areas/labor", permanent: true },
-      { source: "/עורך-דין-דיני-עבודה/", destination: "/he/practice-areas/labor", permanent: true },
+      // עורך-דין-פיטורים — severance/dismissal lawyer
+      { source: "/%D7%A2%D7%95%D7%A8%D7%9A-%D7%93%D7%99%D7%9F-%D7%A4%D7%99%D7%98%D7%95%D7%A8%D7%99%D7%9D", destination: "/he/practice-areas/labor-law", permanent: true },
+      { source: "/%D7%A2%D7%95%D7%A8%D7%9A-%D7%93%D7%99%D7%9F-%D7%A4%D7%99%D7%98%D7%95%D7%A8%D7%99%D7%9D/", destination: "/he/practice-areas/labor-law", permanent: true },
+      // פיטורים-בלי-שימוע — dismissal without a hearing
+      { source: "/%D7%A4%D7%99%D7%98%D7%95%D7%A8%D7%99%D7%9D-%D7%91%D7%9C%D7%99-%D7%A9%D7%99%D7%9E%D7%95%D7%A2", destination: "/he/practice-areas/labor-law", permanent: true },
+      { source: "/%D7%A4%D7%99%D7%98%D7%95%D7%A8%D7%99%D7%9D-%D7%91%D7%9C%D7%99-%D7%A9%D7%99%D7%9E%D7%95%D7%A2/", destination: "/he/practice-areas/labor-law", permanent: true },
+      // עורך-דין-דיני-עבודה — labor lawyer
+      { source: "/%D7%A2%D7%95%D7%A8%D7%9A-%D7%93%D7%99%D7%9F-%D7%93%D7%99%D7%A0%D7%99-%D7%A2%D7%91%D7%95%D7%93%D7%94", destination: "/he/practice-areas/labor-law", permanent: true },
+      { source: "/%D7%A2%D7%95%D7%A8%D7%9A-%D7%93%D7%99%D7%9F-%D7%93%D7%99%D7%A0%D7%99-%D7%A2%D7%91%D7%95%D7%93%D7%94/", destination: "/he/practice-areas/labor-law", permanent: true },
+      // זכויות-עובדים — employee rights
+      { source: "/%D7%96%D7%9B%D7%95%D7%99%D7%95%D7%AA-%D7%A2%D7%95%D7%91%D7%93%D7%99%D7%9D", destination: "/he/practice-areas/labor-law", permanent: true },
+      { source: "/%D7%96%D7%9B%D7%95%D7%99%D7%95%D7%AA-%D7%A2%D7%95%D7%91%D7%93%D7%99%D7%9D/", destination: "/he/practice-areas/labor-law", permanent: true },
+      // מניעת-פיטורים — prevention of dismissal
+      { source: "/%D7%9E%D7%A0%D7%99%D7%A2%D7%AA-%D7%A4%D7%99%D7%98%D7%95%D7%A8%D7%99%D7%9D", destination: "/he/practice-areas/labor-law", permanent: true },
+      { source: "/%D7%9E%D7%A0%D7%99%D7%A2%D7%AA-%D7%A4%D7%99%D7%98%D7%95%D7%A8%D7%99%D7%9D/", destination: "/he/practice-areas/labor-law", permanent: true },
+      // זכויות-מעסיקים — employer rights
+      { source: "/%D7%96%D7%9B%D7%95%D7%99%D7%95%D7%AA-%D7%9E%D7%A2%D7%A1%D7%99%D7%A7%D7%99%D7%9D", destination: "/he/practice-areas/labor-law", permanent: true },
+      { source: "/%D7%96%D7%9B%D7%95%D7%99%D7%95%D7%AA-%D7%9E%D7%A2%D7%A1%D7%99%D7%A7%D7%99%D7%9D/", destination: "/he/practice-areas/labor-law", permanent: true },
+      // אודות — about
+      { source: "/%D7%90%D7%95%D7%93%D7%95%D7%AA", destination: "/he/about", permanent: true },
+      { source: "/%D7%90%D7%95%D7%93%D7%95%D7%AA/", destination: "/he/about", permanent: true },
+      // עוד-רון-זהבי — Ron Zahavi profile
+      { source: "/%D7%A2%D7%95%D7%93-%D7%A8%D7%95%D7%9F-%D7%96%D7%94%D7%91%D7%99", destination: "/he/team/ron-zahavi", permanent: true },
+      { source: "/%D7%A2%D7%95%D7%93-%D7%A8%D7%95%D7%9F-%D7%96%D7%94%D7%91%D7%99/", destination: "/he/team/ron-zahavi", permanent: true },
+      // עוד-ענת-זהבי — Anat Zahavi profile
+      { source: "/%D7%A2%D7%95%D7%93-%D7%A2%D7%A0%D7%AA-%D7%96%D7%94%D7%91%D7%99", destination: "/he/team/anat-zahavi", permanent: true },
+      { source: "/%D7%A2%D7%95%D7%93-%D7%A2%D7%A0%D7%AA-%D7%96%D7%94%D7%91%D7%99/", destination: "/he/team/anat-zahavi", permanent: true },
+      // צור-קשר — contact
+      { source: "/%D7%A6%D7%95%D7%A8-%D7%A7%D7%A9%D7%A8", destination: "/he/contact", permanent: true },
+      { source: "/%D7%A6%D7%95%D7%A8-%D7%A7%D7%A9%D7%A8/", destination: "/he/contact", permanent: true },
+      // תחומי-התמחות — practice areas
+      { source: "/%D7%AA%D7%97%D7%95%D7%9E%D7%99-%D7%94%D7%AA%D7%9E%D7%97%D7%95%D7%AA", destination: "/he/practice-areas", permanent: true },
+      { source: "/%D7%AA%D7%97%D7%95%D7%9E%D7%99-%D7%94%D7%AA%D7%9E%D7%97%D7%95%D7%AA/", destination: "/he/practice-areas", permanent: true },
+      // מידע-מקצועי — professional articles hub
+      { source: "/%D7%9E%D7%99%D7%93%D7%A2-%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%99", destination: "/he/publications", permanent: true },
+      { source: "/%D7%9E%D7%99%D7%93%D7%A2-%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%D7%99/", destination: "/he/publications", permanent: true },
+      // סיפורי-הצלחה — success stories
+      { source: "/%D7%A1%D7%99%D7%A4%D7%95%D7%A8%D7%99-%D7%94%D7%A6%D7%9C%D7%97%D7%94", destination: "/he/publications", permanent: true },
+      { source: "/%D7%A1%D7%99%D7%A4%D7%95%D7%A8%D7%99-%D7%94%D7%A6%D7%9C%D7%97%D7%94/", destination: "/he/publications", permanent: true },
     ];
   },
   // Trailing-slash off keeps canonical URLs clean for SEO.
