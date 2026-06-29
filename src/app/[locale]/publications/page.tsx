@@ -7,6 +7,7 @@ import { localePath } from "@/lib/routes";
 import { images } from "@/lib/images";
 import HeroImagePreload from "@/components/HeroImagePreload";
 import SectionHeading from "@/components/SectionHeading";
+import Link from "next/link";
 import { ArrowIcon } from "@/components/Icons";
 import VideoCard from "@/components/VideoCard";
 
@@ -87,7 +88,42 @@ export default async function PublicationsPage({
                   ))}
                 </ul>
               )}
-              {group.items.length === 0 && !("videos" in group && group.videos?.length) ? (
+              {"rulings" in group && group.rulings && group.rulings.length > 0 && (
+                <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                  {group.rulings.map((ruling) => (
+                    <li key={ruling.slug}>
+                      <Link
+                        href={localePath(locale, `/publications/rulings/${ruling.slug}`)}
+                        className="group flex h-full flex-col rounded-xl border border-border bg-white p-7 transition-all hover:-translate-y-0.5 hover:border-gold/40 hover:shadow-md"
+                      >
+                        <span className="grid h-11 w-11 place-items-center rounded-lg bg-gold-soft ring-1 ring-border transition-colors group-hover:ring-gold/40">
+                          <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.6"
+                            className="h-5 w-5 text-gold-600"
+                            aria-hidden
+                          >
+                            <path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z" />
+                            <path d="M14 3v5h5" />
+                          </svg>
+                        </span>
+                        <h3 className="mt-4 flex-1 text-lg leading-snug text-navy">
+                          {ruling.title}
+                        </h3>
+                        <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-gold">
+                          {publications.readRuling}
+                          <ArrowIcon className="h-4 w-4 transition-transform group-hover:translate-x-1 rtl:-scale-x-100 rtl:group-hover:-translate-x-1" />
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {group.items.length === 0 &&
+              !("videos" in group && group.videos?.length) &&
+              !("rulings" in group && group.rulings?.length) ? (
                 <p className="mt-6 text-muted">{publications.empty}</p>
               ) : group.items.length > 0 ? (
                 <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

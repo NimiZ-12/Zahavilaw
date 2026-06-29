@@ -371,6 +371,7 @@ const en: Dictionary = {
       "Selected articles, publications and court decisions reflecting the firm's work and professional experience.",
     empty: "Content is being prepared and will be updated soon.",
     readMore: "Read full article",
+    readRuling: "Read the ruling",
     groups: [
       {
         heading: "Videos",
@@ -390,6 +391,17 @@ const en: Dictionary = {
             title: 'Labor Law – "Invisible" Overtime',
             date: "June 2026",
           },
+        ],
+        items: [],
+      },
+      {
+        heading: "Court Rulings",
+        rulings: [
+          { slug: "dismissal-in-limine", title: "Dismissal of the claim in limine — Ron Zahavi, Adv." },
+          { slug: "security-deposit", title: "Order to post security for costs — Ron Zahavi, Adv." },
+          { slug: "property-eviction", title: "Claim for eviction of a property — Ron Zahavi, Adv." },
+          { slug: "trademark-cancellation", title: "Claim for cancellation and revocation of a trademark — Ron Zahavi, Adv." },
+          { slug: "defamation", title: "Defamation claim — Ron Zahavi, Adv." },
         ],
         items: [],
       },

@@ -156,8 +156,16 @@ export interface Dictionary {
     empty: string;
     /** Call-to-action label on each card linking out. */
     readMore: string;
+    /** Label for the link to read a court ruling PDF inside the site. */
+    readRuling: string;
     /** Optional section groupings. Items live under each group. */
-    groups: { heading: string; items: PublicationItem[]; videos?: { id: string; title: string; date?: string }[] }[];
+    groups: {
+      heading: string;
+      items: PublicationItem[];
+      videos?: { id: string; title: string; date?: string }[];
+      /** Court rulings shown as in-site PDF readers. `slug` maps to /rulings/{slug}.pdf. */
+      rulings?: { slug: string; title: string }[];
+    }[];
   };
   contact: {
     eyebrow: string;

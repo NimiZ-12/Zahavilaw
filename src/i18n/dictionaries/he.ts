@@ -371,6 +371,7 @@ const he: Dictionary = {
       "כתבות, פרסומים ופסקי דין נבחרים המעידים על פעילות המשרד ועל הניסיון המקצועי שלו.",
     empty: "התוכן בהכנה ויעודכן בקרוב.",
     readMore: "לכתבה המלאה",
+    readRuling: "לקריאת פסק הדין",
     groups: [
       {
         heading: "סרטונים",
@@ -390,6 +391,17 @@ const he: Dictionary = {
             title: 'דיני עבודה - שעות נוספות "שקופות"',
             date: "יוני 2026",
           },
+        ],
+        items: [],
+      },
+      {
+        heading: "פסקי-דין",
+        rulings: [
+          { slug: "dismissal-in-limine", title: "דחיית התביעה על הסף — עו״ד רון זהבי" },
+          { slug: "security-deposit", title: "חיוב בהפקדת ערובה — עו״ד רון זהבי" },
+          { slug: "property-eviction", title: "תביעה לפינוי נכס — עו״ד רון זהבי" },
+          { slug: "trademark-cancellation", title: "תביעה למחיקה וביטול סימן מסחר — עו״ד רון זהבי" },
+          { slug: "defamation", title: "תביעת דיבה — לשון הרע — עו״ד רון זהבי" },
         ],
         items: [],
       },

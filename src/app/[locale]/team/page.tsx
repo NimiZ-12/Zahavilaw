@@ -24,17 +24,6 @@ export async function generateMetadata({
   };
 }
 
-/** Build initials for the avatar placeholder, e.g. "רון זהבי" → "רז". */
-function initials(name: string): string {
-  return name
-    .replace(/[^\p{L}\s]/gu, "")
-    .trim()
-    .split(/\s+/)
-    .slice(0, 2)
-    .map((part) => part[0])
-    .join("");
-}
-
 export default async function TeamPage({
   params,
 }: {
