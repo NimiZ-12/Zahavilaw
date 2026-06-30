@@ -405,6 +405,7 @@ const he: Dictionary = {
           { slug: "monetary-claim-dismissed", title: "דחיית תביעה כספית — עו״ד רון זהבי" },
           { slug: "brokerage-fee-dismissed", title: "דחיית תביעה לדמי תיווך — עו״ד רון זהבי" },
           { slug: "construction-defects-dismissed", title: "דחיית תביעת דיירים כנגד קבלן מבצע לליקויי בנייה ואיחור במסירה — עו״ד רון זהבי" },
+          { slug: "wrongful-dismissal-compensation", title: "תביעת תגמולים ופיצויים בגין פיטורים שלא כדין — עו״ד ענת זהבי" },
         ],
         items: [],
       },

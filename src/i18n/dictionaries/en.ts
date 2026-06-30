@@ -405,6 +405,7 @@ const en: Dictionary = {
           { slug: "monetary-claim-dismissed", title: "Monetary claim dismissed — Ron Zahavi, Adv." },
           { slug: "brokerage-fee-dismissed", title: "Brokerage-fee claim dismissed — Ron Zahavi, Adv." },
           { slug: "construction-defects-dismissed", title: "Tenants' claim against the contractor for construction defects and late delivery dismissed — Ron Zahavi, Adv." },
+          { slug: "wrongful-dismissal-compensation", title: "Claim for benefits and compensation for wrongful dismissal — Anat Zahavi, Adv." },
         ],
         items: [],
       },
