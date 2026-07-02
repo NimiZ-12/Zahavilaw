@@ -100,8 +100,14 @@ export default async function HomePage({
       <ClientsMarquee clients={home.clients} />
 
       {/* -------------------------------------------------------------- Why us */}
-      <section className="section">
-        <div className="container-x">
+      <section className="section relative overflow-hidden">
+        {/* Faint grayscale photo of the building lobby behind this section. */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-[0.12] grayscale"
+          style={{ backgroundImage: "url('/lobby.jpg')" }}
+        />
+        <div className="container-x relative">
           <SectionHeading
             eyebrow={home.intro.eyebrow}
             title={home.intro.title}
