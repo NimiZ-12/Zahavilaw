@@ -100,12 +100,17 @@ export default async function HomePage({
       <ClientsMarquee clients={home.clients} />
 
       {/* -------------------------------------------------------------- Why us */}
-      <section className="section relative overflow-hidden">
-        {/* Faint grayscale photo of the building lobby behind this section. */}
+      <section className="section relative overflow-hidden bg-navy">
+        {/* Building-lobby photo behind this section, tinted with a navy overlay
+            like the hero so the content stays readable. */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-[0.18]"
+          className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-[0.55]"
           style={{ backgroundImage: "url('/lobby.jpg')" }}
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy via-navy/60 to-navy/40"
         />
         <div className="container-x relative">
           <SectionHeading
