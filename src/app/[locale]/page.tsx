@@ -104,7 +104,7 @@ export default async function HomePage({
         {/* Faint grayscale photo of the building lobby behind this section. */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-[0.12] grayscale"
+          className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-[0.18]"
           style={{ backgroundImage: "url('/lobby.jpg')" }}
         />
         <div className="container-x relative">
