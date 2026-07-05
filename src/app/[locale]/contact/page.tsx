@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-import { localePath } from "@/lib/routes";
+import { localeAlternates, localePath } from "@/lib/routes";
 import { images } from "@/lib/images";
 import HeroImagePreload from "@/components/HeroImagePreload";
 import { whatsappLink, WHATSAPP_NUMBER_DISPLAY, wazeLink } from "@/lib/contact";
@@ -22,7 +22,10 @@ export async function generateMetadata({
   return {
     title: dict.contact.title,
     description: dict.contact.subtitle,
-    alternates: { canonical: localePath(locale, "/contact") },
+    alternates: {
+      canonical: localePath(locale, "/contact"),
+      languages: localeAlternates("/contact"),
+    },
   };
 }
 

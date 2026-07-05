@@ -10,6 +10,18 @@ export function localePath(locale: Locale, path = "/"): string {
   return `/${locale}${clean}`;
 }
 
+/**
+ * hreflang alternates for a page that exists in both locales.
+ * Pass the locale-less path (e.g. "/about"); Hebrew doubles as x-default.
+ */
+export function localeAlternates(path = "/") {
+  return {
+    he: localePath("he", path),
+    en: localePath("en", path),
+    "x-default": localePath("he", path),
+  };
+}
+
 /** The site's top-level navigation, used by the header and footer. */
 export const navItems = [
   { key: "home", path: "/" },

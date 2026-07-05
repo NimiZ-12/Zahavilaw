@@ -3,7 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-import { localePath } from "@/lib/routes";
+import { localeAlternates, localePath } from "@/lib/routes";
 import { images } from "@/lib/images";
 import HeroImagePreload from "@/components/HeroImagePreload";
 import SectionHeading from "@/components/SectionHeading";
@@ -37,7 +37,10 @@ export async function generateMetadata({
   return {
     title: dict.publications.title,
     description: dict.publications.subtitle,
-    alternates: { canonical: localePath(locale, "/publications") },
+    alternates: {
+      canonical: localePath(locale, "/publications"),
+      languages: localeAlternates("/publications"),
+    },
   };
 }
 

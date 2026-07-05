@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-import { localePath } from "@/lib/routes";
+import { localeAlternates, localePath } from "@/lib/routes";
 import LegalContent from "@/components/LegalContent";
 
 export async function generateMetadata({
@@ -16,7 +16,10 @@ export async function generateMetadata({
   return {
     title: dict.legal.privacy.title,
     description: dict.legal.privacy.metaDescription,
-    alternates: { canonical: localePath(locale, "/privacy") },
+    alternates: {
+      canonical: localePath(locale, "/privacy"),
+      languages: localeAlternates("/privacy"),
+    },
   };
 }
 

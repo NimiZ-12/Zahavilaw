@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-import { localePath } from "@/lib/routes";
+import { localeAlternates, localePath } from "@/lib/routes";
 import { images } from "@/lib/images";
 import HeroImagePreload from "@/components/HeroImagePreload";
 import SectionHeading from "@/components/SectionHeading";
@@ -21,7 +21,10 @@ export async function generateMetadata({
   return {
     title: dict.practiceAreas.title,
     description: dict.practiceAreas.subtitle,
-    alternates: { canonical: localePath(locale, "/practice-areas") },
+    alternates: {
+      canonical: localePath(locale, "/practice-areas"),
+      languages: localeAlternates("/practice-areas"),
+    },
   };
 }
 

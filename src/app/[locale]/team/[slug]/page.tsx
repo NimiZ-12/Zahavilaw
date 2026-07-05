@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { isLocale, locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-import { localePath } from "@/lib/routes";
+import { localeAlternates, localePath } from "@/lib/routes";
 import { practiceAreaIcons } from "@/lib/practice-icons";
 import { ArrowIcon } from "@/components/Icons";
 
@@ -36,7 +36,10 @@ export async function generateMetadata({
   return {
     title: `${member.name} — ${member.role}`,
     description: member.bio,
-    alternates: { canonical: localePath(locale, `/team/${slug}`) },
+    alternates: {
+      canonical: localePath(locale, `/team/${slug}`),
+      languages: localeAlternates(`/team/${slug}`),
+    },
   };
 }
 

@@ -120,6 +120,14 @@ const nextConfig: NextConfig = {
       // ייצוג-בבית-הדין-לעבודה — representation in labor court
       { source: "/%D7%99%D7%99%D7%A6%D7%95%D7%92-%D7%91%D7%91%D7%99%D7%AA-%D7%94%D7%93%D7%99%D7%9F-%D7%9C%D7%A2%D7%91%D7%95%D7%93%D7%94", destination: "/he/practice-areas/labor-law", permanent: true },
       { source: "/%D7%99%D7%99%D7%A6%D7%95%D7%92-%D7%91%D7%91%D7%99%D7%AA-%D7%94%D7%93%D7%99%D7%9F-%D7%9C%D7%A2%D7%91%D7%95%D7%93%D7%94/", destination: "/he/practice-areas/labor-law", permanent: true },
+      // WordPress leftovers still crawled from the old site — send to the
+      // homepage rather than letting them 404.
+      { source: "/wp-content/:path*", destination: "/he", permanent: true },
+      { source: "/wp-admin/:path*", destination: "/he", permanent: true },
+      { source: "/wp-json/:path*", destination: "/he", permanent: true },
+      { source: "/feed", destination: "/he", permanent: true },
+      { source: "/category/:path*", destination: "/he", permanent: true },
+      { source: "/tag/:path*", destination: "/he", permanent: true },
     ];
   },
   // Trailing-slash off keeps canonical URLs clean for SEO.

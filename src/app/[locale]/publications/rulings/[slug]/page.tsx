@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { isLocale, locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-import { localePath } from "@/lib/routes";
+import { localeAlternates, localePath } from "@/lib/routes";
 import { ArrowIcon } from "@/components/Icons";
 
 /** Collects every court-ruling entry across the publications groups. */
@@ -37,9 +37,17 @@ export async function generateMetadata({
   if (!isLocale(locale)) return {};
   const { ruling } = await getRuling(locale, slug);
   if (!ruling) return {};
+  const dict = await getDictionary(locale);
   return {
     title: ruling.title,
-    alternates: { canonical: localePath(locale, `/publications/rulings/${slug}`) },
+    description:
+      locale === "he"
+        ? `פסק דין: ${ruling.title} — ${dict.brand.name}. קריאת פסק הדין המלא באתר המשרד.`
+        : `Court ruling: ${ruling.title} — ${dict.brand.name}. Read the full ruling on the firm's website.`,
+    alternates: {
+      canonical: localePath(locale, `/publications/rulings/${slug}`),
+      languages: localeAlternates(`/publications/rulings/${slug}`),
+    },
   };
 }
 

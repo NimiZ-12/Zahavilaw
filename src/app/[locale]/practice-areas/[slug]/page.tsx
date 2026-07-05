@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import TrackableLink from "@/components/TrackableLink";
 import { isLocale, locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-import { localePath } from "@/lib/routes";
+import { localeAlternates, localePath } from "@/lib/routes";
 import { ButtonLink } from "@/components/Button";
 import { ArrowIcon, CheckIcon } from "@/components/Icons";
 
@@ -37,7 +37,10 @@ export async function generateMetadata({
   return {
     title: area.title,
     description: area.summary,
-    alternates: { canonical: localePath(locale, `/practice-areas/${slug}`) },
+    alternates: {
+      canonical: localePath(locale, `/practice-areas/${slug}`),
+      languages: localeAlternates(`/practice-areas/${slug}`),
+    },
   };
 }
 
