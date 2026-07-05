@@ -81,6 +81,39 @@ agent environment — re-run locally against production to confirm).
 2. **Vercel dashboard**: nothing new — domain redirect (`zahavilaw.com` → www,
    http → https) already verified correct.
 
+## 6. Full-site audit (July 2026)
+
+Automated sweep of the live deploy — every sitemap page, every internal link,
+every asset, plus API/security/i18n checks:
+
+| Check | Result |
+|---|---|
+| All 50 sitemap pages | ✅ 200 |
+| All internal links found on those pages | ✅ 200/308 |
+| All local assets (team photos, client logos via image optimizer, lobby, og-image, icons, favicon) | ✅ 200 |
+| All 9 ruling PDFs | ✅ 200, `application/pdf` |
+| Unsplash imagery URLs | ✅ 200 |
+| Unknown route | ✅ real 404 status |
+| `/api/contact` | ✅ rejects invalid POST (403 CSRF) and wrong method (405); email path previously confirmed delivering |
+| Security headers (CSP, HSTS, XCTO, XFO, referrer-policy) | ✅ present |
+| Page trailing-slash variants | ✅ 308 to canonical |
+| Language switcher pairs (he↔en) | ✅ correct per-page |
+| tel: / WhatsApp / Waze links | ✅ well-formed |
+| One `<h1>` per page, skip-to-content link | ✅ |
+| TypeScript/lint/build | ✅ clean (1 benign lint warning) |
+
+**Issue found & fixed:** video cards used YouTube's `maxresdefault.jpg`
+thumbnail, which does not exist for every video (YouTube then serves a grey
+placeholder). `VideoCard` now falls back to the always-available
+`hqdefault.jpg` automatically.
+
+**Not checkable from the agent sandbox** (network allowlist): external article
+links (mako/ynet/calcalist/psakdin), wa.me, waze, img.youtube.com — these
+return 403 from the sandbox proxy, not from the real sites; verify once in a
+normal browser. An in-browser JS/hydration console sweep also couldn't run in
+the sandbox; pages are statically rendered and have been used in the browser
+throughout development without issues.
+
 ## Honest scope note
 
 Code can make the site perfectly indexable, but it cannot make Google index

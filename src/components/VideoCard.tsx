@@ -12,7 +12,11 @@ export default function VideoCard({
   date?: string;
 }) {
   const [playing, setPlaying] = useState(false);
-  const thumb = `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
+  // maxresdefault only exists for videos with an HD thumbnail; fall back to
+  // hqdefault (always available) instead of showing YouTube's grey 404 image.
+  const [thumb, setThumb] = useState(
+    `https://img.youtube.com/vi/${id}/maxresdefault.jpg`,
+  );
 
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-xl border border-border bg-white transition-all hover:-translate-y-0.5 hover:border-gold/40 hover:shadow-md">
@@ -35,6 +39,20 @@ export default function VideoCard({
             <img
               src={thumb}
               alt=""
+              onError={() =>
+                setThumb(`https://img.youtube.com/vi/${id}/hqdefault.jpg`)
+              }
+              // YouTube's "missing maxres" placeholder is a 120px grey image
+              // served with HTTP 200, so onError alone can't catch it; the
+              // load handler checks the natural size instead.
+              onLoad={(e) => {
+                if (
+                  e.currentTarget.naturalWidth < 200 &&
+                  thumb.includes("maxresdefault")
+                ) {
+                  setThumb(`https://img.youtube.com/vi/${id}/hqdefault.jpg`);
+                }
+              }}
               className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-navy/40 transition-colors group-hover:bg-navy/30" />
