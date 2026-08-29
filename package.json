@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "optimize:images": "node scripts/optimize-images.mjs",
-    "verify:site": "node scripts/verify-site.mjs"
+    "verify:site": "node scripts/verify-site.mjs",
+    "preflight": "node scripts/preflight.mjs"
   },
   "dependencies": {
     "@vercel/speed-insights": "^2.0.0",
