@@ -153,7 +153,7 @@ export default async function ContactPage({
                       <TrackableLink
                         href={d.href}
                         method={d.method as "phone" | "whatsapp"}
-                        className="flex items-center gap-4 transition-colors hover:text-gold"
+                        className="flex items-center gap-4 transition-colors hover:text-gold-600"
                         {...(d.href.startsWith("http")
                           ? { target: "_blank", rel: "noopener noreferrer" }
                           : {})}
@@ -163,7 +163,7 @@ export default async function ContactPage({
                     ) : d.href ? (
                       <a
                         href={d.href}
-                        className="flex items-center gap-4 transition-colors hover:text-gold"
+                        className="flex items-center gap-4 transition-colors hover:text-gold-600"
                         {...(d.href.startsWith("http")
                           ? { target: "_blank", rel: "noopener noreferrer" }
                           : {})}

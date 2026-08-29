@@ -64,8 +64,8 @@ export default function Header({
               href={localePath(locale, item.path)}
               className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${
                 isActive(item.path)
-                  ? "text-gold"
-                  : "text-navy/80 hover:text-gold"
+                  ? "text-gold-600"
+                  : "text-navy/80 hover:text-gold-600"
               }`}
               aria-current={isActive(item.path) ? "page" : undefined}
             >
@@ -107,7 +107,7 @@ export default function Header({
                 href={localePath(locale, item.path)}
                 className={`rounded-md px-3 py-3 text-base font-medium transition-colors ${
                   isActive(item.path)
-                    ? "bg-surface text-gold"
+                    ? "bg-surface text-gold-600"
                     : "text-navy hover:bg-surface"
                 }`}
               >

@@ -6,10 +6,13 @@ export default function VideoCard({
   id,
   title,
   date,
+  playLabel,
 }: {
   id: string;
   title: string;
   date?: string;
+  /** Accessible name for the play button, with `{title}` as a placeholder. */
+  playLabel: string;
 }) {
   const [playing, setPlaying] = useState(false);
   // maxresdefault only exists for videos with an HD thumbnail; fall back to
@@ -34,7 +37,7 @@ export default function VideoCard({
             type="button"
             onClick={() => setPlaying(true)}
             className="group absolute inset-0 flex items-center justify-center"
-            aria-label={`הפעל סרטון: ${title}`}
+            aria-label={playLabel.replace("{title}", title)}
           >
             <img
               src={thumb}
@@ -70,7 +73,7 @@ export default function VideoCard({
       </div>
       <div className="flex flex-1 flex-col p-7">
         {date && (
-          <p className="text-xs font-medium uppercase tracking-wide text-gold">
+          <p className="text-xs font-medium uppercase tracking-wide text-gold-600">
             {date}
           </p>
         )}

@@ -110,7 +110,12 @@ export default async function PublicationsPage({
                 <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                   {group.videos.map((v) => (
                     <li key={v.id}>
-                      <VideoCard id={v.id} title={v.title} date={v.date} />
+                      <VideoCard
+                        id={v.id}
+                        title={v.title}
+                        date={v.date}
+                        playLabel={publications.playVideo}
+                      />
                     </li>
                   ))}
                 </ul>
@@ -140,7 +145,7 @@ export default async function PublicationsPage({
                           <h3 className="flex-1 text-lg leading-snug text-navy">
                             {ruling.title}
                           </h3>
-                          <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-gold">
+                          <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-gold-600">
                             {publications.readRuling}
                             <ArrowIcon className="h-4 w-4 transition-transform group-hover:translate-x-1 rtl:-scale-x-100 rtl:group-hover:-translate-x-1" />
                           </span>
@@ -178,7 +183,7 @@ export default async function PublicationsPage({
                             {item.field}
                           </span>
                         )}
-                        <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-gold">
+                        <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-gold-600">
                           <span>{item.source}</span>
                           {item.date && (
                             <>
@@ -198,7 +203,7 @@ export default async function PublicationsPage({
                           </p>
                         )}
                         {item.href && (
-                          <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-gold">
+                          <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-gold-600">
                             {publications.readMore}
                             <ArrowIcon className="h-4 w-4 transition-transform group-hover:translate-x-1 rtl:-scale-x-100 rtl:group-hover:-translate-x-1" />
                           </span>

@@ -210,7 +210,7 @@ export default async function HomePage({
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
                   {area.summary}
                 </p>
-                <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-gold">
+                <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-gold-600">
                   {practiceAreas.learnMore}
                   <ArrowIcon className="h-4 w-4 transition-transform group-hover:translate-x-1 rtl:-scale-x-100 rtl:group-hover:-translate-x-1" />
                 </span>

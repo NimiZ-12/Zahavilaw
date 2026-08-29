@@ -38,9 +38,9 @@ function leadHtml(lead: Lead): string {
     ["שם", lead.name],
     ["טלפון", lead.phone],
     ["אימייל", lead.email],
-    ["נושא", lead.subject || "—"],
-    ["הודעה", lead.message || "—"],
-    ["מועד מועדף לשיחה", lead.preferredTime || "—"],
+    ["נושא", lead.subject || "-"],
+    ["הודעה", lead.message || "-"],
+    ["מועד מועדף לשיחה", lead.preferredTime || "-"],
     ["שפת הפנייה", lead.locale === "he" ? "עברית" : "English"],
   ];
   const tr = rows
@@ -92,7 +92,7 @@ export async function sendLeadEmail(lead: Lead): Promise<EmailResult> {
         from,
         to,
         reply_to: lead.email,
-        subject: `פנייה חדשה מהאתר — ${lead.name}`,
+        subject: `פנייה חדשה מהאתר - ${lead.name}`,
         html: leadHtml(lead),
       }),
       cache: "no-store",

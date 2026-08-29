@@ -23,16 +23,16 @@ export default async function NotFound() {
         />
         <main className="grid flex-1 place-items-center px-6 py-20">
           <div className="text-center">
-            <span className="font-serif text-6xl font-semibold text-gold">404</span>
-            <h1 className="mt-4 text-2xl">העמוד לא נמצא</h1>
-            <p className="mt-2 text-muted">
-              ייתכן שהקישור שגוי או שהעמוד הוסר.
-            </p>
+            <span aria-hidden className="font-serif text-6xl font-semibold text-gold-600">
+              404
+            </span>
+            <h1 className="mt-4 text-2xl">{dict.notFound.title}</h1>
+            <p className="mx-auto mt-2 max-w-md text-muted">{dict.notFound.body}</p>
             <Link
               href={localePath(defaultLocale, "/")}
               className="mt-8 inline-flex items-center rounded-md bg-gold px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-gold-600"
             >
-              חזרה לעמוד הראשי
+              {dict.notFound.cta}
             </Link>
           </div>
         </main>

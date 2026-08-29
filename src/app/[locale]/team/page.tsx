@@ -103,13 +103,13 @@ export default async function TeamPage({
               <h2 className="mt-5 text-xl transition-colors group-hover:text-gold">
                 {member.name}
               </h2>
-              <p className="mt-1 text-sm font-medium uppercase tracking-wide text-gold">
+              <p className="mt-1 text-sm font-medium uppercase tracking-wide text-gold-600">
                 {member.role}
               </p>
               <p className="mt-4 flex-1 text-sm leading-relaxed text-muted">
                 {member.bio}
               </p>
-              <span className="mt-5 inline-flex items-center justify-center gap-1.5 text-sm font-medium text-gold">
+              <span className="mt-5 inline-flex items-center justify-center gap-1.5 text-sm font-medium text-gold-600">
                 {team.viewProfile}
                 <ArrowIcon className="h-4 w-4 transition-transform group-hover:translate-x-1 rtl:-scale-x-100 rtl:group-hover:-translate-x-1" />
               </span>

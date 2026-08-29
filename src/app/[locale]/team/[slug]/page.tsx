@@ -108,7 +108,7 @@ export default async function TeamMemberPage({
             </span>
             <div>
               <h1 className="text-4xl text-gold-400 sm:text-5xl">{member.name}</h1>
-              <p className="mt-2 text-sm font-medium uppercase tracking-wide text-gold-400/70">
+              <p className="mt-2 text-sm font-medium uppercase tracking-wide text-gold-400">
                 {member.role}
               </p>
             </div>
@@ -143,7 +143,7 @@ export default async function TeamMemberPage({
                         <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-gold-soft ring-1 ring-border transition-colors group-hover:ring-gold/40">
                           <AreaIcon className="h-5 w-5" />
                         </span>
-                        <span className="text-sm font-medium text-navy transition-colors group-hover:text-gold">
+                        <span className="text-sm font-medium text-navy transition-colors group-hover:text-gold-600">
                           {area.title}
                         </span>
                       </Link>

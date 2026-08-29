@@ -40,7 +40,7 @@ const en: Dictionary = {
       eyebrow: "Law Offices",
       title: "By your side, every step of the way",
       subtitle:
-        "Zahavi - Pretty & Co. combines extensive legal experience with professional depth, strategic thinking and the personal involvement of the partners in every case, guiding you with confidence in every field and at every stage — from the first meeting to the desired result.",
+        "Zahavi - Pretty & Co. combines extensive legal experience with professional depth, strategic thinking and the personal involvement of the partners in every case, guiding you with confidence in every field and at every stage - from the first meeting to the desired result.",
       ctaPrimary: "Book a consultation",
       ctaSecondary: "Our practice areas",
     },
@@ -64,7 +64,7 @@ const en: Dictionary = {
     intro: {
       eyebrow: "Why choose Zahavi - Pretty & Co.",
       title: "Accumulated experience, personal partner attention",
-      body: "Zahavi - Pretty & Co. provides its clients with broad, multidisciplinary legal counsel, guiding companies, businesses, families and private individuals through every legal juncture — from litigation and business advisory, through real estate and labor law, to family law, wills and estates. The firm is led by two founding partners, members of the Israel Bar Association since 1996, who are personally involved in every case — both strategically and tactically — from start to finish.",
+      body: "Zahavi - Pretty & Co. provides its clients with broad, multidisciplinary legal counsel, guiding companies, businesses, families and private individuals through every legal juncture - from litigation and business advisory, through real estate and labor law, to family law, wills and estates. The firm is led by two founding partners, members of the Israel Bar Association since 1996, who are personally involved in every case - both strategically and tactically - from start to finish.",
       features: [
         {
           title: "Experience since 1996",
@@ -112,7 +112,7 @@ const en: Dictionary = {
         title: "Civil & Commercial Litigation",
         summary: "Managing complex civil and commercial claims at every court level, representing clients in business disputes and enforcing rights in court.",
         description:
-          "A lawsuit or commercial dispute demands professional, strategic representation from the very first moment. The firm handles complex civil and commercial proceedings at every level — with meticulous preparation, a strategy tailored to the client's needs, and a partner personally present throughout the process to achieve the best possible outcome — by settlement or judgment. Involved in a dispute? Plaintiff or defendant? Don't wait — contact us now and we will assess the options together.",
+          "A lawsuit or commercial dispute demands professional, strategic representation from the very first moment. The firm handles complex civil and commercial proceedings at every level - with meticulous preparation, a strategy tailored to the client's needs, and a partner personally present throughout the process to achieve the best possible outcome - by settlement or judgment. Involved in a dispute? Plaintiff or defendant? Don't wait - contact us now and we will assess the options together.",
         points: [
           "Contractual, monetary and tort claims",
           "Representation and management of commercial disputes between partners and shareholders",
@@ -126,7 +126,7 @@ const en: Dictionary = {
           },
           {
             q: "What is an injunction and when is one sought?",
-            a: "An injunction is a temporary order requiring the opposing party to refrain from a specific action until the case is decided. It is sought when there is concern about irreversible harm — for example, the sale of a disputed asset, breach of a confidentiality agreement, or ongoing infringement of rights.",
+            a: "An injunction is a temporary order requiring the opposing party to refrain from a specific action until the case is decided. It is sought when there is concern about irreversible harm - for example, the sale of a disputed asset, breach of a confidentiality agreement, or ongoing infringement of rights.",
           },
           {
             q: "How long does a court proceeding take?",
@@ -147,7 +147,7 @@ const en: Dictionary = {
         title: "Labor Law",
         summary: "Representing employees and employers, guiding individuals and companies through legal proceedings at all levels, employment agreements and protecting your rights when violated.",
         description:
-          "Dismissal, a pre-termination hearing, unpaid wages? These are stressful events that demand a fast and precise response. Our firm represents employees and employers at all levels — guiding companies and individuals through proceedings, employment agreements and labor disputes, with a partner personally involved in every case. Unsure of your rights? Feel your rights have been violated? Need legal advice? Don't wait — leave your details now and we will get back to you promptly.",
+          "Dismissal, a pre-termination hearing, unpaid wages? These are stressful events that demand a fast and precise response. Our firm represents employees and employers at all levels - guiding companies and individuals through proceedings, employment agreements and labor disputes, with a partner personally involved in every case. Unsure of your rights? Feel your rights have been violated? Need legal advice? Don't wait - leave your details now and we will get back to you promptly.",
         points: [
           "Guidance through hearings, dismissals and labor disputes",
           "Claims for rights, compensation and social benefits",
@@ -164,11 +164,11 @@ const en: Dictionary = {
             a: "As a general rule, an employee who has worked more than one year with the same employer is entitled to severance pay. There are exceptions and grounds for dismissal that affect entitlement. A review of your employment circumstances will allow us to give you a precise answer.",
           },
           {
-            q: "I was dismissed during pregnancy — what are my rights?",
+            q: "I was dismissed during pregnancy - what are my rights?",
             a: "Dismissal during pregnancy without approval from the Ministry of Labor is generally completely prohibited. An employee dismissed in this situation may seek cancellation of the dismissal and compensation. It is important to seek legal advice immediately upon receiving notice of dismissal.",
           },
           {
-            q: "I was dismissed after returning from reserve duty — is that lawful?",
+            q: "I was dismissed after returning from reserve duty - is that lawful?",
             a: "The law prohibits dismissal of an employee within 30 days of completing reserve service, without special approval. Dismissal during this period is presumed to be unlawful. Contact us to have the circumstances examined.",
           },
           {
@@ -182,11 +182,11 @@ const en: Dictionary = {
         title: "Real Estate",
         summary: "Sale and purchase transactions, title due diligence, real estate contracts, urban renewal and property taxation.",
         description:
-          "A real estate transaction is often the most significant financial decision of a person's life — and therefore requires meticulous legal guidance at every stage. The firm guides buyers, sellers and developers from the initial title check through to final registration at the Land Registry, with a partner personally involved in every deal. Buying or selling a property? Have questions about real estate? Contact us and we will be glad to guide you.",
+          "A real estate transaction is often the most significant financial decision of a person's life - and therefore requires meticulous legal guidance at every stage. The firm guides buyers, sellers and developers from the initial title check through to final registration at the Land Registry, with a partner personally involved in every deal. Buying or selling a property? Have questions about real estate? Contact us and we will be glad to guide you.",
         points: [
           "Guidance in the sale and purchase of apartments and commercial properties",
           "Title due diligence and registration with the Land Registry and Israel Land Authority",
-          "Urban renewal projects — TAMA 38 and evacuation-reconstruction",
+          "Urban renewal projects - TAMA 38 and evacuation-reconstruction",
           "Tax planning and real estate taxation aspects of the deal",
         ],
         faq: [
@@ -200,7 +200,7 @@ const en: Dictionary = {
           },
           {
             q: "What is betterment tax and who pays it?",
-            a: "Betterment tax (mas shevah) is a tax on the profit from selling real estate. It is generally paid by the seller, though there are exemptions — for example on the sale of a qualifying residential apartment. It is worth assessing the situation before signing.",
+            a: "Betterment tax (mas shevah) is a tax on the profit from selling real estate. It is generally paid by the seller, though there are exemptions - for example on the sale of a qualifying residential apartment. It is worth assessing the situation before signing.",
           },
           {
             q: "At what stage should a lawyer get involved in a real estate deal?",
@@ -213,7 +213,7 @@ const en: Dictionary = {
         title: "Commercial & Corporate",
         summary: "Company formation, commercial contracts, ongoing counsel and deals.",
         description:
-          "Behind every successful business stands a solid legal foundation. The firm guides companies, entrepreneurs and business owners from formation through growth — drafting contracts, founders' agreements, ongoing management and commercial transactions. Looking for a lawyer for your business? Contact us and we will define your needs together.",
+          "Behind every successful business stands a solid legal foundation. The firm guides companies, entrepreneurs and business owners from formation through growth - drafting contracts, founders' agreements, ongoing management and commercial transactions. Looking for a lawyer for your business? Contact us and we will define your needs together.",
         points: [
           "Formation of companies, partnerships and founders' agreements",
           "Drafting commercial contracts and engagement agreements",
@@ -223,19 +223,19 @@ const en: Dictionary = {
         faq: [
           {
             q: "What is the difference between a limited company and a partnership?",
-            a: "A limited company (Ltd.) is a separate legal entity from its owners — the personal liability of shareholders is limited to the capital they invested. A partnership, by contrast, does not limit personal liability, and partners may bear personal responsibility for debts. For most businesses a limited company is preferable, but the choice depends on the structure and operational needs.",
+            a: "A limited company (Ltd.) is a separate legal entity from its owners - the personal liability of shareholders is limited to the capital they invested. A partnership, by contrast, does not limit personal liability, and partners may bear personal responsibility for debts. For most businesses a limited company is preferable, but the choice depends on the structure and operational needs.",
           },
           {
             q: "Why is it important to draft a founders' agreement at the outset?",
-            a: "A founders' agreement sets the rules of the game from day one: share allocation, decision-making authority, what happens if a founder leaves, and exit and buy-out mechanisms. Without one, future disputes between partners can paralyse the company — and sometimes bring its operations to a halt entirely.",
+            a: "A founders' agreement sets the rules of the game from day one: share allocation, decision-making authority, what happens if a founder leaves, and exit and buy-out mechanisms. Without one, future disputes between partners can paralyse the company - and sometimes bring its operations to a halt entirely.",
           },
           {
             q: "What does ongoing legal counsel (retainer) include?",
-            a: "Ongoing counsel gives you direct access to a lawyer for your business's day-to-day needs — reviewing contracts, answering legal questions, accompanying negotiations and early warning of legal risks. It is an investment that saves the higher costs of dealing with problems that could have been prevented.",
+            a: "Ongoing counsel gives you direct access to a lawyer for your business's day-to-day needs - reviewing contracts, answering legal questions, accompanying negotiations and early warning of legal risks. It is an investment that saves the higher costs of dealing with problems that could have been prevented.",
           },
           {
             q: "What should I check in a contract with a supplier or client?",
-            a: "Critical aspects include: payment terms and deadlines, limitation-of-liability clauses, dispute resolution mechanisms, termination conditions, confidentiality and non-compete provisions — and above all, clear definitions of each party's obligations. A contract written in vague terms is a recipe for conflict.",
+            a: "Critical aspects include: payment terms and deadlines, limitation-of-liability clauses, dispute resolution mechanisms, termination conditions, confidentiality and non-compete provisions - and above all, clear definitions of each party's obligations. A contract written in vague terms is a recipe for conflict.",
           },
         ],
       },
@@ -244,7 +244,7 @@ const en: Dictionary = {
         title: "Wills & Estates",
         summary: "Drafting wills, probate orders, estate administration and disputes.",
         description:
-          "Proper planning of the transfer of assets between generations brings peace of mind and prevents disputes. The firm drafts wills, handles inheritance and probate proceedings, and represents clients in disputes — with sensitivity to the family and to the testator's wishes.",
+          "Proper planning of the transfer of assets between generations brings peace of mind and prevents disputes. The firm drafts wills, handles inheritance and probate proceedings, and represents clients in disputes - with sensitivity to the family and to the testator's wishes.",
         points: [
           "Drafting wills and agreements between heirs",
           "Obtaining inheritance and probate orders",
@@ -254,19 +254,19 @@ const en: Dictionary = {
         faq: [
           {
             q: "Does a will have to be in writing?",
-            a: "The law recognises four types of will: handwritten, witnessed, before an authority, and oral (in special circumstances only). The most common and secure form is a witnessed will — a written document signed in the presence of two witnesses. Professional drafting by a lawyer ensures the will is valid and resistant to future challenge.",
+            a: "The law recognises four types of will: handwritten, witnessed, before an authority, and oral (in special circumstances only). The most common and secure form is a witnessed will - a written document signed in the presence of two witnesses. Professional drafting by a lawyer ensures the will is valid and resistant to future challenge.",
           },
           {
             q: "What is the difference between an inheritance order and a probate order?",
-            a: "An inheritance order is issued when a person dies without a will — the court determines the heirs according to law. A probate order validates an existing will and gives it binding legal force. Both orders are required for the transfer of assets and registration at the Land Registry.",
+            a: "An inheritance order is issued when a person dies without a will - the court determines the heirs according to law. A probate order validates an existing will and gives it binding legal force. Both orders are required for the transfer of assets and registration at the Land Registry.",
           },
           {
             q: "Who can contest a will?",
-            a: "Anyone who would have been entitled to inherit had there been no will — a statutory heir — may file an objection to its probate. Common grounds include formal defects, undue influence, lack of legal capacity at the time the will was made, or a claim that the will does not reflect the deceased's true wishes.",
+            a: "Anyone who would have been entitled to inherit had there been no will - a statutory heir - may file an objection to its probate. Common grounds include formal defects, undue influence, lack of legal capacity at the time the will was made, or a claim that the will does not reflect the deceased's true wishes.",
           },
           {
             q: "How long does it take to obtain an inheritance order?",
-            a: "In straightforward cases — typically several months from filing the application with the Registrar of Inheritance Affairs. When there are disputes between heirs, or when an objection to a will is filed, the process may take years. Early engagement with a lawyer allows the process to be streamlined.",
+            a: "In straightforward cases - typically several months from filing the application with the Registrar of Inheritance Affairs. When there are disputes between heirs, or when an objection to a will is filed, the process may take years. Early engagement with a lawyer allows the process to be streamlined.",
           },
         ],
       },
@@ -275,7 +275,7 @@ const en: Dictionary = {
         title: "Family Law",
         summary: "Prenuptial agreements, mediation and comprehensive legal guidance through proceedings.",
         description:
-          "Family law requires a rare combination of legal professionalism and human sensitivity. The firm guides clients through proceedings, handles division of property, mediation and prenuptial agreements — aiming for the fairest and calmest solution for you and your children.",
+          "Family law requires a rare combination of legal professionalism and human sensitivity. The firm guides clients through proceedings, handles division of property, mediation and prenuptial agreements - aiming for the fairest and calmest solution for you and your children.",
         points: [
           "Guiding clients through legal proceedings",
           "Mediation",
@@ -285,15 +285,15 @@ const en: Dictionary = {
         faq: [
           {
             q: "Does a prenuptial agreement require court approval?",
-            a: "Yes. A prenuptial agreement must be approved by a family court or a notary before it acquires binding legal force. Professional drafting is essential — agreements prepared without legal advice may be invalid or produce unintended consequences.",
+            a: "Yes. A prenuptial agreement must be approved by a family court or a notary before it acquires binding legal force. Professional drafting is essential - agreements prepared without legal advice may be invalid or produce unintended consequences.",
           },
           {
             q: "What is the advantage of mediation over court proceedings?",
-            a: "Mediation allows the parties to reach agreements quietly and with less hostility, while preserving a functional relationship — especially important when there are shared children. It is faster, more efficient, less expensive, and its outcomes are controlled by the parties rather than left to a judge's discretion.",
+            a: "Mediation allows the parties to reach agreements quietly and with less hostility, while preserving a functional relationship - especially important when there are shared children. It is faster, more efficient, less expensive, and its outcomes are controlled by the parties rather than left to a judge's discretion.",
           },
           {
             q: "How is property divided in a divorce?",
-            a: "In Israel the principle of \"resource balancing\" applies — assets accumulated during the marriage are divided equally between the parties, except for inheritances and personal gifts received. This mechanism applies at the end of the marriage, unless a prenuptial agreement sets out a different arrangement.",
+            a: "In Israel the principle of \"resource balancing\" applies - assets accumulated during the marriage are divided equally between the parties, except for inheritances and personal gifts received. This mechanism applies at the end of the marriage, unless a prenuptial agreement sets out a different arrangement.",
           },
           {
             q: "What can be determined in a prenuptial agreement?",
@@ -309,9 +309,9 @@ const en: Dictionary = {
     lead: "Zahavi - Pretty & Co. Law Offices is a boutique firm providing clients - companies, business owners, families and individuals - with senior, personal legal representation across a broad range of legal fields.",
     storyTitle: "About the firm",
     body: [
-      "The firm is led by Ron Zahavi, Adv. and Anat Zahavi, Adv., two founding partners and members of the Israel Bar Association since 1996, with a combined experience of over three decades. We believe quality legal representation requires the personal involvement of a partner in every case — both strategically and tactically — rather than being passed between staff along the way.",
+      "The firm is led by Ron Zahavi, Adv. and Anat Zahavi, Adv., two founding partners and members of the Israel Bar Association since 1996, with a combined experience of over three decades. We believe quality legal representation requires the personal involvement of a partner in every case - both strategically and tactically - rather than being passed between staff along the way.",
       "Daily engagement across a wide range of legal fields is one of the firm's key strengths: complex civil-commercial litigation, guiding companies and businesses in commercial and corporate matters, real estate in all its aspects, labor law from the employer's perspective, as well as family law and wills and estates. This broad perspective allows us to understand every dispute or transaction in its full context, and to build the right strategy for each client.",
-      "Among the firm's clients, past and present, are some of the largest and best-known companies in the Israeli economy — in food and fast-food retail, telecom and hi-tech, import and export, construction and industry — alongside business people, private individuals and families seeking professional guidance through significant moments in their lives. Every client, large or small, receives the same level of commitment, availability and professionalism.",
+      "Among the firm's clients, past and present, are some of the largest and best-known companies in the Israeli economy - in food and fast-food retail, telecom and hi-tech, import and export, construction and industry - alongside business people, private individuals and families seeking professional guidance through significant moments in their lives. Every client, large or small, receives the same level of commitment, availability and professionalism.",
     ],
     milestonesTitle: "The firm in numbers",
     milestones: [
@@ -391,9 +391,9 @@ const en: Dictionary = {
         role: "Founding Partner",
         bio: "A member of the Israel Bar Association since 1996 and a leading commercial litigator in his field, representing companies and stakeholders in complex civil and commercial proceedings before every court and tribunal. He guides commercial companies and corporations from formation through to managing crises among shareholders, and holds broad expertise in real estate law, including dealings with the Israel Land Authority and TAMA 38 projects.",
         about: [
-          "Ron Zahavi, Adv. is a founding partner of the firm and has been a member of the Israel Bar Association since 1996, and is regarded as a leading commercial litigator in his field. He represents companies, controlling shareholders and other stakeholders in complex civil and commercial proceedings before every court and tribunal — including class actions, shareholder disputes, and large-scale contractual and economic disputes — leading each matter from filing through to resolution.",
-          "Alongside his litigation practice, he guides commercial companies and corporations throughout their lifecycle — from formation and founders' agreements, through ongoing commercial transactions and arrangements, to managing crises among shareholders and with suppliers, customers and creditors.",
-          "He has also built broad expertise in real estate law in all its aspects — from sale and purchase transactions, through dealings with the Israel Land Authority, agricultural land and smallholdings, to TAMA 38 urban-renewal projects, co-ownership agreements and the dissolution of shared ownership — as well as representing clients in inheritance and estate disputes.",
+          "Ron Zahavi, Adv. is a founding partner of the firm and has been a member of the Israel Bar Association since 1996, and is regarded as a leading commercial litigator in his field. He represents companies, controlling shareholders and other stakeholders in complex civil and commercial proceedings before every court and tribunal - including class actions, shareholder disputes, and large-scale contractual and economic disputes - leading each matter from filing through to resolution.",
+          "Alongside his litigation practice, he guides commercial companies and corporations throughout their lifecycle - from formation and founders' agreements, through ongoing commercial transactions and arrangements, to managing crises among shareholders and with suppliers, customers and creditors.",
+          "He has also built broad expertise in real estate law in all its aspects - from sale and purchase transactions, through dealings with the Israel Land Authority, agricultural land and smallholdings, to TAMA 38 urban-renewal projects, co-ownership agreements and the dissolution of shared ownership - as well as representing clients in inheritance and estate disputes.",
           "His work is grounded in close, hands-on involvement in every case, alongside a commitment to availability and professional service.",
         ],
         practiceAreaSlugs: ["litigation", "commercial", "real-estate", "wills-estates"],
@@ -411,7 +411,7 @@ const en: Dictionary = {
         role: "Founding Partner",
         bio: "A member of the Israel Bar Association since 1996 and a certified labor-law mediator, with over two decades of experience representing employers. She leads the firm's preventive labor law practice, guiding leading Israeli companies in their day-to-day dealings with employees and regulators, and represents clients before labor courts nationwide.",
         about: [
-          "Anat Zahavi, Adv. is a founding partner of the firm, a member of the Israel Bar Association since 1996, and a certified mediator in labor disputes, with over two decades of experience in the field. She specializes in representing employers — including some of Israel's largest companies, food and fast-food chains, telecom and hi-tech companies, import and export businesses, construction companies and private employers — in proceedings before the Regional and National Labor Courts throughout the country.",
+          "Anat Zahavi, Adv. is a founding partner of the firm, a member of the Israel Bar Association since 1996, and a certified mediator in labor disputes, with over two decades of experience in the field. She specializes in representing employers - including some of Israel's largest companies, food and fast-food chains, telecom and hi-tech companies, import and export businesses, construction companies and private employers - in proceedings before the Regional and National Labor Courts throughout the country.",
           "Her practice is built on a preventive labor law approach, under which she advises clients on an ongoing basis on the applicability of collective agreements and extension orders, the employment and dismissal of pregnant employees, workplace sexual harassment, and disciplinary and criminal matters in the workplace, including proceedings before the Ministry of Economy under the Increased Enforcement of Labor Laws Law.",
           "Alongside her legal practice, she conducts workshops and training sessions for senior and mid-level management on labor relations and the managerial prerogative, equipping employers with the tools to manage their workforce properly while exercising their lawful management rights.",
         ],
@@ -434,6 +434,7 @@ const en: Dictionary = {
     empty: "Content is being prepared and will be updated soon.",
     readMore: "Read full article",
     readRuling: "Read the ruling",
+    playVideo: "Play video: {title}",
     rulingPage: {
       aboutTitle: "About this ruling",
       about:
@@ -452,17 +453,17 @@ const en: Dictionary = {
         videos: [
           {
             id: "H5QCZkxlM4Q",
-            title: "Labor Law – Lawful Employee Termination",
+            title: "Labor Law - Lawful Employee Termination",
             date: "June 2026",
           },
           {
             id: "kyQIXcARZUs",
-            title: "Labor Law – Freelancer Rights",
+            title: "Labor Law - Freelancer Rights",
             date: "June 2026",
           },
           {
             id: "ug6ziO-AJrI",
-            title: 'Labor Law – "Invisible" Overtime',
+            title: 'Labor Law - "Invisible" Overtime',
             date: "June 2026",
           },
         ],
@@ -471,15 +472,15 @@ const en: Dictionary = {
       {
         heading: "Court Rulings",
         rulings: [
-          { slug: "dismissal-in-limine", title: "Dismissal of the claim in limine — Ron Zahavi, Adv." },
-          { slug: "security-deposit", title: "Order to post security for costs — Ron Zahavi, Adv." },
-          { slug: "property-eviction", title: "Claim for eviction of a property — Ron Zahavi, Adv." },
-          { slug: "trademark-cancellation", title: "Claim for cancellation and revocation of a trademark — Ron Zahavi, Adv." },
-          { slug: "defamation", title: "Defamation claim — Ron Zahavi, Adv." },
-          { slug: "monetary-claim-dismissed", title: "Monetary claim dismissed — Ron Zahavi, Adv." },
-          { slug: "brokerage-fee-dismissed", title: "Brokerage-fee claim dismissed — Ron Zahavi, Adv." },
-          { slug: "construction-defects-dismissed", title: "Tenants' claim against the contractor for construction defects and late delivery dismissed — Ron Zahavi, Adv." },
-          { slug: "wrongful-dismissal-compensation", title: "Claim for benefits and compensation for wrongful dismissal — Anat Zahavi, Adv." },
+          { slug: "dismissal-in-limine", title: "Dismissal of the claim in limine - Ron Zahavi, Adv." },
+          { slug: "security-deposit", title: "Order to post security for costs - Ron Zahavi, Adv." },
+          { slug: "property-eviction", title: "Claim for eviction of a property - Ron Zahavi, Adv." },
+          { slug: "trademark-cancellation", title: "Claim for cancellation and revocation of a trademark - Ron Zahavi, Adv." },
+          { slug: "defamation", title: "Defamation claim - Ron Zahavi, Adv." },
+          { slug: "monetary-claim-dismissed", title: "Monetary claim dismissed - Ron Zahavi, Adv." },
+          { slug: "brokerage-fee-dismissed", title: "Brokerage-fee claim dismissed - Ron Zahavi, Adv." },
+          { slug: "construction-defects-dismissed", title: "Tenants' claim against the contractor for construction defects and late delivery dismissed - Ron Zahavi, Adv." },
+          { slug: "wrongful-dismissal-compensation", title: "Claim for benefits and compensation for wrongful dismissal - Anat Zahavi, Adv." },
         ],
         items: [],
       },
@@ -496,7 +497,7 @@ const en: Dictionary = {
             href: "https://www.mako.co.il/finances-law/law-general/Article-ec1aeec6ff4de91026.htm",
           },
           {
-            title: "Employee accrued 134 vacation days against his contract — awarded nearly NIS 250,000",
+            title: "Employee accrued 134 vacation days against his contract - awarded nearly NIS 250,000",
             source: "ynet",
             field: "Labor Law",
             date: "November 2025",
@@ -514,7 +515,7 @@ const en: Dictionary = {
             href: "https://www.mako.co.il/finances-law/work/Article-6fa34e38739d161006.htm",
           },
           {
-            title: "Dismissed after refusing dangerous work — \"Minofei Avi\" to compensate",
+            title: "Dismissed after refusing dangerous work - \"Minofei Avi\" to compensate",
             source: "mako",
             field: "Labor Law",
             date: "September 2018",
@@ -550,16 +551,16 @@ const en: Dictionary = {
             href: "https://www.mako.co.il/finances-law/property-law/Article-e4121216f572191026.htm",
           },
           {
-            title: "Allocation of a plot in a moshav fell through — and the buyer will be compensated",
+            title: "Allocation of a plot in a moshav fell through - and the buyer will be compensated",
             source: "Calcalist",
             field: "Real Estate & Cooperatives",
             date: "June 2024",
             excerpt:
-              "The plot allocation in the moshav was never completed, and the court awarded the buyer compensation — an issue in the realm of cooperatives and urban renewal.",
+              "The plot allocation in the moshav was never completed, and the court awarded the buyer compensation - an issue in the realm of cooperatives and urban renewal.",
             href: "https://www.ynet.co.il/economy/article/r1ctbmxs0",
           },
           {
-            title: "A \"continuing son\" sued to share the farm with his brother — how did the court rule?",
+            title: "A \"continuing son\" sued to share the farm with his brother - how did the court rule?",
             source: "Calcalist",
             field: "Real Estate",
             date: "November 2017",
@@ -568,7 +569,7 @@ const en: Dictionary = {
             href: "https://www.calcalist.co.il/local/articles/0,7340,L-3724291,00.html",
           },
           {
-            title: "A diamond venture turned out to be a scam — the investor will get her money back",
+            title: "A diamond venture turned out to be a scam - the investor will get her money back",
             source: "ynet",
             field: "Family Law & Contracts",
             date: "August 2017",
@@ -618,7 +619,7 @@ const en: Dictionary = {
       postalCode: "5268102",
     },
     hoursLabel: "Office hours",
-    hours: "Sun–Thu, 09:00–18:00",
+    hours: "Sun-Thu, 09:00-18:00",
     form: {
       title: "Contact & meeting request form",
       name: "Full name",
@@ -636,7 +637,7 @@ const en: Dictionary = {
       preferredTimeNote:
         "* The requested date does not constitute a confirmed appointment. The meeting time will be set and confirmed in coordination with a member of our office.",
       preferredTimeWeekendError:
-        "The office operates Sunday–Thursday only. Please choose a date that is not a Friday or Saturday.",
+        "The office operates Sunday-Thursday only. Please choose a date that is not a Friday or Saturday.",
       consentPrefix: "I agree to the ",
       consentPrivacy: "Privacy Policy",
       consentAnd: " and the ",
@@ -744,11 +745,16 @@ const en: Dictionary = {
     applyCta: "Send your CV by email",
     applyEmail: "office@zahavilaw.com",
   },
+  notFound: {
+    title: "Page not found",
+    body: "The link may be incorrect, or the page may have been removed. You can return to the homepage or get in touch with us.",
+    cta: "Back to the homepage",
+  },
   legal: {
     privacy: {
       title: "Privacy Policy",
       metaDescription:
-        "The privacy policy of Zahavi - Pretty & Co. Law Offices — what information we collect on this site, how it is used, and your rights under Israel's Privacy Protection Law.",
+        "The privacy policy of Zahavi - Pretty & Co. Law Offices - what information we collect on this site, how it is used, and your rights under Israel's Privacy Protection Law.",
       lastUpdated: "Last updated: June 2026",
       intro:
         "Zahavi - Pretty & Co. Law Offices (“the Firm”, “we”) respects your privacy and is committed to protecting the personal information you provide through this website. This policy explains what information we collect, how it is used, with whom it may be shared, and what your rights are.",
@@ -760,7 +766,7 @@ const en: Dictionary = {
           ],
           items: [
             "Information you submit in the contact form: full name, phone number, email address, subject of inquiry, message content, and preferred contact time.",
-            "Technical information collected automatically: IP address, browser type, and basic usage data — used to secure the site, prevent abuse, and operate the request rate-limiting mechanism.",
+            "Technical information collected automatically: IP address, browser type, and basic usage data - used to secure the site, prevent abuse, and operate the request rate-limiting mechanism.",
           ],
         },
         {
@@ -786,7 +792,7 @@ const en: Dictionary = {
           items: [
             "A customer-relationship-management (CRM) provider, where inquiries are stored for tracking and handling.",
             "The site's hosting provider and the technical infrastructure on which it runs.",
-            "Competent authorities or other parties — where required by law, court order, or to protect the Firm's rights.",
+            "Competent authorities or other parties - where required by law, court order, or to protect the Firm's rights.",
           ],
         },
         {
@@ -841,7 +847,7 @@ const en: Dictionary = {
     accessibility: {
       title: "Accessibility Statement",
       metaDescription:
-        "The accessibility statement of the Zahavi - Pretty & Co. Law Offices website — our commitment to accessibility, the adjustments made, and how to contact our accessibility coordinator.",
+        "The accessibility statement of the Zahavi - Pretty & Co. Law Offices website - our commitment to accessibility, the adjustments made, and how to contact our accessibility coordinator.",
       lastUpdated: "Last updated: June 2026",
       intro:
         "Zahavi - Pretty & Co. Law Offices attaches great importance to providing an accessible and equal service to the entire public, including persons with disabilities, and works to make its website accessible in accordance with the Equal Rights for Persons with Disabilities Law, 5758-1998, and the Equal Rights for Persons with Disabilities Regulations (Service Accessibility Adjustments), 5773-2013.",

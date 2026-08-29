@@ -213,6 +213,9 @@ export interface Dictionary {
     readMore: string;
     /** Label for the link to read a court ruling PDF inside the site. */
     readRuling: string;
+    /** Accessible name for the play button on a video card. `{title}` is
+     *  replaced with the video's title. */
+    playVideo: string;
     /** The individual court-ruling reader page. Without this copy the page is
      *  an h1 plus a PDF iframe, which gives crawlers nothing to index. */
     rulingPage: {
@@ -343,6 +346,11 @@ export interface Dictionary {
     applyBody: string;
     applyCta: string;
     applyEmail: string;
+  };
+  notFound: {
+    title: string;
+    body: string;
+    cta: string;
   };
   legal: {
     privacy: LegalPage;

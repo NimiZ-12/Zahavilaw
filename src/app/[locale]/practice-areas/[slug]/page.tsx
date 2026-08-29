@@ -102,7 +102,7 @@ export default async function PracticeAreaPage({
           <h1 className="mt-6 max-w-3xl text-4xl text-gold-400 sm:text-5xl">
             {area.title}
           </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-gold-400/70">
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-gold-400">
             {area.summary}
           </p>
         </div>
@@ -162,7 +162,7 @@ export default async function PracticeAreaPage({
                 <TrackableLink
                   href={`tel:${dict.contact.phone}`}
                   method="phone"
-                  className="font-medium text-navy hover:text-gold"
+                  className="font-medium text-navy hover:text-gold-600"
                   dir="ltr"
                 >
                   {dict.contact.phone}
