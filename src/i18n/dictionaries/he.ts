@@ -315,7 +315,7 @@ const he: Dictionary = {
     ],
     milestonesTitle: "המשרד במספרים",
     milestones: [
-      { value: "1996", label: "שני השותפים חברים בלשכת עורכי הדין" },
+      { value: "1996", label: "שנת הקמת המשרד" },
       { value: "6", label: "תחומי עיסוק שהמשרד מטפל בהם" },
       { value: "2", label: "שפות עבודה: עברית ואנגלית" },
     ],
@@ -398,6 +398,13 @@ const he: Dictionary = {
         ],
         practiceAreaSlugs: ["litigation", "commercial", "real-estate", "wills-estates"],
         barAdmission: "1996",
+        education: [
+          {
+            institution: "המכללה למנהל",
+            degree: "תואר במשפטים (LL.B)",
+            year: "1994",
+          },
+        ],
         credentials: [
           "ליטיגציה אזרחית-מסחרית בכל הערכאות",
           "ליווי תאגידים ועסקאות מסחריות",
@@ -417,6 +424,13 @@ const he: Dictionary = {
         ],
         practiceAreaSlugs: ["labor-law"],
         barAdmission: "1996",
+        education: [
+          {
+            institution: "המכללה למנהל",
+            degree: "תואר במשפטים (LL.B)",
+            year: "1994",
+          },
+        ],
         credentials: [
           "מגשרת מוסמכת בדיני עבודה",
           "ייצוג מעסיקים בבתי הדין האזוריים והארצי לעבודה",

@@ -1,6 +1,10 @@
 import { getDictionary } from "@/i18n/dictionaries";
 import { SITE_URL, localePath } from "@/lib/routes";
-import { WHATSAPP_NUMBER_DISPLAY, whatsappLink } from "@/lib/contact";
+import {
+  FIRM_FOUNDED,
+  WHATSAPP_NUMBER_DISPLAY,
+  whatsappLink,
+} from "@/lib/contact";
 
 /**
  * /llms.txt — a plain-text brief for large language models and answer
@@ -48,6 +52,7 @@ export async function GET() {
     "",
     `- Name (Hebrew): ${he.brand.name}`,
     `- Name (English): ${en.brand.name}`,
+    `- Founded: ${FIRM_FOUNDED}`,
     `- Address: ${addr.street}, ${addr.city} ${addr.postalCode}, Israel`,
     `- Phone: ${en.contact.phone}`,
     `- WhatsApp: ${WHATSAPP_NUMBER_DISPLAY} (${whatsappLink})`,
@@ -66,6 +71,13 @@ export async function GET() {
     push(`- Role: ${member.role}`);
     if (member.barAdmission) {
       push(`- Member of the Israel Bar since: ${member.barAdmission}`);
+    }
+    if (member.education?.length) {
+      push(
+        `- Education: ${member.education
+          .map((e) => [e.degree, e.institution, e.year].filter(Boolean).join(", "))
+          .join("; ")}`,
+      );
     }
     if (member.credentials?.length) {
       push(`- Qualifications: ${member.credentials.join("; ")}`);

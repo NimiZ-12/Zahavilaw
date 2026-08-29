@@ -24,3 +24,7 @@ export const OFFICE_COORDS = { lat: 32.08524, lon: 34.80006 };
 /** Waze deep link that starts navigation to the office. Works on the Waze app
  *  (mobile) and falls back to the Waze web map on desktop. */
 export const wazeLink = `https://waze.com/ul?ll=${OFFICE_COORDS.lat},${OFFICE_COORDS.lon}&navigate=yes`;
+
+/** Year the firm was founded. Emitted as `foundingDate` on the Organization
+ *  entity, which helps search and answer engines establish its longevity. */
+export const FIRM_FOUNDED = "1996";

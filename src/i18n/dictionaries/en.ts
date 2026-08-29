@@ -315,7 +315,7 @@ const en: Dictionary = {
     ],
     milestonesTitle: "The firm in numbers",
     milestones: [
-      { value: "1996", label: "Both partners admitted to the Israel Bar" },
+      { value: "1996", label: "The year the firm was founded" },
       { value: "6", label: "Practice areas the firm handles" },
       { value: "2", label: "Working languages: Hebrew and English" },
     ],
@@ -398,6 +398,13 @@ const en: Dictionary = {
         ],
         practiceAreaSlugs: ["litigation", "commercial", "real-estate", "wills-estates"],
         barAdmission: "1996",
+        education: [
+          {
+            institution: "The College of Management Academic Studies",
+            degree: "LL.B",
+            year: "1994",
+          },
+        ],
         credentials: [
           "Civil and commercial litigation before all courts",
           "Corporate counsel and commercial transactions",
@@ -417,6 +424,13 @@ const en: Dictionary = {
         ],
         practiceAreaSlugs: ["labor-law"],
         barAdmission: "1996",
+        education: [
+          {
+            institution: "The College of Management Academic Studies",
+            degree: "LL.B",
+            year: "1994",
+          },
+        ],
         credentials: [
           "Certified mediator in labor law",
           "Representation of employers before the regional and national labor courts",

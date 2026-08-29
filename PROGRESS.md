@@ -28,7 +28,7 @@
 ## סקירה כללית
 אתר תדמית דו-לשוני (עברית RTL / אנגלית LTR) למשרד עורכי דין, Next.js 16 (App
 Router) + Tailwind v4. המטרות: מראה מקצועי/יוקרתי, נגישות, SEO גבוה, יצירת קשר
-נוחה, וסנכרון לידים ל-CRM ב-Monday.
+נוחה, ומסירת פניות לתיבת הדוא”ל של המשרד.
 
 ## ✅ החלטות נעולות (לא לשנות בלי אישור הלקוח)
 - **פלטת צבעים נעולה**: נייבי כהה + זהב + ניטרליים. מוגדרת ב-`src/app/globals.css`
@@ -60,10 +60,9 @@ Router) + Tailwind v4. המטרות: מראה מקצועי/יוקרתי, נגי�
 - **פריסה**: Vercel, מחובר ל-GitHub. דומיין חי: **https://zahavilaw.vercel.app**
   (מתעדכן אוטומטית בכל push לענף). הדומיין האמיתי `www.zahavilaw.com` עוד לא חובר.
 - **ענף עבודה**: `claude/law-firm-website-crm-HASJH` (גם ברירת המחדל ב-repo).
-- **Monday CRM**: לוח נוצר (Board ID `5097905489`) ע"י `scripts/setup-monday.mjs`.
-  משתני הסביבה (`MONDAY_API_TOKEN`, `MONDAY_BOARD_ID`, `MONDAY_GROUP_ID`,
-  `MONDAY_COLUMN_MAP`) נמצאים ב-`.env.local` המקומי של הלקוח וצריכים להיות מוגדרים
-  גם ב-Environment Variables של Vercel. **אין סודות ב-repo.**
+- **מסירת פניות**: הטופס שולח בדוא"ל דרך Resend. משתני הסביבה
+  (`RESEND_API_KEY`, `LEAD_EMAIL_FROM`, `LEAD_EMAIL_TO`) צריכים להיות מוגדרים
+  ב-Environment Variables של Vercel. **אין סודות ב-repo.**
 - **SEO/פרטיות**: `SITE_NOINDEX=true` שומר את גרסת התצוגה מחוץ לגוגל (להסיר כשעולים
   לאוויר). robots/metadata מכבדים את הדגל.
 - **אבטחה**: security headers + CSP (`next.config.ts`), הגנת CSRF + rate-limit על
@@ -77,8 +76,9 @@ Router) + Tailwind v4. המטרות: מראה מקצועי/יוקרתי, נגי�
    או להעביר ל-`false`, ואז Redeploy. **לעשות רק ביום העלייה לאוויר בפועל.**
 3. **אימות 11 קישורי "מאמרים"** — לעבור על מדור פרסומים ולוודא שכל קישור מוביל
    לכתבה הנכונה (השיוך נעשה בניחוש לפי תחום/תאריך).
-4. **Monday CRM** — לוודא ש-`MONDAY_API_TOKEN`, `MONDAY_BOARD_ID`,
-   `MONDAY_GROUP_ID`, `MONDAY_COLUMN_MAP` מוגדרים ב-Vercel Environment Variables.
+4. **מסירת פניות** — לוודא ש-`RESEND_API_KEY` ו-`LEAD_EMAIL_FROM` מוגדרים
+   ב-Vercel Environment Variables. **בלעדיהם הטופס מחזיר שגיאה במכוון**, כדי
+   שפנייה לא תיבלע בשקט.
 5. **Google Analytics** — לחבר Tag ID כשעולים לאוויר (אופציונלי).
 6. **תמונות אמיתיות** — להחליף את תמונות הסטוק מ-Unsplash (`src/lib/images.ts`)
    בתמונות אמיתיות של המשרד/הצוות, כשיהיו זמינות.
@@ -104,7 +104,7 @@ Router) + Tailwind v4. המטרות: מראה מקצועי/יוקרתי, נגי�
 - אני דוחף לענף → Vercel מעדכן את `zahavilaw.vercel.app` תוך ~דקה → הלקוח מרענן ורואה.
 - הלקוח עובד על **Mac** (וגם נייד). לא טכני — להסביר בפשטות ולהימנע מהעמסת שלבים.
 - **רשת הסביבה**: בסביבות מסוימות חסומה (GitHub/npm בלבד). הלקוח הגדיר allowlist
-  לכתובות נדרשות (`zahavilaw.vercel.app`, `images.unsplash.com`, `api.monday.com`,
+  לכתובות נדרשות (`zahavilaw.vercel.app`, `images.unsplash.com`,
   ואתר הרפרנס). שינוי מדיניות רשת חל רק על **session חדש**. אם יש גישה — אפשר
   למשוך/לאמת תמונות ולצפות באתר ישירות במקום להסתמך על צילומי מסך.
 

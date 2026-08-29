@@ -1,12 +1,12 @@
 # משרד עורכי דין זהבי-פריטי ושות׳ — אתר תדמית | Zahavi - Pretty & Co. Law Offices Website
 
 אתר תדמית דו-לשוני (עברית / אנגלית) למשרד עורכי דין, בנוי ב-**Next.js 16** עם
-דגש על עיצוב מינימליסטי, נגישות, ביצועים וקידום אורגני (SEO), כולל סנכרון
-פניות ל-**CRM ב-Monday.com**.
+דגש על עיצוב מינימליסטי, נגישות, ביצועים וקידום אורגני (SEO/AEO/GEO).
+פניות מהטופס נשלחות לתיבת הדוא”ל של המשרד.
 
 A bilingual (Hebrew / English) law-firm website built with **Next.js 16**,
-focused on a minimalist design, accessibility, performance and SEO, with
-contact-form leads synced to a **Monday.com CRM**.
+focused on a minimalist design, accessibility, performance and SEO/AEO/GEO.
+Contact-form leads are delivered to the firm's inbox by email.
 
 ---
 
@@ -18,7 +18,7 @@ contact-form leads synced to a **Monday.com CRM**.
   `robots.txt`, ונתונים מובְנים (JSON-LD `LegalService`) לתוצאות עשירות בגוגל.
 - **נגישות** — מבנה סמנטי, ניווט מקלדת, "דלג לתוכן", טבעות פוקוס, וכיבוד
   `prefers-reduced-motion`.
-- **טופס יצירת קשר / קביעת פגישה** המסתנכרן אוטומטית ל-Monday.com.
+- **טופס יצירת קשר / קביעת פגישה** שנשלח לתיבת הדוא”ל של המשרד.
 - **עיצוב מינימליסטי** — פלטת נייבי + זהב, טיפוגרפיה Heebo / Frank Ruhl Libre,
   Tailwind CSS v4.
 
@@ -38,39 +38,20 @@ npm run start   # הרצת production build
 npm run lint    # בדיקת ESLint
 ```
 
-## 🔌 חיבור ל-Monday.com / CRM Integration
+## 📬 מסירת פניות / Lead delivery
 
-הטופס שולח את הפנייה ל-`/api/contact`, שמעביר אותה ל-Monday דרך ה-GraphQL API
-(`src/lib/monday.ts`). הגדירו את משתני הסביבה ב-`.env.local`:
+הטופס שולח את הפנייה ל-`/api/contact`, שמאמת אותה ושולח אותה בדוא"ל לתיבת
+המשרד דרך Resend (`src/lib/email.ts`). הגדירו ב-`.env.local`:
 
 | משתנה | תיאור |
 | --- | --- |
-| `MONDAY_API_TOKEN` | טוקן API מ-monday.com (Developers → My Access Tokens) |
-| `MONDAY_BOARD_ID` | מזהה הלוח שאליו נכנסות הפניות |
-| `MONDAY_GROUP_ID` | (אופציונלי) הקבוצה בלוח שבה ייווצרו הפריטים |
-| `MONDAY_COLUMN_MAP` | (אופציונלי) מיפוי JSON בין שדות הטופס לעמודות הלוח |
+| `RESEND_API_KEY` | מפתח API מ-resend.com |
+| `LEAD_EMAIL_FROM` | כתובת שולח מאומתת, למשל `"Website <leads@zahavilaw.com>"` |
+| `LEAD_EMAIL_TO` | (אופציונלי) נמענים מופרדים בפסיק |
 
-> אם המשתנים אינם מוגדרים, הטופס עדיין יעבוד — הפנייה תתקבל אך לא תסונכרן,
-> כדי לאפשר פיתוח ובדיקה ללא חשבון Monday.
-
-### יצירת הלוח אוטומטית / Automated board setup
-
-במקום ליצור את הלוח ידנית, הריצו את סקריפט ההקמה. הוא יוצר לוח עם כל העמודות
-הנכונות ומדפיס את משתני הסביבה המדויקים להעתקה אל `.env.local`:
-
-```bash
-MONDAY_API_TOKEN=<הטוקן-שלכם> npm run setup:monday
-```
-
-הסקריפט (`scripts/setup-monday.mjs`) רק **יוצר** לוח חדש — הוא לעולם לא מוחק דבר.
-
-**מיפוי עמודות** — `MONDAY_COLUMN_MAP` ממפה את שדות הפנייה
-(`email`, `phone`, `subject`, `message`, `preferredTime`, `locale`, `source`)
-למזהי העמודות בלוח שלכם. שם הלקוח נשמר כשם הפריט. דוגמה:
-
-```json
-{"email":"email","phone":"phone","subject":"text","message":"long_text"}
-```
+> בפיתוח, אם המשתנים אינם מוגדרים הפנייה מתקבלת ולא נשלחת - כדי לאפשר עבודה
+> מקומית בלי חשבון דוא"ל. **בפרודקשן זו שגיאה מכוונת (502)**, כדי שפנייה לא
+> תיבלע בשקט בלי שאיש ידע.
 
 ## 🔐 אבטחה / Security
 
@@ -82,8 +63,8 @@ MONDAY_API_TOKEN=<הטוקן-שלכם> npm run setup:monday
 - **הגבלת קצב** — עד 5 פניות לדקה לכל כתובת IP (`src/lib/rate-limit.ts`),
   למניעת ספאם וניצול לרעה.
 - **ולידציה והגבלות** — בדיקת קלט, הגבלת גודל גוף הבקשה, ומלכודת ספאם (honeypot).
-- **סודות בצד השרת בלבד** — טוקן ה-Monday נטען עם `server-only` ולעולם לא נחשף
-  לדפדפן.
+- **סודות בצד השרת בלבד** — מפתחות ה-API נטענים בצד השרת בלבד ולעולם לא
+  נחשפים לדפדפן.
 
 > CSP מוגדר כעת במצב **סטטי-ידידותי** (האתר נשאר סטטי — מהיר ועמיד יותר לעומסים).
 > אם בעתיד יתווסף אזור אישי ללקוחות, ניתן לשדרג ל-CSP מבוסס nonce.
@@ -94,11 +75,11 @@ MONDAY_API_TOKEN=<הטוקן-שלכם> npm run setup:monday
 src/
 ├── app/
 │   ├── layout.tsx              # שורש (pass-through)
-│   ├── fonts.ts                # Heebo + Frank Ruhl Libre
+│   ├── fonts.ts                # Heebo
 │   ├── globals.css             # מערכת עיצוב (tokens, RTL, נגישות)
 │   ├── sitemap.ts / robots.ts  # SEO
 │   ├── not-found.tsx           # עמוד 404
-│   ├── api/contact/route.ts    # קבלת פניות → Monday
+│   ├── api/contact/route.ts    # קבלת פניות → דוא”ל
 │   └── [locale]/               # ניתוב לפי שפה
 │       ├── layout.tsx          #   <html dir>, מטא-דאטה, Header/Footer
 │       ├── page.tsx            #   דף הבית
@@ -106,7 +87,7 @@ src/
 │       └── practice-areas/[slug]/
 ├── components/                 # Header, Footer, ContactForm, וכו'
 ├── i18n/                       # config + מילונים (he / en)
-└── lib/                        # routes, monday
+└── lib/                        # routes, schema, email, images
 ```
 
 ## 📝 עריכת תוכן / Editing Content
