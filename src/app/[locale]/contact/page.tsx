@@ -183,7 +183,14 @@ export default async function ContactPage({
             <div className="rounded-2xl border border-border bg-white p-7 shadow-sm sm:p-9">
               <h2 className="text-xl">{contact.form.title}</h2>
               <div className="mt-6">
-                <ContactForm locale={typedLocale} dict={dict} />
+                <ContactForm
+                  locale={typedLocale}
+                  t={contact.form}
+                  subjects={dict.practiceAreas.items.map((a) => ({
+                    slug: a.slug,
+                    title: a.title,
+                  }))}
+                />
               </div>
             </div>
           </div>

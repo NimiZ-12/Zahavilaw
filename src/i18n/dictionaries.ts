@@ -352,6 +352,15 @@ export interface Dictionary {
     body: string;
     cta: string;
   };
+  /** Cookie banner. Analytics and advertising tags load only after the
+   *  visitor accepts, as the Privacy Protection Law requires. */
+  cookies: {
+    title: string;
+    body: string;
+    accept: string;
+    decline: string;
+    policyLink: string;
+  };
   legal: {
     privacy: LegalPage;
     accessibility: LegalPage;

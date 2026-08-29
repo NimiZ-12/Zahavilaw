@@ -745,6 +745,13 @@ const en: Dictionary = {
     applyCta: "Send your CV by email",
     applyEmail: "office@zahavilaw.com",
   },
+  cookies: {
+    title: "Cookies on this site",
+    body: "We use cookies that are necessary for the site to work. We would also like to use measurement cookies that help us understand how the site is used. Those load only if you accept.",
+    accept: "Accept",
+    decline: "Necessary only",
+    policyLink: "Read the privacy policy",
+  },
   notFound: {
     title: "Page not found",
     body: "The link may be incorrect, or the page may have been removed. You can return to the homepage or get in touch with us.",
@@ -790,8 +797,9 @@ const en: Dictionary = {
             "The Firm does not sell or rent your personal information. Your information may be processed and stored by service providers acting on our behalf, including:",
           ],
           items: [
-            "A customer-relationship-management (CRM) provider, where inquiries are stored for tracking and handling.",
+            "The email service provider through which your inquiry is delivered to the firm's inbox.",
             "The site's hosting provider and the technical infrastructure on which it runs.",
+            "A human-verification (CAPTCHA) provider that prevents automated form submissions.",
             "Competent authorities or other parties - where required by law, court order, or to protect the Firm's rights.",
           ],
         },
@@ -816,18 +824,24 @@ const en: Dictionary = {
         {
           heading: "8. Your Rights",
           paragraphs: [
-            "Under Israel's Privacy Protection Law, 5741-1981, you have the following rights:",
+            "Under the Protection of Privacy Law, 5741-1981, as amended by Amendment 13 which came into force in August 2025, you have the following rights:",
           ],
           items: [
-            "The right to inspect information held about you in the Firm's databases.",
-            "The right to request the correction of information that is inaccurate, incomplete, unclear, or out of date.",
-            "The right to request deletion of the information, subject to the law and to the retention obligations applicable to the Firm.",
+            "The right to review information about you held in the Firm's databases.",
+            "The right to request correction of information that is incorrect, incomplete, unclear or out of date.",
+            "The right to request deletion of the information, subject to the law and to the retention obligations that apply to the Firm.",
+            "The right to be told the purposes for which the information is used and the parties to whom it is disclosed.",
+            "The right to withdraw consent you have given, including consent to measurement cookies, at any time and without giving a reason.",
+            "The right to complain to the Privacy Protection Authority if you believe your rights have been infringed.",
           ],
         },
         {
-          heading: "9. Cookies and Analytics",
+          heading: "9. Cookies and Measurement Tools",
           paragraphs: [
-            "The site uses technical means essential to its operation and security. In addition, the site may use Google Analytics to produce anonymous statistical data about how the site is used (such as the number of visitors and pages viewed), in order to improve the browsing experience. This service uses cookies and may collect usage data in accordance with Google's privacy policy. The site does not use advertising cookies for targeted advertising. You may configure your browser to block cookies, though this may affect some site features.",
+            "This site uses strictly necessary cookies, required for it to operate and stay secure, which do not require consent - for example remembering your language choice and protecting the contact form.",
+            "In addition, the site may use Google measurement and advertising tools (Google Analytics and Google Ads), which help us understand how the site is used and measure the effectiveness of our campaigns. These tools use cookies and send data to Google in accordance with its privacy policy.",
+            "The measurement and advertising tools load only after you have explicitly accepted them in the cookie banner shown when you arrive. If you choose \"Necessary only\", no measurement or advertising cookie is loaded and no data is sent to Google. You can change your choice at any time by clearing the site's data in your browser, after which the banner appears again.",
+            "You can also block cookies generally in your browser settings, though this may affect some features of the site.",
           ],
         },
         {

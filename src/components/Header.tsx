@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { Locale } from "@/i18n/config";
@@ -23,6 +23,8 @@ export default function Header({
   const pathname = usePathname() || "";
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const toggleRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -30,6 +32,40 @@ export default function Header({
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Escape closes the menu and returns focus to the button that opened it,
+  // and Tab is kept inside the panel while it is open.
+  useEffect(() => {
+    if (!open) return;
+
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setOpen(false);
+        toggleRef.current?.focus();
+        return;
+      }
+      if (event.key !== "Tab" || !menuRef.current) return;
+
+      const focusable = menuRef.current.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      );
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      const active = document.activeElement;
+
+      if (event.shiftKey && (active === first || active === toggleRef.current)) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && active === last) {
+        event.preventDefault();
+        toggleRef.current?.focus();
+      }
+    }
+
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [open]);
 
   const isActive = (path: string) => {
     const full = localePath(locale, path);
@@ -82,6 +118,7 @@ export default function Header({
         </div>
 
         <button
+          ref={toggleRef}
           type="button"
           onClick={() => setOpen((v) => !v)}
           className="inline-flex h-10 w-10 items-center justify-center rounded-md text-navy lg:hidden"
@@ -97,14 +134,15 @@ export default function Header({
       {open && (
         <div
           id="mobile-menu"
+          ref={menuRef}
           className="border-t border-border bg-white lg:hidden"
-          onClick={() => setOpen(false)}
         >
           <nav className="container-x flex flex-col gap-1 py-4" aria-label={nav.menu}>
             {navItems.map((item) => (
               <Link
                 key={item.key}
                 href={localePath(locale, item.path)}
+                onClick={() => setOpen(false)}
                 className={`rounded-md px-3 py-3 text-base font-medium transition-colors ${
                   isActive(item.path)
                     ? "bg-surface text-gold-600"

@@ -49,13 +49,16 @@ function earliestSelectableDate(): string {
 
 export default function ContactForm({
   locale,
-  dict,
+  t,
+  subjects,
 }: {
   locale: Locale;
-  dict: Dictionary;
+  t: Dictionary["contact"]["form"];
+  /** Practice areas, used for the subject dropdown. Narrowed to the two
+   *  fields actually rendered so the rest of the dictionary is not
+   *  serialized into the page payload. */
+  subjects: { slug: string; title: string }[];
 }) {
-  const t = dict.contact.form;
-  const subjects = dict.practiceAreas.items;
 
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<FieldErrors>({});
