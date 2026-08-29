@@ -3,7 +3,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-import { localeAlternates, localePath } from "@/lib/routes";
+import { localePath } from "@/lib/routes";
+import { pageMetadata } from "@/lib/metadata";
+import { buildGraph, personNode } from "@/lib/schema";
+import JsonLd from "@/components/JsonLd";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { images } from "@/lib/images";
 import HeroImagePreload from "@/components/HeroImagePreload";
 import SectionHeading from "@/components/SectionHeading";
@@ -17,14 +21,13 @@ export async function generateMetadata({
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   const dict = await getDictionary(locale);
-  return {
+  return pageMetadata({
+    locale,
+    path: "/team",
     title: dict.team.title,
     description: dict.team.subtitle,
-    alternates: {
-      canonical: localePath(locale, "/team"),
-      languages: localeAlternates("/team"),
-    },
-  };
+    brandName: dict.brand.name,
+  });
 }
 
 export default async function TeamPage({
@@ -37,8 +40,22 @@ export default async function TeamPage({
   const dict = await getDictionary(locale as Locale);
   const { team } = dict;
 
+  const typedLocale = locale as Locale;
+  const trail = [{ name: team.title, path: "/team" }];
+  const graph = buildGraph({
+    locale: typedLocale,
+    dict,
+    path: "/team",
+    pageType: "CollectionPage",
+    name: team.title,
+    description: team.subtitle,
+    trail,
+    nodes: team.members.map((m) => personNode(typedLocale, m, dict)),
+  });
+
   return (
     <>
+      <JsonLd data={graph} />
       <HeroImagePreload src={images.team} />
       <section className="relative overflow-hidden border-b border-white/10 bg-navy">
         <div
@@ -51,6 +68,13 @@ export default async function TeamPage({
           className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy via-navy/60 to-navy/35"
         />
         <div className="container-x relative py-16 sm:py-20">
+          <Breadcrumbs
+            locale={typedLocale}
+            homeLabel={dict.nav.home}
+            navLabel={dict.nav.breadcrumb}
+            trail={trail}
+            tone="dark"
+          />
           <SectionHeading
             as="h1"
             eyebrow={team.eyebrow}

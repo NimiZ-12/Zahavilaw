@@ -1,7 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { localePath } from "@/lib/routes";
+import { pageMetadata } from "@/lib/metadata";
+import { buildGraph, serviceNode, personNode } from "@/lib/schema";
+import JsonLd from "@/components/JsonLd";
 import { images } from "@/lib/images";
 import HeroImagePreload from "@/components/HeroImagePreload";
 import { notFound } from "next/navigation";
@@ -10,6 +14,23 @@ import { ButtonLink } from "@/components/Button";
 import { ArrowIcon, CheckIcon } from "@/components/Icons";
 import { practiceAreaIcons } from "@/lib/practice-icons";
 import ClientsMarquee from "@/components/ClientsMarquee";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  if (!isLocale(locale)) return {};
+  const dict = await getDictionary(locale);
+  return pageMetadata({
+    locale,
+    path: "/",
+    title: dict.meta.defaultTitle,
+    description: dict.meta.defaultDescription,
+    brandName: dict.brand.name,
+  });
+}
 
 export default async function HomePage({
   params,
@@ -22,8 +43,23 @@ export default async function HomePage({
   const dict = await getDictionary(typedLocale);
   const { home, practiceAreas } = dict;
 
+  // The homepage carries the full entity set: the firm, its site, every
+  // service and both attorneys. Inner pages then reference these by @id.
+  const graph = buildGraph({
+    locale: typedLocale,
+    dict,
+    path: "/",
+    name: dict.meta.defaultTitle,
+    description: dict.meta.defaultDescription,
+    nodes: [
+      ...practiceAreas.items.map((area) => serviceNode(typedLocale, area, dict)),
+      ...dict.team.members.map((m) => personNode(typedLocale, m, dict)),
+    ],
+  });
+
   return (
     <>
+      <JsonLd data={graph} />
       <HeroImagePreload src={images.hero} />
       {/* ----------------------------------------------------------------- Hero */}
       <section className="relative overflow-hidden bg-navy text-white">

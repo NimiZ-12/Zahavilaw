@@ -31,6 +31,34 @@ export interface TeamMember {
   about: string[];
   /** Practice-area slugs this member specializes in, shown on their profile page. */
   practiceAreaSlugs: string[];
+
+  /* --- Credentials. Feed the Person schema and the authority block on the
+     About and profile pages. All optional: a member is rendered correctly
+     with none of them set. --- */
+
+  /** Year admitted to the Israel Bar, e.g. "1996". */
+  barAdmission?: string;
+  education?: { institution: string; degree: string; year?: string }[];
+  /** Certifications and professional qualifications, one per entry. */
+  credentials?: string[];
+  /** Bar committees, professional associations. */
+  memberships?: string[];
+  /** Languages the member practises in. */
+  languages?: string[];
+}
+
+/** A role the firm is hiring for. Drives the JobPosting schema. */
+export interface JobOpening {
+  title: string;
+  /** Plain-language summary shown on the page and used as the schema description. */
+  description: string;
+  /** e.g. "משרה מלאה" / "Full-time". */
+  employmentType?: string;
+  requirements: string[];
+  /** ISO date (YYYY-MM-DD) — required by Google for JobPosting. */
+  datePosted: string;
+  /** ISO date the listing expires. Google downranks postings without one. */
+  validThrough?: string;
 }
 
 /** A single press article, media mention, or court decision. */
@@ -68,6 +96,9 @@ export interface Dictionary {
     name: string;
     short: string;
     tagline: string;
+    /** Official profiles (LinkedIn, Google Business, Facebook). Emitted as
+     *  `sameAs` so answer engines can corroborate the firm's identity. */
+    sameAs?: string[];
   };
   meta: {
     defaultTitle: string;
@@ -84,6 +115,10 @@ export interface Dictionary {
     cta: string;
     skipToContent: string;
     menu: string;
+    faq: string;
+    careers: string;
+    /** Accessible label for the breadcrumb navigation landmark. */
+    breadcrumb: string;
   };
   home: {
     hero: {
@@ -132,9 +167,29 @@ export interface Dictionary {
     eyebrow: string;
     title: string;
     lead: string;
+    /** Section 1: the firm's story, one entry per paragraph. */
+    storyTitle: string;
     body: string[];
+    /** Section 2: headline figures (years practising, areas, languages). */
+    milestonesTitle: string;
+    milestones: { value: string; label: string }[];
+    /** Section 3: the attorneys and their qualifications. */
+    teamTitle: string;
+    teamIntro: string;
+    barAdmissionLabel: string;
+    educationLabel: string;
+    credentialsLabel: string;
+    membershipsLabel: string;
+    languagesLabel: string;
+    /** Section 4: what the firm handles, linking through to practice areas. */
+    practiceTitle: string;
+    practiceIntro: string;
+    /** Section 5: how the firm works. */
     valuesTitle: string;
     values: Feature[];
+    /** Section 6: questions about the firm itself. Emits FAQPage schema. */
+    faqTitle: string;
+    faq: { q: string; a: string }[];
   };
   team: {
     eyebrow: string;
@@ -158,6 +213,20 @@ export interface Dictionary {
     readMore: string;
     /** Label for the link to read a court ruling PDF inside the site. */
     readRuling: string;
+    /** The individual court-ruling reader page. Without this copy the page is
+     *  an h1 plus a PDF iframe, which gives crawlers nothing to index. */
+    rulingPage: {
+      aboutTitle: string;
+      /** Sentence explaining what the reader is looking at. */
+      about: string;
+      disclaimer: string;
+      documentTitle: string;
+      openInNewTab: string;
+      download: string;
+      /** Wraps the ruling title into a meta description. */
+      metaPrefix: string;
+      metaSuffix: string;
+    };
     /** Optional section groupings. Items live under each group. */
     groups: {
       heading: string;
@@ -180,6 +249,13 @@ export interface Dictionary {
     email: string;
     addressLabel: string;
     addressLines: string[];
+    /** Machine-readable form of the same address, for the PostalAddress schema.
+     *  Kept separate from `addressLines` so display formatting stays free. */
+    postalAddress: {
+      street: string;
+      city: string;
+      postalCode: string;
+    };
     hoursLabel: string;
     hours: string;
     form: {
@@ -198,7 +274,15 @@ export interface Dictionary {
       preferredTimePlaceholder: string;
       preferredTimeNote: string;
       preferredTimeWeekendError: string;
-      consent: string;
+      /* The consent sentence is split so "privacy policy" and "terms of use"
+         can be rendered as real links to their pages without putting markup
+         inside the dictionary. Reads:
+         consentPrefix + [consentPrivacy] + consentAnd + [consentTerms] + consentSuffix */
+      consentPrefix: string;
+      consentPrivacy: string;
+      consentAnd: string;
+      consentTerms: string;
+      consentSuffix: string;
       submit: string;
       submitting: string;
       successTitle: string;
@@ -221,12 +305,49 @@ export interface Dictionary {
     disclaimer: string;
     privacy: string;
     accessibility: string;
+    terms: string;
+    careers: string;
+    /** Accessible label for the legal-links nav at the foot of the page.
+     *  Distinct from `quickLinks` so the two nav landmarks are told apart. */
+    legalLinks: string;
     /** Label for the "SSL secured site" trust badge. */
     secure: string;
+  };
+  /** Standalone questions-and-answers page. Aggregates every practice-area
+   *  Q&A plus general questions about working with the firm. */
+  faqPage: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    generalTitle: string;
+    general: { q: string; a: string }[];
+    byAreaTitle: string;
+    stillHaveQuestions: string;
+    stillHaveQuestionsBody: string;
+  };
+  careers: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    /** The firm as an employer: what it is like to work here. */
+    cultureTitle: string;
+    culture: string[];
+    offerTitle: string;
+    offer: Feature[];
+    openingsTitle: string;
+    /** Empty array renders the "no current openings" message instead. */
+    openings: JobOpening[];
+    noOpenings: string;
+    requirementsLabel: string;
+    applyTitle: string;
+    applyBody: string;
+    applyCta: string;
+    applyEmail: string;
   };
   legal: {
     privacy: LegalPage;
     accessibility: LegalPage;
+    terms: LegalPage;
   };
 }
 

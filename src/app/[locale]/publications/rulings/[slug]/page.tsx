@@ -3,7 +3,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { isLocale, locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-import { localeAlternates, localePath } from "@/lib/routes";
+import { localePath } from "@/lib/routes";
+import { pageMetadata } from "@/lib/metadata";
+import { articleNode, buildGraph } from "@/lib/schema";
+import JsonLd from "@/components/JsonLd";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { ArrowIcon } from "@/components/Icons";
 
 /** Collects every court-ruling entry across the publications groups. */
@@ -28,6 +32,11 @@ async function getRuling(locale: Locale, slug: string) {
   return { dict, ruling };
 }
 
+function describe(dict: Awaited<ReturnType<typeof getDictionary>>, title: string) {
+  const t = dict.publications.rulingPage;
+  return `${t.metaPrefix}${title}${t.metaSuffix}`;
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -35,20 +44,16 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale, slug } = await params;
   if (!isLocale(locale)) return {};
-  const { ruling } = await getRuling(locale, slug);
+  const { dict, ruling } = await getRuling(locale, slug);
   if (!ruling) return {};
-  const dict = await getDictionary(locale);
-  return {
+  return pageMetadata({
+    locale,
+    path: `/publications/rulings/${slug}`,
     title: ruling.title,
-    description:
-      locale === "he"
-        ? `פסק דין: ${ruling.title} — ${dict.brand.name}. קריאת פסק הדין המלא באתר המשרד.`
-        : `Court ruling: ${ruling.title} — ${dict.brand.name}. Read the full ruling on the firm's website.`,
-    alternates: {
-      canonical: localePath(locale, `/publications/rulings/${slug}`),
-      languages: localeAlternates(`/publications/rulings/${slug}`),
-    },
-  };
+    description: describe(dict, ruling.title),
+    brandName: dict.brand.name,
+    type: "article",
+  });
 }
 
 export default async function RulingPage({
@@ -63,15 +68,46 @@ export default async function RulingPage({
   if (!ruling) notFound();
 
   const { publications } = dict;
+  const t = publications.rulingPage;
   const pdf = `/rulings/${slug}.pdf`;
+  const path = `/publications/rulings/${slug}`;
+  const trail = [
+    { name: publications.title, path: "/publications" },
+    { name: ruling.title, path },
+  ];
+
+  const graph = buildGraph({
+    locale: typedLocale,
+    dict,
+    path,
+    name: ruling.title,
+    description: describe(dict, ruling.title),
+    trail,
+    nodes: [
+      articleNode({
+        locale: typedLocale,
+        path,
+        headline: ruling.title,
+        description: describe(dict, ruling.title),
+      }),
+    ],
+  });
 
   return (
     <>
+      <JsonLd data={graph} />
       <section className="border-b border-border bg-navy text-white">
         <div className="container-x py-12 sm:py-16">
+          <Breadcrumbs
+            locale={typedLocale}
+            homeLabel={dict.nav.home}
+            navLabel={dict.nav.breadcrumb}
+            trail={trail}
+            tone="dark"
+          />
           <Link
             href={localePath(typedLocale, "/publications")}
-            className="inline-flex items-center gap-1.5 text-sm text-white/60 transition-colors hover:text-gold-400"
+            className="mt-5 inline-flex items-center gap-1.5 text-sm text-white/60 transition-colors hover:text-gold-400"
           >
             <ArrowIcon className="h-4 w-4 -scale-x-100 rtl:scale-x-100" />
             {publications.title}
@@ -82,23 +118,28 @@ export default async function RulingPage({
         </div>
       </section>
 
-      <section className="section">
+      <article className="section">
         <div className="container-x">
-          <div className="overflow-hidden rounded-2xl border border-border bg-surface shadow-sm">
-            <iframe
-              src={pdf}
-              title={ruling.title}
-              className="h-[80vh] w-full"
-            />
+          {/* Text before the viewer: the PDF itself is not indexable, so the
+              page needs prose of its own to be worth crawling. */}
+          <div className="max-w-3xl">
+            <h2 className="text-2xl">{t.aboutTitle}</h2>
+            <p className="mt-4 text-lg leading-relaxed text-muted">{t.about}</p>
+            <p className="mt-4 text-sm leading-relaxed text-muted">{t.disclaimer}</p>
+          </div>
+
+          <h2 className="mt-12 text-2xl">{t.documentTitle}</h2>
+          <div className="mt-6 overflow-hidden rounded-2xl border border-border bg-surface shadow-sm">
+            <iframe src={pdf} title={ruling.title} className="h-[80vh] w-full" />
           </div>
           <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
             <a
               href={pdf}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-gold hover:text-gold-600"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-gold-600 hover:text-navy"
             >
-              {typedLocale === "he" ? "פתיחת הקובץ בחלון חדש" : "Open the file in a new tab"}
+              {t.openInNewTab}
               <ArrowIcon className="h-4 w-4 rtl:-scale-x-100" />
             </a>
             <a
@@ -106,11 +147,11 @@ export default async function RulingPage({
               download
               className="inline-flex items-center gap-1.5 text-sm font-medium text-muted hover:text-navy"
             >
-              {typedLocale === "he" ? "הורדת הקובץ" : "Download the file"}
+              {t.download}
             </a>
           </div>
         </div>
-      </section>
+      </article>
     </>
   );
 }

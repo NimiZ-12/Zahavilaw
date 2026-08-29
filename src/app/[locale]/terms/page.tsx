@@ -18,14 +18,14 @@ export async function generateMetadata({
   const dict = await getDictionary(locale);
   return pageMetadata({
     locale,
-    path: "/accessibility",
-    title: dict.legal.accessibility.title,
-    description: dict.legal.accessibility.metaDescription,
+    path: "/terms",
+    title: dict.legal.terms.title,
+    description: dict.legal.terms.metaDescription,
     brandName: dict.brand.name,
   });
 }
 
-export default async function AccessibilityPage({
+export default async function TermsPage({
   params,
 }: {
   params: Promise<{ locale: string }>;
@@ -34,13 +34,13 @@ export default async function AccessibilityPage({
   if (!isLocale(locale)) notFound();
   const typedLocale = locale as Locale;
   const dict = await getDictionary(typedLocale);
-  const page = dict.legal.accessibility;
-  const trail = [{ name: page.title, path: "/accessibility" }];
+  const page = dict.legal.terms;
+  const trail = [{ name: page.title, path: "/terms" }];
 
   const graph = buildGraph({
     locale: typedLocale,
     dict,
-    path: "/accessibility",
+    path: "/terms",
     name: page.title,
     description: page.metaDescription,
     trail,

@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-import { localeAlternates, localePath } from "@/lib/routes";
+import { pageMetadata } from "@/lib/metadata";
+import { buildGraph } from "@/lib/schema";
+import JsonLd from "@/components/JsonLd";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { images } from "@/lib/images";
 import HeroImagePreload from "@/components/HeroImagePreload";
 import { whatsappLink, WHATSAPP_NUMBER_DISPLAY, wazeLink } from "@/lib/contact";
@@ -19,14 +22,13 @@ export async function generateMetadata({
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   const dict = await getDictionary(locale);
-  return {
+  return pageMetadata({
+    locale,
+    path: "/contact",
     title: dict.contact.title,
     description: dict.contact.subtitle,
-    alternates: {
-      canonical: localePath(locale, "/contact"),
-      languages: localeAlternates("/contact"),
-    },
-  };
+    brandName: dict.brand.name,
+  });
 }
 
 export default async function ContactPage({
@@ -73,8 +75,20 @@ export default async function ContactPage({
     { icon: ClockIcon, label: contact.hoursLabel, value: contact.hours },
   ];
 
+  const trail = [{ name: contact.title, path: "/contact" }];
+  const graph = buildGraph({
+    locale: typedLocale,
+    dict,
+    path: "/contact",
+    pageType: "ContactPage",
+    name: contact.title,
+    description: contact.subtitle,
+    trail,
+  });
+
   return (
     <>
+      <JsonLd data={graph} />
       <HeroImagePreload src={images.contact} />
       <section className="relative overflow-hidden border-b border-white/10 bg-navy">
         <div
@@ -87,6 +101,13 @@ export default async function ContactPage({
           className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy via-navy/60 to-navy/35"
         />
         <div className="container-x relative py-16 sm:py-20">
+          <Breadcrumbs
+            locale={typedLocale}
+            homeLabel={dict.nav.home}
+            navLabel={dict.nav.breadcrumb}
+            trail={trail}
+            tone="dark"
+          />
           <SectionHeading
             as="h1"
             eyebrow={contact.eyebrow}

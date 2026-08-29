@@ -3,7 +3,11 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-import { localeAlternates, localePath } from "@/lib/routes";
+import { localePath } from "@/lib/routes";
+import { pageMetadata } from "@/lib/metadata";
+import { buildGraph, videoNode } from "@/lib/schema";
+import JsonLd from "@/components/JsonLd";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { images } from "@/lib/images";
 import HeroImagePreload from "@/components/HeroImagePreload";
 import SectionHeading from "@/components/SectionHeading";
@@ -34,14 +38,13 @@ export async function generateMetadata({
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   const dict = await getDictionary(locale);
-  return {
+  return pageMetadata({
+    locale,
+    path: "/publications",
     title: dict.publications.title,
     description: dict.publications.subtitle,
-    alternates: {
-      canonical: localePath(locale, "/publications"),
-      languages: localeAlternates("/publications"),
-    },
-  };
+    brandName: dict.brand.name,
+  });
 }
 
 export default async function PublicationsPage({
@@ -54,8 +57,22 @@ export default async function PublicationsPage({
   const dict = await getDictionary(locale as Locale);
   const { publications } = dict;
 
+  const typedLocale = locale as Locale;
+  const trail = [{ name: publications.title, path: "/publications" }];
+  const graph = buildGraph({
+    locale: typedLocale,
+    dict,
+    path: "/publications",
+    pageType: "CollectionPage",
+    name: publications.title,
+    description: publications.subtitle,
+    trail,
+    nodes: publications.groups.flatMap((g) => (g.videos ?? []).map(videoNode)),
+  });
+
   return (
     <>
+      <JsonLd data={graph} />
       <HeroImagePreload src={images.publications} />
       <section className="relative overflow-hidden border-b border-white/10 bg-navy">
         <div
@@ -68,6 +85,13 @@ export default async function PublicationsPage({
           className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy via-navy/60 to-navy/35"
         />
         <div className="container-x relative py-16 sm:py-20">
+          <Breadcrumbs
+            locale={typedLocale}
+            homeLabel={dict.nav.home}
+            navLabel={dict.nav.breadcrumb}
+            trail={trail}
+            tone="dark"
+          />
           <SectionHeading
             as="h1"
             eyebrow={publications.eyebrow}

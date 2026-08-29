@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import Script from "next/script";
+import Link from "next/link";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { localePath } from "@/lib/routes";
 import { CheckIcon } from "./Icons";
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -140,7 +142,11 @@ export default function ContactForm({
 
   if (status === "success") {
     return (
-      <div className="flex flex-col items-center gap-4 rounded-xl border border-border bg-surface p-10 text-center">
+      <div
+        role="status"
+        aria-live="polite"
+        className="flex flex-col items-center gap-4 rounded-xl border border-border bg-surface p-10 text-center"
+      >
         <span className="grid h-14 w-14 place-items-center rounded-full bg-gold/15 text-gold">
           <CheckIcon className="h-7 w-7" />
         </span>
@@ -160,7 +166,7 @@ export default function ContactForm({
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className={labelClass}>
-            {t.name} <span className="text-gold">*</span>
+            {t.name} <span aria-hidden className="text-gold-600">*</span>
           </label>
           <input
             id="name"
@@ -170,13 +176,19 @@ export default function ContactForm({
             placeholder={t.namePlaceholder}
             className={fieldClass}
             aria-invalid={!!errors.name}
+            aria-required="true"
+            aria-describedby={errors.name ? "name-error" : undefined}
           />
-          {errors.name && <p className={errorClass}>{errors.name}</p>}
+          {errors.name && (
+            <p id="name-error" className={errorClass}>
+              {errors.name}
+            </p>
+          )}
         </div>
 
         <div>
           <label htmlFor="phone" className={labelClass}>
-            {t.phone} <span className="text-gold">*</span>
+            {t.phone} <span aria-hidden className="text-gold-600">*</span>
           </label>
           <input
             id="phone"
@@ -187,15 +199,21 @@ export default function ContactForm({
             placeholder={t.phonePlaceholder}
             className={`${fieldClass} text-start`}
             aria-invalid={!!errors.phone}
+            aria-required="true"
+            aria-describedby={errors.phone ? "phone-error" : undefined}
           />
-          {errors.phone && <p className={errorClass}>{errors.phone}</p>}
+          {errors.phone && (
+            <p id="phone-error" className={errorClass}>
+              {errors.phone}
+            </p>
+          )}
         </div>
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="email" className={labelClass}>
-            {t.email} <span className="text-gold">*</span>
+            {t.email} <span aria-hidden className="text-gold-600">*</span>
           </label>
           <input
             id="email"
@@ -206,8 +224,14 @@ export default function ContactForm({
             placeholder={t.emailPlaceholder}
             className={`${fieldClass} text-start`}
             aria-invalid={!!errors.email}
+            aria-required="true"
+            aria-describedby={errors.email ? "email-error" : undefined}
           />
-          {errors.email && <p className={errorClass}>{errors.email}</p>}
+          {errors.email && (
+            <p id="email-error" className={errorClass}>
+              {errors.email}
+            </p>
+          )}
         </div>
 
         <div>
@@ -242,9 +266,17 @@ export default function ContactForm({
           className={`${fieldClass} text-start`}
           dir="ltr"
           aria-invalid={!!preferredDateError}
-          aria-describedby="preferredTime-note"
+          aria-describedby={
+            preferredDateError
+              ? "preferredTime-error preferredTime-note"
+              : "preferredTime-note"
+          }
         />
-        {preferredDateError && <p className={errorClass}>{preferredDateError}</p>}
+        {preferredDateError && (
+          <p id="preferredTime-error" className={errorClass}>
+            {preferredDateError}
+          </p>
+        )}
         <p id="preferredTime-note" className="mt-1.5 text-xs leading-relaxed text-muted">
           {t.preferredTimeNote}
         </p>
@@ -269,16 +301,47 @@ export default function ContactForm({
         <input id="company" name="company" type="text" tabIndex={-1} autoComplete="off" />
       </div>
 
-      <label className="flex items-start gap-2.5 text-sm text-muted">
-        <input
-          name="consent"
-          type="checkbox"
-          className="mt-1 h-4 w-4 shrink-0 accent-[var(--gold)]"
-          aria-invalid={!!errors.consent}
-        />
-        <span>{t.consent}</span>
-      </label>
-      {errors.consent && <p className={`${errorClass} -mt-3`}>{errors.consent}</p>}
+      {/* Required by Israeli privacy law: unchecked by default, and the
+          policy and terms are real links, not plain words. The same consent
+          is re-validated server-side in /api/contact. */}
+      <div>
+        <label
+          htmlFor="consent"
+          className="flex items-start gap-2.5 text-sm text-muted"
+        >
+          <input
+            id="consent"
+            name="consent"
+            type="checkbox"
+            className="mt-1 h-4 w-4 shrink-0 accent-[var(--gold)]"
+            aria-invalid={!!errors.consent}
+            aria-required="true"
+            aria-describedby={errors.consent ? "consent-error" : undefined}
+          />
+          <span>
+            {t.consentPrefix}
+            <Link
+              href={localePath(locale, "/privacy")}
+              className="font-medium text-navy underline underline-offset-2 hover:text-gold-600"
+            >
+              {t.consentPrivacy}
+            </Link>
+            {t.consentAnd}
+            <Link
+              href={localePath(locale, "/terms")}
+              className="font-medium text-navy underline underline-offset-2 hover:text-gold-600"
+            >
+              {t.consentTerms}
+            </Link>
+            {t.consentSuffix}
+          </span>
+        </label>
+        {errors.consent && (
+          <p id="consent-error" className={errorClass}>
+            {errors.consent}
+          </p>
+        )}
+      </div>
 
       {TURNSTILE_SITE_KEY && (
         <div>
@@ -289,7 +352,10 @@ export default function ContactForm({
       )}
 
       {status === "error" && (
-        <div className="rounded-md border border-red-200 bg-red-50 p-3 text-sm text-red-700">
+        <div
+          role="alert"
+          className="rounded-md border border-red-200 bg-red-50 p-3 text-sm text-red-700"
+        >
           <strong className="font-semibold">{t.errorTitle}.</strong> {t.errorBody}
         </div>
       )}

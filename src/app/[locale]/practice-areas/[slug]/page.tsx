@@ -4,7 +4,11 @@ import { notFound } from "next/navigation";
 import TrackableLink from "@/components/TrackableLink";
 import { isLocale, locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-import { localeAlternates, localePath } from "@/lib/routes";
+import { localePath } from "@/lib/routes";
+import { pageMetadata } from "@/lib/metadata";
+import { buildGraph, faqNode, serviceNode } from "@/lib/schema";
+import JsonLd from "@/components/JsonLd";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { ButtonLink } from "@/components/Button";
 import { ArrowIcon, CheckIcon } from "@/components/Icons";
 
@@ -32,16 +36,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale, slug } = await params;
   if (!isLocale(locale)) return {};
-  const { area } = await getArea(locale, slug);
+  const { dict, area } = await getArea(locale, slug);
   if (!area) return {};
-  return {
+  return pageMetadata({
+    locale,
+    path: `/practice-areas/${slug}`,
     title: area.title,
     description: area.summary,
-    alternates: {
-      canonical: localePath(locale, `/practice-areas/${slug}`),
-      languages: localeAlternates(`/practice-areas/${slug}`),
-    },
-  };
+    brandName: dict.brand.name,
+  });
 }
 
 export default async function PracticeAreaPage({
@@ -56,14 +59,42 @@ export default async function PracticeAreaPage({
   if (!area) notFound();
 
   const { practiceAreas } = dict;
+  const path = `/practice-areas/${slug}`;
+  const trail = [
+    { name: practiceAreas.title, path: "/practice-areas" },
+    { name: area.title, path },
+  ];
+
+  // Service describes what the firm offers here; FAQPage exposes the
+  // questions already on the page as a rich result.
+  const graph = buildGraph({
+    locale: typedLocale,
+    dict,
+    path,
+    name: area.title,
+    description: area.summary,
+    trail,
+    nodes: [
+      serviceNode(typedLocale, area, dict),
+      ...(area.faq?.length ? [faqNode(typedLocale, path, area.faq)] : []),
+    ],
+  });
 
   return (
     <>
+      <JsonLd data={graph} />
       <section className="border-b border-border bg-navy text-white">
         <div className="container-x py-16 sm:py-20">
+          <Breadcrumbs
+            locale={typedLocale}
+            homeLabel={dict.nav.home}
+            navLabel={dict.nav.breadcrumb}
+            trail={trail}
+            tone="dark"
+          />
           <Link
             href={localePath(typedLocale, "/practice-areas")}
-            className="inline-flex items-center gap-1.5 text-sm text-white/60 transition-colors hover:text-gold-400"
+            className="mt-5 inline-flex items-center gap-1.5 text-sm text-white/60 transition-colors hover:text-gold-400"
           >
             <ArrowIcon className="h-4 w-4 -scale-x-100 rtl:scale-x-100" />
             {practiceAreas.backToAll}
@@ -94,17 +125,22 @@ export default async function PracticeAreaPage({
               ))}
             </ul>
             {area.faq && area.faq.length > 0 && (
-              <div className="mt-12">
-                <h2 className="text-2xl">{practiceAreas.faqTitle}</h2>
-                <dl className="mt-6 space-y-6">
+              <section className="mt-12" aria-labelledby="faq-heading">
+                <h2 id="faq-heading" className="text-2xl">
+                  {practiceAreas.faqTitle}
+                </h2>
+                <div className="mt-6 space-y-6">
                   {area.faq.map((item) => (
-                    <div key={item.q} className="rounded-xl border border-border bg-surface p-6">
-                      <dt className="font-semibold text-navy">{item.q}</dt>
-                      <dd className="mt-2 text-sm leading-relaxed text-muted">{item.a}</dd>
-                    </div>
+                    <article
+                      key={item.q}
+                      className="rounded-xl border border-border bg-surface p-6"
+                    >
+                      <h3 className="text-base font-semibold text-navy">{item.q}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-muted">{item.a}</p>
+                    </article>
                   ))}
-                </dl>
-              </div>
+                </div>
+              </section>
             )}
           </div>
 

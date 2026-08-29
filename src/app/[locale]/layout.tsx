@@ -12,7 +12,6 @@ import { getDictionary } from "@/i18n/dictionaries";
 import { SITE_URL, localePath } from "@/lib/routes";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import JsonLd from "@/components/JsonLd";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import Analytics from "@/components/Analytics";
 
@@ -96,7 +95,8 @@ export default async function LocaleLayout({
     >
       <body className="flex min-h-full flex-col bg-background">
         <Analytics />
-        <JsonLd locale={typedLocale} dict={dict} />
+        {/* Structured data is emitted per page (see src/lib/schema.ts) so each
+            route carries the schema types that match its content. */}
         <Header locale={typedLocale} nav={dict.nav} brandName={dict.brand.short} />
         <main id="main" className="flex-1">
           {children}

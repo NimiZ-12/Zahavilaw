@@ -3,7 +3,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { isLocale, locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-import { localeAlternates, localePath } from "@/lib/routes";
+import { SITE_URL, localePath } from "@/lib/routes";
+import { pageMetadata } from "@/lib/metadata";
+import { buildGraph, personNode } from "@/lib/schema";
+import JsonLd from "@/components/JsonLd";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { practiceAreaIcons } from "@/lib/practice-icons";
 import { ArrowIcon } from "@/components/Icons";
 
@@ -31,16 +35,17 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale, slug } = await params;
   if (!isLocale(locale)) return {};
-  const { member } = await getMember(locale, slug);
+  const { dict, member } = await getMember(locale, slug);
   if (!member) return {};
-  return {
-    title: `${member.name} — ${member.role}`,
+  return pageMetadata({
+    locale,
+    path: `/team/${slug}`,
+    title: `${member.name} - ${member.role}`,
     description: member.bio,
-    alternates: {
-      canonical: localePath(locale, `/team/${slug}`),
-      languages: localeAlternates(`/team/${slug}`),
-    },
-  };
+    brandName: dict.brand.name,
+    type: "profile",
+    image: `/team/${slug}.jpg`,
+  });
 }
 
 export default async function TeamMemberPage({
@@ -55,14 +60,39 @@ export default async function TeamMemberPage({
   if (!member) notFound();
 
   const { team, practiceAreas } = dict;
+  const path = `/team/${slug}`;
+  const trail = [
+    { name: team.title, path: "/team" },
+    { name: member.name, path },
+  ];
+
+  const graph = buildGraph({
+    locale: typedLocale,
+    dict,
+    path,
+    pageType: "ProfilePage",
+    name: `${member.name} - ${member.role}`,
+    description: member.bio,
+    primaryImage: `${SITE_URL}/team/${slug}.jpg`,
+    trail,
+    nodes: [personNode(typedLocale, member, dict)],
+  });
 
   return (
     <>
+      <JsonLd data={graph} />
       <section className="border-b border-border bg-navy text-white">
         <div className="container-x py-16 sm:py-20">
+          <Breadcrumbs
+            locale={typedLocale}
+            homeLabel={dict.nav.home}
+            navLabel={dict.nav.breadcrumb}
+            trail={trail}
+            tone="dark"
+          />
           <Link
             href={localePath(typedLocale, "/team")}
-            className="inline-flex items-center gap-1.5 text-sm text-white/60 transition-colors hover:text-gold-400"
+            className="mt-5 inline-flex items-center gap-1.5 text-sm text-white/60 transition-colors hover:text-gold-400"
           >
             <ArrowIcon className="h-4 w-4 -scale-x-100 rtl:scale-x-100" />
             {team.backToTeam}

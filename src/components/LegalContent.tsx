@@ -1,22 +1,31 @@
+import type { ReactNode } from "react";
 import type { LegalPage } from "@/i18n/dictionaries";
 import SectionHeading from "./SectionHeading";
 
 /* Renders a structured legal document (privacy policy, accessibility
-   statement) from the dictionary so both languages stay in lockstep. */
-export default function LegalContent({ page }: { page: LegalPage }) {
+   statement, terms of use) from the dictionary so both languages stay in
+   lockstep. `breadcrumbs` slots in above the title. */
+export default function LegalContent({
+  page,
+  breadcrumbs,
+}: {
+  page: LegalPage;
+  breadcrumbs?: ReactNode;
+}) {
   return (
     <>
       <section className="border-b border-border bg-surface">
         <div className="container-x py-16 sm:py-20">
+          {breadcrumbs && <div className="mb-6">{breadcrumbs}</div>}
           <SectionHeading as="h1" title={page.title} subtitle={page.intro} />
           <p className="mt-6 text-sm text-muted">{page.lastUpdated}</p>
         </div>
       </section>
 
-      <section className="section">
+      <article className="section">
         <div className="container-x max-w-3xl space-y-10">
           {page.sections.map((section) => (
-            <div key={section.heading} className="space-y-4">
+            <section key={section.heading} className="space-y-4">
               <h2 className="text-xl text-navy">{section.heading}</h2>
               {section.paragraphs?.map((paragraph, i) => (
                 <p key={i} className="leading-relaxed text-muted">
@@ -30,10 +39,10 @@ export default function LegalContent({ page }: { page: LegalPage }) {
                   ))}
                 </ul>
               )}
-            </div>
+            </section>
           ))}
         </div>
-      </section>
+      </article>
     </>
   );
 }

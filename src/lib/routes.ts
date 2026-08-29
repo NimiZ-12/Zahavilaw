@@ -29,6 +29,7 @@ export const navItems = [
   { key: "practiceAreas", path: "/practice-areas" },
   { key: "team", path: "/team" },
   { key: "publications", path: "/publications" },
+  { key: "faq", path: "/faq" },
   { key: "contact", path: "/contact" },
 ] as const;
 

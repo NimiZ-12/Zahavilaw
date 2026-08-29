@@ -29,10 +29,13 @@ export default function Footer({
           </div>
 
           {/* Quick links */}
-          <nav aria-label={footer.quickLinks}>
-            <h2 className="text-sm font-semibold uppercase tracking-wide text-white">
+          <nav aria-labelledby="footer-quick-links">
+            <p
+              id="footer-quick-links"
+              className="text-sm font-semibold uppercase tracking-wide text-white"
+            >
               {footer.quickLinks}
-            </h2>
+            </p>
             <ul className="mt-4 space-y-2.5 text-sm">
               {navItems.map((item) => (
                 <li key={item.key}>
@@ -48,10 +51,13 @@ export default function Footer({
           </nav>
 
           {/* Practice areas */}
-          <nav aria-label={footer.practiceAreas}>
-            <h2 className="text-sm font-semibold uppercase tracking-wide text-white">
+          <nav aria-labelledby="footer-practice-areas">
+            <p
+              id="footer-practice-areas"
+              className="text-sm font-semibold uppercase tracking-wide text-white"
+            >
               {footer.practiceAreas}
-            </h2>
+            </p>
             <ul className="mt-4 space-y-2.5 text-sm">
               {practiceAreas.items.slice(0, 6).map((area) => (
                 <li key={area.slug}>
@@ -68,9 +74,9 @@ export default function Footer({
 
           {/* Contact */}
           <div>
-            <h2 className="text-sm font-semibold uppercase tracking-wide text-white">
+            <p className="text-sm font-semibold uppercase tracking-wide text-white">
               {footer.contact}
-            </h2>
+            </p>
             <ul className="mt-4 space-y-3 text-sm">
               <li className="flex items-center gap-2.5">
                 <PhoneIcon className="h-4 w-4 shrink-0 text-gold-400" />
@@ -117,12 +123,27 @@ export default function Footer({
           <p>
             © {year} {brand.name}. {footer.rights}.
           </p>
-          <nav className="flex items-center gap-4" aria-label={footer.quickLinks}>
+          <nav
+            className="flex flex-wrap items-center gap-x-4 gap-y-2"
+            aria-label={footer.legalLinks}
+          >
+            <Link
+              href={localePath(locale, "/careers")}
+              className="transition-colors hover:text-gold-400"
+            >
+              {footer.careers}
+            </Link>
             <Link
               href={localePath(locale, "/privacy")}
               className="transition-colors hover:text-gold-400"
             >
               {footer.privacy}
+            </Link>
+            <Link
+              href={localePath(locale, "/terms")}
+              className="transition-colors hover:text-gold-400"
+            >
+              {footer.terms}
             </Link>
             <Link
               href={localePath(locale, "/accessibility")}

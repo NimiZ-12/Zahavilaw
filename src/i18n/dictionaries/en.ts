@@ -31,6 +31,9 @@ const en: Dictionary = {
     cta: "Book a Meeting",
     skipToContent: "Skip to main content",
     menu: "Menu",
+    faq: "FAQ",
+    careers: "Careers",
+    breadcrumb: "Breadcrumb",
   },
   home: {
     hero: {
@@ -303,12 +306,30 @@ const en: Dictionary = {
   about: {
     eyebrow: "About the Firm",
     title: "Senior, personal and multidisciplinary legal counsel",
-    lead: "Zahavi - Pretty & Co. Law Offices is a boutique firm providing clients — companies, business owners, families and individuals — with senior, personal legal representation across a broad range of legal fields.",
+    lead: "Zahavi - Pretty & Co. Law Offices is a boutique firm providing clients - companies, business owners, families and individuals - with senior, personal legal representation across a broad range of legal fields.",
+    storyTitle: "About the firm",
     body: [
       "The firm is led by Ron Zahavi, Adv. and Anat Zahavi, Adv., two founding partners and members of the Israel Bar Association since 1996, with a combined experience of over three decades. We believe quality legal representation requires the personal involvement of a partner in every case — both strategically and tactically — rather than being passed between staff along the way.",
       "Daily engagement across a wide range of legal fields is one of the firm's key strengths: complex civil-commercial litigation, guiding companies and businesses in commercial and corporate matters, real estate in all its aspects, labor law from the employer's perspective, as well as family law and wills and estates. This broad perspective allows us to understand every dispute or transaction in its full context, and to build the right strategy for each client.",
       "Among the firm's clients, past and present, are some of the largest and best-known companies in the Israeli economy — in food and fast-food retail, telecom and hi-tech, import and export, construction and industry — alongside business people, private individuals and families seeking professional guidance through significant moments in their lives. Every client, large or small, receives the same level of commitment, availability and professionalism.",
     ],
+    milestonesTitle: "The firm in numbers",
+    milestones: [
+      { value: "1996", label: "Both partners admitted to the Israel Bar" },
+      { value: "6", label: "Practice areas the firm handles" },
+      { value: "2", label: "Working languages: Hebrew and English" },
+    ],
+    teamTitle: "Our attorneys and their qualifications",
+    teamIntro:
+      "Both founding partners personally handle every case at the firm. These are the qualifications and experience they bring.",
+    barAdmissionLabel: "Member of the Israel Bar since",
+    educationLabel: "Education",
+    credentialsLabel: "Qualifications and certifications",
+    membershipsLabel: "Professional memberships",
+    languagesLabel: "Languages",
+    practiceTitle: "What we handle",
+    practiceIntro:
+      "Six practice areas, each led by a partner with direct experience in it. Select an area to read more.",
     valuesTitle: "The values that lead us",
     values: [
       {
@@ -326,6 +347,33 @@ const en: Dictionary = {
       {
         title: "Trust & Transparency",
         body: "Clear fee agreements up front, honest communication and follow-through on what we promise.",
+      },
+    ],
+    faqTitle: "Questions about the firm",
+    faq: [
+      {
+        q: "Where is the office located?",
+        a: "The firm is located at Beit Gibor Sport, Menachem Begin 7, Ramat Gan, floor 23. There is parking in the building, and the office is accessible by public transport via the Savidor Center and Bnei Brak railway stations.",
+      },
+      {
+        q: "Which areas of law does the firm handle?",
+        a: "Six areas: civil and commercial litigation, labor law from the employer's side, real estate, commercial and corporate law, wills and estates, and family law.",
+      },
+      {
+        q: "Who will handle my case?",
+        a: "One of the two founding partners handles every case personally, from the first meeting through to the conclusion of proceedings. Litigation, commercial, real estate and estate matters are handled by Ron Zahavi, Adv.; labor law matters by Anat Zahavi, Adv.",
+      },
+      {
+        q: "In which languages can I be served?",
+        a: "Hebrew and English.",
+      },
+      {
+        q: "What happens at the first meeting?",
+        a: "At the first meeting we listen to the details, explain what the law says about your situation, and set out the options open to you along with the risks of each. By the end of the meeting you will know the practical next steps and whether legal proceedings are warranted.",
+      },
+      {
+        q: "How do I get in touch?",
+        a: "By phone at +972-3-7555222, on WhatsApp, by email at office@zahavilaw.com, or through the contact form on this site. We respond to every inquiry promptly.",
       },
     ],
   },
@@ -349,6 +397,13 @@ const en: Dictionary = {
           "His work is grounded in close, hands-on involvement in every case, alongside a commitment to availability and professional service.",
         ],
         practiceAreaSlugs: ["litigation", "commercial", "real-estate", "wills-estates"],
+        barAdmission: "1996",
+        credentials: [
+          "Civil and commercial litigation before all courts",
+          "Corporate counsel and commercial transactions",
+          "Real estate, including the Israel Land Authority and TAMA 38",
+        ],
+        languages: ["Hebrew", "English"],
       },
       {
         slug: "anat-zahavi",
@@ -361,6 +416,13 @@ const en: Dictionary = {
           "Alongside her legal practice, she conducts workshops and training sessions for senior and mid-level management on labor relations and the managerial prerogative, equipping employers with the tools to manage their workforce properly while exercising their lawful management rights.",
         ],
         practiceAreaSlugs: ["labor-law"],
+        barAdmission: "1996",
+        credentials: [
+          "Certified mediator in labor law",
+          "Representation of employers before the regional and national labor courts",
+          "Labor relations training and workshops for management",
+        ],
+        languages: ["Hebrew", "English"],
       },
     ],
   },
@@ -372,6 +434,18 @@ const en: Dictionary = {
     empty: "Content is being prepared and will be updated soon.",
     readMore: "Read full article",
     readRuling: "Read the ruling",
+    rulingPage: {
+      aboutTitle: "About this ruling",
+      about:
+        "This ruling was handed down in proceedings in which the firm represented one of the parties, and is reproduced here in full as published. The complete document is available to read and download below.",
+      disclaimer:
+        "Every case is decided on its own facts, evidence and applicable law. No conclusion about the possible outcome of another matter can be drawn from the result in this one, and nothing here constitutes legal advice.",
+      documentTitle: "The full document",
+      openInNewTab: "Open the file in a new tab",
+      download: "Download the file",
+      metaPrefix: "Court ruling: ",
+      metaSuffix: ". Read the full ruling on the firm's website.",
+    },
     groups: [
       {
         heading: "Videos",
@@ -538,6 +612,11 @@ const en: Dictionary = {
     email: "office@zahavilaw.com",
     addressLabel: "Address",
     addressLines: ["Menachem Begin 7, Ramat Gan 5268102,", "Beit Gibor Sport, Floor 23"],
+    postalAddress: {
+      street: "Menachem Begin 7, Beit Gibor Sport, Floor 23",
+      city: "Ramat Gan",
+      postalCode: "5268102",
+    },
     hoursLabel: "Office hours",
     hours: "Sun–Thu, 09:00–18:00",
     form: {
@@ -558,8 +637,11 @@ const en: Dictionary = {
         "* The requested date does not constitute a confirmed appointment. The meeting time will be set and confirmed in coordination with a member of our office.",
       preferredTimeWeekendError:
         "The office operates Sunday–Thursday only. Please choose a date that is not a Friday or Saturday.",
-      consent:
-        "I agree to be contacted regarding my inquiry. Details will be stored in accordance with the privacy policy.",
+      consentPrefix: "I agree to the ",
+      consentPrivacy: "Privacy Policy",
+      consentAnd: " and the ",
+      consentTerms: "Terms of Use",
+      consentSuffix: ".",
       submit: "Send inquiry",
       submitting: "Sending...",
       successTitle: "Your inquiry was sent successfully",
@@ -583,7 +665,84 @@ const en: Dictionary = {
       "The content on this site does not constitute legal advice and is no substitute for individual counsel. Do not rely on the site's content without consulting an attorney.",
     privacy: "Privacy Policy",
     accessibility: "Accessibility Statement",
+    terms: "Terms of Use",
+    careers: "Careers",
+    legalLinks: "Legal links",
     secure: "SSL Secured Site",
+  },
+  faqPage: {
+    eyebrow: "Questions & Answers",
+    title: "Frequently asked questions",
+    subtitle:
+      "The questions we are asked most often, grouped by area. If you cannot find an answer here, we are happy to help.",
+    generalTitle: "General questions about working with the firm",
+    general: [
+      {
+        q: "When should I contact a lawyer?",
+        a: "As early as possible. In most of the areas we handle - labor law, real estate, commercial disputes - coming to us early widens the range of options and sometimes avoids litigation altogether. Once a letter has been sent or a claim filed, the options narrow.",
+      },
+      {
+        q: "How long do legal proceedings take?",
+        a: "It depends on the type of proceeding and the court. Labor court cases generally run from several months to two years; civil and commercial claims in the district court can take longer. At the first meeting we will explain the realistic timeframe for your matter.",
+      },
+      {
+        q: "Can a dispute be resolved without going to court?",
+        a: "Often, yes. Negotiation, mediation and a well-prepared pre-action approach resolve a significant share of disputes without full proceedings. Anat Zahavi, Adv. is a certified mediator in labor law. We consider this route before turning to the courts whenever it suits the matter.",
+      },
+      {
+        q: "What should I bring to the first meeting?",
+        a: "Any document connected to the matter: contracts, correspondence, letters you have received, payslips, land registry extracts - whatever is relevant. Better to bring too much than too little. If you have no documents, you are welcome to come without them.",
+      },
+      {
+        q: "Is my inquiry kept confidential?",
+        a: "Yes. Attorney-client privilege applies to everything you tell us, including in an initial inquiry and consultation, even if we ultimately do not represent you.",
+      },
+    ],
+    byAreaTitle: "Questions by practice area",
+    stillHaveQuestions: "Still have a question?",
+    stillHaveQuestionsBody:
+      "Leave your details and we will get back to you, or call the office directly. We are glad to answer any question.",
+  },
+  careers: {
+    eyebrow: "Join Us",
+    title: "Careers",
+    subtitle:
+      "A boutique firm in Ramat Gan, where attorneys take on complex matters alongside the founding partners.",
+    cultureTitle: "What it is like to work here",
+    culture: [
+      "We are a boutique firm, so an attorney here does not receive a fragment of a case but sees it through from beginning to end - drafting pleadings, preparing witnesses, meeting clients and appearing in court.",
+      "Both founding partners are involved in the cases day to day, so learning happens through working together rather than at a distance. Anyone who wants to understand how a complex commercial matter looks from the inside, or how a labor court proceeding runs from the employer's side, will get that here from day one.",
+      "The firm works across six practice areas, so anyone who has not yet settled on a specialty can be exposed to a broad range before choosing a direction.",
+    ],
+    offerTitle: "What we offer",
+    offer: [
+      {
+        title: "Working closely with the partners",
+        body: "Direct professional guidance from the founding partners, not through a chain of intermediaries.",
+      },
+      {
+        title: "Complex, substantial matters",
+        body: "Commercial litigation, labor law from the employer's side, real estate and estates - for some of the largest companies in the Israeli economy alongside private clients.",
+      },
+      {
+        title: "Real responsibility",
+        body: "Court appearances and case management, in line with your seniority and experience.",
+      },
+      {
+        title: "Multidisciplinary exposure",
+        body: "Six practice areas under one roof, for anyone looking to broaden their legal perspective.",
+      },
+    ],
+    openingsTitle: "Open positions",
+    openings: [],
+    noOpenings:
+      "There are no published openings at the moment. We are always glad to receive CVs from attorneys and interns, and we keep them on file for future opportunities.",
+    requirementsLabel: "Requirements",
+    applyTitle: "Send us your CV",
+    applyBody:
+      "Send your CV and academic transcript to the office email, noting the area that interests you. We review every submission and respond to candidates we find suitable.",
+    applyCta: "Send your CV by email",
+    applyEmail: "office@zahavilaw.com",
   },
   legal: {
     privacy: {
@@ -717,6 +876,98 @@ const en: Dictionary = {
           paragraphs: [
             "If you encounter any difficulty browsing the site, or have a comment or request regarding accessibility, we would be glad to hear from you and will make every effort to respond promptly.",
             "Accessibility coordinator: you may contact us by phone at +972-3-7555222, by email at office@zahavilaw.com, or at Menachem Begin 7, Ramat Gan.",
+          ],
+        },
+      ],
+    },
+    terms: {
+      title: "Terms of Use",
+      metaDescription:
+        "Terms of use for the Zahavi - Pretty & Co. Law Offices website: the nature of the information provided, intellectual property, liability and governing law.",
+      lastUpdated: "Last updated: August 2026",
+      intro:
+        "Use of this website is subject to the terms below. Browsing the site, submitting the contact form or contacting us through the site constitutes acceptance of these terms. If you do not agree to any of them, please do not use the site.",
+      sections: [
+        {
+          heading: "1. Who we are",
+          paragraphs: [
+            "This site is operated by Zahavi - Pretty & Co. Law Offices, of Menachem Begin 7, Beit Gibor Sport, Floor 23, Ramat Gan, Israel. You can reach us at +972-3-7555222 or office@zahavilaw.com.",
+          ],
+        },
+        {
+          heading: "2. The information here is not legal advice",
+          paragraphs: [
+            "The content on this site, including practice-area descriptions, questions and answers, articles and court rulings, is general information intended to broaden the reader's legal knowledge.",
+            "It does not constitute legal advice, a legal opinion or a recommendation to act, and it is no substitute for individual advice that takes account of the specific circumstances of your case. Any reliance on the content of this site is at the user's own risk.",
+            "Using this site, contacting us through it or receiving an initial response does not create an attorney-client relationship. Such a relationship is formed only upon signing a written fee agreement.",
+          ],
+        },
+        {
+          heading: "3. Court rulings and past results",
+          paragraphs: [
+            "The rulings and articles presented on this site were previously published and are provided as factual information only. Every case is decided on its own facts, evidence and applicable law, and no conclusion about the possible outcome of one matter can be drawn from the result in another.",
+          ],
+        },
+        {
+          heading: "4. Intellectual property",
+          paragraphs: [
+            "All intellectual property rights in this site - including the text, design, logo, images, trademarks and code - belong to the firm or to the rights holders who licensed their use to the firm.",
+            "You may not copy, reproduce, distribute, publish, translate or make commercial use of the site's content, in whole or in part, without the firm's prior written consent. Short quotations are permitted provided the source is credited and linked.",
+          ],
+        },
+        {
+          heading: "5. Permitted use",
+          paragraphs: ["When using this site you undertake not to:"],
+          items: [
+            "Provide false details or impersonate another person or entity",
+            "Use the site's forms to send spam, advertising or commercial content",
+            "Attempt to breach the site's systems, disrupt its operation or circumvent security measures",
+            "Automatically harvest information from the site (scraping) without permission",
+            "Make any use that infringes third-party rights or breaches the law",
+          ],
+        },
+        {
+          heading: "6. Contact form",
+          paragraphs: [
+            "Submitting details through the contact form is voluntary and constitutes consent to be contacted regarding your inquiry. Details you submit are handled in accordance with the site's privacy policy.",
+            "Please avoid submitting sensitive or detailed information about your matter through the form. An initial inquiry is intended to arrange a call or meeting; the details of your case are best discussed in a protected setting.",
+          ],
+        },
+        {
+          heading: "7. Links to external sites",
+          paragraphs: [
+            "This site contains links to third-party sites, including news outlets, case-law databases and video platforms. The firm is not responsible for the content, availability or privacy practices of those sites, and the inclusion of a link is not an endorsement of their content.",
+          ],
+        },
+        {
+          heading: "8. Availability and limitation of liability",
+          paragraphs: [
+            "The site is provided on an As Is basis. The firm makes reasonable efforts to keep the site available and its content accurate, but does not warrant uninterrupted or fault-free operation, nor that all content is current at any given moment in light of changes in legislation and case law.",
+            "Subject to applicable law, the firm will not be liable for any direct or indirect damage arising from use of the site or reliance on its content.",
+          ],
+        },
+        {
+          heading: "9. Accessibility",
+          paragraphs: [
+            "This site has been made accessible in accordance with the Equal Rights for Persons with Disabilities Regulations (Accessibility Adjustments to Service) and Israeli Standard IS 5568 at level AA. Full details, including known limitations and the accessibility coordinator's contact information, appear in the accessibility statement.",
+          ],
+        },
+        {
+          heading: "10. Changes to these terms",
+          paragraphs: [
+            "The firm may update these terms from time to time. The binding version is the one published on this site, and the date of the most recent update appears at the top of this page. We recommend reviewing the terms periodically.",
+          ],
+        },
+        {
+          heading: "11. Governing law and jurisdiction",
+          paragraphs: [
+            "These terms and the use of this site are governed exclusively by the laws of the State of Israel. Exclusive jurisdiction over any matter relating to the site or these terms lies with the competent courts of the Tel Aviv District.",
+          ],
+        },
+        {
+          heading: "12. Contact",
+          paragraphs: [
+            "For questions about these terms, contact us at office@zahavilaw.com or +972-3-7555222.",
           ],
         },
       ],
