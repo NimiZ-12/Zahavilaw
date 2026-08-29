@@ -69,7 +69,7 @@ export function organizationNode(locale: Locale, dict: Dictionary): JsonLdNode {
     email: contact.email,
     logo: {
       "@type": "ImageObject",
-      url: `${SITE_URL}/logo.png`,
+      url: `${SITE_URL}/logo.webp`,
       caption: brand.name,
     },
     image: `${SITE_URL}/og-image.jpg`,
@@ -226,7 +226,7 @@ export function personNode(
     jobTitle: member.role,
     description: member.bio,
     url: absoluteUrl(locale, `/team/${member.slug}`),
-    image: `${SITE_URL}/team/${member.slug}.jpg`,
+    image: `${SITE_URL}/team/${member.slug}.webp`,
     worksFor: { "@id": ID.organization },
     knowsAbout: areas.map((a) => a.title),
     knowsLanguage: member.languages,

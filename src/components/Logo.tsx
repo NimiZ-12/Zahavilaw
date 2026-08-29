@@ -20,13 +20,14 @@ export default function Logo({ locale, name, variant = "dark" }: LogoProps) {
       aria-label={name}
     >
       <Image
-        src="/logo.png"
+        src="/logo.webp"
         alt=""
         aria-hidden
         width={471}
         height={240}
         className="h-9 w-auto"
-        priority
+        // Next 16 deprecated `priority` in favour of `preload`.
+        preload
       />
       <span className={`font-serif text-lg font-semibold leading-tight ${textColor}`}>
         {name}

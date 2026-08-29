@@ -52,13 +52,13 @@ const en: Dictionary = {
     clients: {
       title: "Among Our Clients",
       items: [
-        { name: "Sela", logo: "/clients/sela.png" },
-        { name: "Jacobs Farm", logo: "/clients/jacobs-farm.png" },
-        { name: "Burgeranch", logo: "/clients/burgeranch.png" },
-        { name: "Tiv Taam", logo: "/clients/tiv-taam.png" },
-        { name: "Beinleumi TECH", logo: "/clients/beinleumi-tech.png" },
-        { name: "Prytek", logo: "/clients/prytek.png" },
-        { name: "Agudat Lechem", logo: "/clients/agudat-lechem.png" },
+        { name: "Sela", logo: "/clients/sela.webp" },
+        { name: "Jacobs Farm", logo: "/clients/jacobs-farm.webp" },
+        { name: "Burgeranch", logo: "/clients/burgeranch.webp" },
+        { name: "Tiv Taam", logo: "/clients/tiv-taam.webp" },
+        { name: "Beinleumi TECH", logo: "/clients/beinleumi-tech.webp" },
+        { name: "Prytek", logo: "/clients/prytek.webp" },
+        { name: "Agudat Lechem", logo: "/clients/agudat-lechem.webp" },
       ],
     },
     intro: {

@@ -52,13 +52,13 @@ const he: Dictionary = {
     clients: {
       title: "בין לקוחותינו",
       items: [
-        { name: "Sela", logo: "/clients/sela.png" },
-        { name: "משק יעקבס", logo: "/clients/jacobs-farm.png" },
-        { name: "בורגראנץ׳", logo: "/clients/burgeranch.png" },
-        { name: "טיב טעם", logo: "/clients/tiv-taam.png" },
-        { name: "בינלאומי TECH", logo: "/clients/beinleumi-tech.png" },
-        { name: "Prytek", logo: "/clients/prytek.png" },
-        { name: "אגדת לחם", logo: "/clients/agudat-lechem.png" },
+        { name: "Sela", logo: "/clients/sela.webp" },
+        { name: "משק יעקבס", logo: "/clients/jacobs-farm.webp" },
+        { name: "בורגראנץ׳", logo: "/clients/burgeranch.webp" },
+        { name: "טיב טעם", logo: "/clients/tiv-taam.webp" },
+        { name: "בינלאומי TECH", logo: "/clients/beinleumi-tech.webp" },
+        { name: "Prytek", logo: "/clients/prytek.webp" },
+        { name: "אגדת לחם", logo: "/clients/agudat-lechem.webp" },
       ],
     },
     intro: {

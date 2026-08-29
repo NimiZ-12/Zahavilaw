@@ -65,6 +65,13 @@ const nextConfig: NextConfig = {
   // firm's real photography is added to /public).
   images: {
     remotePatterns: [{ protocol: "https", hostname: "images.unsplash.com" }],
+    // AVIF first, WebP second: the optimizer negotiates against the browser's
+    // Accept header and falls back to the original for anything older.
+    formats: ["image/avif", "image/webp"],
+    // Next 16 requires an explicit allowlist — an unrestricted `quality`
+    // parameter lets anyone force expensive re-encodes. 75 is the default;
+    // 60 is for large decorative backgrounds.
+    qualities: [60, 75, 90],
   },
   async redirects() {
     // Legacy WordPress Hebrew-slug URLs that Google indexed before the site was

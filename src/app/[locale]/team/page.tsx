@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { isLocale, type Locale } from "@/i18n/config";
@@ -9,7 +10,7 @@ import { buildGraph, personNode } from "@/lib/schema";
 import JsonLd from "@/components/JsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { images } from "@/lib/images";
-import HeroImagePreload from "@/components/HeroImagePreload";
+import HeroBackdrop from "@/components/HeroBackdrop";
 import SectionHeading from "@/components/SectionHeading";
 import { ArrowIcon } from "@/components/Icons";
 
@@ -56,12 +57,11 @@ export default async function TeamPage({
   return (
     <>
       <JsonLd data={graph} />
-      <HeroImagePreload src={images.team} />
       <section className="relative overflow-hidden border-b border-white/10 bg-navy">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-60"
-          style={{ backgroundImage: `url('${images.team}')` }}
+        <HeroBackdrop
+          src={images.team}
+          opacity="opacity-60"
+          priority
         />
         <div
           aria-hidden
@@ -93,11 +93,12 @@ export default async function TeamPage({
               className="group flex flex-col rounded-xl border border-border bg-white p-7 text-center transition-all hover:-translate-y-0.5 hover:border-gold/40 hover:shadow-md"
             >
               <span className="relative mx-auto block h-24 w-24 overflow-hidden rounded-full bg-navy ring-2 ring-gold/20">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={`/team/${member.slug}.jpg`}
-                  alt={member.name}
-                  className="h-full w-full object-cover object-top"
+                <Image
+                  src={`/team/${member.slug}.webp`}
+                  alt={`${member.name}, ${member.role}`}
+                  fill
+                  sizes="96px"
+                  className="object-cover object-top"
                 />
               </span>
               <h2 className="mt-5 text-xl transition-colors group-hover:text-gold">

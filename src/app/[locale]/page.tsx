@@ -7,7 +7,7 @@ import { pageMetadata } from "@/lib/metadata";
 import { buildGraph, serviceNode, personNode } from "@/lib/schema";
 import JsonLd from "@/components/JsonLd";
 import { images } from "@/lib/images";
-import HeroImagePreload from "@/components/HeroImagePreload";
+import HeroBackdrop from "@/components/HeroBackdrop";
 import { notFound } from "next/navigation";
 import SectionHeading from "@/components/SectionHeading";
 import { ButtonLink } from "@/components/Button";
@@ -60,15 +60,10 @@ export default async function HomePage({
   return (
     <>
       <JsonLd data={graph} />
-      <HeroImagePreload src={images.hero} />
       {/* ----------------------------------------------------------------- Hero */}
       <section className="relative overflow-hidden bg-navy text-white">
-        {/* Full-bleed background photograph — navy shows through if it fails. */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url('${images.hero}')` }}
-        />
+        {/* Full-bleed background photograph - navy shows through if it fails. */}
+        <HeroBackdrop src={images.hero} priority />
         {/* Scrim: darken toward the bottom where the panel and stats sit. */}
         <div
           aria-hidden
@@ -139,11 +134,7 @@ export default async function HomePage({
       <section className="section relative overflow-hidden bg-navy">
         {/* Building-lobby photo behind this section, tinted with a navy overlay
             like the hero so the content stays readable. */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-[0.55]"
-          style={{ backgroundImage: "url('/lobby.jpg')" }}
-        />
+        <HeroBackdrop src="/lobby.webp" opacity="opacity-[0.55]" />
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy via-navy/60 to-navy/40"
@@ -223,11 +214,7 @@ export default async function HomePage({
 
       {/* ------------------------------------------------------------ CTA band */}
       <section className="relative overflow-hidden bg-navy">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-20"
-          style={{ backgroundImage: `url('${images.cta}')` }}
-        />
+        <HeroBackdrop src={images.cta} opacity="opacity-20" />
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy via-navy/90 to-navy/80"

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { isLocale, locales, type Locale } from "@/i18n/config";
@@ -44,7 +45,7 @@ export async function generateMetadata({
     description: member.bio,
     brandName: dict.brand.name,
     type: "profile",
-    image: `/team/${slug}.jpg`,
+    image: `/team/${slug}.webp`,
   });
 }
 
@@ -73,7 +74,7 @@ export default async function TeamMemberPage({
     pageType: "ProfilePage",
     name: `${member.name} - ${member.role}`,
     description: member.bio,
-    primaryImage: `${SITE_URL}/team/${slug}.jpg`,
+    primaryImage: `${SITE_URL}/team/${slug}.webp`,
     trail,
     nodes: [personNode(typedLocale, member, dict)],
   });
@@ -99,11 +100,13 @@ export default async function TeamMemberPage({
           </Link>
           <div className="mt-6 flex flex-col items-start gap-6 sm:flex-row sm:items-center">
             <span className="relative block h-28 w-28 shrink-0 overflow-hidden rounded-full bg-white/10 ring-2 ring-gold-400/30">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={`/team/${member.slug}.jpg`}
-                alt={member.name}
-                className="h-full w-full object-cover object-top"
+              <Image
+                src={`/team/${member.slug}.webp`}
+                alt={`${member.name}, ${member.role}`}
+                fill
+                sizes="112px"
+                preload
+                className="object-cover object-top"
               />
             </span>
             <div>

@@ -7,7 +7,7 @@ import { buildGraph } from "@/lib/schema";
 import JsonLd from "@/components/JsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { images } from "@/lib/images";
-import HeroImagePreload from "@/components/HeroImagePreload";
+import HeroBackdrop from "@/components/HeroBackdrop";
 import { whatsappLink, WHATSAPP_NUMBER_DISPLAY, wazeLink } from "@/lib/contact";
 import SectionHeading from "@/components/SectionHeading";
 import ContactForm from "@/components/ContactForm";
@@ -89,12 +89,11 @@ export default async function ContactPage({
   return (
     <>
       <JsonLd data={graph} />
-      <HeroImagePreload src={images.contact} />
       <section className="relative overflow-hidden border-b border-white/10 bg-navy">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-60"
-          style={{ backgroundImage: `url('${images.contact}')` }}
+        <HeroBackdrop
+          src={images.contact}
+          opacity="opacity-60"
+          priority
         />
         <div
           aria-hidden

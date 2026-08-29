@@ -39,6 +39,12 @@ export default function VideoCard({
             className="group absolute inset-0 flex items-center justify-center"
             aria-label={playLabel.replace("{title}", title)}
           >
+            {/* Deliberately a raw <img>, not next/image: the maxres->hq
+                fallback below reads the source's naturalWidth, which the
+                image optimizer would mask by re-encoding to the requested
+                size. Routing YouTube thumbnails through the optimizer would
+                also bill every view for no gain. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={thumb}
               alt=""

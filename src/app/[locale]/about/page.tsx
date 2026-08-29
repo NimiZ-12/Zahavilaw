@@ -9,7 +9,7 @@ import { buildGraph, faqNode, personNode } from "@/lib/schema";
 import { images } from "@/lib/images";
 import JsonLd from "@/components/JsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import HeroImagePreload from "@/components/HeroImagePreload";
+import HeroBackdrop from "@/components/HeroBackdrop";
 import SectionHeading from "@/components/SectionHeading";
 import { ButtonLink } from "@/components/Button";
 import { ArrowIcon } from "@/components/Icons";
@@ -136,13 +136,12 @@ export default async function AboutPage({
   return (
     <>
       <JsonLd data={graph} />
-      <HeroImagePreload src={images.about} />
 
       <section className="relative overflow-hidden border-b border-white/10 bg-navy">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-60"
-          style={{ backgroundImage: `url('${images.about}')` }}
+        <HeroBackdrop
+          src={images.about}
+          opacity="opacity-60"
+          priority
         />
         <div
           aria-hidden

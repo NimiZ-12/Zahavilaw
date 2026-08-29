@@ -9,7 +9,7 @@ import { buildGraph, videoNode } from "@/lib/schema";
 import JsonLd from "@/components/JsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { images } from "@/lib/images";
-import HeroImagePreload from "@/components/HeroImagePreload";
+import HeroBackdrop from "@/components/HeroBackdrop";
 import SectionHeading from "@/components/SectionHeading";
 import Link from "next/link";
 import { ArrowIcon } from "@/components/Icons";
@@ -73,12 +73,11 @@ export default async function PublicationsPage({
   return (
     <>
       <JsonLd data={graph} />
-      <HeroImagePreload src={images.publications} />
       <section className="relative overflow-hidden border-b border-white/10 bg-navy">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-60"
-          style={{ backgroundImage: `url('${images.publications}')` }}
+        <HeroBackdrop
+          src={images.publications}
+          opacity="opacity-60"
+          priority
         />
         <div
           aria-hidden
