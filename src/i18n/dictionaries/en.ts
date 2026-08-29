@@ -876,7 +876,7 @@ const en: Dictionary = {
       title: "Accessibility Statement",
       metaDescription:
         "The accessibility statement of the Zahavi - Pretty & Co. Law Offices website - our commitment to accessibility, the adjustments made, and how to contact our accessibility coordinator.",
-      lastUpdated: "Last updated: June 2026",
+      lastUpdated: "Last updated: August 2026",
       intro:
         "Zahavi - Pretty & Co. Law Offices attaches great importance to providing an accessible and equal service to the entire public, including persons with disabilities, and works to make its website accessible in accordance with the Equal Rights for Persons with Disabilities Law, 5758-1998, and the Equal Rights for Persons with Disabilities Regulations (Service Accessibility Adjustments), 5773-2013.",
       sections: [
@@ -897,6 +897,14 @@ const en: Dictionary = {
             "Full support for Hebrew (right-to-left) and English (left-to-right) directionality.",
             "Responsive design adapted to a range of screen sizes and devices.",
             "Respecting the user's preference for reduced motion (prefers-reduced-motion).",
+          ],
+        },
+        {
+          heading: "The accessibility widget",
+          paragraphs: [
+            "In addition to the adjustments built into the site itself, an accessibility widget by Enable is installed (licence enable-L56252t5tcus39uj-0826). It can be opened from the accessibility icon on any page and offers, among other things, larger text, contrast and colour changes, link highlighting, a dyslexia-friendly font, animation pausing and an enlarged cursor.",
+            "The preferences you choose are stored in your own browser so your choice carries between pages; they are not used for tracking.",
+            "Note that the widget is an addition. The site itself is built to be accessible without it - with full keyboard navigation, semantic structure and adequate contrast.",
           ],
         },
         {

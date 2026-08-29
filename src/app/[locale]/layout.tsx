@@ -15,6 +15,7 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import Analytics from "@/components/Analytics";
 import CookieConsent from "@/components/CookieConsent";
+import AccessibilityWidget from "@/components/AccessibilityWidget";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -105,6 +106,7 @@ export default async function LocaleLayout({
         <Footer locale={typedLocale} dict={dict} />
         <WhatsAppButton label={dict.contact.whatsappFloatingLabel} />
         <CookieConsent locale={typedLocale} t={dict.cookies} />
+        <AccessibilityWidget />
         <SpeedInsights />
       </body>
     </html>
