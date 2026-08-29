@@ -42,7 +42,7 @@ _מסמך תפעולי לרון. נכתב לפני מיזוג `staging` לענף
 
 ## 3. מפת הכתובות המלאה (56 כתובות)
 
-הרשימה המלאה נמצאת ב-`https://www.zahavilaw.com/sitemap.xml`.
+הרשימה המלאה נמצאת ב-<https://www.zahavilaw.com/sitemap.xml>.
 להשוואה מול יעדי הקמפיינים:
 
 ### עברית
@@ -90,7 +90,7 @@ _מסמך תפעולי לרון. נכתב לפני מיזוג `staging` לענף
 לבדוק או לתקן אותן, ולא אטען שבדקתי.
 
 ### Google Search Console
-- [ ] להגיש מחדש `https://www.zahavilaw.com/sitemap.xml`
+- [ ] להגיש מחדש את <https://www.zahavilaw.com/sitemap.xml>
 - [ ] URL Inspection → Request Indexing לשלושת העמודים החדשים:
       `/he/faq`, `/he/careers`, `/he/terms`
 - [ ] לוודא שהנכס מוגדר על הדומיין המלא ולא רק על `/he/`
@@ -160,6 +160,11 @@ mako, ynet, calcalist, psakdin, YouTube, wa.me, waze.
 
 זמן כולל: כ-30 דקות. **סדר הצעדים חשוב.**
 
+> **הערה על הקישורים:** כל הכתובות כאן לחיצות. אם בכל זאת אתה מעתיק
+> כתובת ומדביק בשורת הכתובת - להקפיד להתחיל ב-`https://`. הדבקה של
+> `www.zahavilaw.com/...` בלי הקידומת, כשאתה נמצא באתר אחר (למשל
+> GitHub), תגרום לדפדפן לחפש אותה **בתוך אותו אתר** ותקבל 404.
+
 ---
 
 ### צעד 1 - לוודא שהפריסה נחתה ✅ (2 דקות)
@@ -195,7 +200,7 @@ mako, ynet, calcalist, psakdin, YouTube, wa.me, waze.
 7. בחלון שנפתח: **לוודא שהתיבה "Use existing Build Cache" לא מסומנת**
 8. **Redeploy** → להמתין ל-Ready
 
-**לבדוק שזה עבד:** לפתוח `https://www.zahavilaw.com/robots.txt`.
+**לבדוק שזה עבד:** לפתוח את <https://www.zahavilaw.com/robots.txt>
 צריך להופיע `Allow: /`. אם מופיע `Disallow: /` - המשתנה עדיין פעיל.
 
 ---
@@ -204,7 +209,7 @@ mako, ynet, calcalist, psakdin, YouTube, wa.me, waze.
 
 זו הבדיקה שאי אפשר לדלג עליה - היא בודקת את צינור הלידים.
 
-1. לפתוח `https://www.zahavilaw.com/he/contact`
+1. לפתוח את <https://www.zahavilaw.com/he/contact>
 2. למלא שם, טלפון ומייל אמיתיים. בהודעה לכתוב "בדיקה"
 3. **לסמן את תיבת האישור** (בלעדיה הטופס לא יישלח - זו דרישת חוק)
 4. לשלוח
@@ -221,13 +226,14 @@ mako, ynet, calcalist, psakdin, YouTube, wa.me, waze.
 
 לפתוח את העמודים ולוודא שהם נראים תקין:
 
-- `https://www.zahavilaw.com` - עמוד הבית
-- `/he/about` - **החדש**: כרטיסי עורכי הדין עם השכלה והסמכות
-- `/he/faq` - **עמוד חדש**
-- `/he/careers` - **עמוד חדש**
-- `/he/terms` - **עמוד חדש**
-- `/he/publications` - **כאן לנסות כתבה אחת וסרטון אחד** (זה מה שלא
-  יכולתי לאמת)
+- <https://www.zahavilaw.com> - עמוד הבית
+- <https://www.zahavilaw.com/he/about> - **החדש**: כרטיסי עורכי הדין
+  עם השכלה והסמכות
+- <https://www.zahavilaw.com/he/faq> - **עמוד חדש**
+- <https://www.zahavilaw.com/he/careers> - **עמוד חדש**
+- <https://www.zahavilaw.com/he/terms> - **עמוד חדש**
+- <https://www.zahavilaw.com/he/publications> - **כאן לנסות כתבה אחת
+  וסרטון אחד** (זה מה שלא יכולתי לאמת)
 
 בנוסף: לוודא שסמל הנגישות נפתח, ושכפתור הוואטסאפ לא חופף אליו.
 
@@ -245,7 +251,7 @@ mako, ynet, calcalist, psakdin, YouTube, wa.me, waze.
 
 **ב. לבקש אינדוקס לשלושת העמודים החדשים:**
 6. בשורת החיפוש העליונה להדביק:
-   `https://www.zahavilaw.com/he/faq`
+   <https://www.zahavilaw.com/he/faq>
 7. להמתין לבדיקה → **Request Indexing**
 8. לחזור על 6-7 עבור `/he/careers` ו-`/he/terms`
 
