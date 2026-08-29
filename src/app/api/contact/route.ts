@@ -108,7 +108,9 @@ export async function POST(request: NextRequest) {
 
   if (!email.ok) {
     console.error("[contact] Lead accepted but email delivery failed:", lead.email);
-    return NextResponse.json({ ok: false, error: "sync_failed" }, { status: 502 });
+    // Named for what actually happens. "sync_failed" was a leftover from an
+    // earlier CRM integration that this route no longer performs.
+    return NextResponse.json({ ok: false, error: "delivery_failed" }, { status: 502 });
   }
 
   return NextResponse.json({ ok: true });

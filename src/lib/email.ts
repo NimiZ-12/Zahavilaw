@@ -69,9 +69,21 @@ export interface EmailResult {
 export async function sendLeadEmail(lead: Lead): Promise<EmailResult> {
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.LEAD_EMAIL_FROM;
+
   if (!apiKey || !from) {
+    // In development, skip quietly so local work needs no mail credentials.
+    // In production this must fail: silently accepting a lead the firm never
+    // receives, while telling the visitor it was sent, is the worst outcome
+    // for both. Failing makes the visitor call instead and surfaces the
+    // misconfiguration on the first submission rather than months later.
+    if (process.env.NODE_ENV === "production") {
+      console.error(
+        "[email] RESEND_API_KEY / LEAD_EMAIL_FROM not set in production - lead NOT delivered",
+      );
+      return { ok: false, error: "email_not_configured" };
+    }
     console.info(
-      "[email] Skipping lead email — RESEND_API_KEY / LEAD_EMAIL_FROM not set",
+      "[email] Skipping lead email - RESEND_API_KEY / LEAD_EMAIL_FROM not set (development)",
     );
     return { ok: true, skipped: true };
   }
