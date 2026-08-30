@@ -10,7 +10,16 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_BODY_BYTES = 16 * 1024; // 16 KB is ample for a contact form.
 
 function asString(value: unknown, max = 2000): string {
-  return typeof value === "string" ? value.trim().slice(0, max) : "";
+  if (typeof value !== "string") return "";
+  // Strip control characters (keeping newline and tab): nothing legitimate a
+  // visitor types contains them, and it closes off header-injection tricks in
+  // fields that end up in the notification email's subject line.
+  return value.replace(/[\u0000-\u0008\u000b-\u001f\u007f]/g, "").trim().slice(0, max);
+}
+
+/** Like asString, but for fields that must be a single line (name, subject). */
+function asLine(value: unknown, max = 2000): string {
+  return asString(value, max).replace(/\s+/g, " ");
 }
 
 /**
@@ -81,13 +90,15 @@ export async function POST(request: NextRequest) {
   }
 
   const lead: Lead = {
-    name: asString(body.name, 120),
-    email: asString(body.email, 160),
-    phone: asString(body.phone, 40),
-    subject: asString(body.subject, 160),
+    // Everything except the free-text message is inherently single-line; the
+    // name also lands in the notification email's subject, so it must be.
+    name: asLine(body.name, 120),
+    email: asLine(body.email, 160),
+    phone: asLine(body.phone, 40),
+    subject: asLine(body.subject, 160),
     message: asString(body.message, 4000),
-    preferredTime: asString(body.preferredTime, 160) || undefined,
-    locale: asString(body.locale, 5) || "he",
+    preferredTime: asLine(body.preferredTime, 160) || undefined,
+    locale: asLine(body.locale, 5) || "he",
     source: "website-contact-form",
   };
 
