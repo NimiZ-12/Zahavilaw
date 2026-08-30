@@ -479,6 +479,10 @@ const he: Dictionary = {
         heading: "סרטונים",
         videos: [
           {
+            id: "Sr0CnAriIVo",
+            title: 'דיני עבודה - פיטורים בזמן "תקופה מוגנת"',
+          },
+          {
             id: "H5QCZkxlM4Q",
             title: "דיני עבודה - פיטורי עובדים כדין",
             date: "יוני 2026",

@@ -479,6 +479,10 @@ const en: Dictionary = {
         heading: "Videos",
         videos: [
           {
+            id: "Sr0CnAriIVo",
+            title: 'Labor Law - Dismissal During a "Protected Period"',
+          },
+          {
             id: "H5QCZkxlM4Q",
             title: "Labor Law - Lawful Employee Termination",
             date: "June 2026",
