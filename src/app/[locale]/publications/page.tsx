@@ -114,6 +114,8 @@ export default async function PublicationsPage({
                         title={v.title}
                         date={v.date}
                         playLabel={publications.playVideo}
+                        credit={v.credit}
+                        creditLabel={publications.videoCredit}
                       />
                     </li>
                   ))}

@@ -449,6 +449,7 @@ const he: Dictionary = {
     readMore: "לכתבה המלאה",
     readRuling: "לקריאת פסק הדין",
     playVideo: "הפעלת הסרטון: {title}",
+    videoCredit: "מתוך: {source}",
     rulingPage: {
       aboutTitle: "על פסק הדין",
       about:
@@ -467,7 +468,9 @@ const he: Dictionary = {
         videos: [
           {
             id: "i7Da1ToH4Kg",
-            title: "המשרד בתקשורת",
+            title:
+              "קיבלה מכתב פיטורים בזמן שבעלה במילואים - בית הדין הפך את התמונה",
+            credit: "פסקדין",
           },
         ],
         items: [],

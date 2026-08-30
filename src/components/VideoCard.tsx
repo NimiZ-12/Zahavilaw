@@ -7,12 +7,18 @@ export default function VideoCard({
   title,
   date,
   playLabel,
+  credit,
+  creditLabel,
 }: {
   id: string;
   title: string;
   date?: string;
   /** Accessible name for the play button, with `{title}` as a placeholder. */
   playLabel: string;
+  /** Outlet that produced the video, when it is not the firm's own. */
+  credit?: string;
+  /** Credit line template, with `{source}` as a placeholder. */
+  creditLabel: string;
 }) {
   const [playing, setPlaying] = useState(false);
   // maxresdefault only exists for videos with an HD thumbnail; fall back to
@@ -84,6 +90,15 @@ export default function VideoCard({
           </p>
         )}
         <h3 className="mt-2 text-lg leading-snug text-navy">{title}</h3>
+        {/* Attribution for an interview filmed and published by someone else.
+            The moral right of attribution under the Copyright Law survives
+            even where the embed itself is licensed, so the outlet is named
+            wherever the video appears. */}
+        {credit && (
+          <p className="mt-2 text-xs text-muted">
+            {creditLabel.replace("{source}", credit)}
+          </p>
+        )}
       </div>
     </article>
   );

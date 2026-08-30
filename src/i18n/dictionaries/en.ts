@@ -449,6 +449,7 @@ const en: Dictionary = {
     readMore: "Read full article",
     readRuling: "Read the ruling",
     playVideo: "Play video: {title}",
+    videoCredit: "Source: {source}",
     rulingPage: {
       aboutTitle: "About this ruling",
       about:
@@ -467,7 +468,9 @@ const en: Dictionary = {
         videos: [
           {
             id: "i7Da1ToH4Kg",
-            title: "The firm in the media",
+            title:
+              "Dismissed while her husband was on reserve duty - the labour court reversed it",
+            credit: "Psakdin",
           },
         ],
         items: [],

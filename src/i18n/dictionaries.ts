@@ -216,6 +216,9 @@ export interface Dictionary {
     /** Accessible name for the play button on a video card. `{title}` is
      *  replaced with the video's title. */
     playVideo: string;
+    /** Credit line under a video the firm did not produce. `{source}` is
+     *  replaced with the outlet's name. */
+    videoCredit: string;
     /** The individual court-ruling reader page. Without this copy the page is
      *  an h1 plus a PDF iframe, which gives crawlers nothing to index. */
     rulingPage: {
@@ -234,7 +237,16 @@ export interface Dictionary {
     groups: {
       heading: string;
       items: PublicationItem[];
-      videos?: { id: string; title: string; date?: string }[];
+      videos?: {
+        id: string;
+        title: string;
+        date?: string;
+        /** Name of the outlet that produced and published the video, for
+         *  interviews filmed by someone else. Shown on the card and used as
+         *  the schema publisher, so the firm is not credited as the author of
+         *  a work it did not make. Omit for the firm's own videos. */
+        credit?: string;
+      }[];
       /** Court rulings shown as in-site PDF readers. `slug` maps to /rulings/{slug}.pdf. */
       rulings?: { slug: string; title: string }[];
     }[];

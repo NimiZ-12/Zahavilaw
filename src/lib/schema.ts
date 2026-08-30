@@ -294,6 +294,8 @@ export function videoNode(video: {
   title: string;
   date?: string;
   uploadDate?: string;
+  /** Outlet that produced the video, for interviews filmed by someone else. */
+  credit?: string;
 }): JsonLdNode {
   return clean({
     "@type": "VideoObject",
@@ -303,7 +305,12 @@ export function videoNode(video: {
     uploadDate: video.uploadDate,
     embedUrl: `https://www.youtube-nocookie.com/embed/${video.id}`,
     contentUrl: `https://www.youtube.com/watch?v=${video.id}`,
-    publisher: { "@id": ID.organization },
+    // Claiming the firm as publisher of a third party's interview would be
+    // both factually wrong and a false authorship claim, so a credited video
+    // names its own outlet instead.
+    publisher: video.credit
+      ? { "@type": "Organization", name: video.credit }
+      : { "@id": ID.organization },
   });
 }
 
