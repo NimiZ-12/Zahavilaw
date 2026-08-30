@@ -315,9 +315,9 @@ const he: Dictionary = {
     ],
     milestonesTitle: "המשרד במספרים",
     milestones: [
+      { value: "30+", label: "שנות ניסיון" },
+      { value: "1,500+", label: "לקוחות" },
       { value: "1996", label: "שנת הקמת המשרד" },
-      { value: "6", label: "תחומי עיסוק שהמשרד מטפל בהם" },
-      { value: "2", label: "שפות עבודה: עברית ואנגלית" },
     ],
     teamTitle: "עורכי הדין והסמכתם",
     teamIntro:
@@ -462,6 +462,16 @@ const he: Dictionary = {
       metaSuffix: ". קריאת פסק הדין המלא באתר המשרד.",
     },
     groups: [
+      {
+        heading: "המשרד בתקשורת",
+        videos: [
+          {
+            id: "i7Da1ToH4Kg",
+            title: "המשרד בתקשורת",
+          },
+        ],
+        items: [],
+      },
       {
         heading: "סרטונים",
         videos: [

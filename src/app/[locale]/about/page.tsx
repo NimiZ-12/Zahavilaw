@@ -88,13 +88,16 @@ function AttorneyCard({
         <CredentialRow label={labels.languages} values={member.languages} />
       </dl>
 
-      <Link
+      {/* mt-auto pins the button to the bottom of the card so the two cards
+          line up even when one attorney has more credential rows. */}
+      <ButtonLink
         href={localePath(locale, `/team/${member.slug}`)}
-        className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-navy hover:text-gold-600"
+        variant="secondary"
+        className="mt-auto self-start"
       >
         {viewProfile}
         <ArrowIcon className="h-4 w-4 rtl:-scale-x-100" />
-      </Link>
+      </ButtonLink>
     </article>
   );
 }

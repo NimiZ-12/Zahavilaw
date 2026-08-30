@@ -315,9 +315,9 @@ const en: Dictionary = {
     ],
     milestonesTitle: "The firm in numbers",
     milestones: [
+      { value: "30+", label: "Years of experience" },
+      { value: "1,500+", label: "Clients" },
       { value: "1996", label: "The year the firm was founded" },
-      { value: "6", label: "Practice areas the firm handles" },
-      { value: "2", label: "Working languages: Hebrew and English" },
     ],
     teamTitle: "Our attorneys and their qualifications",
     teamIntro:
@@ -462,6 +462,16 @@ const en: Dictionary = {
       metaSuffix: ". Read the full ruling on the firm's website.",
     },
     groups: [
+      {
+        heading: "The Firm in the Media",
+        videos: [
+          {
+            id: "i7Da1ToH4Kg",
+            title: "The firm in the media",
+          },
+        ],
+        items: [],
+      },
       {
         heading: "Videos",
         videos: [
