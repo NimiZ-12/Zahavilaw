@@ -11,13 +11,29 @@ export interface Feature {
   body: string;
 }
 
+export interface FaqItem {
+  q: string;
+  a: string;
+  /**
+   * Optional destination for the question itself. When set, the question is
+   * rendered as a link wherever this Q&A appears, which is how a campaign
+   * landing page gets an internal link without redesigning the page it sits
+   * on. The answer must still stand on its own: the link is a way further in,
+   * not a replacement for answering the question.
+   *
+   * Locale-prefixed, because a page that exists in one language only cannot be
+   * derived from the current locale.
+   */
+  href?: string;
+}
+
 export interface PracticeArea {
   slug: string;
   title: string;
   summary: string;
   description: string;
   points: string[];
-  faq?: { q: string; a: string }[];
+  faq?: FaqItem[];
 }
 
 export interface TeamMember {
