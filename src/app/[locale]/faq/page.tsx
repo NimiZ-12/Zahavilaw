@@ -135,7 +135,19 @@ export default async function FaqPage({
                       key={item.q}
                       className="rounded-xl border border-border bg-white p-6"
                     >
-                      <h4 className="text-base font-semibold text-navy">{item.q}</h4>
+                      <h4 className="text-base font-semibold text-navy">
+                        {item.href ? (
+                          <Link
+                            href={item.href}
+                            className="inline-flex items-baseline gap-1.5 transition-colors hover:text-gold-600"
+                          >
+                            {item.q}
+                            <ArrowIcon className="h-4 w-4 shrink-0 self-center text-gold rtl:-scale-x-100" />
+                          </Link>
+                        ) : (
+                          item.q
+                        )}
+                      </h4>
                       <p className="mt-2 text-sm leading-relaxed text-muted">
                         {item.a}
                       </p>
