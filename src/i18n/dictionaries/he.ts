@@ -515,6 +515,12 @@ const he: Dictionary = {
         heading: "מאמרים",
         items: [
           {
+            title: "כשהילדים בבית ובעלה במילואים: פוטרה מהעבודה - ותבעה",
+            source: "mako",
+            field: "דיני עבודה",
+            href: "https://www.mako.co.il/finances-law/work/Article-2a7c41fdea730a1026.htm",
+          },
+          {
             title: "שיימינג על תלמידה חרדית: חברותיה ישלמו 144 אלף שקל",
             source: "mako",
             field: "לשון הרע",

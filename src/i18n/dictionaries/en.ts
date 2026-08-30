@@ -515,6 +515,12 @@ const en: Dictionary = {
         heading: "Articles",
         items: [
           {
+            title: "With the children at home and her husband on reserve duty: dismissed - and she sued",
+            source: "mako",
+            field: "Labor Law",
+            href: "https://www.mako.co.il/finances-law/work/Article-2a7c41fdea730a1026.htm",
+          },
+          {
             title: "Shaming of an ultra-Orthodox student: her classmates ordered to pay NIS 144,000",
             source: "mako",
             field: "Defamation",
