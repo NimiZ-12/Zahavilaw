@@ -518,6 +518,8 @@ const en: Dictionary = {
             title: "With the children at home and her husband on reserve duty: dismissed - and she sued",
             source: "mako",
             field: "Labor Law",
+            excerpt:
+              "A mother of two told her employer she would be absent to care for her children while schools were closed, after her husband was called up for reserve duty on October 7 under an emergency order. In response she received a termination letter. The labor court awarded her about NIS 137,000.",
             href: "https://www.mako.co.il/finances-law/work/Article-2a7c41fdea730a1026.htm",
           },
           {

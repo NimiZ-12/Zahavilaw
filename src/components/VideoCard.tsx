@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function VideoCard({
   id,
@@ -26,6 +26,27 @@ export default function VideoCard({
   const [thumb, setThumb] = useState(
     `https://img.youtube.com/vi/${id}/maxresdefault.jpg`,
   );
+  const imgRef = useRef<HTMLImageElement | null>(null);
+
+  // YouTube serves a 120px grey placeholder (HTTP 200) when maxresdefault is
+  // missing, so the swap to hqdefault keys off the loaded image's natural
+  // size. The onLoad/onError handlers below cover images that finish loading
+  // after hydration - but a tiny placeholder on a fast connection often
+  // finishes BEFORE React attaches them, the events never fire, and the card
+  // is stuck on the grey box. This effect closes that race: on mount, if the
+  // image already completed as either an error or something implausibly
+  // small, apply the same fallback the handlers would have.
+  useEffect(() => {
+    const img = imgRef.current;
+    if (
+      img?.complete &&
+      img.naturalWidth < 200 &&
+      // src, not currentSrc: after a failed load currentSrc can be empty.
+      img.src.includes("maxresdefault")
+    ) {
+      setThumb(`https://img.youtube.com/vi/${id}/hqdefault.jpg`);
+    }
+  }, [id]);
 
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-xl border border-border bg-white transition-all hover:-translate-y-0.5 hover:border-gold/40 hover:shadow-md">
@@ -52,6 +73,7 @@ export default function VideoCard({
                 also bill every view for no gain. */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
+              ref={imgRef}
               src={thumb}
               alt=""
               onError={() =>
