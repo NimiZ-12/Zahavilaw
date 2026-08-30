@@ -14,6 +14,18 @@
 
 const BASE = (process.argv[2] || "http://localhost:3000").replace(/\/$/, "");
 
+/**
+ * Locale-specific pages: routes that deliberately exist in one language only.
+ * Campaign landing pages are the case - they are the destination for a video
+ * or an ad in one language, and publishing a translated twin nobody maintains
+ * would point hreflang at a page with no real content.
+ *
+ * Every entry here is exempt from the hreflang-pair assertions and from
+ * nothing else. Keep the list short: a page belongs here only when the
+ * single-locale decision is documented in the route itself.
+ */
+const HEBREW_ONLY_PATHS = new Set(["/he/lp/protected-period"]);
+
 let failures = 0;
 let checks = 0;
 
@@ -72,10 +84,15 @@ const urls = [...sitemap.body.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1])
 check(urls.length > 0, "sitemap contains URLs");
 
 const hreflangCount = (sitemap.body.match(/hreflang=/g) || []).length;
+// Bilingual entries carry three alternates each; the locale-specific ones
+// above carry none, by design.
+const bilingualUrls = urls.filter(
+  (u) => !HEBREW_ONLY_PATHS.has(new URL(u).pathname),
+);
 check(
-  hreflangCount >= urls.length * 3,
-  "every sitemap entry has he/en/x-default alternates",
-  `${hreflangCount} alternates for ${urls.length} URLs`,
+  hreflangCount >= bilingualUrls.length * 3,
+  "every bilingual sitemap entry has he/en/x-default alternates",
+  `${hreflangCount} alternates for ${bilingualUrls.length} bilingual URLs`,
 );
 console.log(`sitemap: ${urls.length} URLs, ${hreflangCount} hreflang alternates`);
 
@@ -125,10 +142,21 @@ for (const path of paths) {
 
   // --- metadata -------------------------------------------------------
   check(/<link rel="canonical"/.test(html), `${label} has a canonical link`);
-  check(
-    /hreflang="he"/i.test(html) && /hreflang="en"/i.test(html),
-    `${label} has hreflang pair`,
-  );
+  // Match the <link rel="alternate"> tags only. The header's language switcher
+  // also carries an hreflang attribute, on an <a>, which is not a signal to
+  // search engines about this page's translations.
+  const altLinks = (html.match(/<link[^>]*hreflang=[^>]*>/gi) || []).join(" ");
+  if (HEBREW_ONLY_PATHS.has(path)) {
+    check(
+      altLinks === "",
+      `${label} is Hebrew only and emits no hreflang alternates`,
+    );
+  } else {
+    check(
+      /hreflang="he"/i.test(altLinks) && /hreflang="en"/i.test(altLinks),
+      `${label} has hreflang pair`,
+    );
+  }
   check(/<meta name="description"/.test(html), `${label} has a meta description`);
   check(/property="og:title"/.test(html), `${label} has og:title`);
 
