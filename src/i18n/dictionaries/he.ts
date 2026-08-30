@@ -481,6 +481,7 @@ const he: Dictionary = {
           {
             id: "Sr0CnAriIVo",
             title: 'דיני עבודה - פיטורים בזמן "תקופה מוגנת"',
+            date: "אוגוסט 2026",
           },
           {
             id: "H5QCZkxlM4Q",

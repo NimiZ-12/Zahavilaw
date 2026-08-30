@@ -481,6 +481,7 @@ const en: Dictionary = {
           {
             id: "Sr0CnAriIVo",
             title: 'Labor Law - Dismissal During a "Protected Period"',
+            date: "August 2026",
           },
           {
             id: "H5QCZkxlM4Q",
