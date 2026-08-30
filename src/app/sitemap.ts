@@ -83,5 +83,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   }
 
+  // Campaign landing pages. These exist in Hebrew only, so they are listed
+  // once and without `alternates`: an hreflang pair here would point Google
+  // at an English URL that carries no English content.
+  entries.push({
+    url: `${SITE_URL}${localePath("he", "/lp/protected-period")}`,
+    lastModified,
+    changeFrequency: "monthly",
+    priority: 0.6,
+  });
+
   return entries;
 }
