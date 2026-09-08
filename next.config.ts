@@ -97,6 +97,12 @@ const nextConfig: NextConfig = {
       // זכויות-עובדים — employee rights
       { source: "/%D7%96%D7%9B%D7%95%D7%99%D7%95%D7%AA-%D7%A2%D7%95%D7%91%D7%93%D7%99%D7%9D", destination: "/he/practice-areas/labor-law", permanent: true },
       { source: "/%D7%96%D7%9B%D7%95%D7%99%D7%95%D7%AA-%D7%A2%D7%95%D7%91%D7%93%D7%99%D7%9D/", destination: "/he/practice-areas/labor-law", permanent: true },
+      // דיני-עבודה — labor law (found 404ing in the 5.9.2026 Search Console audit)
+      { source: "/%D7%93%D7%99%D7%A0%D7%99-%D7%A2%D7%91%D7%95%D7%93%D7%94", destination: "/he/practice-areas/labor-law", permanent: true },
+      { source: "/%D7%93%D7%99%D7%A0%D7%99-%D7%A2%D7%91%D7%95%D7%93%D7%94/", destination: "/he/practice-areas/labor-law", permanent: true },
+      // עורך-דין-זכויות-עובדים — employee-rights lawyer (same audit)
+      { source: "/%D7%A2%D7%95%D7%A8%D7%9A-%D7%93%D7%99%D7%9F-%D7%96%D7%9B%D7%95%D7%99%D7%95%D7%AA-%D7%A2%D7%95%D7%91%D7%93%D7%99%D7%9D", destination: "/he/practice-areas/labor-law", permanent: true },
+      { source: "/%D7%A2%D7%95%D7%A8%D7%9A-%D7%93%D7%99%D7%9F-%D7%96%D7%9B%D7%95%D7%99%D7%95%D7%AA-%D7%A2%D7%95%D7%91%D7%93%D7%99%D7%9D/", destination: "/he/practice-areas/labor-law", permanent: true },
       // מניעת-פיטורים — prevention of dismissal
       { source: "/%D7%9E%D7%A0%D7%99%D7%A2%D7%AA-%D7%A4%D7%99%D7%98%D7%95%D7%A8%D7%99%D7%9D", destination: "/he/practice-areas/labor-law", permanent: true },
       { source: "/%D7%9E%D7%A0%D7%99%D7%A2%D7%AA-%D7%A4%D7%99%D7%98%D7%95%D7%A8%D7%99%D7%9D/", destination: "/he/practice-areas/labor-law", permanent: true },
@@ -127,14 +133,11 @@ const nextConfig: NextConfig = {
       // ייצוג-בבית-הדין-לעבודה — representation in labor court
       { source: "/%D7%99%D7%99%D7%A6%D7%95%D7%92-%D7%91%D7%91%D7%99%D7%AA-%D7%94%D7%93%D7%99%D7%9F-%D7%9C%D7%A2%D7%91%D7%95%D7%93%D7%94", destination: "/he/practice-areas/labor-law", permanent: true },
       { source: "/%D7%99%D7%99%D7%A6%D7%95%D7%92-%D7%91%D7%91%D7%99%D7%AA-%D7%94%D7%93%D7%99%D7%9F-%D7%9C%D7%A2%D7%91%D7%95%D7%93%D7%94/", destination: "/he/practice-areas/labor-law", permanent: true },
-      // WordPress leftovers still crawled from the old site — send to the
-      // homepage rather than letting them 404.
-      { source: "/wp-content/:path*", destination: "/he", permanent: true },
-      { source: "/wp-admin/:path*", destination: "/he", permanent: true },
-      { source: "/wp-json/:path*", destination: "/he", permanent: true },
-      { source: "/feed", destination: "/he", permanent: true },
-      { source: "/category/:path*", destination: "/he", permanent: true },
-      { source: "/tag/:path*", destination: "/he", permanent: true },
+      // WordPress leftovers (feeds, /wp-*, taxonomy archives) are handled in
+      // src/proxy.ts with 410 Gone rather than redirected here: bulk-pointing
+      // dead URLs at the homepage reads as a soft 404 to Google, while 410
+      // tells it to drop them. next.config redirects run BEFORE the proxy, so
+      // listing them here would shadow the 410.
     ];
   },
   // Trailing-slash off keeps canonical URLs clean for SEO.

@@ -13,9 +13,14 @@ function entry(
   path: string,
   locale: (typeof locales)[number],
   lastModified: Date,
-  changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"],
-  priority: number,
 ): MetadataRoute.Sitemap[number] {
+  // Crawl budget goes to the Hebrew pages that bring clients: Hebrew home
+  // 1.0/weekly, other Hebrew pages 0.8/monthly, English uniformly 0.3/yearly.
+  // English stays in the sitemap and indexable - lower priority only.
+  const isHome = path === "/" || path === "";
+  const priority = locale === "he" ? (isHome ? 1 : 0.8) : 0.3;
+  const changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] =
+    locale === "he" ? (isHome ? "weekly" : "monthly") : "yearly";
   return {
     url: `${SITE_URL}${localePath(locale, path)}`,
     lastModified,
@@ -40,46 +45,30 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     // Top-level pages from the main navigation.
     for (const item of navItems) {
-      entries.push(
-        entry(
-          item.path,
-          locale,
-          lastModified,
-          item.path === "/" ? "weekly" : "monthly",
-          item.path === "/" ? 1 : 0.8,
-        ),
-      );
+      entries.push(entry(item.path, locale, lastModified));
     }
 
     // Secondary pages that are linked from the footer rather than the nav.
-    entries.push(entry("/careers", locale, lastModified, "monthly", 0.6));
+    entries.push(entry("/careers", locale, lastModified));
 
     for (const area of dict.practiceAreas.items) {
-      entries.push(
-        entry(`/practice-areas/${area.slug}`, locale, lastModified, "monthly", 0.7),
-      );
+      entries.push(entry(`/practice-areas/${area.slug}`, locale, lastModified));
     }
 
     for (const member of dict.team.members) {
-      entries.push(entry(`/team/${member.slug}`, locale, lastModified, "yearly", 0.5));
+      entries.push(entry(`/team/${member.slug}`, locale, lastModified));
     }
 
     for (const group of dict.publications.groups) {
       for (const ruling of group.rulings ?? []) {
         entries.push(
-          entry(
-            `/publications/rulings/${ruling.slug}`,
-            locale,
-            lastModified,
-            "yearly",
-            0.5,
-          ),
+          entry(`/publications/rulings/${ruling.slug}`, locale, lastModified),
         );
       }
     }
 
     for (const path of ["/privacy", "/accessibility", "/terms"]) {
-      entries.push(entry(path, locale, lastModified, "yearly", 0.3));
+      entries.push(entry(path, locale, lastModified));
     }
   }
 
