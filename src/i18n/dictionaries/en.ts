@@ -469,7 +469,7 @@ const en: Dictionary = {
           {
             id: "EaB1cDkD5ec",
             title: "The CrossFit coach who made the gym pay compensation",
-            date: "September 2026",
+            date: "August 2026",
             credit: "Psakdin",
           },
           {
