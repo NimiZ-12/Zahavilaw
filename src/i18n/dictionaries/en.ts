@@ -467,9 +467,16 @@ const en: Dictionary = {
         heading: "The Firm in the Media",
         videos: [
           {
+            id: "EaB1cDkD5ec",
+            title: "The CrossFit coach who made the gym pay compensation",
+            date: "September 2026",
+            credit: "Psakdin",
+          },
+          {
             id: "i7Da1ToH4Kg",
             title:
               "Dismissed while her husband was on reserve duty - the labour court reversed it",
+            date: "August 2026",
             credit: "Psakdin",
           },
         ],
