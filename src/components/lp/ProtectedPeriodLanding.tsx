@@ -18,70 +18,15 @@
 ---------------------------------------------------------------------------- */
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { WhatsappIcon } from "@/components/Icons";
-import { WHATSAPP_NUMBER_E164 } from "@/lib/contact";
+import {
+  ChevronIcon,
+  Eyebrow,
+  PhoneLine,
+  WhatsappCta,
+} from "@/components/lp/shared";
 import type { LpProtectedPeriod, LpTrack } from "@/i18n/lp-protected-period";
 
 type TrackId = LpTrack["id"];
-
-/** Disclosure chevron for the FAQ. Local to this page, so it stays out of the
- *  shared icon set until something else needs it. */
-function ChevronIcon(props: { className?: string; "aria-hidden"?: boolean }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" {...props}>
-      <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function waLink(message: string) {
-  return `https://wa.me/${WHATSAPP_NUMBER_E164}?text=${encodeURIComponent(message)}`;
-}
-
-/** Gold CTA, matching the site's primary button. `whitespace-nowrap` is load
- *  bearing: the label must never wrap, however narrow the column gets. */
-function WhatsappCta({
-  message,
-  label,
-  block = false,
-}: {
-  message: string;
-  label: string;
-  block?: boolean;
-}) {
-  return (
-    <a
-      href={waLink(message)}
-      target="_blank"
-      rel="noopener noreferrer"
-      onClick={() => window.gtag?.("event", "contact_lead", { method: "whatsapp" })}
-      className={`inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md bg-gold px-6 py-3 text-sm font-medium text-white shadow-sm shadow-gold/20 transition-colors hover:bg-gold-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold ${
-        block ? "flex w-full" : ""
-      }`}
-    >
-      <WhatsappIcon className="h-4 w-4" />
-      {label}
-    </a>
-  );
-}
-
-function PhoneLine({ label, phone }: { label: string; phone: string }) {
-  return (
-    <p className="text-sm text-muted">
-      {label}{" "}
-      <a
-        href={`tel:${phone.replace(/[^\d+]/g, "")}`}
-        onClick={() => window.gtag?.("event", "contact_lead", { method: "phone" })}
-        className="font-semibold text-navy hover:text-gold-600"
-      >
-        {/* dir="ltr" keeps the two digit groups in order inside RTL text. */}
-        <bdi dir="ltr" className="whitespace-nowrap">
-          {phone}
-        </bdi>
-      </a>
-    </p>
-  );
-}
 
 function AskBox({
   ask,
@@ -103,15 +48,6 @@ function AskBox({
         <PhoneLine label={ask.phoneLabel} phone={phone} />
       </div>
     </div>
-  );
-}
-
-function Eyebrow({ children }: { children: string }) {
-  return (
-    <p className="inline-flex items-center gap-2 text-sm font-semibold tracking-wider text-gold-600">
-      <span aria-hidden className="h-px w-6 bg-gold/50" />
-      {children}
-    </p>
   );
 }
 

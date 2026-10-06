@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import Script from "next/script";
 import Link from "next/link";
 import type { Locale } from "@/i18n/config";
@@ -13,6 +13,21 @@ type FieldErrors = Partial<Record<"name" | "phone" | "email" | "consent" | "capt
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+
+/* Which page sent the visitor here (e.g. /he/contact?src=severance from a
+   campaign landing page). Carried as a hidden field into the lead email so
+   the firm can attribute form leads without analytics, which only load after
+   cookie consent. useSyncExternalStore, not setState-in-effect: the page is
+   statically prerendered, so the server snapshot is "" and the browser
+   snapshot reads the real query string after hydration. */
+const noopSubscribe = () => () => {};
+function readSrcParam(): string {
+  try {
+    return new URLSearchParams(window.location.search).get("src") ?? "";
+  } catch {
+    return "";
+  }
+}
 
 declare global {
   interface Window {
@@ -64,6 +79,7 @@ export default function ContactForm({
   const [errors, setErrors] = useState<FieldErrors>({});
   const [preferredDate, setPreferredDate] = useState("");
   const [preferredDateError, setPreferredDateError] = useState("");
+  const src = useSyncExternalStore(noopSubscribe, readSrcParam, () => "");
   const minDate = earliestSelectableDate();
 
   function onPreferredDateChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -115,6 +131,7 @@ export default function ContactForm({
       company: data.get("company"), // honeypot
       consent: data.get("consent") === "on",
       captchaToken: data.get("cf-turnstile-response"),
+      src: data.get("src"),
       locale,
     };
 
@@ -303,6 +320,9 @@ export default function ContactForm({
         <label htmlFor="company">Company</label>
         <input id="company" name="company" type="text" tabIndex={-1} autoComplete="off" />
       </div>
+
+      {/* Referring-page tag, populated from the URL's ?src= parameter. */}
+      <input type="hidden" name="src" value={src} />
 
       {/* Required by Israeli privacy law: unchecked by default, and the
           policy and terms are real links, not plain words. The same consent

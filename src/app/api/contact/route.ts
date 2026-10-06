@@ -100,6 +100,11 @@ export async function POST(request: NextRequest) {
     preferredTime: asLine(body.preferredTime, 160) || undefined,
     locale: asLine(body.locale, 5) || "he",
     source: "website-contact-form",
+    // Referring-page tag from a campaign landing page (?src=severance).
+    // Whitelisted to a slug shape so arbitrary text can't ride into the
+    // notification email through a hand-crafted request.
+    src:
+      asLine(body.src, 40).match(/^[a-z0-9-]{1,40}$/)?.[0] || undefined,
   };
 
   // 6. Validate.
