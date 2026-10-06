@@ -47,9 +47,10 @@ const KNOWN_PATHS = new Set<string>([
   "/privacy",
   "/terms",
   "/accessibility",
-  // Hebrew-only campaign landing page (see src/i18n/lp-protected-period.ts);
-  // redirecting to /he is right for it by definition.
+  // Hebrew-only campaign landing pages (see src/i18n/lp-*.ts);
+  // redirecting to /he is right for them by definition.
   "/lp/protected-period",
+  "/lp/severance-pay",
   ...he.practiceAreas.items.map((a) => `/practice-areas/${a.slug}`),
   ...he.team.members.map((m) => `/team/${m.slug}`),
   ...he.publications.groups.flatMap((g) =>

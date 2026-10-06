@@ -24,7 +24,10 @@ const BASE = (process.argv[2] || "http://localhost:3000").replace(/\/$/, "");
  * nothing else. Keep the list short: a page belongs here only when the
  * single-locale decision is documented in the route itself.
  */
-const HEBREW_ONLY_PATHS = new Set(["/he/lp/protected-period"]);
+const HEBREW_ONLY_PATHS = new Set([
+  "/he/lp/protected-period",
+  "/he/lp/severance-pay",
+]);
 
 let failures = 0;
 let checks = 0;

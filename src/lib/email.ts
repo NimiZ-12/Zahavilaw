@@ -9,6 +9,8 @@ export interface Lead {
   preferredTime?: string;
   locale: string;
   source: string;
+  /** Referring-page tag from a campaign landing page, e.g. "severance". */
+  src?: string;
 }
 
 /* ----------------------------------------------------------------------------
@@ -42,6 +44,8 @@ function leadHtml(lead: Lead): string {
     ["הודעה", lead.message || "-"],
     ["מועד מועדף לשיחה", lead.preferredTime || "-"],
     ["שפת הפנייה", lead.locale === "he" ? "עברית" : "English"],
+    // Only when the visitor arrived from a campaign landing page.
+    ...(lead.src ? ([["עמוד המקור", lead.src]] as [string, string][]) : []),
   ];
   const tr = rows
     .map(
