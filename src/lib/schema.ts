@@ -314,8 +314,8 @@ export function videoNode(video: {
   });
 }
 
-/** A published court ruling or guide, presented as an article so its text is
- *  indexable. A guide passes `authorSlug` so the article is attributed to the
+/** A published court ruling or article, presented as an article so its text is
+ *  indexable. An article page passes `authorSlug` so the article is attributed to the
  *  attorney who wrote it rather than the firm, plus real publish/update
  *  dates; the ruling pages pass none of the new fields and their output is
  *  unchanged. */
@@ -353,7 +353,7 @@ export function articleNode({
     publisher: { "@id": ID.organization },
     datePublished,
     dateModified,
-    // Only for the new callers (guides): the ruling pages' output is
+    // Only for the new callers (articles): the ruling pages' output is
     // contractually unchanged.
     mainEntityOfPage:
       authorSlug || datePublished

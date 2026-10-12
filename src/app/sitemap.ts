@@ -5,14 +5,14 @@ import { lpProtectedPeriod } from "@/i18n/lp-protected-period";
 import { lpSeverancePay } from "@/i18n/lp-severance-pay";
 import { lpHearing } from "@/i18n/lp-hearing";
 import { lpUnpaidWages } from "@/i18n/lp-unpaid-wages";
-import { guides } from "@/i18n/guides";
+import { articles } from "@/i18n/articles";
 import { SITE_URL, localePath, navItems } from "@/lib/routes";
 
 /**
  * Real last-modified dates per locale-less path. A sitemap in which every
  * URL "changed today" on every deploy is a signal Google learns to ignore,
  * so dates are maintained by hand here and updated only when a page's
- * CONTENT actually changes. Landing pages and guides carry their own
+ * CONTENT actually changes. Landing pages and articles carry their own
  * `updated` field in their content modules instead.
  *
  * The 2026-08-30 default is the site relaunch date.
@@ -61,7 +61,7 @@ function entry(
   };
 }
 
-/** A Hebrew-only entry (campaign landing page or guide): listed once,
+/** A Hebrew-only entry (campaign landing page or article): listed once,
  *  without `alternates` - an hreflang pair would point Google at an English
  *  URL that carries no English content. */
 function hebrewOnlyEntry(
@@ -121,16 +121,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entries.push(hebrewOnlyEntry(path, lp.updated, 0.6));
   }
 
-  // Guides hub + guides (Hebrew only). The hub exists only once the first
-  // approved guide is in; its date is the newest guide's.
-  if (guides.length > 0) {
-    const newest = guides
+  // Articles hub + articles (Hebrew only). The hub exists only once the first
+  // approved article is in; its date is the newest article's.
+  if (articles.length > 0) {
+    const newest = articles
       .map((g) => g.updated)
       .sort()
       .at(-1)!;
-    entries.push(hebrewOnlyEntry("/guides", newest, 0.7));
-    for (const g of guides) {
-      entries.push(hebrewOnlyEntry(`/guides/${g.slug}`, g.updated, 0.7));
+    entries.push(hebrewOnlyEntry("/articles", newest, 0.7));
+    for (const g of articles) {
+      entries.push(hebrewOnlyEntry(`/articles/${g.slug}`, g.updated, 0.7));
     }
   }
 

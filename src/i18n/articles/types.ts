@@ -1,20 +1,20 @@
 /* ----------------------------------------------------------------------------
-   The content contract for a labor-law guide (/he/guides/<slug>).
+   The content contract for a labor-law article (/he/articles/<slug>).
    ---------------------------------------------------------------------------
-   One file per guide under src/i18n/guides/, written by the marketing agent
+   One file per article under src/i18n/articles/, written by the marketing agent
    to this exact shape and approved by the client word for word BEFORE it is
    added here. The developer agent never writes or rewords legal copy.
 
-   Guides are Hebrew-only (client-approved deviation from the bilingual rule,
+   Articles are Hebrew-only (client-approved deviation from the bilingual rule,
    same as the /lp/ landing pages): the route builds for `he` only, carries a
    self-canonical and no hreflang alternates.
 
    The field-by-field submission format for the marketing agent is documented
-   in docs/seo/guides-content-format.md - keep the two in sync.
+   in docs/seo/articles-content-format.md - keep the two in sync.
 ---------------------------------------------------------------------------- */
 
-export type Guide = {
-  /** URL segment under /he/guides/. Permanent: never change after publish. */
+export type Article = {
+  /** URL segment under /he/articles/. Permanent: never change after publish. */
   slug: string;
   /** Short display name for breadcrumbs and the WhatsApp opener. */
   shortName: string;
@@ -46,6 +46,6 @@ export type Guide = {
   faq: { q: string; a: string }[];
   /** Links to the relevant landing pages and the labor-law page. */
   related: { label: string; href: string }[];
-  /** Statute sections and case law this guide relies on. */
+  /** Statute sections and case law this article relies on. */
   sources: { label: string; href?: string }[];
 };
