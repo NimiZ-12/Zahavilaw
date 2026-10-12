@@ -7,7 +7,7 @@ import { buildGraph, faqNode, serviceNode } from "@/lib/schema";
 import { lpSeverancePay } from "@/i18n/lp-severance-pay";
 import JsonLd from "@/components/JsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import SeverancePayLanding from "@/components/lp/SeverancePayLanding";
+import CampaignLanding from "@/components/lp/CampaignLanding";
 
 /**
  * Campaign landing page for the "severance pay" Search campaign - the
@@ -118,7 +118,7 @@ export default async function SeverancePayPage({
         </div>
       </section>
 
-      <SeverancePayLanding content={content} phone={dict.contact.phone} />
+      <CampaignLanding content={content} phone={dict.contact.phone} />
     </>
   );
 }

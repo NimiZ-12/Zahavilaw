@@ -1,15 +1,16 @@
 /* ----------------------------------------------------------------------------
-   Campaign landing page body: /he/lp/severance-pay
+   Campaign landing page body for the single-track pages:
+   /he/lp/severance-pay, /he/lp/hearing, /he/lp/unpaid-wages.
    ---------------------------------------------------------------------------
-   A deliberate clone of the protected-period landing page: same shell, same
-   CTAs, same FAQ accordion, same disclaimer strip. This page has one linear
-   story instead of two tracks, so it needs no tabs and no client state - it
-   renders on the server and ships only the shared CTA components' JS.
+   One component renders all of them from an LpPage content module, so the
+   pages cannot drift apart visually. Deliberately a server component: a
+   linear story needs no tabs and no client state, so only the shared CTA
+   components' JS is shipped.
 
-   Three lead paths, by design: WhatsApp with a pre-filled opener naming this
-   page (the one signal that arrives regardless of cookie consent), the
-   office phone, and the contact form carrying ?src=severance so the lead
-   email names the page too.
+   Three lead paths per page, by design: WhatsApp with a pre-filled opener
+   naming the page (the one signal that arrives regardless of cookie
+   consent), the office phone, and the contact form carrying ?src=<page> so
+   the lead email names the page too.
 ---------------------------------------------------------------------------- */
 
 import {
@@ -19,11 +20,11 @@ import {
   PhoneLine,
   WhatsappCta,
 } from "@/components/lp/shared";
-import type { LpSeverancePay } from "@/i18n/lp-severance-pay";
+import type { LpPage } from "@/i18n/lp-page";
 import Link from "next/link";
 import { ArrowIcon } from "@/components/Icons";
 
-function AskBox({ content, phone }: { content: LpSeverancePay; phone: string }) {
+function AskBox({ content, phone }: { content: LpPage; phone: string }) {
   const { ask } = content;
   return (
     <div className="rounded-2xl border border-border bg-surface p-8">
@@ -40,50 +41,53 @@ function AskBox({ content, phone }: { content: LpSeverancePay; phone: string }) 
   );
 }
 
-export default function SeverancePayLanding({
+export default function CampaignLanding({
   content,
   phone,
 }: {
-  content: LpSeverancePay;
+  content: LpPage;
   phone: string;
 }) {
   return (
     <>
       {/* ---------------------------------------------------------------- */}
-      {/* Eligibility, calculation, timing and first steps + sticky ask box */}
+      {/* Content sections and first steps + sticky ask box                 */}
       {/* ---------------------------------------------------------------- */}
       <section className="section">
         <div className="container-x grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-8">
-            <Eyebrow>{content.eligibility.eyebrow}</Eyebrow>
-            <h2 className="mt-3 text-3xl">{content.eligibility.title}</h2>
-            <ul className="mt-8 space-y-4">
-              {content.eligibility.items.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <span
-                    aria-hidden
-                    className="mt-2 h-2 w-2 shrink-0 rounded-full bg-gold"
-                  />
-                  <span className="text-base leading-relaxed text-muted">
-                    {item}
-                  </span>
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-14">
-              <h2 className="text-2xl">{content.calculation.title}</h2>
-              <p className="mt-4 text-base leading-relaxed text-muted">
-                {content.calculation.body}
-              </p>
-            </div>
-
-            <div className="mt-14">
-              <h2 className="text-2xl">{content.timing.title}</h2>
-              <p className="mt-4 text-base leading-relaxed text-muted">
-                {content.timing.body}
-              </p>
-            </div>
+            {content.sections.map((s, i) => (
+              <div key={s.title} className={i === 0 ? undefined : "mt-14"}>
+                {s.eyebrow && <Eyebrow>{s.eyebrow}</Eyebrow>}
+                <h2
+                  className={`${s.eyebrow ? "mt-3 " : ""}${
+                    i === 0 ? "text-3xl" : "text-2xl"
+                  }`}
+                >
+                  {s.title}
+                </h2>
+                {s.body && (
+                  <p className="mt-4 text-base leading-relaxed text-muted">
+                    {s.body}
+                  </p>
+                )}
+                {s.bullets && (
+                  <ul className="mt-8 space-y-4">
+                    {s.bullets.map((item) => (
+                      <li key={item} className="flex items-start gap-3">
+                        <span
+                          aria-hidden
+                          className="mt-2 h-2 w-2 shrink-0 rounded-full bg-gold"
+                        />
+                        <span className="text-base leading-relaxed text-muted">
+                          {item}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            ))}
 
             <div className="mt-14">
               <Eyebrow>{content.actionsSection.eyebrow}</Eyebrow>
@@ -108,16 +112,22 @@ export default function SeverancePayLanding({
               </div>
             </div>
 
-            {/* Cross-link to the protected-period landing page. */}
+            {/* Cross-links to the sibling landing pages. */}
             <div className="mt-14 rounded-xl border border-gold/30 bg-gold-soft p-6">
               <p className="font-semibold text-navy">{content.related.text}</p>
-              <Link
-                href={content.related.href}
-                className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-navy underline underline-offset-2 hover:text-gold-600"
-              >
-                {content.related.linkLabel}
-                <ArrowIcon className="h-4 w-4 rtl:-scale-x-100" />
-              </Link>
+              <ul className="mt-2 space-y-1.5">
+                {content.related.links.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-navy underline underline-offset-2 hover:text-gold-600"
+                    >
+                      {link.label}
+                      <ArrowIcon className="h-4 w-4 rtl:-scale-x-100" />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 

@@ -42,6 +42,17 @@ export default async function ContactPage({
   const dict = await getDictionary(typedLocale);
   const { contact } = dict;
 
+  // Pre-filled WhatsApp opener naming this page; the ad variant is swapped
+  // in client-side when the URL carries ?src= (visitor came from an ad).
+  const waMessage = (ad: string) =>
+    contact.whatsappPrefill
+      .replace("{page}", dict.nav.contact)
+      .replace("{ad}", ad);
+  const waHref = `${whatsappLink}?text=${encodeURIComponent(waMessage(""))}`;
+  const waAdHref = `${whatsappLink}?text=${encodeURIComponent(
+    waMessage(contact.whatsappAdMarker),
+  )}`;
+
   const details = [
     {
       icon: PhoneIcon,
@@ -55,7 +66,8 @@ export default async function ContactPage({
       icon: WhatsappIcon,
       label: contact.whatsappLabel,
       value: WHATSAPP_NUMBER_DISPLAY,
-      href: whatsappLink,
+      href: waHref,
+      adHref: waAdHref,
       ltr: true,
       method: "whatsapp" as const,
     },
@@ -151,6 +163,7 @@ export default async function ContactPage({
                     {d.href && "method" in d ? (
                       <TrackableLink
                         href={d.href}
+                        adHref={"adHref" in d ? d.adHref : undefined}
                         method={d.method as "phone" | "whatsapp"}
                         className="flex items-center gap-4 transition-colors hover:text-gold-600"
                         {...(d.href.startsWith("http")

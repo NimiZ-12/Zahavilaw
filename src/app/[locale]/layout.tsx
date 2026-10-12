@@ -9,6 +9,10 @@ import {
   type Locale,
 } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
+import { lpProtectedPeriod } from "@/i18n/lp-protected-period";
+import { lpSeverancePay } from "@/i18n/lp-severance-pay";
+import { lpHearing } from "@/i18n/lp-hearing";
+import { lpUnpaidWages } from "@/i18n/lp-unpaid-wages";
 import { SITE_URL, localePath } from "@/lib/routes";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -88,6 +92,35 @@ export default async function LocaleLayout({
   const typedLocale = locale as Locale;
   const dict = await getDictionary(typedLocale);
 
+  // Locale-less path -> display name, for the floating WhatsApp button's
+  // pre-filled opener ("I arrived from the X page"). Short strings only -
+  // rulings and other deep pages resolve via their section's prefix.
+  const waPages: Record<string, string> = {
+    "": dict.nav.home,
+    "/about": dict.nav.about,
+    "/practice-areas": dict.nav.practiceAreas,
+    "/team": dict.nav.team,
+    "/publications": dict.nav.publications,
+    "/faq": dict.nav.faq,
+    "/contact": dict.nav.contact,
+    "/careers": dict.nav.careers,
+    "/privacy": dict.footer.privacy,
+    "/terms": dict.footer.terms,
+    "/accessibility": dict.footer.accessibility,
+    ...Object.fromEntries(
+      dict.practiceAreas.items.map((a) => [`/practice-areas/${a.slug}`, a.title]),
+    ),
+    ...Object.fromEntries(
+      dict.team.members.map((m) => [`/team/${m.slug}`, m.name]),
+    ),
+    // Hebrew-only campaign landing pages, named by their breadcrumb labels.
+    // Server-side import: only these four short names reach the client.
+    "/lp/protected-period": lpProtectedPeriod.breadcrumb.current,
+    "/lp/severance-pay": lpSeverancePay.breadcrumb.current,
+    "/lp/hearing": lpHearing.breadcrumb.current,
+    "/lp/unpaid-wages": lpUnpaidWages.breadcrumb.current,
+  };
+
   return (
     <html
       lang={typedLocale}
@@ -104,7 +137,13 @@ export default async function LocaleLayout({
           {children}
         </main>
         <Footer locale={typedLocale} dict={dict} />
-        <WhatsAppButton label={dict.contact.whatsappFloatingLabel} />
+        <WhatsAppButton
+          label={dict.contact.whatsappFloatingLabel}
+          pages={waPages}
+          template={dict.contact.whatsappPrefill}
+          genericTemplate={dict.contact.whatsappPrefillGeneric}
+          adMarker={dict.contact.whatsappAdMarker}
+        />
         <CookieConsent locale={typedLocale} t={dict.cookies} />
         <AccessibilityWidget />
         <SpeedInsights />

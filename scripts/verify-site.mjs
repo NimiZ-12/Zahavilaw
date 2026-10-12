@@ -27,6 +27,8 @@ const BASE = (process.argv[2] || "http://localhost:3000").replace(/\/$/, "");
 const HEBREW_ONLY_PATHS = new Set([
   "/he/lp/protected-period",
   "/he/lp/severance-pay",
+  "/he/lp/hearing",
+  "/he/lp/unpaid-wages",
 ]);
 
 let failures = 0;
