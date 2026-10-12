@@ -5,23 +5,23 @@ import { isLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { SITE_URL, localePath } from "@/lib/routes";
 import { buildGraph } from "@/lib/schema";
-import { guides } from "@/i18n/guides";
-import { guidesHub } from "@/i18n/guides/hub";
+import { articles } from "@/i18n/articles";
+import { articlesHub } from "@/i18n/articles/hub";
 import JsonLd from "@/components/JsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { ArrowIcon } from "@/components/Icons";
 
 /**
- * Hub page of the labor-law guides section. Hebrew only (client-approved
+ * Hub page of the labor-law articles section. Hebrew only (client-approved
  * deviation from the bilingual rule, like /lp/), and dark until the first
- * approved guide is published: with an empty guides list this route 404s,
+ * approved article is published: with an empty articles list this route 404s,
  * so merging the infrastructure changes nothing visible.
  */
 
-const PATH = "/guides";
+const PATH = "/articles";
 
 export function generateStaticParams() {
-  return guides.length > 0 ? [{ locale: "he" }] : [];
+  return articles.length > 0 ? [{ locale: "he" }] : [];
 }
 
 export async function generateMetadata({
@@ -30,8 +30,8 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  if (locale !== "he" || guides.length === 0) return {};
-  const { meta } = guidesHub;
+  if (locale !== "he" || articles.length === 0) return {};
+  const { meta } = articlesHub;
   const url = localePath("he", PATH);
   return {
     title: meta.title,
@@ -51,18 +51,18 @@ export async function generateMetadata({
   };
 }
 
-export default async function GuidesHubPage({
+export default async function ArticlesHubPage({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  if (!isLocale(locale) || locale !== "he" || guides.length === 0) notFound();
+  if (!isLocale(locale) || locale !== "he" || articles.length === 0) notFound();
 
   const dict = await getDictionary("he");
   const trail = [
-    { name: guidesHub.breadcrumb.area, path: guidesHub.breadcrumb.areaPath },
-    { name: guidesHub.breadcrumb.current, path: PATH },
+    { name: articlesHub.breadcrumb.area, path: articlesHub.breadcrumb.areaPath },
+    { name: articlesHub.breadcrumb.current, path: PATH },
   ];
 
   const graph = buildGraph({
@@ -70,8 +70,8 @@ export default async function GuidesHubPage({
     dict,
     path: PATH,
     pageType: "CollectionPage",
-    name: guidesHub.meta.title,
-    description: guidesHub.meta.description,
+    name: articlesHub.meta.title,
+    description: articlesHub.meta.description,
     trail,
   });
 
@@ -89,10 +89,10 @@ export default async function GuidesHubPage({
             tone="dark"
           />
           <h1 className="mt-6 max-w-4xl text-4xl leading-tight text-gold-400 sm:text-5xl">
-            {guidesHub.h1}
+            {articlesHub.h1}
           </h1>
           <p className="mt-5 max-w-3xl text-lg leading-relaxed text-gold-400">
-            {guidesHub.intro}
+            {articlesHub.intro}
           </p>
         </div>
       </section>
@@ -100,7 +100,7 @@ export default async function GuidesHubPage({
       <section className="section">
         <div className="container-x">
           <ul className="grid gap-5 sm:grid-cols-2">
-            {guides.map((g) => (
+            {articles.map((g) => (
               <li key={g.slug}>
                 <Link
                   href={localePath("he", `${PATH}/${g.slug}`)}
@@ -126,7 +126,7 @@ export default async function GuidesHubPage({
       <section className="border-t border-border bg-surface">
         <div className="container-x py-10">
           <p className="text-xs leading-relaxed text-muted">
-            {guidesHub.disclaimer}
+            {articlesHub.disclaimer}
           </p>
         </div>
       </section>

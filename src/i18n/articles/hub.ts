@@ -1,25 +1,25 @@
 /* ----------------------------------------------------------------------------
-   Fixed copy for the guides section shell (/he/guides and the guide pages):
+   Fixed copy for the articles section shell (/he/articles and the article pages):
    the hub's own headings, the byline wording, section labels and the CTA box.
    Hebrew-only, like the section itself, so it lives outside the bilingual
-   dictionaries - same exception as src/i18n/lp-*.ts. Guide BODY copy never
-   lives here; each guide is its own client-approved module.
+   dictionaries - same exception as src/i18n/lp-*.ts. Article BODY copy never
+   lives here; each article is its own client-approved module.
 ---------------------------------------------------------------------------- */
 
-export const guidesHub = {
+export const articlesHub = {
   meta: {
-    title: "מדריכים בדיני עבודה",
+    title: "מאמרים בדיני עבודה",
     description:
-      "מדריכים מעשיים בדיני עבודה מאת עורכי הדין של זהבי-פריטי ושות׳: זכויות בפיטורים, שימוע, שכר ועוד - כל מדריך עונה על שאלה אחת, עם הפניות לחוק.",
+      "מאמרים בדיני עבודה מאת עורכי הדין של זהבי-פריטי ושות׳: זכויות בפיטורים, שימוע, שכר ועוד - כל מאמר עונה על שאלה אחת, עם הפניות לחוק.",
   },
   breadcrumb: {
     area: "דיני עבודה",
     areaPath: "/practice-areas/labor-law",
-    current: "מדריכים",
+    current: "מאמרים",
   },
-  h1: "מדריכים בדיני עבודה",
+  h1: "מאמרים בדיני עבודה",
   intro:
-    "כל מדריך עונה על שאלה אחת, בשפה פשוטה ועם הפניות לחוק. המדריכים נכתבים על ידי עורכי הדין של המשרד ומתעדכנים כשהדין משתנה.",
+    "כל מאמר עונה על שאלה אחת, בשפה פשוטה ועם הפניות לחוק. המאמרים נכתבים על ידי עורכי הדין של המשרד ומתעדכנים כשהדין משתנה.",
 
   /** Byline: "מאת {author} · עודכן לאחרונה ב-{date}". */
   bylinePrefix: "מאת ",
@@ -44,12 +44,12 @@ export const guidesHub = {
     formLabel: "פנייה מקוונת",
   },
 
-  /** `{name}` is the guide's shortName. */
+  /** `{name}` is the article's shortName. */
   whatsappTemplate:
-    'שלום, הגעתי מהמדריך "{name}" באתר. אשמח לקבל ייעוץ ראשוני.',
+    'שלום, הגעתי מהמאמר "{name}" באתר. אשמח לקבל ייעוץ ראשוני.',
 
   /** Label of the hub link in the Hebrew footer and on the labor-law page. */
-  sectionLinkLabel: "מדריכים בדיני עבודה",
+  sectionLinkLabel: "מאמרים בדיני עבודה",
 
   disclaimer:
     "האמור בעמוד זה הוא מידע כללי בלבד, אינו מהווה ייעוץ משפטי ואינו תחליף לו, ואין להסתמך עליו בלי בחינה פרטנית של נסיבות המקרה. אין באמור משום התחייבות לתוצאה כלשהי.",

@@ -7,8 +7,8 @@ import { getDictionary } from "@/i18n/dictionaries";
 import { localePath } from "@/lib/routes";
 import { pageMetadata } from "@/lib/metadata";
 import { buildGraph, faqNode, serviceNode } from "@/lib/schema";
-import { guides } from "@/i18n/guides";
-import { guidesHub } from "@/i18n/guides/hub";
+import { articles } from "@/i18n/articles";
+import { articlesHub } from "@/i18n/articles/hub";
 import JsonLd from "@/components/JsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { ButtonLink } from "@/components/Button";
@@ -156,23 +156,23 @@ export default async function PracticeAreaPage({
                 </div>
               </section>
             )}
-            {/* Labor-law guides, Hebrew only, rendered once the first
-                approved guide is published. Same linked-entry principle as
+            {/* Labor-law articles, Hebrew only, rendered once the first
+                approved article is published. Same linked-entry principle as
                 the FAQ items above - no redesign of the page. */}
-            {typedLocale === "he" && slug === "labor-law" && guides.length > 0 && (
-              <section className="mt-12" aria-labelledby="guides-heading">
-                <h2 id="guides-heading" className="text-2xl">
-                  {guidesHub.sectionLinkLabel}
+            {typedLocale === "he" && slug === "labor-law" && articles.length > 0 && (
+              <section className="mt-12" aria-labelledby="articles-heading">
+                <h2 id="articles-heading" className="text-2xl">
+                  {articlesHub.sectionLinkLabel}
                 </h2>
                 <div className="mt-6 space-y-6">
-                  {guides.map((g) => (
+                  {articles.map((g) => (
                     <article
                       key={g.slug}
                       className="rounded-xl border border-border bg-surface p-6"
                     >
                       <h3 className="text-base font-semibold text-navy">
                         <Link
-                          href={localePath("he", `/guides/${g.slug}`)}
+                          href={localePath("he", `/articles/${g.slug}`)}
                           className="inline-flex items-baseline gap-1.5 transition-colors hover:text-gold-600"
                         >
                           {g.h1}

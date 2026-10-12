@@ -1,7 +1,7 @@
 /* ----------------------------------------------------------------------------
-   Guide article body: /he/guides/<slug>.
+   Article article body: /he/articles/<slug>.
    ---------------------------------------------------------------------------
-   Server component built from a client-approved Guide module, reusing the
+   Server component built from a client-approved Article module, reusing the
    landing pages' shared CTA/FAQ primitives so the section matches the rest
    of the site. Layout, top to bottom, per the content brief: byline, the
    highlighted answer paragraph (the first thing Google reads), the Q-shaped
@@ -18,8 +18,8 @@ import {
   WhatsappCta,
 } from "@/components/lp/shared";
 import { ArrowIcon } from "@/components/Icons";
-import type { Guide } from "@/i18n/guides";
-import { guidesHub } from "@/i18n/guides/hub";
+import type { Article } from "@/i18n/articles";
+import { articlesHub } from "@/i18n/articles/hub";
 
 function formatHebrewDate(iso: string): string {
   return new Intl.DateTimeFormat("he-IL", { dateStyle: "long" }).format(
@@ -27,9 +27,9 @@ function formatHebrewDate(iso: string): string {
   );
 }
 
-function AskBox({ guide, phone }: { guide: Guide; phone: string }) {
-  const { ask } = guidesHub;
-  const message = guidesHub.whatsappTemplate.replace("{name}", guide.shortName);
+function AskBox({ article, phone }: { article: Article; phone: string }) {
+  const { ask } = articlesHub;
+  const message = articlesHub.whatsappTemplate.replace("{name}", article.shortName);
   return (
     <div className="rounded-2xl border border-border bg-surface p-8">
       <h2 className="text-xl">{ask.title}</h2>
@@ -37,7 +37,7 @@ function AskBox({ guide, phone }: { guide: Guide; phone: string }) {
       <div className="mt-6 flex flex-col gap-3">
         <WhatsappCta message={message} label={ask.cta} block />
         <FormCta
-          href={`/he/contact?src=guide-${guide.slug}`}
+          href={`/he/contact?src=article-${article.slug}`}
           label={ask.formLabel}
         />
       </div>
@@ -48,11 +48,11 @@ function AskBox({ guide, phone }: { guide: Guide; phone: string }) {
   );
 }
 
-export default function GuideArticle({
-  guide,
+export default function ArticleView({
+  article,
   phone,
 }: {
-  guide: Guide;
+  article: Article;
   phone: string;
 }) {
   return (
@@ -63,28 +63,28 @@ export default function GuideArticle({
             {/* Byline: author links to their profile page, the date is the
                 visible twin of the Article schema's dateModified. */}
             <p className="text-sm text-muted">
-              {guidesHub.bylinePrefix}
+              {articlesHub.bylinePrefix}
               <Link
-                href={`/he/team/${guide.author}`}
+                href={`/he/team/${article.author}`}
                 className="font-semibold text-navy underline underline-offset-2 hover:text-gold-600"
               >
-                {guidesHub.authors[guide.author]}
+                {articlesHub.authors[article.author]}
               </Link>
               {" · "}
-              {guidesHub.bylineUpdated}
-              <time dateTime={guide.updated}>
-                {formatHebrewDate(guide.updated)}
+              {articlesHub.bylineUpdated}
+              <time dateTime={article.updated}>
+                {formatHebrewDate(article.updated)}
               </time>
             </p>
 
             {/* The direct answer, visually prominent, no heading above it. */}
             <div className="mt-6 rounded-xl border border-gold/30 bg-gold-soft p-6">
               <p className="text-base font-semibold leading-relaxed text-navy">
-                {guide.answer}
+                {article.answer}
               </p>
             </div>
 
-            {guide.sections.map((s) => (
+            {article.sections.map((s) => (
               <div key={s.q} className="mt-12">
                 <h2 className="text-2xl">{s.q}</h2>
                 <p className="mt-4 text-base font-semibold leading-relaxed text-navy">
@@ -117,10 +117,10 @@ export default function GuideArticle({
             ))}
 
             <div className="mt-14">
-              <Eyebrow>{guidesHub.actionsEyebrow}</Eyebrow>
-              <h2 className="mt-3 text-2xl">{guidesHub.actionsTitle}</h2>
+              <Eyebrow>{articlesHub.actionsEyebrow}</Eyebrow>
+              <h2 className="mt-3 text-2xl">{articlesHub.actionsTitle}</h2>
               <div className="mt-8 grid gap-5 sm:grid-cols-3">
-                {guide.actions.map((action, i) => (
+                {article.actions.map((action, i) => (
                   <article
                     key={action.title}
                     className="rounded-xl border border-border p-6"
@@ -140,19 +140,19 @@ export default function GuideArticle({
             </div>
 
             <div className="mt-14">
-              <Eyebrow>{guidesHub.faqEyebrow}</Eyebrow>
-              <h2 className="mt-3 text-2xl">{guidesHub.faqTitle}</h2>
+              <Eyebrow>{articlesHub.faqEyebrow}</Eyebrow>
+              <h2 className="mt-3 text-2xl">{articlesHub.faqTitle}</h2>
               <div className="mt-8">
-                {guide.faq.map((item) => (
+                {article.faq.map((item) => (
                   <FaqItem key={item.q} q={item.q} a={item.a} />
                 ))}
               </div>
             </div>
 
             <div className="mt-14">
-              <h2 className="text-2xl">{guidesHub.sourcesTitle}</h2>
+              <h2 className="text-2xl">{articlesHub.sourcesTitle}</h2>
               <ul className="mt-6 space-y-2">
-                {guide.sources.map((src) => (
+                {article.sources.map((src) => (
                   <li key={src.label} className="text-sm leading-relaxed text-muted">
                     {src.href ? (
                       <a
@@ -172,9 +172,9 @@ export default function GuideArticle({
             </div>
 
             <div className="mt-14 rounded-xl border border-gold/30 bg-gold-soft p-6">
-              <p className="font-semibold text-navy">{guidesHub.relatedTitle}</p>
+              <p className="font-semibold text-navy">{articlesHub.relatedTitle}</p>
               <ul className="mt-2 space-y-1.5">
-                {guide.related.map((link) => (
+                {article.related.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
@@ -191,7 +191,7 @@ export default function GuideArticle({
 
           <aside className="lg:col-span-4">
             <div className="sticky top-24">
-              <AskBox guide={guide} phone={phone} />
+              <AskBox article={article} phone={phone} />
             </div>
           </aside>
         </div>
@@ -200,7 +200,7 @@ export default function GuideArticle({
       <section className="border-t border-border bg-surface">
         <div className="container-x py-10">
           <p className="text-xs leading-relaxed text-muted">
-            {guidesHub.disclaimer}
+            {articlesHub.disclaimer}
           </p>
         </div>
       </section>

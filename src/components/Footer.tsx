@@ -3,8 +3,8 @@ import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { localePath, navItems } from "@/lib/routes";
 import { wazeLink } from "@/lib/contact";
-import { guides } from "@/i18n/guides";
-import { guidesHub } from "@/i18n/guides/hub";
+import { articles } from "@/i18n/articles";
+import { articlesHub } from "@/i18n/articles/hub";
 import Logo from "./Logo";
 import { PhoneIcon, MailIcon, PinIcon, LockIcon } from "./Icons";
 
@@ -135,16 +135,16 @@ export default function Footer({
             >
               {footer.careers}
             </Link>
-            {/* The guides section is Hebrew-only and dark until the first
-                approved guide is published, so its link renders only then
+            {/* The articles section is Hebrew-only and dark until the first
+                approved article is published, so its link renders only then
                 and only in Hebrew; its label lives with the section's own
                 copy rather than in the bilingual dictionaries. */}
-            {locale === "he" && guides.length > 0 && (
+            {locale === "he" && articles.length > 0 && (
               <Link
-                href={localePath("he", "/guides")}
+                href={localePath("he", "/articles")}
                 className="transition-colors hover:text-gold-400"
               >
-                {guidesHub.sectionLinkLabel}
+                {articlesHub.sectionLinkLabel}
               </Link>
             )}
             <Link
