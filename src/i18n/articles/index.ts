@@ -10,10 +10,11 @@
 ---------------------------------------------------------------------------- */
 
 import type { Article } from "./types";
+import { resignationAsDismissal } from "./resignation-as-dismissal";
 
 export type { Article };
 
-export const articles: Article[] = [];
+export const articles: Article[] = [resignationAsDismissal];
 
 export function getArticle(slug: string): Article | undefined {
   return articles.find((g) => g.slug === slug);
