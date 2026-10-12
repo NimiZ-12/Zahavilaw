@@ -30,6 +30,15 @@ const HEBREW_ONLY_PATHS = new Set([
   "/he/lp/hearing",
   "/he/lp/unpaid-wages",
 ]);
+/** The guides section is Hebrew-only as a whole, so it is matched by prefix
+ *  rather than listing every slug here. */
+function isHebrewOnly(pathname) {
+  return (
+    HEBREW_ONLY_PATHS.has(pathname) ||
+    pathname === "/he/guides" ||
+    pathname.startsWith("/he/guides/")
+  );
+}
 
 let failures = 0;
 let checks = 0;
@@ -92,7 +101,7 @@ const hreflangCount = (sitemap.body.match(/hreflang=/g) || []).length;
 // Bilingual entries carry three alternates each; the locale-specific ones
 // above carry none, by design.
 const bilingualUrls = urls.filter(
-  (u) => !HEBREW_ONLY_PATHS.has(new URL(u).pathname),
+  (u) => !isHebrewOnly(new URL(u).pathname),
 );
 check(
   hreflangCount >= bilingualUrls.length * 3,
@@ -151,7 +160,7 @@ for (const path of paths) {
   // also carries an hreflang attribute, on an <a>, which is not a signal to
   // search engines about this page's translations.
   const altLinks = (html.match(/<link[^>]*hreflang=[^>]*>/gi) || []).join(" ");
-  if (HEBREW_ONLY_PATHS.has(path)) {
+  if (isHebrewOnly(path)) {
     check(
       altLinks === "",
       `${label} is Hebrew only and emits no hreflang alternates`,

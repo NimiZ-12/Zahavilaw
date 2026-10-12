@@ -24,6 +24,9 @@ export type LpSection = {
 
 export type LpPage = {
   meta: { title: string; description: string };
+  /** ISO date (YYYY-MM-DD) of the last content change; feeds the sitemap's
+   *  lastModified, so update it whenever this file's copy changes. */
+  updated: string;
   breadcrumb: { area: string; areaPath: string; current: string };
   hero: { title: string; lead: string };
   sections: LpSection[];

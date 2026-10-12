@@ -314,19 +314,32 @@ export function videoNode(video: {
   });
 }
 
-/** A published court ruling, presented as an article so its text is indexable. */
+/** A published court ruling or guide, presented as an article so its text is
+ *  indexable. A guide passes `authorSlug` so the article is attributed to the
+ *  attorney who wrote it rather than the firm, plus real publish/update
+ *  dates; the ruling pages pass none of the new fields and their output is
+ *  unchanged. */
 export function articleNode({
   locale,
   path,
   headline,
   description,
   image,
+  authorSlug,
+  datePublished,
+  dateModified,
 }: {
   locale: Locale;
   path: string;
   headline: string;
   description: string;
   image?: string;
+  /** Team-member slug; attributes the article to that Person node. */
+  authorSlug?: string;
+  /** ISO date (YYYY-MM-DD). */
+  datePublished?: string;
+  /** ISO date (YYYY-MM-DD). */
+  dateModified?: string;
 }): JsonLdNode {
   return clean({
     "@type": "Article",
@@ -334,8 +347,18 @@ export function articleNode({
     description,
     url: absoluteUrl(locale, path),
     image,
-    author: { "@id": ID.organization },
+    author: authorSlug
+      ? { "@id": ID.person(authorSlug) }
+      : { "@id": ID.organization },
     publisher: { "@id": ID.organization },
+    datePublished,
+    dateModified,
+    // Only for the new callers (guides): the ruling pages' output is
+    // contractually unchanged.
+    mainEntityOfPage:
+      authorSlug || datePublished
+        ? { "@id": ID.page(locale, path) }
+        : undefined,
     isPartOf: { "@id": ID.website },
     inLanguage: LANGUAGE[locale],
   });

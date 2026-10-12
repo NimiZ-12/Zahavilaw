@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { locales } from "./i18n/config";
 import he from "./i18n/dictionaries/he";
+import { guides } from "./i18n/guides";
 
 /**
  * Dead WordPress URL families from the pre-2026 site. They have no equivalent
@@ -58,6 +59,11 @@ const KNOWN_PATHS = new Set<string>([
   ...he.publications.groups.flatMap((g) =>
     (g.rulings ?? []).map((r) => `/publications/rulings/${r.slug}`),
   ),
+  // The guides section exists only once the first guide is published;
+  // until then /guides 404s and must not get the locale redirect.
+  ...(guides.length > 0
+    ? ["/guides", ...guides.map((g) => `/guides/${g.slug}`)]
+    : []),
 ]);
 
 export function proxy(request: NextRequest) {

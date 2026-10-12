@@ -66,6 +66,8 @@ export type LpTrack = {
 
 export type LpProtectedPeriod = {
   meta: { title: string; description: string };
+  /** ISO date (YYYY-MM-DD) of the last content change; feeds the sitemap. */
+  updated: string;
   breadcrumb: { area: string; areaPath: string; current: string };
   hero: { title: string; lead: string };
   chooserLabel: string;
@@ -297,6 +299,7 @@ const reserve: LpTrack = {
 };
 
 export const lpProtectedPeriod: LpProtectedPeriod = {
+  updated: "2026-10-05",
   meta: {
     title: "פיטורים בתקופה מוגנת - היריון ומילואים",
     description:
