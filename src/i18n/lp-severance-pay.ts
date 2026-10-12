@@ -2,10 +2,8 @@
    Content for the "severance pay" campaign landing page (/he/lp/severance-pay).
    ---------------------------------------------------------------------------
    Hebrew-only campaign destination for the firm's biggest Google Ads spend
-   line. Same reasoning as src/i18n/lp-protected-period.ts: the dictionaries'
-   shared type would force an English twin nobody would read, so the route is
-   built for `he` only, carries a self-canonical with no hreflang alternates,
-   and keeps its copy in this typed module.
+   line. See src/i18n/lp-page.ts for why landing-page copy lives outside the
+   he/en dictionaries.
 
    The copy was supplied in the client-approved brief of 6 Oct 2026, checked
    against the Bar's advertising rules by a lawyer. It is reproduced verbatim
@@ -13,33 +11,9 @@
    dashes become plain hyphens (SEO-GUIDELINES.md §1).
 ---------------------------------------------------------------------------- */
 
-export type LpSeverancePay = {
-  meta: { title: string; description: string };
-  breadcrumb: { area: string; areaPath: string; current: string };
-  hero: { title: string; lead: string };
-  eligibility: { eyebrow: string; title: string; items: string[] };
-  calculation: { title: string; body: string };
-  timing: { title: string; body: string };
-  actionsSection: { eyebrow: string; title: string };
-  actions: { title: string; body: string }[];
-  /** Cross-link to the protected-period landing page. */
-  related: { text: string; linkLabel: string; href: string };
-  faqSection: { eyebrow: string; title: string };
-  faq: { q: string; a: string }[];
-  ask: {
-    title: string;
-    body: string;
-    cta: string;
-    phoneLabel: string;
-    formLabel: string;
-    formHref: string;
-  };
-  closing: { lead: string };
-  whatsappMessage: string;
-  disclaimer: string;
-};
+import type { LpPage } from "./lp-page";
 
-export const lpSeverancePay: LpSeverancePay = {
+export const lpSeverancePay: LpPage = {
   meta: {
     title: "פיצויי פיטורים - מתי הם מגיעים ואיך בודקים את הסכום",
     description:
@@ -54,25 +28,27 @@ export const lpSeverancePay: LpSeverancePay = {
     title: "לא קיבלתם פיצויי פיטורים?",
     lead: "פיצויי פיטורים הם זכות שבחוק, לא עניין של רצון טוב מצד המעסיק. עובד שפוטר לאחר שנה אחת לפחות אצל אותו מעסיק או באותו מקום עבודה זכאי לפיצויים, ובמקרים מסוימים גם התפטרות מזכה בפיצויים. בעמוד זה מוסבר מתי קמה הזכאות, כיצד מחושב הסכום, מהם המועדים שהחוק קובע לתשלום, ומה הדין כאשר המעסיק מעכב או מסרב.",
   },
-  eligibility: {
-    eyebrow: "מה החוק אומר",
-    title: "מתי קמה הזכאות",
-    items: [
-      "פיטורים לאחר שנה אחת לפחות של עבודה רצופה אצל אותו מעסיק או באותו מקום עבודה",
-      "אי-חידוש חוזה לתקופה קצובה בנסיבות מסוימות",
-      "התפטרות בדין מפוטר - הרעה מוחשית בתנאי העבודה, נסיבות שבהן לא ניתן לדרוש מהעובד להמשיך, מעבר דירה בתנאים שנקבעו, מצב בריאותי, או התפטרות לאחר לידה בתנאים שבחוק",
-      "פטירת המעסיק או פירוק התאגיד",
-      "פיטורים סמוך לתום השנה הראשונה עשויים להיבחן אם נועדו להימנע מתשלום",
-    ],
-  },
-  calculation: {
-    title: "איך מחושב הסכום",
-    body: 'הכלל הבסיסי הוא שכר חודשי אחרון כפול מספר שנות העבודה. בפועל החישוב מורכב יותר: יש לבחון אילו רכיבי שכר נכללים בשכר הקובע, כיצד מטופלות תקופות של חל"ת או היעדרות, מה הדין בשינויי היקף משרה, וכיצד משפיעים הכספים שנצברו בקופת הפיצויים לפי סעיף 14. הפרש בין החישוב של המעסיק לחישוב הנכון הוא אחת הסיבות השכיחות למחלוקת.',
-  },
-  timing: {
-    title: "מועדי התשלום והלנת פיצויים",
-    body: "החוק קובע מועד לתשלום הפיצויים, ואיחור מעבר לו עשוי להקים חבות בפיצויי הלנה. ככל שחולף זמן רב יותר כך גדלה החשיפה של המעסיק - ולכן יש משמעות לתיעוד מדויק של מועד סיום העבודה ושל הדרישה לתשלום.",
-  },
+  sections: [
+    {
+      eyebrow: "מה החוק אומר",
+      title: "מתי קמה הזכאות",
+      bullets: [
+        "פיטורים לאחר שנה אחת לפחות של עבודה רצופה אצל אותו מעסיק או באותו מקום עבודה",
+        "אי-חידוש חוזה לתקופה קצובה בנסיבות מסוימות",
+        "התפטרות בדין מפוטר - הרעה מוחשית בתנאי העבודה, נסיבות שבהן לא ניתן לדרוש מהעובד להמשיך, מעבר דירה בתנאים שנקבעו, מצב בריאותי, או התפטרות לאחר לידה בתנאים שבחוק",
+        "פטירת המעסיק או פירוק התאגיד",
+        "פיטורים סמוך לתום השנה הראשונה עשויים להיבחן אם נועדו להימנע מתשלום",
+      ],
+    },
+    {
+      title: "איך מחושב הסכום",
+      body: 'הכלל הבסיסי הוא שכר חודשי אחרון כפול מספר שנות העבודה. בפועל החישוב מורכב יותר: יש לבחון אילו רכיבי שכר נכללים בשכר הקובע, כיצד מטופלות תקופות של חל"ת או היעדרות, מה הדין בשינויי היקף משרה, וכיצד משפיעים הכספים שנצברו בקופת הפיצויים לפי סעיף 14. הפרש בין החישוב של המעסיק לחישוב הנכון הוא אחת הסיבות השכיחות למחלוקת.',
+    },
+    {
+      title: "מועדי התשלום והלנת פיצויים",
+      body: "החוק קובע מועד לתשלום הפיצויים, ואיחור מעבר לו עשוי להקים חבות בפיצויי הלנה. ככל שחולף זמן רב יותר כך גדלה החשיפה של המעסיק - ולכן יש משמעות לתיעוד מדויק של מועד סיום העבודה ושל הדרישה לתשלום.",
+    },
+  ],
   actionsSection: {
     eyebrow: "מה לעשות עכשיו",
     title: "מה כדאי לעשות עכשיו",
@@ -93,8 +69,12 @@ export const lpSeverancePay: LpSeverancePay = {
   ],
   related: {
     text: "פוטרתם בזמן היריון, אחרי לידה או בסמוך לשירות מילואים?",
-    linkLabel: "למי שפוטר בתקופה מוגנת - לעמוד הייעודי",
-    href: "/he/lp/protected-period",
+    links: [
+      {
+        label: "למי שפוטר בתקופה מוגנת - לעמוד הייעודי",
+        href: "/he/lp/protected-period",
+      },
+    ],
   },
   faqSection: {
     eyebrow: "שאלות שחוזרות",
@@ -137,7 +117,7 @@ export const lpSeverancePay: LpSeverancePay = {
   closing: {
     lead: "משרד זהבי-פריטי ושות׳ מלווה עובדים ומעסיקים בהליכי סיום עבודה. לבירור ראשוני ללא התחייבות:",
   },
-  whatsappMessage: "שלום, הגעתי מעמוד פיצויי פיטורים באתר. אשמח לבירור ראשוני.",
+  whatsappMessage: "שלום, הגעתי מעמוד פיצויי פיטורים באתר. אשמח לקבל ייעוץ ראשוני.",
   disclaimer:
     "האמור בעמוד זה הוא מידע כללי בלבד, אינו מהווה ייעוץ משפטי ואינו תחליף לו, ואין להסתמך עליו בלי בחינה פרטנית של נסיבות המקרה. הזכאות, אופן החישוב והמועדים המתוארים כאן תלויים בנתונים אישיים כגון ותק, שכר ותנאי העסקה. אין באמור משום התחייבות לתוצאה כלשהי.",
 };

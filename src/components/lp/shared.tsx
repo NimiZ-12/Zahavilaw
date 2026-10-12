@@ -11,6 +11,7 @@
 ---------------------------------------------------------------------------- */
 
 import Link from "next/link";
+import { useSyncExternalStore } from "react";
 import { WhatsappIcon } from "@/components/Icons";
 import { WHATSAPP_NUMBER_E164 } from "@/lib/contact";
 
@@ -27,6 +28,30 @@ export function waLink(message: string) {
   return `https://wa.me/${WHATSAPP_NUMBER_E164}?text=${encodeURIComponent(message)}`;
 }
 
+const noopSubscribe = () => () => {};
+function readHasSrcParam(): boolean {
+  try {
+    return new URLSearchParams(window.location.search).has("src");
+  } catch {
+    return false;
+  }
+}
+
+/** True once hydrated on a URL carrying ?src= - i.e. the visitor came from a
+ *  paid ad. The server snapshot is false, so static prerendering is safe. */
+export function useCameFromAd(): boolean {
+  return useSyncExternalStore(noopSubscribe, readHasSrcParam, () => false);
+}
+
+/** Landing-page WhatsApp openers all follow the brief's fixed pattern
+ *  "...באתר. ..."; a visitor who arrived from an ad (?src= in the URL) gets
+ *  "(מודעה)" injected so the firm can tell paid from organic leads inside
+ *  WhatsApp itself, with no analytics involved. A message without the
+ *  pattern passes through unchanged. */
+export function markAdMessage(message: string): string {
+  return message.replace("באתר.", "באתר (מודעה).");
+}
+
 /** Gold CTA, matching the site's primary button. `whitespace-nowrap` is load
  *  bearing: the label must never wrap, however narrow the column gets. */
 export function WhatsappCta({
@@ -38,9 +63,11 @@ export function WhatsappCta({
   label: string;
   block?: boolean;
 }) {
+  const fromAd = useCameFromAd();
+  const finalMessage = fromAd ? markAdMessage(message) : message;
   return (
     <a
-      href={waLink(message)}
+      href={waLink(finalMessage)}
       target="_blank"
       rel="noopener noreferrer"
       onClick={() => window.gtag?.("event", "contact_lead", { method: "whatsapp" })}

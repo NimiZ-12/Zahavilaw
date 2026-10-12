@@ -172,6 +172,10 @@ const en: Dictionary = {
             a: "The law prohibits dismissal of an employee within 30 days of completing reserve service, without special approval. Dismissal during this period is presumed to be unlawful. Contact us to have the circumstances examined.",
           },
           {
+            q: "My employer didn't pay my wages on time - what can I do?",
+            a: "The Wage Protection Law sets an exact date for payment, and wages paid late are considered withheld wages that may give rise to late-payment compensation. Note that a claim for late-payment compensation is subject to an exceptionally short limitation period, so waiting erodes the right. Document actual payment dates and send a written demand.",
+          },
+          {
             q: "How long do I have to file a claim?",
             a: "Claims for wrongful dismissal, wage withholding and social benefits are subject to limitation periods ranging from one to seven years, depending on the type of claim. The sooner you act, the better the prospects for preserving evidence and options.",
           },
@@ -656,6 +660,11 @@ const en: Dictionary = {
     phone: "+972-3-7555222",
     whatsappLabel: "WhatsApp",
     whatsappFloatingLabel: "Chat with us on WhatsApp",
+    whatsappPrefill:
+      "Hello, I arrived from the {page} page on your website{ad}. I would appreciate an initial consultation.",
+    whatsappPrefillGeneric:
+      "Hello, I arrived from your website{ad}. I would appreciate an initial consultation.",
+    whatsappAdMarker: " (ad)",
     emailLabel: "Email",
     email: "office@zahavilaw.com",
     addressLabel: "Address",

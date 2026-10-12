@@ -276,6 +276,17 @@ export interface Dictionary {
     phone: string;
     whatsappLabel: string;
     whatsappFloatingLabel: string;
+    /** Pre-filled WhatsApp opener naming the page the visitor came from.
+     *  `{page}` is the page's display name; `{ad}` becomes the ad marker
+     *  below when the URL carries ?src= (a paid-ad landing), or "".
+     *  A click that opens an empty chat is a lead lost - a visitor who was
+     *  just fired doesn't know what to write - so every WhatsApp link on
+     *  the site carries this opener. */
+    whatsappPrefill: string;
+    /** Fallback opener for pages whose name isn't mapped. */
+    whatsappPrefillGeneric: string;
+    /** Injected for {ad}, including its leading space, e.g. " (מודעה)". */
+    whatsappAdMarker: string;
     emailLabel: string;
     email: string;
     addressLabel: string;
