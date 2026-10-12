@@ -107,7 +107,14 @@ export default async function ArticlePage({
             trail={trail}
             tone="dark"
           />
-          <h1 className="mt-6 max-w-4xl text-4xl leading-tight text-gold-400 sm:text-5xl">
+          {/* Kicker above the h1, client-specified. Same visual language as
+              the Eyebrow labels in the body, tuned to the navy hero: the
+              gold-400 tint is the established accent for text on navy. */}
+          <p className="mt-6 inline-flex items-center gap-2 text-sm font-semibold tracking-wider text-gold-400">
+            <span aria-hidden className="h-px w-6 bg-gold-400/50" />
+            {articlesHub.kicker}
+          </p>
+          <h1 className="mt-3 max-w-4xl text-4xl leading-tight text-gold-400 sm:text-5xl">
             {article.h1}
           </h1>
         </div>

@@ -18,6 +18,8 @@ export const articlesHub = {
     current: "מאמרים",
   },
   h1: "מאמרים בדיני עבודה",
+  /** Kicker label above every article's h1, client-specified wording. */
+  kicker: "מאמר - דיני עבודה",
   intro:
     "כל מאמר עונה על שאלה אחת, בשפה פשוטה ועם הפניות לחוק. המאמרים נכתבים על ידי עורכי הדין של המשרד ומתעדכנים כשהדין משתנה.",
 
