@@ -13,6 +13,7 @@ import { lpProtectedPeriod } from "@/i18n/lp-protected-period";
 import { lpSeverancePay } from "@/i18n/lp-severance-pay";
 import { lpHearing } from "@/i18n/lp-hearing";
 import { lpUnpaidWages } from "@/i18n/lp-unpaid-wages";
+import { guidesHub } from "@/i18n/guides/hub";
 import { SITE_URL, localePath } from "@/lib/routes";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -119,6 +120,8 @@ export default async function LocaleLayout({
     "/lp/severance-pay": lpSeverancePay.breadcrumb.current,
     "/lp/hearing": lpHearing.breadcrumb.current,
     "/lp/unpaid-wages": lpUnpaidWages.breadcrumb.current,
+    // Guides hub + prefix fallback for individual guides.
+    "/guides": guidesHub.breadcrumb.current,
   };
 
   return (

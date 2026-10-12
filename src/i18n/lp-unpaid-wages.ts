@@ -13,6 +13,7 @@
 import type { LpPage } from "./lp-page";
 
 export const lpUnpaidWages: LpPage = {
+  updated: "2026-10-12",
   meta: {
     title: "הלנת שכר - מה הדין כשהמשכורת לא משולמת במועד",
     description:

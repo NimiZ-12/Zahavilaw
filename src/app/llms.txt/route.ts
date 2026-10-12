@@ -1,5 +1,6 @@
 import { getDictionary } from "@/i18n/dictionaries";
 import { SITE_URL, localePath } from "@/lib/routes";
+import { guides } from "@/i18n/guides";
 import {
   FIRM_FOUNDED,
   WHATSAPP_NUMBER_DISPLAY,
@@ -145,6 +146,22 @@ export async function GET() {
       ...rulings.map(
         (r) =>
           `- ${r.title}: ${abs(localePath("en", `/publications/rulings/${r.slug}`))}`,
+      ),
+      "",
+    );
+  }
+
+  /* --- Guides ---------------------------------------------------------- */
+  if (guides.length > 0) {
+    push(
+      "## Labor-law guides (Hebrew)",
+      "",
+      "Each guide answers one question, written by a named attorney, with",
+      "statutory sources. Hebrew only.",
+      "",
+      ...guides.map(
+        (g) =>
+          `- ${g.h1}: ${g.answer} ${abs(localePath("he", `/guides/${g.slug}`))}`,
       ),
       "",
     );
