@@ -65,11 +65,13 @@ export default async function FaqPage({
     ...practiceAreas.items.flatMap((area) => area.faq ?? []),
   ];
 
+  // Deliberately a plain WebPage node: typing it FAQPage used to emit a
+  // second, EMPTY FAQPage block (no mainEntity) next to the real faqNode
+  // below, which Search Console can flag as an error.
   const graph = buildGraph({
     locale: typedLocale,
     dict,
     path: "/faq",
-    pageType: "FAQPage",
     name: faqPage.title,
     description: faqPage.subtitle,
     trail,

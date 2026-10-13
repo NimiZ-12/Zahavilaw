@@ -186,6 +186,10 @@ export const resignationAsDismissal: Article = {
       href: "/he/lp/unpaid-wages"
     },
     {
+      label: "התעמרות בעבודה",
+      href: "/he/articles/workplace-bullying"
+    },
+    {
       label: "דיני עבודה במשרד",
       href: "/he/practice-areas/labor-law"
     }

@@ -73,6 +73,8 @@ export type LpProtectedPeriod = {
   chooserLabel: string;
   tracks: [LpTrack, LpTrack];
   ask: { title: string; body: string; cta: string; phoneLabel: string };
+  /** Cross-links box, same shape and copy pattern as LpPage["related"]. */
+  related: { text: string; links: { label: string; href: string }[] };
   transparency: {
     eyebrow: string;
     title: string;
@@ -321,6 +323,15 @@ export const lpProtectedPeriod: LpProtectedPeriod = {
     body: "כתבו לנו בוואטסאפ מה קרה ומתי. נבחן את התאריכים ונאמר לכם מה עומד על הפרק.",
     cta: "שליחת הודעה בוואטסאפ",
     phoneLabel: "או בטלפון",
+  },
+  related: {
+    text: "מידע נוסף שעשוי להיות רלוונטי למצבכם:",
+    links: [
+      {
+        label: "פיטורים בזמן מחלה",
+        href: "/he/articles/dismissal-during-sick-leave",
+      },
+    ],
   },
   transparency: {
     eyebrow: "שקוף מראש",

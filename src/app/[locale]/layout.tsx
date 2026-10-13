@@ -9,11 +9,7 @@ import {
   type Locale,
 } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-import { lpProtectedPeriod } from "@/i18n/lp-protected-period";
-import { lpSeverancePay } from "@/i18n/lp-severance-pay";
-import { lpHearing } from "@/i18n/lp-hearing";
-import { lpUnpaidWages } from "@/i18n/lp-unpaid-wages";
-import { lpWrongfulDismissal } from "@/i18n/lp-wrongful-dismissal";
+import { landingPages } from "@/i18n/lp-registry";
 import { articlesHub } from "@/i18n/articles/hub";
 import { SITE_URL, localePath } from "@/lib/routes";
 import Header from "@/components/Header";
@@ -117,11 +113,9 @@ export default async function LocaleLayout({
     ),
     // Hebrew-only campaign landing pages, named by their breadcrumb labels.
     // Server-side import: only these short names reach the client.
-    "/lp/protected-period": lpProtectedPeriod.breadcrumb.current,
-    "/lp/severance-pay": lpSeverancePay.breadcrumb.current,
-    "/lp/hearing": lpHearing.breadcrumb.current,
-    "/lp/unpaid-wages": lpUnpaidWages.breadcrumb.current,
-    "/lp/wrongful-dismissal": lpWrongfulDismissal.breadcrumb.current,
+    ...Object.fromEntries(
+      landingPages.map(({ path, content }) => [path, content.breadcrumb.current]),
+    ),
     // Articles hub + prefix fallback for individual articles.
     "/articles": articlesHub.breadcrumb.current,
   };

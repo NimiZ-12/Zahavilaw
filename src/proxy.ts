@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { locales } from "./i18n/config";
 import he from "./i18n/dictionaries/he";
 import { articles } from "./i18n/articles";
+import { landingPages } from "./i18n/lp-registry";
 
 /**
  * Dead WordPress URL families from the pre-2026 site. They have no equivalent
@@ -48,13 +49,9 @@ const KNOWN_PATHS = new Set<string>([
   "/privacy",
   "/terms",
   "/accessibility",
-  // Hebrew-only campaign landing pages (see src/i18n/lp-*.ts);
+  // Hebrew-only campaign landing pages (see src/i18n/lp-registry.ts);
   // redirecting to /he is right for them by definition.
-  "/lp/protected-period",
-  "/lp/severance-pay",
-  "/lp/hearing",
-  "/lp/unpaid-wages",
-  "/lp/wrongful-dismissal",
+  ...landingPages.map((lp) => lp.path),
   ...he.practiceAreas.items.map((a) => `/practice-areas/${a.slug}`),
   ...he.team.members.map((m) => `/team/${m.slug}`),
   ...he.publications.groups.flatMap((g) =>

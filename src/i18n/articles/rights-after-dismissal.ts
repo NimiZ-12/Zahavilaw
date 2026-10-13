@@ -171,6 +171,14 @@ export const rightsAfterDismissal: Article = {
       href: "/he/articles/resignation-as-dismissal"
     },
     {
+      label: "פוטרתם שלא כדין?",
+      href: "/he/lp/wrongful-dismissal"
+    },
+    {
+      label: "המעסיק לא שילם את השכר במועד",
+      href: "/he/lp/unpaid-wages"
+    },
+    {
       label: "דיני עבודה במשרד",
       href: "/he/practice-areas/labor-law"
     }

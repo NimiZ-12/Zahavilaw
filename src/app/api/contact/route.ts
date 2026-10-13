@@ -105,6 +105,9 @@ export async function POST(request: NextRequest) {
     // notification email through a hand-crafted request.
     src:
       asLine(body.src, 40).match(/^[a-z0-9-]{1,40}$/)?.[0] || undefined,
+    // Paid-ad tag appended by a landing page's form link (?ad=gads / ?ad=dg).
+    // Whitelisted to the two known campaign tags.
+    ad: ["gads", "dg"].includes(asLine(body.ad, 8)) ? asLine(body.ad, 8) : undefined,
   };
 
   // 6. Validate.

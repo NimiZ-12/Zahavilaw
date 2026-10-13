@@ -68,6 +68,10 @@ export const lpUnpaidWages: LpPage = {
         label: "פיצויי פיטורים - מתי הם מגיעים ואיך בודקים את הסכום",
         href: "/he/lp/severance-pay",
       },
+      {
+        label: "התפטרות בדין מפוטר",
+        href: "/he/articles/resignation-as-dismissal",
+      },
     ],
   },
   faqSection: {

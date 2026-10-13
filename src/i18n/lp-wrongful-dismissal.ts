@@ -91,6 +91,10 @@ export const lpWrongfulDismissal: LpPage = {
         label: "פיצויי פיטורים - מתי הם מגיעים ואיך בודקים את הסכום",
         href: "/he/lp/severance-pay",
       },
+      {
+        label: "התעמרות בעבודה",
+        href: "/he/articles/workplace-bullying",
+      },
     ],
   },
   faqSection: {

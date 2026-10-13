@@ -75,6 +75,10 @@ export const lpSeverancePay: LpPage = {
         label: "למי שפוטר בתקופה מוגנת - לעמוד הייעודי",
         href: "/he/lp/protected-period",
       },
+      {
+        label: "התפטרות בדין מפוטר",
+        href: "/he/articles/resignation-as-dismissal",
+      },
     ],
   },
   faqSection: {

@@ -1,11 +1,7 @@
 import type { MetadataRoute } from "next";
 import { locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-import { lpProtectedPeriod } from "@/i18n/lp-protected-period";
-import { lpSeverancePay } from "@/i18n/lp-severance-pay";
-import { lpHearing } from "@/i18n/lp-hearing";
-import { lpUnpaidWages } from "@/i18n/lp-unpaid-wages";
-import { lpWrongfulDismissal } from "@/i18n/lp-wrongful-dismissal";
+import { landingPages } from "@/i18n/lp-registry";
 import { articles } from "@/i18n/articles";
 import { SITE_URL, localePath, navItems } from "@/lib/routes";
 
@@ -111,16 +107,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   }
 
-  // Campaign landing pages (Hebrew only).
-  const landingPages: [string, { updated: string }][] = [
-    ["/lp/protected-period", lpProtectedPeriod],
-    ["/lp/severance-pay", lpSeverancePay],
-    ["/lp/hearing", lpHearing],
-    ["/lp/unpaid-wages", lpUnpaidWages],
-    ["/lp/wrongful-dismissal", lpWrongfulDismissal],
-  ];
-  for (const [path, lp] of landingPages) {
-    entries.push(hebrewOnlyEntry(path, lp.updated, 0.6));
+  // Campaign landing pages (Hebrew only), from the shared registry.
+  for (const { path, content } of landingPages) {
+    entries.push(hebrewOnlyEntry(path, content.updated, 0.6));
   }
 
   // Articles hub + articles (Hebrew only). The hub exists only once the first

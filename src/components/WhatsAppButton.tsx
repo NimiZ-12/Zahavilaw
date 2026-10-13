@@ -12,8 +12,10 @@ import { useCameFromAd } from "@/components/lp/shared";
    produce almost no conversations: a visitor who was just fired doesn't
    know what to write in a blank window. The link now carries a pre-filled
    opener naming the page the visitor is on, and appends the ad marker when
-   the URL carries ?src= (a paid-ad landing), so the firm can tell paid from
-   organic leads inside WhatsApp itself, with no analytics involved.
+   the URL carries a paid-ad tag (gads/dg in ?src= or ?ad=), so the firm can
+   tell paid from organic leads inside WhatsApp itself, with no analytics
+   involved. A page-name ?src= tag alone (e.g. on the contact page, arriving
+   from a landing page organically) does not add the marker.
 
    `pages` maps locale-less paths to display names; unmapped paths fall back
    to the longest mapped prefix (so a ruling page reads as "Publications"),

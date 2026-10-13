@@ -150,6 +150,10 @@ export const hearingTimelineAndDocuments: Article = {
       href: "/he/articles/dismissal-during-sick-leave"
     },
     {
+      label: "פוטרתם שלא כדין?",
+      href: "/he/lp/wrongful-dismissal"
+    },
+    {
       label: "דיני עבודה במשרד",
       href: "/he/practice-areas/labor-law"
     }
