@@ -112,9 +112,6 @@ export interface Dictionary {
     name: string;
     short: string;
     tagline: string;
-    /** Official profiles (LinkedIn, Google Business, Facebook). Emitted as
-     *  `sameAs` so answer engines can corroborate the firm's identity. */
-    sameAs?: string[];
   };
   meta: {
     defaultTitle: string;
@@ -135,6 +132,9 @@ export interface Dictionary {
     careers: string;
     /** Accessible label for the breadcrumb navigation landmark. */
     breadcrumb: string;
+    /** Accessible names for the header's social-profile buttons. */
+    facebook: string;
+    youtube: string;
   };
   home: {
     hero: {

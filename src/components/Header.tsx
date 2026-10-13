@@ -9,7 +9,44 @@ import { localePath, navItems } from "@/lib/routes";
 import Logo from "./Logo";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { ButtonLink } from "./Button";
-import { MenuIcon, CloseIcon } from "./Icons";
+import {
+  MenuIcon,
+  CloseIcon,
+  FacebookLogoIcon,
+  YoutubeLogoIcon,
+} from "./Icons";
+import { FACEBOOK_URL, YOUTUBE_URL } from "@/lib/contact";
+
+/** Facebook / YouTube icon links, colored like the nav links. Rendered in
+ *  the desktop bar and in the mobile menu's bottom row. */
+function SocialLinks({ nav }: { nav: Dictionary["nav"] }) {
+  const linkClass =
+    "grid h-10 w-10 place-items-center rounded-md text-navy/80 transition-colors hover:text-gold-600";
+  return (
+    <div className="flex items-center gap-1">
+      <a
+        href={FACEBOOK_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={nav.facebook}
+        title={nav.facebook}
+        className={linkClass}
+      >
+        <FacebookLogoIcon className="h-5 w-5" />
+      </a>
+      <a
+        href={YOUTUBE_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={nav.youtube}
+        title={nav.youtube}
+        className={linkClass}
+      >
+        <YoutubeLogoIcon className="h-5 w-5" />
+      </a>
+    </div>
+  );
+}
 
 export default function Header({
   locale,
@@ -111,6 +148,7 @@ export default function Header({
         </nav>
 
         <div className="hidden items-center gap-4 lg:flex">
+          <SocialLinks nav={nav} />
           <LanguageSwitcher locale={locale} />
           <ButtonLink href={localePath(locale, "/contact")} variant="primary">
             {nav.cta}
@@ -153,7 +191,10 @@ export default function Header({
               </Link>
             ))}
             <div className="mt-3 flex items-center justify-between border-t border-border pt-4">
-              <LanguageSwitcher locale={locale} />
+              <div className="flex items-center gap-3">
+                <SocialLinks nav={nav} />
+                <LanguageSwitcher locale={locale} />
+              </div>
               <ButtonLink href={localePath(locale, "/contact")} variant="primary">
                 {nav.cta}
               </ButtonLink>
