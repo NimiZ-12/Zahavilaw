@@ -54,6 +54,7 @@ const KNOWN_PATHS = new Set<string>([
   "/lp/severance-pay",
   "/lp/hearing",
   "/lp/unpaid-wages",
+  "/lp/wrongful-dismissal",
   ...he.practiceAreas.items.map((a) => `/practice-areas/${a.slug}`),
   ...he.team.members.map((m) => `/team/${m.slug}`),
   ...he.publications.groups.flatMap((g) =>
