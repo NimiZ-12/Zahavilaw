@@ -946,7 +946,7 @@ const en: Dictionary = {
         {
           heading: "The accessibility widget",
           paragraphs: [
-            "In addition to the adjustments built into the site itself, an accessibility widget by Enable is installed (licence enable-L56252t5tcus39uj-0826). It can be opened from the accessibility icon on any page and offers, among other things, larger text, contrast and colour changes, link highlighting, a dyslexia-friendly font, animation pausing and an enlarged cursor.",
+            "In addition to the adjustments built into the site itself, an accessibility widget by Negishot is installed. It can be opened from the accessibility icon on any page and offers, among other things, larger text, contrast and colour changes, link highlighting, a dyslexia-friendly font, animation pausing and an enlarged cursor.",
             "The preferences you choose are stored in your own browser so your choice carries between pages; they are not used for tracking.",
             "Note that the widget is an addition. The site itself is built to be accessible without it - with full keyboard navigation, semantic structure and adequate contrast.",
           ],

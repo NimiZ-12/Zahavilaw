@@ -72,9 +72,10 @@ export default function WhatsAppButton({
       aria-label={label}
       title={label}
       onClick={handleClick}
-      /* Bottom-left, stacked above the Enable accessibility icon, which owns
-         the corner itself (its position is set in Enable's dashboard, not
-         here). bottom-24 = 96px clears the icon with room to spare.
+      /* Bottom-left, stacked above the accessibility widget's icon, which
+         owns the corner itself (its position is set in the widget vendor's
+         dashboard, not here). bottom-24 = 96px clears the icon with room to
+         spare.
          `left-6` is physical, not the logical `end-6`: the widget stays on
          the left in both locales, so this button must too, otherwise it
          would swap sides in English and land back on top of it. */
