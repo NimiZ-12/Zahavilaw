@@ -1,7 +1,9 @@
 import Script from "next/script";
 
 /**
- * Enable accessibility widget (enable.co.il).
+ * Negishot accessibility widget (negishot.co.il). Replaced the Enable widget
+ * on 13.10.2026 at the client's request; every trace of Enable (script, CSP
+ * entries, accessibility-statement wording) was removed with it.
  *
  * Loaded on every page as part of the firm's compliance with the Equal Rights
  * for Persons with Disabilities Regulations and Israeli Standard IS 5568.
@@ -21,17 +23,18 @@ import Script from "next/script";
  *    a page that is already accessible on its own (semantic headings, skip
  *    link, keyboard support, AA contrast), so it must never block first paint.
  *
- * The licence id is public - it appears in the page source of every site that
- * uses Enable - so it lives here rather than in an environment variable.
+ * The widget code is public - it appears in the page source of every site
+ * that uses Negishot - so it lives here rather than in an environment
+ * variable.
  */
-const ENABLE_SCRIPT =
-  "https://cdn.enable.co.il/licenses/enable-L56252t5tcus39uj-0826-83633/init.js";
+const NEGISHOT_SCRIPT =
+  "https://negishot.co.il/cdn/widget.php?code=NGS_F20ED1A66EE8";
 
 export default function AccessibilityWidget() {
   return (
     <Script
-      id="enable-accessibility"
-      src={ENABLE_SCRIPT}
+      id="negishot-accessibility"
+      src={NEGISHOT_SCRIPT}
       strategy="afterInteractive"
     />
   );
