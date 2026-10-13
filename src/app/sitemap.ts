@@ -5,6 +5,7 @@ import { lpProtectedPeriod } from "@/i18n/lp-protected-period";
 import { lpSeverancePay } from "@/i18n/lp-severance-pay";
 import { lpHearing } from "@/i18n/lp-hearing";
 import { lpUnpaidWages } from "@/i18n/lp-unpaid-wages";
+import { lpWrongfulDismissal } from "@/i18n/lp-wrongful-dismissal";
 import { articles } from "@/i18n/articles";
 import { SITE_URL, localePath, navItems } from "@/lib/routes";
 
@@ -116,6 +117,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ["/lp/severance-pay", lpSeverancePay],
     ["/lp/hearing", lpHearing],
     ["/lp/unpaid-wages", lpUnpaidWages],
+    ["/lp/wrongful-dismissal", lpWrongfulDismissal],
   ];
   for (const [path, lp] of landingPages) {
     entries.push(hebrewOnlyEntry(path, lp.updated, 0.6));
