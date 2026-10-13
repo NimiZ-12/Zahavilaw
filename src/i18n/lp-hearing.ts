@@ -79,6 +79,10 @@ export const lpHearing: LpPage = {
         label: "פיטורים בתקופה מוגנת - היריון, לידה ומילואים",
         href: "/he/lp/protected-period",
       },
+      {
+        label: "כמה זמן אחרי שימוע אפשר לפטר",
+        href: "/he/articles/hearing-timeline-and-documents",
+      },
     ],
   },
   faqSection: {

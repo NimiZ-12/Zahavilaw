@@ -678,7 +678,7 @@ const he: Dictionary = {
       postalCode: "5268102",
     },
     hoursLabel: "שעות פעילות",
-    hours: "ימים א׳-ה׳, 09:00-18:00",
+    hours: "ימים א׳-ה׳, 09:00-19:00",
     form: {
       title: "טופס יצירת קשר וקביעת פגישה",
       name: "שם מלא",

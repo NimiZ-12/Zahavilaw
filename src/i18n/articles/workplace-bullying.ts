@@ -163,6 +163,10 @@ export const workplaceBullying: Article = {
       href: "/he/articles/resignation-as-dismissal"
     },
     {
+      label: "פוטרתם שלא כדין?",
+      href: "/he/lp/wrongful-dismissal"
+    },
+    {
       label: "דיני עבודה במשרד",
       href: "/he/practice-areas/labor-law"
     }

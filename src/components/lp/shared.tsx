@@ -29,25 +29,44 @@ export function waLink(message: string) {
 }
 
 const noopSubscribe = () => () => {};
-function readHasSrcParam(): boolean {
+
+/** The query values that mark a paid-ad visit. Any other value of ?src= is a
+ *  referring-page tag (e.g. "wrongful-dismissal" on the contact form link),
+ *  not an ad: an organic visitor who clicks through to the contact page must
+ *  NOT be labeled "(מודעה)". */
+const AD_SOURCES = ["gads", "dg"];
+
+function readAdSource(): string {
   try {
-    return new URLSearchParams(window.location.search).has("src");
+    const params = new URLSearchParams(window.location.search);
+    for (const key of ["src", "ad"]) {
+      const value = params.get(key);
+      if (value && AD_SOURCES.includes(value)) return value;
+    }
+    return "";
   } catch {
-    return false;
+    return "";
   }
 }
 
-/** True once hydrated on a URL carrying ?src= - i.e. the visitor came from a
- *  paid ad. The server snapshot is false, so static prerendering is safe. */
+/** The ad-source tag ("gads" / "dg") once hydrated on a URL whose ?src= or
+ *  ?ad= carries one, "" otherwise. The server snapshot is "", so static
+ *  prerendering is safe. */
+export function useAdSource(): string {
+  return useSyncExternalStore(noopSubscribe, readAdSource, () => "");
+}
+
+/** True when the visitor came from a paid ad (?src= or ?ad= is an AD_SOURCES
+ *  value). A page-name src tag alone does not count. */
 export function useCameFromAd(): boolean {
-  return useSyncExternalStore(noopSubscribe, readHasSrcParam, () => false);
+  return useAdSource() !== "";
 }
 
 /** Landing-page WhatsApp openers all follow the brief's fixed pattern
- *  "...באתר. ..."; a visitor who arrived from an ad (?src= in the URL) gets
- *  "(מודעה)" injected so the firm can tell paid from organic leads inside
- *  WhatsApp itself, with no analytics involved. A message without the
- *  pattern passes through unchanged. */
+ *  "...באתר. ..."; a visitor who arrived from an ad (an AD_SOURCES value in
+ *  ?src= or ?ad=) gets "(מודעה)" injected so the firm can tell paid from
+ *  organic leads inside WhatsApp itself, with no analytics involved. A
+ *  message without the pattern passes through unchanged. */
 export function markAdMessage(message: string): string {
   return message.replace("באתר.", "באתר (מודעה).");
 }
@@ -101,11 +120,17 @@ export function PhoneLine({ label, phone }: { label: string; phone: string }) {
 
 /** Navy secondary CTA linking to the contact form. The `src` query value is
  *  carried into the form as a hidden field and shows up in the lead email,
- *  so the firm can tell which landing page produced a form lead. */
+ *  so the firm can tell which landing page produced a form lead. When the
+ *  visitor came from a paid ad, the link also appends `ad=<tag>` so the ad
+ *  marker survives the hop to the contact page and reaches the lead email. */
 export function FormCta({ href, label }: { href: string; label: string }) {
+  const adSource = useAdSource();
+  const finalHref = adSource
+    ? `${href}${href.includes("?") ? "&" : "?"}ad=${adSource}`
+    : href;
   return (
     <Link
-      href={href}
+      href={finalHref}
       className="inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-md bg-navy px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-navy-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
     >
       {label}

@@ -98,7 +98,7 @@ export function organizationNode(locale: Locale, dict: Dictionary): JsonLdNode {
           "https://schema.org/Thursday",
         ],
         opens: "09:00",
-        closes: "18:00",
+        closes: "19:00",
       },
     ],
     contactPoint: [
@@ -149,7 +149,6 @@ export type WebPageType =
   | "AboutPage"
   | "ContactPage"
   | "CollectionPage"
-  | "FAQPage"
   | "ProfilePage";
 
 export function webPageNode({
@@ -439,7 +438,15 @@ export function buildGraph({
     graph.push(breadcrumbNode(locale, path, dict, trail));
   }
 
-  graph.push(...nodes);
+  // A FAQPage with no questions is worse than none: Search Console flags
+  // it. Drop one if a caller ever passes an empty list.
+  graph.push(
+    ...nodes.filter(
+      (node) =>
+        node["@type"] !== "FAQPage" ||
+        (Array.isArray(node.mainEntity) && node.mainEntity.length > 0),
+    ),
+  );
 
   return { "@context": "https://schema.org", "@graph": graph };
 }

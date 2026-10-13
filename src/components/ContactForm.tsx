@@ -29,6 +29,17 @@ function readSrcParam(): string {
   }
 }
 
+/* Paid-ad tag (?ad=gads / ?ad=dg), appended by a landing page's form link
+   when the visitor arrived there from an ad. Carried as a second hidden
+   field so the lead email can say the lead came from an ad. */
+function readAdParam(): string {
+  try {
+    return new URLSearchParams(window.location.search).get("ad") ?? "";
+  } catch {
+    return "";
+  }
+}
+
 declare global {
   interface Window {
     turnstile?: { reset: (widget?: string | HTMLElement) => void };
@@ -80,6 +91,7 @@ export default function ContactForm({
   const [preferredDate, setPreferredDate] = useState("");
   const [preferredDateError, setPreferredDateError] = useState("");
   const src = useSyncExternalStore(noopSubscribe, readSrcParam, () => "");
+  const ad = useSyncExternalStore(noopSubscribe, readAdParam, () => "");
   const minDate = earliestSelectableDate();
 
   function onPreferredDateChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -132,6 +144,7 @@ export default function ContactForm({
       consent: data.get("consent") === "on",
       captchaToken: data.get("cf-turnstile-response"),
       src: data.get("src"),
+      ad: data.get("ad"),
       locale,
     };
 
@@ -321,8 +334,9 @@ export default function ContactForm({
         <input id="company" name="company" type="text" tabIndex={-1} autoComplete="off" />
       </div>
 
-      {/* Referring-page tag, populated from the URL's ?src= parameter. */}
+      {/* Referring-page tag (?src=) and paid-ad tag (?ad=), from the URL. */}
       <input type="hidden" name="src" value={src} />
+      <input type="hidden" name="ad" value={ad} />
 
       {/* Required by Israeli privacy law: unchecked by default, and the
           policy and terms are real links, not plain words. The same consent

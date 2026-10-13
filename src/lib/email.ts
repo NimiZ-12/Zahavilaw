@@ -11,6 +11,8 @@ export interface Lead {
   source: string;
   /** Referring-page tag from a campaign landing page, e.g. "severance". */
   src?: string;
+  /** Paid-ad tag ("gads" / "dg") when the visitor arrived from an ad. */
+  ad?: string;
 }
 
 /* ----------------------------------------------------------------------------
@@ -46,6 +48,8 @@ function leadHtml(lead: Lead): string {
     ["שפת הפנייה", lead.locale === "he" ? "עברית" : "English"],
     // Only when the visitor arrived from a campaign landing page.
     ...(lead.src ? ([["עמוד המקור", lead.src]] as [string, string][]) : []),
+    // Only when the visitor arrived from a paid ad (gads = Search, dg = video).
+    ...(lead.ad ? ([["הגיע ממודעה", lead.ad]] as [string, string][]) : []),
   ];
   const tr = rows
     .map(

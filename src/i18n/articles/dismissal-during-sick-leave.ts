@@ -152,6 +152,10 @@ export const dismissalDuringSickLeave: Article = {
       href: "/he/articles/rights-after-dismissal"
     },
     {
+      label: "פוטרתם שלא כדין?",
+      href: "/he/lp/wrongful-dismissal"
+    },
+    {
       label: "דיני עבודה במשרד",
       href: "/he/practice-areas/labor-law"
     }

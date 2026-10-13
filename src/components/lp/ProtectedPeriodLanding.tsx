@@ -18,6 +18,8 @@
 ---------------------------------------------------------------------------- */
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { ArrowIcon } from "@/components/Icons";
 import {
   ChevronIcon,
   Eyebrow,
@@ -253,6 +255,26 @@ export default function ProtectedPeriodLanding({
                 <TrackPanel track={track} />
               </div>
             ))}
+
+            {/* Cross-links - the same gold-soft box the single-track landing
+                pages render (CampaignLanding), so the pages stay visually in
+                step even though this one has its own two-track layout. */}
+            <div className="mt-14 rounded-xl border border-gold/30 bg-gold-soft p-6">
+              <p className="font-semibold text-navy">{content.related.text}</p>
+              <ul className="mt-2 space-y-1.5">
+                {content.related.links.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-navy underline underline-offset-2 hover:text-gold-600"
+                    >
+                      {link.label}
+                      <ArrowIcon className="h-4 w-4 rtl:-scale-x-100" />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           <aside className="lg:col-span-4">

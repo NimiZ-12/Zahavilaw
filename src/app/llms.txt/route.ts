@@ -1,6 +1,7 @@
 import { getDictionary } from "@/i18n/dictionaries";
 import { SITE_URL, localePath } from "@/lib/routes";
 import { articles } from "@/i18n/articles";
+import { landingPages } from "@/i18n/lp-registry";
 import {
   FIRM_FOUNDED,
   WHATSAPP_NUMBER_DISPLAY,
@@ -166,6 +167,19 @@ export async function GET() {
       "",
     );
   }
+
+  /* --- Campaign landing pages ------------------------------------------ */
+  // One line per page: its meta title, its meta description, its URL -
+  // exactly the approved copy already live on the page, nothing new.
+  push(
+    "## Labor-law landing pages (Hebrew)",
+    "",
+    ...landingPages.map(
+      ({ path, content }) =>
+        `- ${content.meta.title}: ${content.meta.description} ${abs(localePath("he", path))}`,
+    ),
+    "",
+  );
 
   /* --- Where to go next ------------------------------------------------ */
   push(
