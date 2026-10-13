@@ -60,8 +60,10 @@ export type LpTrack = {
   /** Shown in the "when do you need a private lawyer" section. */
   aid: { lead: string; body: string };
   faq: { q: string; a: string }[];
-  /** Pre-filled WhatsApp opener, so the track a lead came from is identifiable. */
-  whatsappMessage: string;
+  /** The track-specific second sentence of the pre-filled WhatsApp message.
+   *  The first sentence (the opener) is chosen by visitor source - see
+   *  whatsappOpeners on the page type. */
+  whatsappSituation: string;
 };
 
 export type LpProtectedPeriod = {
@@ -75,6 +77,10 @@ export type LpProtectedPeriod = {
   ask: { title: string; body: string; cta: string; phoneLabel: string };
   /** Cross-links box, same shape and copy pattern as LpPage["related"]. */
   related: { text: string; links: { label: string; href: string }[] };
+  /** First sentence of the pre-filled WhatsApp message, by visitor source:
+   *  the YouTube video (utm_source=youtube), a paid ad (gads/dg in ?src= or
+   *  ?ad=), or anyone else. */
+  whatsappOpeners: { video: string; site: string; ad: string };
   transparency: {
     eyebrow: string;
     title: string;
@@ -190,8 +196,8 @@ const pregnancy: LpTrack = {
       a: "מוותק של 6 חודשים ומעלה נדרש היתר גם לפיטורי צמצום. הממונה תיתן היתר רק אם תשתכנע שהפיטורים אינם קשורים להיריון, אחרי בחינת מכלול הנסיבות.",
     },
   ],
-  whatsappMessage:
-    "שלום, הגעתי מהסרטון על פיטורים בתקופה מוגנת. פוטרתי בתקופת היריון או אחרי לידה, ואשמח לבדוק איפה אני עומדת.",
+  whatsappSituation:
+    "פוטרתי בתקופת היריון או אחרי לידה, ואשמח לבדוק איפה אני עומדת.",
 };
 
 const reserve: LpTrack = {
@@ -296,8 +302,8 @@ const reserve: LpTrack = {
       a: "האיסור לפטר בתקופת השירות חל מכל סיבה שהיא. המעסיק נדרש לפנות לוועדת התעסוקה ולהוכיח שהפיטורים אינם בגלל שירות המילואים.",
     },
   ],
-  whatsappMessage:
-    "שלום, הגעתי מהסרטון על פיטורים בתקופה מוגנת. פוטרתי בסמוך לשירות מילואים, ואשמח לבדוק איפה אני עומד.",
+  whatsappSituation:
+    "פוטרתי בסמוך לשירות מילואים, ואשמח לבדוק איפה אני עומד.",
 };
 
 export const lpProtectedPeriod: LpProtectedPeriod = {
@@ -323,6 +329,11 @@ export const lpProtectedPeriod: LpProtectedPeriod = {
     body: "כתבו לנו בוואטסאפ מה קרה ומתי. נבחן את התאריכים ונאמר לכם מה עומד על הפרק.",
     cta: "שליחת הודעה בוואטסאפ",
     phoneLabel: "או בטלפון",
+  },
+  whatsappOpeners: {
+    video: "שלום, הגעתי מהסרטון על פיטורים בתקופה מוגנת.",
+    site: "שלום, הגעתי מעמוד פיטורים בתקופה מוגנת באתר.",
+    ad: "שלום, הגעתי מעמוד פיטורים בתקופה מוגנת באתר (מודעה).",
   },
   related: {
     text: "מידע נוסף שעשוי להיות רלוונטי למצבכם:",

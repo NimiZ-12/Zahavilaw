@@ -17,7 +17,13 @@
    message text is the one signal that always arrives.
 ---------------------------------------------------------------------------- */
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from "react";
 import Link from "next/link";
 import { ArrowIcon } from "@/components/Icons";
 import {
@@ -25,10 +31,28 @@ import {
   Eyebrow,
   PhoneLine,
   WhatsappCta,
+  useAdSource,
 } from "@/components/lp/shared";
 import type { LpProtectedPeriod, LpTrack } from "@/i18n/lp-protected-period";
 
 type TrackId = LpTrack["id"];
+
+/* The YouTube video's description links here with utm_source=youtube; that
+   visitor's WhatsApp opener should keep saying "הגעתי מהסרטון". Everyone
+   else gets the page opener (with the ad marker when they came from an ad).
+   Same useSyncExternalStore pattern as useAdSource: the server snapshot is
+   false, so static prerendering is safe. */
+const noopSubscribe = () => () => {};
+function readIsFromVideo(): boolean {
+  try {
+    return (
+      new URLSearchParams(window.location.search).get("utm_source") ===
+      "youtube"
+    );
+  } catch {
+    return false;
+  }
+}
 
 function AskBox({
   ask,
@@ -152,6 +176,17 @@ export default function ProtectedPeriodLanding({
   const tabRefs = useRef<Partial<Record<TrackId, HTMLButtonElement | null>>>({});
 
   const current = active === pregnancy.id ? pregnancy : reserve;
+
+  // First sentence by visitor source (an ad tag wins; the two never co-occur
+  // in practice), second sentence by the active track.
+  const adSource = useAdSource();
+  const fromVideo = useSyncExternalStore(noopSubscribe, readIsFromVideo, () => false);
+  const opener = adSource
+    ? content.whatsappOpeners.ad
+    : fromVideo
+      ? content.whatsappOpeners.video
+      : content.whatsappOpeners.site;
+  const whatsappMessage = `${opener} ${current.whatsappSituation}`;
 
   // The video links to #herayon or #miluim. Read it once on mount, and again
   // if the visitor follows another fragment link to the page.
@@ -282,7 +317,7 @@ export default function ProtectedPeriodLanding({
               <AskBox
                 ask={content.ask}
                 phone={phone}
-                message={current.whatsappMessage}
+                message={whatsappMessage}
               />
             </div>
           </aside>
@@ -368,7 +403,7 @@ export default function ProtectedPeriodLanding({
               </p>
               <div className="mt-6">
                 <WhatsappCta
-                  message={current.whatsappMessage}
+                  message={whatsappMessage}
                   label={content.ask.cta}
                   block
                 />
