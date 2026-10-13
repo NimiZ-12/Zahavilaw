@@ -14,7 +14,12 @@
 import type { Locale } from "@/i18n/config";
 import type { Dictionary, PracticeArea, TeamMember } from "@/i18n/dictionaries";
 import { SITE_URL, localePath } from "./routes";
-import { FIRM_FOUNDED, OFFICE_COORDS, WHATSAPP_NUMBER_E164 } from "./contact";
+import {
+  FIRM_FOUNDED,
+  OFFICE_COORDS,
+  SOCIAL_PROFILES,
+  WHATSAPP_NUMBER_E164,
+} from "./contact";
 
 export type JsonLdNode = Record<string, unknown>;
 
@@ -123,7 +128,7 @@ export function organizationNode(locale: Locale, dict: Dictionary): JsonLdNode {
     knowsAbout: practiceAreas.items.map((a) => a.title),
     founder: team.members.map((m) => ({ "@id": ID.person(m.slug) })),
     employee: team.members.map((m) => ({ "@id": ID.person(m.slug) })),
-    sameAs: dict.brand.sameAs,
+    sameAs: SOCIAL_PROFILES,
   });
 }
 

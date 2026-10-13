@@ -34,6 +34,8 @@ const he: Dictionary = {
     faq: "שאלות ותשובות",
     careers: "דרושים",
     breadcrumb: "מסלול ניווט",
+    facebook: "עמוד הפייסבוק של המשרד",
+    youtube: "ערוץ היוטיוב של המשרד",
   },
   home: {
     hero: {
