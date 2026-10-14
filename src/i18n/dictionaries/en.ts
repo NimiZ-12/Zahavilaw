@@ -36,6 +36,7 @@ const en: Dictionary = {
     breadcrumb: "Breadcrumb",
     facebook: "The firm's Facebook page",
     youtube: "The firm's YouTube channel",
+    linkedin: "The firm's LinkedIn page",
   },
   home: {
     hero: {

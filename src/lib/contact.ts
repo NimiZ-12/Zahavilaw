@@ -35,4 +35,5 @@ export const FIRM_FOUNDED = "1996";
 export const FACEBOOK_URL = "https://www.facebook.com/zahaviprettyadv";
 export const YOUTUBE_URL =
   "https://www.youtube.com/@%D7%96%D7%94%D7%91%D7%99-%D7%A4%D7%A8%D7%99%D7%98%D7%99";
-export const SOCIAL_PROFILES = [FACEBOOK_URL, YOUTUBE_URL];
+export const LINKEDIN_URL = "https://www.linkedin.com/company/zahaviprettylaw";
+export const SOCIAL_PROFILES = [FACEBOOK_URL, YOUTUBE_URL, LINKEDIN_URL];

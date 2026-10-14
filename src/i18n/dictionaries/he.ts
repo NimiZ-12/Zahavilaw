@@ -36,6 +36,7 @@ const he: Dictionary = {
     breadcrumb: "מסלול ניווט",
     facebook: "עמוד הפייסבוק של המשרד",
     youtube: "ערוץ היוטיוב של המשרד",
+    linkedin: "עמוד הלינקדאין של המשרד",
   },
   home: {
     hero: {
