@@ -14,16 +14,17 @@ import {
   CloseIcon,
   FacebookLogoIcon,
   YoutubeLogoIcon,
+  LinkedinLogoIcon,
 } from "./Icons";
-import { FACEBOOK_URL, YOUTUBE_URL } from "@/lib/contact";
+import { FACEBOOK_URL, YOUTUBE_URL, LINKEDIN_URL } from "@/lib/contact";
 
 /** Facebook / YouTube icon links, colored like the nav links. Rendered in
  *  the desktop bar and in the mobile menu's bottom row. */
 function SocialLinks({ nav }: { nav: Dictionary["nav"] }) {
   const linkClass =
-    "grid h-10 w-10 place-items-center rounded-md text-navy/80 transition-colors hover:text-gold-600";
+    "grid h-9 w-9 place-items-center rounded-md text-navy/80 transition-colors hover:text-gold-600";
   return (
-    <div className="flex items-center gap-1">
+    <div className="flex items-center">
       <a
         href={FACEBOOK_URL}
         target="_blank"
@@ -43,6 +44,16 @@ function SocialLinks({ nav }: { nav: Dictionary["nav"] }) {
         className={linkClass}
       >
         <YoutubeLogoIcon className="h-5 w-5" />
+      </a>
+      <a
+        href={LINKEDIN_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={nav.linkedin}
+        title={nav.linkedin}
+        className={linkClass}
+      >
+        <LinkedinLogoIcon className="h-5 w-5" />
       </a>
     </div>
   );
@@ -135,7 +146,7 @@ export default function Header({
             <Link
               key={item.key}
               href={localePath(locale, item.path)}
-              className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+              className={`whitespace-nowrap rounded-md px-2 py-2 text-sm font-medium transition-colors xl:px-3 ${
                 isActive(item.path)
                   ? "text-gold-600"
                   : "text-navy/80 hover:text-gold-600"

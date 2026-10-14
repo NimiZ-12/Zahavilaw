@@ -135,6 +135,7 @@ export interface Dictionary {
     /** Accessible names for the header's social-profile buttons. */
     facebook: string;
     youtube: string;
+    linkedin: string;
   };
   home: {
     hero: {
