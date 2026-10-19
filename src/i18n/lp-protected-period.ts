@@ -307,7 +307,8 @@ const reserve: LpTrack = {
 };
 
 export const lpProtectedPeriod: LpProtectedPeriod = {
-  updated: "2026-10-05",
+  // Bumped 13.10: the related-links box and source-aware WhatsApp openers.
+  updated: "2026-10-13",
   meta: {
     title: "פיטורים בתקופה מוגנת - היריון ומילואים",
     description:

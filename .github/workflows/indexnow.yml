@@ -1,0 +1,25 @@
+# Submits recently changed Hebrew URLs to IndexNow (Bing & friends) after
+# every successful production deploy. Vercel reports its deployments to
+# GitHub because the project is Git-connected, which fires the
+# deployment_status event. The IndexNow key is public by design, so this
+# workflow needs no secrets.
+name: IndexNow
+
+on:
+  deployment_status:
+
+jobs:
+  submit:
+    if: >-
+      github.event.deployment_status.state == 'success' &&
+      github.event.deployment_status.environment == 'Production'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      # Default window: everything whose sitemap lastmod is within the
+      # last two days - i.e. what this deploy (and at worst the one
+      # before it) actually changed.
+      - run: node scripts/indexnow.mjs
