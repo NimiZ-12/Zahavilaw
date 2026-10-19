@@ -7,12 +7,20 @@ name: IndexNow
 
 on:
   deployment_status:
+  # Manual run with a custom window, e.g. a one-time catch-up submission
+  # (the agent environment cannot reach the IndexNow API directly).
+  workflow_dispatch:
+    inputs:
+      since:
+        description: "Submit URLs whose sitemap lastmod is on or after this date (YYYY-MM-DD)"
+        required: true
 
 jobs:
   submit:
     if: >-
-      github.event.deployment_status.state == 'success' &&
-      github.event.deployment_status.environment == 'Production'
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.deployment_status.state == 'success' &&
+      github.event.deployment_status.environment == 'Production')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -22,4 +30,6 @@ jobs:
       # Default window: everything whose sitemap lastmod is within the
       # last two days - i.e. what this deploy (and at worst the one
       # before it) actually changed.
-      - run: node scripts/indexnow.mjs
+      - run: >-
+          node scripts/indexnow.mjs
+          ${{ github.event_name == 'workflow_dispatch' && format('--since {0}', inputs.since) || '' }}
