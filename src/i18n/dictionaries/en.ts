@@ -460,7 +460,7 @@ const en: Dictionary = {
     rulingPage: {
       aboutTitle: "About this ruling",
       about:
-        "This ruling was handed down in proceedings in which the firm represented one of the parties, and is reproduced here in full as published. The complete document is available to read and download below.",
+        "This ruling was handed down in proceedings in which the firm represented one of the parties, and is presented here as published, with identifying details of private individuals redacted to protect their privacy. The complete document is available to read and download below.",
       disclaimer:
         "Every case is decided on its own facts, evidence and applicable law. No conclusion about the possible outcome of another matter can be drawn from the result in this one, and nothing here constitutes legal advice.",
       documentTitle: "The full document",
