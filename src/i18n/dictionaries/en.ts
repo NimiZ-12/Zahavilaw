@@ -531,7 +531,7 @@ const en: Dictionary = {
           {
             slug: "dismissal-in-limine",
             title: "Dismissal of the claim in limine - Ron Zahavi, Adv.",
-            summary: "[להשלמה: תקציר פסק הדין]",
+            summary: "A monetary claim of NIS 74,941 for damage to a vehicle caused by falling construction materials, filed against a development company after the plaintiff had already concluded an earlier proceeding against it with a settlement agreement that was honoured. The plaintiff argued that they had been misled when signing the settlement. The court dismissed the claim in limine: no basis was laid for the misrepresentation claim, and weight must be given to the finality of proceedings and to a settlement agreement that was honoured. The plaintiff was ordered to pay costs of NIS 8,000. The firm represented the defendant. (Herzliya Magistrates' Court, Fast-Track Civil Case 9950-05-25, 25.6.2026)",
           },
           { slug: "security-deposit", title: "Order to post security for costs - Ron Zahavi, Adv." },
           { slug: "property-eviction", title: "Claim for eviction of a property - Ron Zahavi, Adv." },
@@ -539,7 +539,7 @@ const en: Dictionary = {
           {
             slug: "defamation",
             title: "Defamation claim - Ron Zahavi, Adv.",
-            summary: "[להשלמה: תקציר פסק הדין]",
+            summary: "A defamation claim over two Facebook posts published by the defendant against the background of a business dispute over the management of an event venue. The court held that the posts constituted defamation, and that the defendant proved neither the truth of the statements nor good faith. The defendant was ordered to pay the first plaintiff compensation of NIS 80,000, half the court fee and legal fees of NIS 18,000; no compensation was awarded to the other plaintiffs. The firm represented the plaintiffs. (Rishon LeZion Magistrates' Court, CC 1850-08-19, 2.2.2022)",
           },
           { slug: "monetary-claim-dismissed", title: "Monetary claim dismissed - Ron Zahavi, Adv." },
           { slug: "brokerage-fee-dismissed", title: "Brokerage-fee claim dismissed - Ron Zahavi, Adv." },
@@ -949,8 +949,7 @@ const en: Dictionary = {
           heading: "Level of Accessibility",
           paragraphs: [
             "The site was built with the aim of meeting the requirements of Israeli Standard IS 5568 for web content accessibility at Level AA. We continuously work to improve the site's level of accessibility.",
-            "[להשלמה: accessibility coordinator name, if the Firm is required to appoint one]",
-          ],
+                      ],
         },
         {
           heading: "Accessibility Adjustments Implemented",
@@ -1057,7 +1056,7 @@ const en: Dictionary = {
         {
           heading: "9. Accessibility",
           paragraphs: [
-            "This site has been made accessible in accordance with the Equal Rights for Persons with Disabilities Regulations (Accessibility Adjustments to Service) and Israeli Standard IS 5568 at level AA. Full details, including known limitations and the accessibility coordinator's contact information, appear in the accessibility statement.",
+            "This site has been made accessible in accordance with the Equal Rights for Persons with Disabilities Regulations (Accessibility Adjustments to Service) and Israeli Standard IS 5568 at level AA. Full details, including known limitations, appear in the accessibility statement.",
           ],
         },
         {
