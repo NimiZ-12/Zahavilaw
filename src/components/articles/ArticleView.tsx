@@ -20,6 +20,7 @@ import {
 import { ArrowIcon } from "@/components/Icons";
 import type { Article } from "@/i18n/articles";
 import { articlesHub } from "@/i18n/articles/hub";
+import LawCheckedNote from "@/components/LawCheckedNote";
 
 function formatHebrewDate(iso: string): string {
   return new Intl.DateTimeFormat("he-IL", { dateStyle: "long" }).format(
@@ -51,9 +52,12 @@ function AskBox({ article, phone }: { article: Article; phone: string }) {
 export default function ArticleView({
   article,
   phone,
+  lawCheckedPrefix,
 }: {
   article: Article;
   phone: string;
+  /** Dictionary prefix for the law-checked line (common.lawCheckedPrefix). */
+  lawCheckedPrefix: string;
 }) {
   return (
     <>
@@ -199,6 +203,14 @@ export default function ArticleView({
 
       <section className="border-t border-border bg-surface">
         <div className="container-x py-10">
+          {article.lawCheckedAt && (
+            <LawCheckedNote
+              date={article.lawCheckedAt}
+              locale="he"
+              prefix={lawCheckedPrefix}
+              className="mb-2"
+            />
+          )}
           <p className="text-xs leading-relaxed text-muted">
             {articlesHub.disclaimer}
           </p>

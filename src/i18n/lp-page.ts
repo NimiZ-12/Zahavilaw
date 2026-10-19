@@ -27,6 +27,10 @@ export type LpPage = {
   /** ISO date (YYYY-MM-DD) of the last content change; feeds the sitemap's
    *  lastModified, so update it whenever this file's copy changes. */
   updated: string;
+  /** ISO date the page's legal content was last checked against current
+   *  law. Set ONLY after an actual review; rendered by LawCheckedNote and
+   *  verified by the site suite. Absent = the page has fixes pending. */
+  lawCheckedAt?: string;
   breadcrumb: { area: string; areaPath: string; current: string };
   hero: { title: string; lead: string };
   sections: LpSection[];

@@ -128,6 +128,17 @@ export default async function RulingPage({
             <p className="mt-4 text-sm leading-relaxed text-muted">{t.disclaimer}</p>
           </div>
 
+          {/* Textual digest - the accessible alternative for scanned PDFs
+              that carry no text layer (and useful context for all of them). */}
+          {ruling.summary && (
+            <div className="mt-12 max-w-3xl">
+              <h2 className="text-2xl">{t.summaryTitle}</h2>
+              <p className="mt-4 text-lg leading-relaxed text-muted">
+                {ruling.summary}
+              </p>
+            </div>
+          )}
+
           <h2 className="mt-12 text-2xl">{t.documentTitle}</h2>
           <div className="mt-6 overflow-hidden rounded-2xl border border-border bg-surface shadow-sm">
             <iframe src={pdf} title={ruling.title} className="h-[80vh] w-full" />

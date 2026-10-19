@@ -87,6 +87,7 @@ export default async function WrongfulDismissalPage({
     locale: "he",
     dict,
     path: PATH,
+    lastReviewed: content.lawCheckedAt,
     name: content.meta.title,
     description: content.meta.description,
     trail,
@@ -118,7 +119,11 @@ export default async function WrongfulDismissalPage({
         </div>
       </section>
 
-      <CampaignLanding content={content} phone={dict.contact.phone} />
+      <CampaignLanding
+        content={content}
+        phone={dict.contact.phone}
+        lawCheckedPrefix={dict.common.lawCheckedPrefix}
+      />
     </>
   );
 }

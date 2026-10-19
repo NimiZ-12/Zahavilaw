@@ -11,6 +11,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import SectionHeading from "@/components/SectionHeading";
 import { ButtonLink } from "@/components/Button";
 import { ArrowIcon } from "@/components/Icons";
+import LawCheckedNote from "@/components/LawCheckedNote";
 
 export async function generateMetadata({
   params,
@@ -72,6 +73,7 @@ export default async function FaqPage({
     locale: typedLocale,
     dict,
     path: "/faq",
+    lastReviewed: faqPage.lawCheckedAt,
     name: faqPage.title,
     description: faqPage.subtitle,
     trail,
@@ -159,6 +161,14 @@ export default async function FaqPage({
               </section>
             ))}
           </div>
+          {faqPage.lawCheckedAt && (
+            <LawCheckedNote
+              date={faqPage.lawCheckedAt}
+              locale={typedLocale}
+              prefix={dict.common.lawCheckedPrefix}
+              className="mt-12"
+            />
+          )}
         </div>
       </section>
 

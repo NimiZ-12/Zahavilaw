@@ -14,6 +14,7 @@ import type { LpPage } from "./lp-page";
 
 export const lpHearing: LpPage = {
   updated: "2026-10-12",
+  lawCheckedAt: "2026-10-19",
   meta: {
     title: "שימוע לפני פיטורים - מה הזכויות שלכם בהליך",
     description:

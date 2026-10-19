@@ -160,6 +160,7 @@ export function webPageNode({
   locale,
   path,
   type = "WebPage",
+  lastReviewed,
   name,
   description,
   primaryImage,
@@ -167,12 +168,15 @@ export function webPageNode({
   locale: Locale;
   path: string;
   type?: WebPageType;
+  /** ISO date the page's legal content was last reviewed (lawCheckedAt). */
+  lastReviewed?: string;
   name: string;
   description: string;
   primaryImage?: string;
 }): JsonLdNode {
   return clean({
     "@type": type,
+    ...(lastReviewed ? { lastReviewed } : {}),
     "@id": ID.page(locale, path),
     url: absoluteUrl(locale, path),
     name,
@@ -417,6 +421,7 @@ export function buildGraph({
   dict,
   path,
   pageType,
+  lastReviewed,
   name,
   description,
   primaryImage,
@@ -427,6 +432,8 @@ export function buildGraph({
   dict: Dictionary;
   path: string;
   pageType?: WebPageType;
+  /** ISO date the page's legal content was last reviewed (lawCheckedAt). */
+  lastReviewed?: string;
   name: string;
   description: string;
   primaryImage?: string;
@@ -436,7 +443,7 @@ export function buildGraph({
   const graph: JsonLdNode[] = [
     organizationNode(locale, dict),
     websiteNode(locale, dict),
-    webPageNode({ locale, path, type: pageType, name, description, primaryImage }),
+    webPageNode({ locale, path, type: pageType, lastReviewed, name, description, primaryImage }),
   ];
 
   if (path !== "/") {

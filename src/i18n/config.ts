@@ -13,7 +13,7 @@ export const localeLabel: Record<Locale, string> = {
   en: "English",
 };
 
-/** The opposite locale — used by the language switcher. */
+/** The opposite locale - used by the language switcher. */
 export const otherLocale: Record<Locale, Locale> = {
   he: "en",
   en: "he",

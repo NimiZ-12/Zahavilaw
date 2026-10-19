@@ -21,6 +21,7 @@ import {
   WhatsappCta,
 } from "@/components/lp/shared";
 import type { LpPage } from "@/i18n/lp-page";
+import LawCheckedNote from "@/components/LawCheckedNote";
 import Link from "next/link";
 import { ArrowIcon } from "@/components/Icons";
 
@@ -44,9 +45,12 @@ function AskBox({ content, phone }: { content: LpPage; phone: string }) {
 export default function CampaignLanding({
   content,
   phone,
+  lawCheckedPrefix,
 }: {
   content: LpPage;
   phone: string;
+  /** Dictionary prefix for the law-checked line (common.lawCheckedPrefix). */
+  lawCheckedPrefix: string;
 }) {
   return (
     <>
@@ -182,6 +186,14 @@ export default function CampaignLanding({
 
       <section className="border-t border-border bg-surface">
         <div className="container-x py-10">
+          {content.lawCheckedAt && (
+            <LawCheckedNote
+              date={content.lawCheckedAt}
+              locale="he"
+              prefix={lawCheckedPrefix}
+              className="mb-2"
+            />
+          )}
           <p className="text-xs leading-relaxed text-muted">
             {content.disclaimer}
           </p>

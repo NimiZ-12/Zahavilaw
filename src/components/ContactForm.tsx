@@ -378,6 +378,12 @@ export default function ContactForm({
             {errors.consent}
           </p>
         )}
+        {/* Section 11 Privacy Protection Law notice: the form collects
+            personal information, so the notice accompanies it at the point
+            of collection, not only via the policy link. */}
+        <p className="mt-2 text-xs leading-relaxed text-muted">
+          {t.privacyNotice}
+        </p>
       </div>
 
       {TURNSTILE_SITE_KEY && (

@@ -34,6 +34,7 @@ import {
   useAdSource,
 } from "@/components/lp/shared";
 import type { LpProtectedPeriod, LpTrack } from "@/i18n/lp-protected-period";
+import LawCheckedNote from "@/components/LawCheckedNote";
 
 type TrackId = LpTrack["id"];
 
@@ -167,9 +168,12 @@ function TrackPanel({ track }: { track: LpTrack }) {
 export default function ProtectedPeriodLanding({
   content,
   phone,
+  lawCheckedPrefix,
 }: {
   content: LpProtectedPeriod;
   phone: string;
+  /** Dictionary prefix for the law-checked line (common.lawCheckedPrefix). */
+  lawCheckedPrefix: string;
 }) {
   const [pregnancy, reserve] = content.tracks;
   const [active, setActive] = useState<TrackId>(pregnancy.id);
@@ -418,6 +422,14 @@ export default function ProtectedPeriodLanding({
 
       <section className="border-t border-border bg-surface">
         <div className="container-x py-10">
+          {content.lawCheckedAt && (
+            <LawCheckedNote
+              date={content.lawCheckedAt}
+              locale="he"
+              prefix={lawCheckedPrefix}
+              className="mb-2"
+            />
+          )}
           <p className="text-xs leading-relaxed text-muted">{content.disclaimer}</p>
         </div>
       </section>
