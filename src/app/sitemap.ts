@@ -16,10 +16,19 @@ import { SITE_URL, localePath, navItems } from "@/lib/routes";
  */
 const RELAUNCH = "2026-08-30";
 const PAGE_DATES: Record<string, string> = {
-  "/about": "2026-08-31", // profile buttons + firm-in-numbers figures
-  "/publications": "2026-10-12", // media videos and articles added through Oct
-  "/practice-areas/labor-law": "2026-10-12", // linked FAQ entries to the landing pages
-  "/faq": "2026-10-05", // linked protected-period question
+  // 2026-10-19 entries: the legal content review of 19.10 (memo findings).
+  "/about": "2026-10-19",
+  "/publications": "2026-10-19",
+  "/practice-areas/labor-law": "2026-10-19",
+  "/practice-areas/family-law": "2026-10-19",
+  "/practice-areas/real-estate": "2026-10-19",
+  "/practice-areas/litigation": "2026-10-19",
+  "/practice-areas/wills-estates": "2026-10-19",
+  "/faq": "2026-10-19",
+  "/privacy": "2026-10-19",
+  "/accessibility": "2026-10-19",
+  "/careers": "2026-10-19",
+  "/contact": "2026-10-19",
 };
 
 function dateFor(path: string): Date {

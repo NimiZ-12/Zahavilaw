@@ -71,7 +71,7 @@ export interface JobOpening {
   /** e.g. "משרה מלאה" / "Full-time". */
   employmentType?: string;
   requirements: string[];
-  /** ISO date (YYYY-MM-DD) — required by Google for JobPosting. */
+  /** ISO date (YYYY-MM-DD) - required by Google for JobPosting. */
   datePosted: string;
   /** ISO date the listing expires. Google downranks postings without one. */
   validThrough?: string;
@@ -244,6 +244,8 @@ export interface Dictionary {
       about: string;
       disclaimer: string;
       documentTitle: string;
+      /** Heading for the textual ruling digest (shown when `summary` is set). */
+      summaryTitle: string;
       openInNewTab: string;
       download: string;
       /** Wraps the ruling title into a meta description. */
@@ -264,8 +266,10 @@ export interface Dictionary {
          *  a work it did not make. Omit for the firm's own videos. */
         credit?: string;
       }[];
-      /** Court rulings shown as in-site PDF readers. `slug` maps to /rulings/{slug}.pdf. */
-      rulings?: { slug: string; title: string }[];
+      /** Court rulings shown as in-site PDF readers. `slug` maps to /rulings/{slug}.pdf.
+       *  `summary` is a textual digest shown above the viewer - REQUIRED for
+       *  scanned PDFs with no text layer, as their accessible alternative. */
+      rulings?: { slug: string; title: string; summary?: string }[];
     }[];
   };
   contact: {
@@ -335,6 +339,8 @@ export interface Dictionary {
       required: string;
       invalidEmail: string;
       consentRequired: string;
+      /** Section 11 Privacy Protection Law notice, shown under the consent box. */
+      privacyNotice: string;
       captchaRequired: string;
       captchaError: string;
     };

@@ -141,7 +141,7 @@ const en: Dictionary = {
           },
           {
             q: "Can I sue even without a written contract?",
-            a: "Yes. An oral agreement is as binding as a written one, though it is harder to prove its terms. The court will consider evidence such as correspondence, witness testimony and payments made.",
+            a: "Yes, as a rule. An oral agreement is as binding as a written one, unless the law or an agreement between the parties requires a particular form as a condition of its validity - for example, an undertaking to carry out a real-estate transaction requires a written document. In any event it is harder to prove the terms of an oral agreement, and the court will consider evidence such as correspondence, witness testimony and payments.",
           },
         ],
       },
@@ -160,11 +160,11 @@ const en: Dictionary = {
         faq: [
           {
             q: "What is a pre-termination hearing and why does it matter?",
-            a: "A pre-termination hearing is a mandatory procedure before any dismissal, in which the employer must allow the employee to state their case. A hearing conducted unlawfully may render the dismissal invalid. Early preparation with a lawyer can change the outcome.",
+            a: "A pre-termination hearing is required before dismissal, in the private sector as well. A defective hearing may give rise to compensation for unlawful dismissal; reinstatement is ordered only rarely. Early preparation with a lawyer can change the outcome.",
           },
           {
             q: "Am I entitled to severance pay?",
-            a: "As a general rule, an employee who has worked more than one year with the same employer is entitled to severance pay. There are exceptions and grounds for dismissal that affect entitlement. A review of your employment circumstances will allow us to give you a precise answer.",
+            a: "As a rule, an employee who has worked for one continuous year for the same employer or at the same workplace and is dismissed is entitled to severance pay. There are exceptions and grounds for dismissal that affect entitlement. A review of your employment circumstances will allow us to give you a precise answer.",
           },
           {
             q: "I was dismissed during pregnancy - what are my rights?",
@@ -172,7 +172,7 @@ const en: Dictionary = {
           },
           {
             q: "I was dismissed after returning from reserve duty - is that lawful?",
-            a: "The law prohibits dismissal of an employee within 30 days of completing reserve service, without special approval. Dismissal during this period is presumed to be unlawful. Contact us to have the circumstances examined.",
+            a: "Under the Discharged Soldiers (Reinstatement in Employment) Law, an employee may not be dismissed during reserve service, or within 30 days after service of more than two consecutive days, without a permit from the Ministry of Defence Employment Committee. Dismissal because of reserve service is void. Contact us to have the circumstances examined.",
           },
           {
             q: "My employer didn't pay my wages on time - what can I do?",
@@ -180,7 +180,7 @@ const en: Dictionary = {
           },
           {
             q: "How long do I have to file a claim?",
-            a: "Claims for wrongful dismissal, wage withholding and social benefits are subject to limitation periods ranging from one to seven years, depending on the type of claim. The sooner you act, the better the prospects for preserving evidence and options.",
+            a: "Limitation periods vary by the type of claim: late-payment penalties - one year, and sometimes only 60 days; claims under specific statutes, such as the Equal Employment Opportunities Law - three to five years; and other claims, as a rule, seven years. The sooner you act, the better the prospects for preserving evidence and options.",
           },
         ],
       },
@@ -193,7 +193,7 @@ const en: Dictionary = {
         points: [
           "Guidance in the sale and purchase of apartments and commercial properties",
           "Title due diligence and registration with the Land Registry and Israel Land Authority",
-          "Urban renewal projects - TAMA 38 and evacuation-reconstruction",
+          "Urban renewal - evacuation-reconstruction, building reinforcement and earthquake-resilience plans, including projects approved under TAMA 38",
           "Tax planning and real estate taxation aspects of the deal",
         ],
         faq: [
@@ -203,7 +203,7 @@ const en: Dictionary = {
           },
           {
             q: "What is the difference between TAMA 38 and evacuation-reconstruction?",
-            a: "TAMA 38 is a programme for strengthening existing buildings against earthquakes while adding floors. Evacuation-reconstruction involves demolishing the existing building and constructing a new, larger one. In both cases residents receive a new, improved apartment, but the contracts with the developer require close legal supervision.",
+            a: "TAMA 38 previously allowed existing buildings to be strengthened while adding building rights. It has expired (definitively on 1.10.2023, with temporary extensions in some municipalities until May 2026), and today the reinforcement and renewal of existing buildings proceed through local plans and the track set out in the Planning and Building Law. In evacuation-reconstruction an entire complex is demolished and rebuilt, and the residents receive a new apartment. In all tracks, the contracts with the developer require close legal supervision.",
           },
           {
             q: "What is betterment tax and who pays it?",
@@ -261,15 +261,15 @@ const en: Dictionary = {
         faq: [
           {
             q: "Does a will have to be in writing?",
-            a: "The law recognises four types of will: handwritten, witnessed, before an authority, and oral (in special circumstances only). The most common and secure form is a witnessed will - a written document signed in the presence of two witnesses. Professional drafting by a lawyer ensures the will is valid and resistant to future challenge.",
+            a: "The law recognises four types of will: handwritten, witnessed, before an authority, and oral (in special circumstances only). The most common and secure form is a witnessed will - a written document signed in the presence of two witnesses. Preparation of the will by a lawyer, with care taken over the formal requirements of the law and documentation of the circumstances of its making, reduces the risk of defects and objections.",
           },
           {
             q: "What is the difference between an inheritance order and a probate order?",
-            a: "An inheritance order is issued when a person dies without a will - the court determines the heirs according to law. A probate order validates an existing will and gives it binding legal force. Both orders are required for the transfer of assets and registration at the Land Registry.",
+            a: "An inheritance order is issued when a person dies without a will, or for the part of the estate not covered by one, and it declares who the heirs are under the law. The order is generally issued by the Registrar of Inheritance Affairs; the application is referred to the court only in certain cases, for example when an objection has been filed. A probate order validates an existing will and gives it binding legal force. Both orders are required for the transfer of assets and registration at the Land Registry.",
           },
           {
             q: "Who can contest a will?",
-            a: "Anyone who would have been entitled to inherit had there been no will - a statutory heir - may file an objection to its probate. Common grounds include formal defects, undue influence, lack of legal capacity at the time the will was made, or a claim that the will does not reflect the deceased's true wishes.",
+            a: "Anyone with an interest in the matter may file an objection to an application for a probate order - not only statutory heirs but also, for example, a person who benefits under another will. The objection is filed with the Registrar of Inheritance Affairs within the set period and as long as the order has not been issued, and the matter is then referred to the family court. Common grounds include formal defects, undue influence, lack of legal capacity at the time the will was made, or a claim that the will does not reflect the deceased's true wishes.",
           },
           {
             q: "How long does it take to obtain an inheritance order?",
@@ -292,7 +292,7 @@ const en: Dictionary = {
         faq: [
           {
             q: "Does a prenuptial agreement require court approval?",
-            a: "Yes. A prenuptial agreement must be approved by a family court or a notary before it acquires binding legal force. Professional drafting is essential - agreements prepared without legal advice may be invalid or produce unintended consequences.",
+            a: "A property (prenuptial) agreement must be made in writing, and it requires the approval of the family court or the competent religious court, after they are satisfied that the couple entered into it of their own free will and understood its meaning. An agreement made before the marriage may be certified by a notary, and an agreement made before or at the time of the marriage - by the marriage registrar. An agreement made during the marriage, and any amendment of a property agreement, require the approval of the court or the religious tribunal. Professional drafting is essential - agreements prepared without legal advice may be invalid or produce unintended consequences.",
           },
           {
             q: "What is the advantage of mediation over court proceedings?",
@@ -300,7 +300,7 @@ const en: Dictionary = {
           },
           {
             q: "How is property divided in a divorce?",
-            a: "In Israel the principle of \"resource balancing\" applies - assets accumulated during the marriage are divided equally between the parties, except for inheritances and personal gifts received. This mechanism applies at the end of the marriage, unless a prenuptial agreement sets out a different arrangement.",
+            a: "Under the resource-balancing arrangement, upon dissolution of the marriage each spouse is entitled to half the value of all the couple's assets, including pension rights and savings. Excluded from the balancing are assets owned by either spouse before the marriage, gifts and inheritances, National Insurance benefits and compensation for personal injury, as well as assets the couple agreed in writing not to balance. The arrangement applies unless a property agreement provides otherwise, and in certain circumstances the balancing can be brought forward.",
           },
           {
             q: "What can be determined in a prenuptial agreement?",
@@ -317,7 +317,7 @@ const en: Dictionary = {
     storyTitle: "About the firm",
     body: [
       "The firm is led by Ron Zahavi, Adv. and Anat Zahavi, Adv., two founding partners and members of the Israel Bar Association since 1996, with a combined experience of over three decades. We believe quality legal representation requires the personal involvement of a partner in every case - both strategically and tactically - rather than being passed between staff along the way.",
-      "Daily engagement across a wide range of legal fields is one of the firm's key strengths: complex civil-commercial litigation, guiding companies and businesses in commercial and corporate matters, real estate in all its aspects, labor law from the employer's perspective, as well as family law and wills and estates. This broad perspective allows us to understand every dispute or transaction in its full context, and to build the right strategy for each client.",
+      "Daily engagement across a wide range of legal fields is one of the firm's key strengths: complex civil-commercial litigation, guiding companies and businesses in commercial and corporate matters, real estate in all its aspects, labor law - representing employers and employees, with a conflict-of-interest check in every case, as well as family law and wills and estates. This broad perspective allows us to understand every dispute or transaction in its full context, and to build the right strategy for each client.",
       "Among the firm's clients, past and present, are some of the largest and best-known companies in the Israeli economy - in food and fast-food retail, telecom and hi-tech, import and export, construction and industry - alongside business people, private individuals and families seeking professional guidance through significant moments in their lives. Every client, large or small, receives the same level of commitment, availability and professionalism.",
     ],
     milestonesTitle: "The firm in numbers",
@@ -364,7 +364,7 @@ const en: Dictionary = {
       },
       {
         q: "Which areas of law does the firm handle?",
-        a: "Six areas: civil and commercial litigation, labor law from the employer's side, real estate, commercial and corporate law, wills and estates, and family law.",
+        a: "Six areas: civil and commercial litigation, labor law - representing employers and employees, with a conflict-of-interest check in every case, real estate, commercial and corporate law, wills and estates, and family law.",
       },
       {
         q: "Who will handle my case?",
@@ -459,6 +459,7 @@ const en: Dictionary = {
     videoCredit: "Source: {source}",
     rulingPage: {
       aboutTitle: "About this ruling",
+      summaryTitle: "Ruling summary",
       about:
         "This ruling was handed down in proceedings in which the firm represented one of the parties, and is presented here as published, with identifying details of private individuals redacted to protect their privacy. The complete document is available to read and download below.",
       disclaimer:
@@ -518,11 +519,19 @@ const en: Dictionary = {
       {
         heading: "Court Rulings",
         rulings: [
-          { slug: "dismissal-in-limine", title: "Dismissal of the claim in limine - Ron Zahavi, Adv." },
+          {
+            slug: "dismissal-in-limine",
+            title: "Dismissal of the claim in limine - Ron Zahavi, Adv.",
+            summary: "[להשלמה: תקציר פסק הדין]",
+          },
           { slug: "security-deposit", title: "Order to post security for costs - Ron Zahavi, Adv." },
           { slug: "property-eviction", title: "Claim for eviction of a property - Ron Zahavi, Adv." },
           { slug: "trademark-cancellation", title: "Claim for cancellation and revocation of a trademark - Ron Zahavi, Adv." },
-          { slug: "defamation", title: "Defamation claim - Ron Zahavi, Adv." },
+          {
+            slug: "defamation",
+            title: "Defamation claim - Ron Zahavi, Adv.",
+            summary: "[להשלמה: תקציר פסק הדין]",
+          },
           { slug: "monetary-claim-dismissed", title: "Monetary claim dismissed - Ron Zahavi, Adv." },
           { slug: "brokerage-fee-dismissed", title: "Brokerage-fee claim dismissed - Ron Zahavi, Adv." },
           { slug: "construction-defects-dismissed", title: "Tenants' claim against the contractor for construction defects and late delivery dismissed - Ron Zahavi, Adv." },
@@ -552,7 +561,7 @@ const en: Dictionary = {
           },
           {
             title: "Employee accrued 134 vacation days against his contract - awarded nearly NIS 250,000",
-            source: "ynet",
+            source: "mako",
             field: "Labor Law",
             date: "November 2025",
             excerpt:
@@ -561,7 +570,7 @@ const en: Dictionary = {
           },
           {
             title: "Owner of the prestigious \"Chateau Golan\" winery loses her full claim and is charged costs",
-            source: "PsakDin",
+            source: "mako",
             field: "Labor Law",
             date: "January 2018",
             excerpt:
@@ -570,7 +579,7 @@ const en: Dictionary = {
           },
           {
             title: "Dismissed after refusing dangerous work - \"Minofei Avi\" to compensate",
-            source: "mako",
+            source: "ynet",
             field: "Labor Law",
             date: "September 2018",
             excerpt:
@@ -606,7 +615,7 @@ const en: Dictionary = {
           },
           {
             title: "Allocation of a plot in a moshav fell through - and the buyer will be compensated",
-            source: "Calcalist",
+            source: "ynet",
             field: "Real Estate & Cooperatives",
             date: "June 2024",
             excerpt:
@@ -624,7 +633,7 @@ const en: Dictionary = {
           },
           {
             title: "A diamond venture turned out to be a scam - the investor will get her money back",
-            source: "ynet",
+            source: "Calcalist",
             field: "Family Law & Contracts",
             date: "August 2017",
             excerpt:
@@ -711,6 +720,8 @@ const en: Dictionary = {
       required: "Required field",
       invalidEmail: "Invalid email address",
       consentRequired: "Please confirm consent to continue",
+      privacyNotice:
+        "Providing your details is voluntary, but without them we cannot get back to you. They will be used only to handle your inquiry, kept in the database of Zahavi-Pretty & Co. (office@zahavilaw.com), and shared only with the service providers needed for that. You may access the information and ask to correct it. More details in the privacy policy.",
       captchaRequired: "Please verify you're not a robot before sending",
       captchaError: "Security verification failed. Please try again.",
     },
@@ -755,7 +766,7 @@ const en: Dictionary = {
       },
       {
         q: "Is my inquiry kept confidential?",
-        a: "Yes. Attorney-client privilege applies to everything you tell us, including in an initial inquiry and consultation, even if we ultimately do not represent you.",
+        a: "Our duty of confidentiality applies to an initial inquiry and to a consultation as well, even if we ultimately do not represent you, and professional privilege applies to communications and documents substantively connected to the advice you sought. That said, in an initial inquiry through the site or WhatsApp we recommend sharing only general details, and keeping the specifics of the matter for a call or a meeting.",
       },
     ],
     byAreaTitle: "Questions by practice area",
@@ -782,7 +793,7 @@ const en: Dictionary = {
       },
       {
         title: "Complex, substantial matters",
-        body: "Commercial litigation, labor law from the employer's side, real estate and estates - for some of the largest companies in the Israeli economy alongside private clients.",
+        body: "Commercial litigation, labor law - representing employers and employees, with a conflict-of-interest check in every case, real estate and estates - for some of the largest companies in the Israeli economy alongside private clients.",
       },
       {
         title: "Real responsibility",
@@ -878,20 +889,19 @@ const en: Dictionary = {
           heading: "7. Data Retention",
           paragraphs: [
             "Information is retained for as long as necessary to fulfil the purposes for which it was collected, including handling your inquiry and providing services, and for the period required to meet the legal and professional obligations applicable to the Firm. Thereafter the information is deleted or kept in a non-identifying form.",
+            "Information relating to the handling of a legal matter is retained for the periods prescribed by law, including seven years from the end of the engagement under section 90A of the Bar Association Law.",
           ],
         },
         {
           heading: "8. Your Rights",
           paragraphs: [
-            "Under the Protection of Privacy Law, 5741-1981, as amended by Amendment 13 which came into force in August 2025, you have the following rights:",
+            "Under the Protection of Privacy Law, 5741-1981, you have, among others, the following rights:",
           ],
           items: [
-            "The right to review information about you held in the Firm's databases.",
-            "The right to request correction of information that is incorrect, incomplete, unclear or out of date.",
-            "The right to request deletion of the information, subject to the law and to the retention obligations that apply to the Firm.",
-            "The right to be told the purposes for which the information is used and the parties to whom it is disclosed.",
-            "The right to withdraw consent you have given, including consent to measurement cookies, at any time and without giving a reason.",
-            "The right to complain to the Privacy Protection Authority if you believe your rights have been infringed.",
+            "The right to review personal information about you held in the Firm's databases (section 13).",
+            "The right to request the correction or deletion of information that is incorrect, incomplete, unclear or out of date (section 14).",
+            "The right to contact the Privacy Protection Authority.",
+            "In addition, the Firm will honour a request to withdraw consent to measurement cookies, and will consider a request to delete further information subject to the retention obligations that apply to it.",
           ],
         },
         {
@@ -928,7 +938,8 @@ const en: Dictionary = {
         {
           heading: "Level of Accessibility",
           paragraphs: [
-            "The site was built with the aim of meeting the requirements of Israeli Standard IS 5568 for web content accessibility, which is based on the WCAG 2.0 guidelines at Level AA. We continuously work to improve the site's level of accessibility.",
+            "The site was built with the aim of meeting the requirements of Israeli Standard IS 5568 for web content accessibility at Level AA. We continuously work to improve the site's level of accessibility.",
+            "[להשלמה: accessibility coordinator name, if the Firm is required to appoint one]",
           ],
         },
         {
