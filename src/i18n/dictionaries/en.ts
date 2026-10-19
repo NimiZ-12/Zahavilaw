@@ -65,6 +65,7 @@ const en: Dictionary = {
         { name: "Beinleumi TECH", logo: "/clients/beinleumi-tech.webp" },
         { name: "Prytek", logo: "/clients/prytek.webp" },
         { name: "Agudat Lechem", logo: "/clients/agudat-lechem.webp" },
+        { name: "Liat Electronics", logo: "/clients/liat-electronics.webp" },
       ],
     },
     intro: {
