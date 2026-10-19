@@ -1,0 +1,54 @@
+# Opens a quarterly GitHub Issue reminding the firm to re-check every
+# legal-content page against current law (the lawCheckedAt mechanism).
+# Scheduled for Jan 1, Apr 1, Jul 1 and Oct 1 at 06:00 UTC; can also be
+# run manually. GITHUB_TOKEN suffices - no external secrets.
+name: Legal review reminder
+
+on:
+  schedule:
+    - cron: "0 6 1 1,4,7,10 *"
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  open-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Build the per-page report
+        run: node scripts/legal-review-report.mjs > report.md
+      - name: Open the quarterly issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          QUARTER=$(( ($(date -u +%-m) + 2) / 3 ))
+          YEAR=$(date -u +%Y)
+          gh label create legal-review --force --color "1a2336" \
+            --description "Quarterly review of the site's legal content" || true
+          cat > body.md <<'CHECKLIST'
+          רשימת הבדיקה הקבועה:
+
+          - [ ] לבדוק בנבו כל טענה משפטית בעמודים שבטבלה מול הנוסח העדכני של החקיקה והפסיקה.
+          - [ ] צו ההרחבה בעניין משרתי המילואים - האם עדיין בתוקף, האם חודש ומה תנאיו.
+          - [ ] הוראות השעה בחוק החיילים המשוחררים (החזרה לעבודה) (תיקון מס' 19) - האם עדיין בתוקף.
+          - [ ] צו ההרחבה בדבר דמי הבראה - התעריף ליום והאם שונו התנאים.
+          - [ ] סכומי הפיצוי ללא הוכחת נזק (חוק למניעת הטרדה מינית, חוק שוויון ההזדמנויות בעבודה) - מתעדכנים ב-1 בינואר.
+          - [ ] חוק הגנת הפרטיות והתקנות מכוחו - תיקונים חדשים; התאמת מדיניות הפרטיות.
+          - [ ] תקנות הנגישות ות"י 5568 - מהדורה חדשה של התקן.
+          - [ ] כללי לשכת עורכי הדין (פרסומת) - תיקונים או הנחיות חדשות של ועדת האתיקה.
+          - [ ] תכניות חלופיות לתמ"א 38 ותיקונים לחוק התכנון והבנייה.
+          - [ ] הוראות שעה בחוק הביטוח הלאומי (ביטוח אבטלה).
+          - [ ] לעדכן `lawCheckedAt` בכל עמוד שנבדק, ולתעד בתגובה ב-Issue מה נבדק ומה שונה.
+
+          CHECKLIST
+          cat report.md >> body.md
+          gh issue create --repo "$GITHUB_REPOSITORY" \
+            --title "בדיקה רבעונית של תוכן האתר מול הדין - $QUARTER/$YEAR" \
+            --label legal-review \
+            --body-file body.md
