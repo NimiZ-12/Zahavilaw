@@ -76,6 +76,7 @@ export default async function ArticlePage({
     locale: "he",
     dict,
     path,
+    lastReviewed: article.lawCheckedAt,
     name: article.h1,
     description: article.meta.description,
     trail,
@@ -120,7 +121,11 @@ export default async function ArticlePage({
         </div>
       </section>
 
-      <ArticleView article={article} phone={dict.contact.phone} />
+      <ArticleView
+        article={article}
+        phone={dict.contact.phone}
+        lawCheckedPrefix={dict.common.lawCheckedPrefix}
+      />
     </>
   );
 }

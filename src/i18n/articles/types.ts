@@ -29,6 +29,10 @@ export type Article = {
   author: "anat-zahavi" | "ron-zahavi";
   /** ISO date (YYYY-MM-DD). */
   published: string;
+  /** ISO date the page's legal content was last checked against current
+   *  law. Set ONLY after an actual review; rendered by LawCheckedNote and
+   *  verified by the site suite. Absent = the page has fixes pending. */
+  lawCheckedAt?: string;
   /** ISO date (YYYY-MM-DD); feeds the sitemap and the visible byline. */
   updated: string;
   sections: {

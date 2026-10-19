@@ -12,6 +12,7 @@ import type { LpPage } from "./lp-page";
 
 export const lpWrongfulDismissal: LpPage = {
   updated: "2026-10-19",
+  lawCheckedAt: "2026-10-19",
   meta: {
     title: "פיטורים שלא כדין - מתי פיטורים אינם חוקיים ומה עושים",
     description:

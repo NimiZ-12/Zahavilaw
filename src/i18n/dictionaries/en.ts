@@ -1,6 +1,9 @@
 import type { Dictionary } from "../dictionaries";
 
 const en: Dictionary = {
+  common: {
+    lawCheckedPrefix: "The law was reviewed as of",
+  },
   brand: {
     name: "Zahavi - Pretty & Co. Law Offices",
     short: "Zahavi - Pretty & Co.",
@@ -112,6 +115,7 @@ const en: Dictionary = {
     items: [
       {
         slug: "litigation",
+        lawCheckedAt: "2026-10-19",
         title: "Civil & Commercial Litigation",
         summary: "Managing complex civil and commercial claims at every court level, representing clients in business disputes and enforcing rights in court.",
         description:
@@ -147,6 +151,7 @@ const en: Dictionary = {
       },
       {
         slug: "labor-law",
+        lawCheckedAt: "2026-10-19",
         title: "Labor Law",
         summary: "Representing employees and employers, guiding individuals and companies through legal proceedings at all levels, employment agreements and protecting your rights when violated.",
         description:
@@ -186,6 +191,7 @@ const en: Dictionary = {
       },
       {
         slug: "real-estate",
+        lawCheckedAt: "2026-10-19",
         title: "Real Estate",
         summary: "Sale and purchase transactions, title due diligence, real estate contracts, urban renewal and property taxation.",
         description:
@@ -217,6 +223,7 @@ const en: Dictionary = {
       },
       {
         slug: "commercial",
+        lawCheckedAt: "2026-10-19",
         title: "Commercial & Corporate",
         summary: "Company formation, commercial contracts, ongoing counsel and deals.",
         description:
@@ -248,6 +255,7 @@ const en: Dictionary = {
       },
       {
         slug: "wills-estates",
+        lawCheckedAt: "2026-10-19",
         title: "Wills & Estates",
         summary: "Drafting wills, probate orders, estate administration and disputes.",
         description:
@@ -279,6 +287,7 @@ const en: Dictionary = {
       },
       {
         slug: "family-law",
+        lawCheckedAt: "2026-10-19",
         title: "Family Law",
         summary: "Prenuptial agreements, mediation and comprehensive legal guidance through proceedings.",
         description:
@@ -742,6 +751,7 @@ const en: Dictionary = {
     secure: "SSL Secured Site",
   },
   faqPage: {
+    lawCheckedAt: "2026-10-19",
     eyebrow: "Questions & Answers",
     title: "Frequently asked questions",
     subtitle:

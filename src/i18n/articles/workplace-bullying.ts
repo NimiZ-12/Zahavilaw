@@ -14,6 +14,7 @@ export const workplaceBullying: Article = {
   audience: "employee",
   author: "anat-zahavi",
   published: "2026-10-13",
+  lawCheckedAt: "2026-10-19",
   updated: "2026-10-19",
   sections: [
     {

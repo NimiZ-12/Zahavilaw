@@ -98,6 +98,52 @@ check(sitemap.status === 200, "GET /sitemap.xml", `status ${sitemap.status}`);
 const urls = [...sitemap.body.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
 check(urls.length > 0, "sitemap contains URLs");
 
+/* --- Law-checked line (legal-review mechanism) ---------------------------
+   Pages that carry legal information must state when the law was last
+   checked. Missing or stale dates WARN rather than fail: a missing date
+   marks a page whose review fixes are still pending, and staleness is a
+   reminder to run the quarterly review - neither should block a deploy. */
+const LAW_PREFIX = { he: "הדין נבדק נכון ליום", en: "The law was reviewed as of" };
+const lawPages = urls
+  .map((u) => new URL(u).pathname)
+  .filter(
+    (p) =>
+      /^\/he\/lp\//.test(p) ||
+      /^\/he\/articles\/.+/.test(p) ||
+      /^\/(he|en)\/practice-areas\/.+/.test(p) ||
+      /^\/(he|en)\/faq$/.test(p),
+  );
+for (const path of lawPages) {
+  const locale = path.startsWith("/en") ? "en" : "he";
+  const page = await get(path);
+  if (page.status !== 200) continue;
+  // Match the fully rendered line (prefix + date). The prefix alone can
+  // appear in a client component's serialized props even when the line is
+  // not rendered, so the date must be part of the match.
+  const m =
+    locale === "he"
+      ? page.body.match(
+          new RegExp(`${LAW_PREFIX.he}(?:<!-- -->|\\s)*(\\d{1,2})\\.(\\d{1,2})\\.(\\d{4})`),
+        )
+      : page.body.match(
+          new RegExp(`${LAW_PREFIX.en}(?:<!-- -->|\\s)*(\\d{1,2}) ([A-Za-z]+) (\\d{4})`),
+        );
+  if (!m) {
+    console.log(`  WARN  ${path} has no law-checked line (fixes pending?)`);
+    continue;
+  }
+  const when =
+    locale === "he"
+      ? new Date(Date.UTC(+m[3], +m[2] - 1, +m[1]))
+      : new Date(`${m[1]} ${m[2]} ${m[3]} UTC`);
+  const ageDays = (Date.now() - when.getTime()) / 86400000;
+  if (ageDays > 100) {
+    console.log(
+      `  WARN  ${path} law checked ${Math.round(ageDays)} days ago - quarterly review due`,
+    );
+  }
+}
+
 const hreflangCount = (sitemap.body.match(/hreflang=/g) || []).length;
 // Bilingual entries carry three alternates each; the locale-specific ones
 // above carry none, by design.

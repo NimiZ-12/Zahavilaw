@@ -1,6 +1,9 @@
 import type { Dictionary } from "../dictionaries";
 
 const he: Dictionary = {
+  common: {
+    lawCheckedPrefix: "הדין נבדק נכון ליום",
+  },
   brand: {
     name: "משרד עורכי דין זהבי-פריטי ושות׳",
     short: "זהבי-פריטי ושות׳",
@@ -112,6 +115,7 @@ const he: Dictionary = {
     items: [
       {
         slug: "litigation",
+        lawCheckedAt: "2026-10-19",
         title: "ליטיגציה אזרחית-מסחרית",
         summary: "ניהול תביעות אזרחיות ומסחריות מורכבות בכל הערכאות, ייצוג בסכסוכים עסקיים ואכיפת זכויות בבית המשפט.",
         description:
@@ -147,6 +151,7 @@ const he: Dictionary = {
       },
       {
         slug: "labor-law",
+        lawCheckedAt: "2026-10-19",
         title: "דיני עבודה",
         summary: "ייצוג עובדים ומעסיקים, ליווי פרטיים וחברות בהליכים משפטיים בכלל הערכאות, הסכמי העסקה ושמירה על זכויותיכם בעת קיפוחן.",
         description:
@@ -191,6 +196,7 @@ const he: Dictionary = {
       },
       {
         slug: "real-estate",
+        lawCheckedAt: "2026-10-19",
         title: "מקרקעין ונדל״ן",
         summary: "ליווי עסקאות מכר ורכישה, בדיקת זכויות, חוזי נדל״ן, התחדשות עירונית ומיסוי מקרקעין.",
         description:
@@ -222,6 +228,7 @@ const he: Dictionary = {
       },
       {
         slug: "commercial",
+        lawCheckedAt: "2026-10-19",
         title: "מסחרי ודיני חברות",
         summary: "הקמת חברות, חוזים מסחריים, ליווי שוטף ועסקאות.",
         description:
@@ -253,6 +260,7 @@ const he: Dictionary = {
       },
       {
         slug: "wills-estates",
+        lawCheckedAt: "2026-10-19",
         title: "צוואות וירושות",
         summary: "עריכת צוואות, צווי ירושה, ניהול עיזבון וייצוג בסכסוכים.",
         description:
@@ -284,6 +292,7 @@ const he: Dictionary = {
       },
       {
         slug: "family-law",
+        lawCheckedAt: "2026-10-19",
         title: "דיני משפחה",
         summary: "הסכמי ממון, גישורים וליווי משפטי מקיף בהליכים ברגישות ובמקצועיות.",
         description:
@@ -745,6 +754,7 @@ const he: Dictionary = {
     secure: "אתר מאובטח SSL",
   },
   faqPage: {
+    lawCheckedAt: "2026-10-19",
     eyebrow: "שאלות ותשובות",
     title: "שאלות נפוצות",
     subtitle:

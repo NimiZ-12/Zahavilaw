@@ -15,6 +15,7 @@ import type { LpPage } from "./lp-page";
 
 export const lpSeverancePay: LpPage = {
   updated: "2026-10-19",
+  lawCheckedAt: "2026-10-19",
   meta: {
     title: "פיצויי פיטורים - מתי הם מגיעים ואיך בודקים את הסכום",
     description:

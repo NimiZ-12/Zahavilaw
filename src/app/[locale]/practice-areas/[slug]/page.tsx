@@ -13,6 +13,7 @@ import JsonLd from "@/components/JsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { ButtonLink } from "@/components/Button";
 import { ArrowIcon, CheckIcon } from "@/components/Icons";
+import LawCheckedNote from "@/components/LawCheckedNote";
 
 export async function generateStaticParams() {
   const params: { locale: string; slug: string }[] = [];
@@ -70,6 +71,7 @@ export default async function PracticeAreaPage({
   // Service describes what the firm offers here; FAQPage exposes the
   // questions already on the page as a rich result.
   const graph = buildGraph({
+    lastReviewed: area.lawCheckedAt,
     locale: typedLocale,
     dict,
     path,
@@ -186,6 +188,14 @@ export default async function PracticeAreaPage({
                   ))}
                 </div>
               </section>
+            )}
+            {area.lawCheckedAt && (
+              <LawCheckedNote
+                date={area.lawCheckedAt}
+                locale={typedLocale}
+                prefix={dict.common.lawCheckedPrefix}
+                className="mt-12"
+              />
             )}
           </div>
 

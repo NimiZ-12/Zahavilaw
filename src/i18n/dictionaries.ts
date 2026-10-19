@@ -34,6 +34,10 @@ export interface PracticeArea {
   description: string;
   points: string[];
   faq?: FaqItem[];
+  /** ISO date the page's legal content was last checked against current
+   *  law. Set ONLY after an actual review; rendered by LawCheckedNote and
+   *  verified by the site suite. Absent = the page has fixes pending. */
+  lawCheckedAt?: string;
 }
 
 export interface TeamMember {
@@ -108,6 +112,11 @@ export interface LegalPage {
 }
 
 export interface Dictionary {
+  /** Site-wide strings that belong to no single page. */
+  common: {
+    /** Prefix of the law-checked line; the date is appended by LawCheckedNote. */
+    lawCheckedPrefix: string;
+  };
   brand: {
     name: string;
     short: string;
@@ -373,6 +382,10 @@ export interface Dictionary {
     byAreaTitle: string;
     stillHaveQuestions: string;
     stillHaveQuestionsBody: string;
+  /** ISO date the page's legal content was last checked against current
+   *  law. Set ONLY after an actual review; rendered by LawCheckedNote and
+   *  verified by the site suite. Absent = the page has fixes pending. */
+    lawCheckedAt?: string;
   };
   careers: {
     eyebrow: string;

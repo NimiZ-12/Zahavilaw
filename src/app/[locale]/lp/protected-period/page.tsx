@@ -91,6 +91,7 @@ export default async function ProtectedPeriodPage({
     locale: "he",
     dict,
     path: PATH,
+    lastReviewed: content.lawCheckedAt,
     name: content.meta.title,
     description: content.meta.description,
     trail,
@@ -122,7 +123,11 @@ export default async function ProtectedPeriodPage({
         </div>
       </section>
 
-      <ProtectedPeriodLanding content={content} phone={dict.contact.phone} />
+      <ProtectedPeriodLanding
+        content={content}
+        phone={dict.contact.phone}
+        lawCheckedPrefix={dict.common.lawCheckedPrefix}
+      />
     </>
   );
 }
