@@ -186,6 +186,10 @@ export const resignationAsDismissal: Article = {
     {
       label: "דיני עבודה במשרד",
       href: "/he/practice-areas/labor-law"
+    },
+    {
+      label: "הודעה מוקדמת: כמה ימים לפי החוק",
+      href: "/he/articles/notice-period"
     }
   ],
   sources: [

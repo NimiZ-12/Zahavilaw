@@ -14,6 +14,8 @@ import { dismissalDuringSickLeave } from "./dismissal-during-sick-leave";
 import { hearingTimelineAndDocuments } from "./hearing-timeline-and-documents";
 import { workplaceBullying } from "./workplace-bullying";
 import { howToDismissAnEmployee } from "./how-to-dismiss-an-employee";
+import { noticePeriod } from "./notice-period";
+import { dismissalLetter } from "./dismissal-letter";
 
 export type { Article };
 
@@ -24,6 +26,8 @@ export const articles: Article[] = [
   hearingTimelineAndDocuments,
   workplaceBullying,
   howToDismissAnEmployee,
+  noticePeriod,
+  dismissalLetter,
 ];
 
 export function getArticle(slug: string): Article | undefined {

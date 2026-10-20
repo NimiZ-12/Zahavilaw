@@ -181,6 +181,14 @@ export const howToDismissAnEmployee: Article = {
     {
       label: "דיני עבודה במשרד",
       href: "/he/practice-areas/labor-law"
+    },
+    {
+      label: "הודעה מוקדמת: כמה ימים לפי החוק",
+      href: "/he/articles/notice-period"
+    },
+    {
+      label: "מכתב פיטורין: מה חייב להופיע בו",
+      href: "/he/articles/dismissal-letter"
     }
   ],
   sources: [
