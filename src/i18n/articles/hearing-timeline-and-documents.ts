@@ -157,6 +157,10 @@ export const hearingTimelineAndDocuments: Article = {
     {
       label: "דיני עבודה במשרד",
       href: "/he/practice-areas/labor-law"
+    },
+    {
+      label: "מכתב פיטורין: מה חייב להופיע בו",
+      href: "/he/articles/dismissal-letter"
     }
   ],
   sources: [
