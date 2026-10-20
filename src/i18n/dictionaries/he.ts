@@ -66,6 +66,7 @@ const he: Dictionary = {
         { name: "Prytek", logo: "/clients/prytek.webp" },
         { name: "אגדת לחם", logo: "/clients/agudat-lechem.webp" },
         { name: "ליאת אלקטרוניקה", logo: "/clients/liat-electronics.webp" },
+        { name: "נירים", logo: "/clients/nirim.webp" },
       ],
     },
     intro: {
