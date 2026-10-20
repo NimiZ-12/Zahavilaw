@@ -164,7 +164,13 @@ export default async function PracticeAreaPage({
             {typedLocale === "he" && slug === "labor-law" && articles.length > 0 && (
               <section className="mt-12" aria-labelledby="articles-heading">
                 <h2 id="articles-heading" className="text-2xl">
-                  {articlesHub.sectionLinkLabel}
+                  <Link
+                    href={localePath("he", "/articles")}
+                    className="inline-flex items-baseline gap-2 transition-colors hover:text-gold-600"
+                  >
+                    {articlesHub.sectionLinkLabel}
+                    <ArrowIcon className="h-5 w-5 shrink-0 self-center text-gold rtl:-scale-x-100" />
+                  </Link>
                 </h2>
                 <div className="mt-6 space-y-6">
                   {articles.map((g) => (
