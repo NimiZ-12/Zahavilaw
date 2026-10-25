@@ -116,6 +116,14 @@ export default async function PublicationsPage({
                         playLabel={publications.playVideo}
                         credit={v.credit}
                         creditLabel={publications.videoCredit}
+                        sponsoredNote={
+                          v.sponsored && v.credit
+                            ? publications.sponsoredLabel.replace(
+                                "{source}",
+                                v.credit,
+                              )
+                            : undefined
+                        }
                       />
                     </li>
                   ))}
@@ -195,6 +203,14 @@ export default async function PublicationsPage({
                             </>
                           )}
                         </div>
+                        {item.sponsored && (
+                          <p className="mt-2 text-xs text-muted">
+                            {publications.sponsoredLabel.replace(
+                              "{source}",
+                              item.source,
+                            )}
+                          </p>
+                        )}
                         <h3 className="mt-3 text-lg leading-snug text-navy">
                           {item.title}
                         </h3>

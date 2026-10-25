@@ -473,6 +473,7 @@ const he: Dictionary = {
     readRuling: "לקריאת פסק הדין",
     playVideo: "הפעלת הסרטון: {title}",
     videoCredit: "מתוך: {source}",
+    sponsoredLabel: "תוכן פרסומי בשיתוף {source}",
     rulingPage: {
       aboutTitle: "על פסק הדין",
       summaryTitle: "תקציר פסק הדין",
@@ -495,6 +496,7 @@ const he: Dictionary = {
             title: "מאמן הקרוספיט שגרם למועדון הכושר לשלם כספי פיצויים",
             date: "אוגוסט 2026",
             credit: "פסקדין",
+            sponsored: true,
           },
           {
             id: "i7Da1ToH4Kg",
@@ -502,6 +504,7 @@ const he: Dictionary = {
               "קיבלה מכתב פיטורים בזמן שבעלה במילואים - בית הדין הפך את התמונה",
             date: "אוגוסט 2026",
             credit: "פסקדין",
+            sponsored: true,
           },
         ],
         items: [],
