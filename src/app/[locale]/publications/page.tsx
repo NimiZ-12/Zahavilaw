@@ -116,14 +116,6 @@ export default async function PublicationsPage({
                         playLabel={publications.playVideo}
                         credit={v.credit}
                         creditLabel={publications.videoCredit}
-                        sponsoredNote={
-                          v.sponsored && v.credit
-                            ? publications.sponsoredLabel.replace(
-                                "{source}",
-                                v.credit,
-                              )
-                            : undefined
-                        }
                       />
                     </li>
                   ))}
@@ -203,14 +195,6 @@ export default async function PublicationsPage({
                             </>
                           )}
                         </div>
-                        {item.sponsored && (
-                          <p className="mt-2 text-xs text-muted">
-                            {publications.sponsoredLabel.replace(
-                              "{source}",
-                              item.source,
-                            )}
-                          </p>
-                        )}
                         <h3 className="mt-3 text-lg leading-snug text-navy">
                           {item.title}
                         </h3>
@@ -224,6 +208,11 @@ export default async function PublicationsPage({
                             {publications.readMore}
                             <ArrowIcon className="h-4 w-4 transition-transform group-hover:translate-x-1 rtl:-scale-x-100 rtl:group-hover:-translate-x-1" />
                           </span>
+                        )}
+                        {item.sponsored && (
+                          <p className="mt-2 text-[11px] leading-none text-muted/60">
+                            {publications.sponsoredLabel}
+                          </p>
                         )}
                         </div>
                       </article>

@@ -248,8 +248,9 @@ export interface Dictionary {
     /** Credit line under a video the firm did not produce. `{source}` is
      *  replaced with the outlet's name. */
     videoCredit: string;
-    /** Sponsored-content disclosure for items the outlet was paid to produce
-     *  (Bar advertising rules). `{source}` is replaced with the outlet's name. */
+    /** Sponsored-content disclosure for press items the outlet was paid to
+     *  produce. Client decision (25.10.2026): the short neutral wording,
+     *  rendered unobtrusively, on articles only - not on the videos. */
     sponsoredLabel: string;
     /** The individual court-ruling reader page. Without this copy the page is
      *  an h1 plus a PDF iframe, which gives crawlers nothing to index. */
@@ -280,9 +281,6 @@ export interface Dictionary {
          *  the schema publisher, so the firm is not credited as the author of
          *  a work it did not make. Omit for the firm's own videos. */
         credit?: string;
-        /** True when the outlet was paid to produce the video; renders the
-         *  sponsored-content disclosure (Bar advertising rules). */
-        sponsored?: boolean;
       }[];
       /** Court rulings shown as in-site PDF readers. `slug` maps to /rulings/{slug}.pdf.
        *  `summary` is a textual digest shown above the viewer - REQUIRED for

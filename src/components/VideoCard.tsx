@@ -9,7 +9,6 @@ export default function VideoCard({
   playLabel,
   credit,
   creditLabel,
-  sponsoredNote,
 }: {
   id: string;
   title: string;
@@ -20,9 +19,6 @@ export default function VideoCard({
   credit?: string;
   /** Credit line template, with `{source}` as a placeholder. */
   creditLabel: string;
-  /** Sponsored-content disclosure, already resolved; shown when the outlet
-   *  was paid to produce the video (Bar advertising rules). */
-  sponsoredNote?: string;
 }) {
   const [playing, setPlaying] = useState(false);
   // maxresdefault only exists for videos with an HD thumbnail; fall back to
@@ -124,9 +120,6 @@ export default function VideoCard({
           <p className="mt-2 text-xs text-muted">
             {creditLabel.replace("{source}", credit)}
           </p>
-        )}
-        {sponsoredNote && (
-          <p className="mt-1 text-xs text-muted">{sponsoredNote}</p>
         )}
       </div>
     </article>

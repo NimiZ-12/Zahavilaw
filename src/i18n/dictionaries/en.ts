@@ -468,7 +468,7 @@ const en: Dictionary = {
     readRuling: "Read the ruling",
     playVideo: "Play video: {title}",
     videoCredit: "Source: {source}",
-    sponsoredLabel: "Sponsored content in collaboration with {source}",
+    sponsoredLabel: "Sponsored content",
     rulingPage: {
       aboutTitle: "About this ruling",
       summaryTitle: "Ruling summary",
@@ -491,7 +491,6 @@ const en: Dictionary = {
             title: "The CrossFit coach who made the gym pay compensation",
             date: "August 2026",
             credit: "Psakdin",
-            sponsored: true,
           },
           {
             id: "i7Da1ToH4Kg",
@@ -499,7 +498,6 @@ const en: Dictionary = {
               "Dismissed while her husband was on reserve duty - the labour court reversed it",
             date: "August 2026",
             credit: "Psakdin",
-            sponsored: true,
           },
         ],
         items: [],
