@@ -95,6 +95,9 @@ export interface PublicationItem {
   excerpt?: string;
   /** External link to the full article / decision. Optional. */
   href?: string;
+  /** True when the outlet was paid to produce the item. Renders the
+   *  sponsored-content disclosure required by the Bar's advertising rules. */
+  sponsored?: boolean;
 }
 
 export interface LegalSection {
@@ -245,6 +248,10 @@ export interface Dictionary {
     /** Credit line under a video the firm did not produce. `{source}` is
      *  replaced with the outlet's name. */
     videoCredit: string;
+    /** Sponsored-content disclosure for press items the outlet was paid to
+     *  produce. Client decision (25.10.2026): the short neutral wording,
+     *  rendered unobtrusively, on articles only - not on the videos. */
+    sponsoredLabel: string;
     /** The individual court-ruling reader page. Without this copy the page is
      *  an h1 plus a PDF iframe, which gives crawlers nothing to index. */
     rulingPage: {

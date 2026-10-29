@@ -27,6 +27,7 @@ function fieldImage(field?: string): string | null {
   if (field.includes("משפחה") || field.includes("Family")) return images.articleFields.family;
   if (field.includes("ייצוגי") || field.includes("Class Action")) return images.articleFields.classAction;
   if (field.includes("לשון הרע") || field.includes("Defamation")) return images.articleFields.defamation;
+  if (field.includes("מסחרי") || field.includes("Commercial")) return images.articleFields.commercial;
   return null;
 }
 
@@ -208,6 +209,11 @@ export default async function PublicationsPage({
                             {publications.readMore}
                             <ArrowIcon className="h-4 w-4 transition-transform group-hover:translate-x-1 rtl:-scale-x-100 rtl:group-hover:-translate-x-1" />
                           </span>
+                        )}
+                        {item.sponsored && (
+                          <p className="mt-2 text-[11px] leading-none text-muted/60">
+                            {publications.sponsoredLabel}
+                          </p>
                         )}
                         </div>
                       </article>

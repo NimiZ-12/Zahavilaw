@@ -468,6 +468,7 @@ const en: Dictionary = {
     readRuling: "Read the ruling",
     playVideo: "Play video: {title}",
     videoCredit: "Source: {source}",
+    sponsoredLabel: "Sponsored content",
     rulingPage: {
       aboutTitle: "About this ruling",
       summaryTitle: "Ruling summary",
@@ -553,6 +554,16 @@ const en: Dictionary = {
       {
         heading: "Articles",
         items: [
+          {
+            title: "Wanted to liquidate the company - and ended up buying it for NIS 4.4 million",
+            source: "ynet",
+            field: "Commercial & Corporate",
+            date: "October 2026",
+            excerpt:
+              "A dispute between two equal shareholders reached a court-ordered bidding contest, at the end of which one partner bought the other's half of the shares for NIS 4.4 million and became the sole owner.",
+            href: "https://www.ynet.co.il/economy/article/s1uuwq1pml",
+            sponsored: true,
+          },
           {
             title: "With the children at home and her husband on reserve duty: dismissed - and she sued",
             source: "mako",
