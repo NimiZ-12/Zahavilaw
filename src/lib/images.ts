@@ -36,6 +36,7 @@ export const images = {
     family: unsplash("1517048676732-d65bc937f952", 1200),
     classAction: unsplash("1450101499163-c8848c66ca85", 1200),
     defamation: unsplash("1593115057322-e94b77572f20", 1200),
+    commercial: unsplash("1454165804606-c3d57bc86b40", 1200),
   },
   // Courthouse facade for the "Court Rulings" cards — conveys a judicial decision.
   ruling: unsplash("1773433392027-2dff23126d86", 1200),
