@@ -103,6 +103,10 @@
 
 .marquee-track {
   animation: marquee 40s linear infinite;
+  /* Promote the track to its own compositor layer: without it the
+     sub-pixel translation re-rasterizes on the main thread and the
+     strip visibly micro-stutters. */
+  will-change: transform;
 }
 
 /* Flip the scroll direction in RTL so logos enter from the correct side. */
