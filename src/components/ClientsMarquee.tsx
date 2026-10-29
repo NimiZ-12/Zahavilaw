@@ -21,6 +21,11 @@ function LogoGroup({ items, hidden }: { items: Clients["items"]; hidden?: boolea
               alt={client.name}
               width={160}
               height={56}
+              // Eager on purpose: these render at h-12 with w-auto, so each
+              // logo's real width is known only once its file loads. Lazy
+              // loading made logos pop in mid-scroll, changing the track's
+              // width and visibly jolting the marquee.
+              loading="eager"
               className="h-12 w-auto object-contain opacity-70 grayscale transition hover:opacity-100 hover:grayscale-0"
             />
           ) : (

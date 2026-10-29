@@ -14,7 +14,10 @@ const unsplash = (id: string, w = 1600, q = 55) =>
 
 export const images = {
   // Looking up at corporate towers — prestige, matches the reference hero.
-  hero: unsplash("1486406146926-c627a92ad1ab"),
+  // Larger, lightly-compressed master: this photo is the full-screen homepage
+  // LCP, and a 1600px/q55 source goes visibly soft on large and retina
+  // screens after the optimizer re-encodes it.
+  hero: unsplash("1486406146926-c627a92ad1ab", 2560, 80),
   // Classical courthouse facade with columns and statuary — behind the About page banner.
   about: unsplash("1773433392027-2dff23126d86"),
   // Grand law library / classical interior, behind the closing call-to-action.

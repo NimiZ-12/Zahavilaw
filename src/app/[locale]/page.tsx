@@ -63,7 +63,7 @@ export default async function HomePage({
       {/* ----------------------------------------------------------------- Hero */}
       <section className="relative overflow-hidden bg-navy text-white">
         {/* Full-bleed background photograph - navy shows through if it fails. */}
-        <HeroBackdrop src={images.hero} priority />
+        <HeroBackdrop src={images.hero} priority quality={75} />
         {/* Scrim: darken toward the bottom where the panel and stats sit. */}
         <div
           aria-hidden
