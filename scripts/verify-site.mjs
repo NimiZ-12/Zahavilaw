@@ -144,6 +144,25 @@ for (const path of lawPages) {
   }
 }
 
+/* --- Ruling summaries ----------------------------------------------------
+   Every ruling page should carry a "תקציר פסק הדין" digest (client
+   decision, 29.10.2026): it is the accessible, readable account of the
+   case, and for scanned PDFs the only textual one. WARN rather than fail,
+   so a newly uploaded ruling still deploys while its summary awaits the
+   client's approved wording. */
+const SUMMARY_HEADING = { he: "תקציר פסק הדין", en: "Ruling summary" };
+const rulingPages = urls
+  .map((u) => new URL(u).pathname)
+  .filter((p) => /^\/(he|en)\/publications\/rulings\/.+/.test(p));
+for (const path of rulingPages) {
+  const locale = path.startsWith("/en") ? "en" : "he";
+  const page = await get(path);
+  if (page.status !== 200) continue;
+  if (!page.body.includes(SUMMARY_HEADING[locale])) {
+    console.log(`  WARN  ${path} has no ruling summary (approved wording pending?)`);
+  }
+}
+
 const hreflangCount = (sitemap.body.match(/hreflang=/g) || []).length;
 // Bilingual entries carry three alternates each; the locale-specific ones
 // above carry none, by design.
