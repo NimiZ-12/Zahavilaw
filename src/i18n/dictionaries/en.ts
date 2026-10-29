@@ -536,18 +536,53 @@ const en: Dictionary = {
             title: "Dismissal of the claim in limine - Ron Zahavi, Adv.",
             summary: "A monetary claim of NIS 74,941 for damage to a vehicle caused by falling construction materials, filed against a development company after the plaintiff had already concluded an earlier proceeding against it with a settlement agreement that was honoured. The plaintiff argued that they had been misled when signing the settlement. The court dismissed the claim in limine: no basis was laid for the misrepresentation claim, and weight must be given to the finality of proceedings and to a settlement agreement that was honoured. The plaintiff was ordered to pay costs of NIS 8,000. The firm represented the defendant. (Herzliya Magistrates' Court, Fast-Track Civil Case 9950-05-25, 25.6.2026)",
           },
-          { slug: "security-deposit", title: "Order to post security for costs - Ron Zahavi, Adv." },
-          { slug: "property-eviction", title: "Claim for eviction of a property - Ron Zahavi, Adv." },
-          { slug: "trademark-cancellation", title: "Claim for cancellation and revocation of a trademark - Ron Zahavi, Adv." },
+          {
+            slug: "security-deposit",
+            title: "Order to post security for costs - Ron Zahavi, Adv.",
+            summary:
+              "Two cross-motions to order security for costs under section 353A of the Companies Law, in two parallel proceedings between two companies. The court granted the applicant's motion and ordered the opposing company to deposit NIS 10,000 in cash to secure the applicant's costs, having failed to prove financial strength, ruling that its claim would be struck out absent the deposit. The counter-motion, to order the applicant itself to post security, was denied after it showed it is an active company owning an income-producing property. The firm represented the applicant. (Netanya Magistrates' Court, CC 70591-08-24 and CC 12793-08-24, decision of 25.6.2026)",
+          },
+          {
+            slug: "property-eviction",
+            title: "Claim for eviction of a property - Ron Zahavi, Adv.",
+            summary:
+              "An eviction claim over commercial premises in the Emek Hefer industrial zone used as a veterinary clinic. Against the background of a dispute over municipal-tax rates, the tenant cancelled cheques and paid reduced rent on its own initiative. The court held that the lease excludes any right of set-off, that the tenant took the law into its own hands and fundamentally breached the lease, which sufficed to grant the claim, and ordered the premises vacated within six months. The firm represented the plaintiff, the property owner. (Netanya Magistrates' Court, CC 60682-12-21, 9.2.2024)",
+          },
+          {
+            slug: "trademark-cancellation",
+            title: "Claim for cancellation and revocation of a trademark - Ron Zahavi, Adv.",
+            summary:
+              "An application to remove the trademark MULTI FEED, registered in the animal-feed field in the name of the applicants' former business partner. The IP adjudicator held that the goodwill in the mark was the product of the parties' business partnership, that registering it in one party's name alone was done in bad faith, and ordered the mark removed from the register. The mark's owner was ordered to pay costs and legal fees totalling NIS 20,000. The firm represented the removal applicants. (Patents, Designs and Trademarks Authority, application to remove and cancel trademark 287210, 31.5.2021)",
+          },
           {
             slug: "defamation",
             title: "Defamation claim - Ron Zahavi, Adv.",
             summary: "A defamation claim over two Facebook posts published by the defendant against the background of a business dispute over the management of an event venue. The court held that the posts constituted defamation, and that the defendant proved neither the truth of the statements nor good faith. The defendant was ordered to pay the first plaintiff compensation of NIS 80,000, half the court fee and legal fees of NIS 18,000; no compensation was awarded to the other plaintiffs. The firm represented the plaintiffs. (Rishon LeZion Magistrates' Court, CC 1850-08-19, 2.2.2022)",
           },
-          { slug: "monetary-claim-dismissed", title: "Monetary claim dismissed - Ron Zahavi, Adv." },
-          { slug: "brokerage-fee-dismissed", title: "Brokerage-fee claim dismissed - Ron Zahavi, Adv." },
-          { slug: "construction-defects-dismissed", title: "Tenants' claim against the contractor for construction defects and late delivery dismissed - Ron Zahavi, Adv." },
-          { slug: "wrongful-dismissal-compensation", title: "Claim for benefits and compensation for wrongful dismissal - Anat Zahavi, Adv." },
+          {
+            slug: "monetary-claim-dismissed",
+            title: "Monetary claim dismissed - Ron Zahavi, Adv.",
+            summary:
+              "A monetary claim of NIS 75,000 filed by a tenant and her father against the landlord, alleging deliberate cut-offs of water and gas, invasion of privacy and further damages. The court dismissed the claim in full, finding that the cut-offs stemmed from technical faults fixed within a reasonable time and that the alleged damages were not proven. The plaintiffs were ordered to pay costs of NIS 15,000 plus the transcription costs. The firm represented the defendant. (Petah Tikva Magistrates' Court, Fast-Track Civil Case 45787-11-23, 10.1.2026)",
+          },
+          {
+            slug: "brokerage-fee-dismissed",
+            title: "Brokerage-fee claim dismissed - Ron Zahavi, Adv.",
+            summary:
+              "A real-estate broker's claim for a brokerage fee over an agreement to purchase a property in the Emek Hefer industrial zone. The court dismissed the claim: the client never signed a written brokerage order as the Real Estate Brokers Law requires, and the plaintiff did not prove he was the effective cause of the transaction, the buyers having known the property beforehand and made clear they would not pay a brokerage fee. The plaintiff was ordered to pay costs of NIS 20,000. The firm represented the defendants. (Netanya Magistrates' Court, CC 56547-03-18, 22.10.2019)",
+          },
+          {
+            slug: "construction-defects-dismissed",
+            title: "Tenants' claim against the contractor for construction defects and late delivery dismissed - Ron Zahavi, Adv.",
+            summary:
+              "A claim by buyers of a penthouse apartment in a residential project in Nes Ziona, alleging construction defects, late delivery and breach of an undertaking to annex the storeroom to the apartment. The claim against defendant 3 was dismissed in full, and the plaintiffs were ordered to pay him costs and legal fees of NIS 25,000. Against the developer, only partial compensation of NIS 103,645 was awarded, the court noting the gap between the outcome and the amount claimed. The firm represented defendant 3. (Tel Aviv-Jaffa Magistrates' Court, CC 24422-07-16, 24.4.2023)",
+          },
+          {
+            slug: "wrongful-dismissal-compensation",
+            title: "Claim for benefits and compensation for wrongful dismissal - Anat Zahavi, Adv.",
+            summary:
+              "A claim by a marketing and sales manager against his former employer, a security-solutions company, for commissions on an international transaction and compensation for dismissal without a hearing. The labour court allowed the claim in part, awarding the employee a commission of NIS 235,380, pension and further-education-fund contributions of NIS 54,915, compensation of NIS 50,000 for wrongful dismissal and bad-faith negotiations, and legal fees of NIS 50,000. The employer's set-off argument was rejected. The firm represented the plaintiff. (Tel Aviv Regional Labour Court, Case 54489-03-14, 31.10.2021)",
+          },
         ],
         items: [],
       },
