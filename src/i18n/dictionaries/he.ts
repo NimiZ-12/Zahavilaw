@@ -512,6 +512,12 @@ const he: Dictionary = {
             date: "אוגוסט 2026",
             credit: "פסקדין",
           },
+          {
+            id: "-IV0h5LDYv4",
+            title: "דיני משפחה - הסכם ממון",
+            date: "נובמבר 2026",
+            credit: "פסקדין",
+          },
         ],
         items: [],
       },
