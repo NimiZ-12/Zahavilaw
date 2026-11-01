@@ -485,6 +485,9 @@ const en: Dictionary = {
     groups: [
       {
         heading: "The Firm in the Media",
+        // Interviews and items produced by outside outlets (credit line shown).
+        // The firm's own video series belongs in the "Videos" group below -
+        // a new video from the client goes THERE unless said otherwise.
         videos: [
           {
             id: "EaB1cDkD5ec",
@@ -499,18 +502,19 @@ const en: Dictionary = {
             date: "August 2026",
             credit: "Psakdin",
           },
-          {
-            id: "-IV0h5LDYv4",
-            title: "Family law - prenuptial property agreement",
-            date: "November 2026",
-            credit: "Psakdin",
-          },
         ],
         items: [],
       },
       {
         heading: "Videos",
+        // The firm's own video series (date, no credit). Default home for a
+        // new video the client sends.
         videos: [
+          {
+            id: "-IV0h5LDYv4",
+            title: "Family Law - Prenuptial Property Agreement",
+            date: "November 2026",
+          },
           {
             id: "Sr0CnAriIVo",
             title: 'Labor Law - Dismissal During a "Protected Period"',

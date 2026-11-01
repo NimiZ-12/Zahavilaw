@@ -498,6 +498,9 @@ const he: Dictionary = {
     groups: [
       {
         heading: "המשרד בתקשורת",
+        // Interviews and items produced by outside outlets (credit line shown).
+        // The firm's own video series belongs in the "סרטונים" group below -
+        // a new video from the client goes THERE unless said otherwise.
         videos: [
           {
             id: "EaB1cDkD5ec",
@@ -512,18 +515,19 @@ const he: Dictionary = {
             date: "אוגוסט 2026",
             credit: "פסקדין",
           },
-          {
-            id: "-IV0h5LDYv4",
-            title: "דיני משפחה - הסכם ממון",
-            date: "נובמבר 2026",
-            credit: "פסקדין",
-          },
         ],
         items: [],
       },
       {
         heading: "סרטונים",
+        // The firm's own video series (date, no credit). Default home for a
+        // new video the client sends.
         videos: [
+          {
+            id: "-IV0h5LDYv4",
+            title: "דיני משפחה - הסכם ממון",
+            date: "נובמבר 2026",
+          },
           {
             id: "Sr0CnAriIVo",
             title: 'דיני עבודה - פיטורים בזמן "תקופה מוגנת"',
