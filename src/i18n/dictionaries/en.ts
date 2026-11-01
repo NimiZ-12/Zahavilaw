@@ -94,7 +94,7 @@ const en: Dictionary = {
     },
     practiceTeaser: {
       eyebrow: "Practice Areas",
-      title: "Broad expertise under one roof",
+      title: "A broad range of practice areas under one roof",
       body: "A range of professional legal services, for individuals and businesses, with one personal and comprehensive approach.",
       cta: "View all practice areas",
     },
@@ -193,7 +193,7 @@ const en: Dictionary = {
       },
       {
         slug: "real-estate",
-        lawCheckedAt: "2026-10-19",
+        lawCheckedAt: "2026-11-01",
         title: "Real Estate",
         summary: "Sale and purchase transactions, title due diligence, real estate contracts, urban renewal and property taxation.",
         description:
@@ -211,7 +211,7 @@ const en: Dictionary = {
           },
           {
             q: "What is the difference between TAMA 38 and evacuation-reconstruction?",
-            a: "TAMA 38 previously allowed existing buildings to be strengthened while adding building rights. It has expired (definitively on 1.10.2023, with temporary extensions in some municipalities until May 2026), and today the reinforcement and renewal of existing buildings proceed through local plans and the track set out in the Planning and Building Law. In evacuation-reconstruction an entire complex is demolished and rebuilt, and the residents receive a new apartment. In all tracks, the contracts with the developer require close legal supervision.",
+            a: "TAMA 38 allowed existing buildings to be strengthened and given additional building rights. It expired on 1.10.2023. In municipalities that submitted alternative plans it was extended within the area of those plans, and the extension ended no later than 18.5.2026. Today, the strengthening and renewal of an existing building proceed through a plan for earthquake resilience under the Planning and Building Law (Amendment 139, known as the \"Shaked alternative\"), or through the municipality's local plans. In evacuation-reconstruction, one or more condominium buildings are demolished and rebuilt, and the apartment owners receive a new apartment. In all tracks, it is advisable to have the contracts with the developer reviewed by a lawyer.",
           },
           {
             q: "What is betterment tax and who pays it?",
@@ -225,7 +225,7 @@ const en: Dictionary = {
       },
       {
         slug: "commercial",
-        lawCheckedAt: "2026-10-19",
+        lawCheckedAt: "2026-11-01",
         title: "Commercial & Corporate",
         summary: "Company formation, commercial contracts, ongoing counsel and deals.",
         description:
@@ -407,11 +407,11 @@ const en: Dictionary = {
         slug: "ron-zahavi",
         name: "Ron Zahavi, Adv.",
         role: "Founding Partner",
-        bio: "A member of the Israel Bar Association since 1996 and a leading commercial litigator in his field, representing companies and stakeholders in complex civil and commercial proceedings before every court and tribunal. He guides commercial companies and corporations from formation through to managing crises among shareholders, and holds broad expertise in real estate law, including dealings with the Israel Land Authority and TAMA 38 projects.",
+        bio: "A member of the Israel Bar Association since 1996, practising civil and commercial litigation, representing companies and stakeholders in complex civil and commercial proceedings before every court and tribunal. He guides commercial companies and corporations from formation through to managing crises among shareholders, and also practises real estate law, including dealings with the Israel Land Authority and TAMA 38 projects.",
         about: [
-          "Ron Zahavi, Adv. is a founding partner of the firm and has been a member of the Israel Bar Association since 1996, and is regarded as a leading commercial litigator in his field. He represents companies, controlling shareholders and other stakeholders in complex civil and commercial proceedings before every court and tribunal - including class actions, shareholder disputes, and large-scale contractual and economic disputes - leading each matter from filing through to resolution.",
+          "Ron Zahavi, Adv. is a founding partner of the firm and has been a member of the Israel Bar Association since 1996, and practises civil and commercial litigation. He represents companies, controlling shareholders and other stakeholders in complex civil and commercial proceedings before every court and tribunal - including class actions, shareholder disputes, and large-scale contractual and economic disputes - leading each matter from filing through to resolution.",
           "Alongside his litigation practice, he guides commercial companies and corporations throughout their lifecycle - from formation and founders' agreements, through ongoing commercial transactions and arrangements, to managing crises among shareholders and with suppliers, customers and creditors.",
-          "He has also built broad expertise in real estate law in all its aspects - from sale and purchase transactions, through dealings with the Israel Land Authority, agricultural land and smallholdings, to TAMA 38 urban-renewal projects, co-ownership agreements and the dissolution of shared ownership - as well as representing clients in inheritance and estate disputes.",
+          "He has also built broad experience in real estate law in all its aspects - from sale and purchase transactions, through dealings with the Israel Land Authority, agricultural land and smallholdings, to TAMA 38 urban-renewal projects, co-ownership agreements and the dissolution of shared ownership - as well as representing clients in inheritance and estate disputes.",
           "His work is grounded in close, hands-on involvement in every case, alongside a commitment to availability and professional service.",
         ],
         practiceAreaSlugs: ["litigation", "commercial", "real-estate", "wills-estates"],
