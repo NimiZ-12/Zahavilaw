@@ -499,6 +499,12 @@ const en: Dictionary = {
             date: "August 2026",
             credit: "Psakdin",
           },
+          {
+            id: "-IV0h5LDYv4",
+            title: "Family law - prenuptial property agreement",
+            date: "November 2026",
+            credit: "Psakdin",
+          },
         ],
         items: [],
       },
