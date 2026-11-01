@@ -13,9 +13,15 @@
    in docs/seo/articles-content-format.md - keep the two in sync.
 ---------------------------------------------------------------------------- */
 
+/** Practice areas the articles section covers; drives the kicker label,
+ *  breadcrumbs, the hub's per-area sections and the contact box wording. */
+export type ArticleArea = "labor-law" | "real-estate" | "commercial";
+
 export type Article = {
   /** URL segment under /he/articles/. Permanent: never change after publish. */
   slug: string;
+  /** The practice area the article belongs to. */
+  area: ArticleArea;
   /** Short display name for breadcrumbs and the WhatsApp opener. */
   shortName: string;
   /** Title up to 60 characters, description up to 155. */
@@ -24,7 +30,7 @@ export type Article = {
   /** The direct answer shown at the top of the page, 40-60 words. The first
    *  text Google reads - it is what gets a page cited in AI overviews. */
   answer: string;
-  audience: "employee" | "employer" | "both";
+  audience: "employee" | "employer" | "both" | "individual" | "business";
   /** Team-member slug; becomes the Article's author and the byline link. */
   author: "anat-zahavi" | "ron-zahavi";
   /** ISO date (YYYY-MM-DD). */

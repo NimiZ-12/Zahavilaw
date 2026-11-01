@@ -4,6 +4,7 @@ import type { Article } from "./types";
    Do not reword: content changes go back through the marketing agent. */
 export const workplaceBullying: Article = {
   slug: "workplace-bullying",
+  area: "labor-law",
   shortName: "התעמרות בעבודה",
   meta: {
     title: "התעמרות בעבודה: מה נחשב התעמרות, איך מוכיחים ומה עושים",

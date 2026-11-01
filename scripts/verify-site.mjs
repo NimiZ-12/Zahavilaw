@@ -30,6 +30,8 @@ const HEBREW_ONLY_PATHS = new Set([
   "/he/lp/hearing",
   "/he/lp/unpaid-wages",
   "/he/lp/wrongful-dismissal",
+  "/he/lp/property-transaction",
+  "/he/lp/commercial-lawyer",
 ]);
 /** The articles section is Hebrew-only as a whole, so it is matched by prefix
  *  rather than listing every slug here. */

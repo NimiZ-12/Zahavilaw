@@ -5,7 +5,7 @@ import { getDictionary } from "@/i18n/dictionaries";
 import { SITE_URL, localePath } from "@/lib/routes";
 import { articleNode, buildGraph, faqNode, personNode } from "@/lib/schema";
 import { getArticle, articles } from "@/i18n/articles";
-import { articlesHub } from "@/i18n/articles/hub";
+import { articlesHub, articleAreas } from "@/i18n/articles/hub";
 import JsonLd from "@/components/JsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ArticleView from "@/components/articles/ArticleView";
@@ -62,9 +62,10 @@ export default async function ArticlePage({
 
   const dict = await getDictionary("he");
   const path = `/articles/${article.slug}`;
+  const area = articleAreas[article.area];
   const trail = [
-    { name: articlesHub.breadcrumb.area, path: articlesHub.breadcrumb.areaPath },
-    { name: articlesHub.breadcrumb.current, path: "/articles" },
+    { name: area.name, path: area.path },
+    { name: articlesHub.breadcrumb.current, path: `/articles#${article.area}` },
     { name: article.shortName, path },
   ];
 
@@ -113,7 +114,7 @@ export default async function ArticlePage({
               gold-400 tint is the established accent for text on navy. */}
           <p className="mt-6 inline-flex items-center gap-2 text-sm font-semibold tracking-wider text-gold-400">
             <span aria-hidden className="h-px w-6 bg-gold-400/50" />
-            {articlesHub.kicker}
+            {area.kicker}
           </p>
           <h1 className="mt-3 max-w-4xl text-4xl leading-tight text-gold-400 sm:text-5xl">
             {article.h1}

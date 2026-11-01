@@ -4,6 +4,7 @@ import type { Article } from "./types";
    Do not reword: content changes go back through the marketing agent. */
 export const noticePeriod: Article = {
   slug: "notice-period",
+  area: "labor-law",
   shortName: "הודעה מוקדמת",
   meta: {
     title: "הודעה מוקדמת להתפטרות ולפיטורים: כמה ימים לפי החוק",

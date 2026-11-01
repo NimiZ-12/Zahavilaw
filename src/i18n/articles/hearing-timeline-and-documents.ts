@@ -4,6 +4,7 @@ import type { Article } from "./types";
    Do not reword: content changes go back through the marketing agent. */
 export const hearingTimelineAndDocuments: Article = {
   slug: "hearing-timeline-and-documents",
+  area: "labor-law",
   shortName: "שימוע לפני פיטורים",
   meta: {
     title: "כמה זמן אחרי שימוע אפשר לפטר? זימון, פרוטוקול ומכתב",

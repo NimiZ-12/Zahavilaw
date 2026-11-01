@@ -6,6 +6,30 @@
    lives here; each article is its own client-approved module.
 ---------------------------------------------------------------------------- */
 
+/* Per-area shell data for the articles section. The names and paths mirror
+   the practice-area pages; the kicker labels and the "articles in <area>"
+   link labels are the client-approved wordings from the 1.11.2026 brief. */
+export const articleAreas = {
+  "labor-law": {
+    name: "דיני עבודה",
+    path: "/practice-areas/labor-law",
+    kicker: "מאמר - דיני עבודה",
+    sectionLinkLabel: "מאמרים בדיני עבודה",
+  },
+  "real-estate": {
+    name: "מקרקעין ונדל״ן",
+    path: "/practice-areas/real-estate",
+    kicker: "מאמר - מקרקעין ונדל״ן",
+    sectionLinkLabel: "מאמרים במקרקעין ונדל״ן",
+  },
+  commercial: {
+    name: "מסחרי ודיני חברות",
+    path: "/practice-areas/commercial",
+    kicker: "מאמר - מסחרי ודיני חברות",
+    sectionLinkLabel: "מאמרים במסחרי ודיני חברות",
+  },
+} as const;
+
 export const articlesHub = {
   meta: {
     title: "מאמרים בדיני עבודה",

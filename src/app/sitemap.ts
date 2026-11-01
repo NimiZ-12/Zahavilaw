@@ -16,12 +16,18 @@ import { SITE_URL, localePath, navItems } from "@/lib/routes";
  */
 const RELAUNCH = "2026-08-30";
 const PAGE_DATES: Record<string, string> = {
+  // 2026-11-01 entries: the real-estate / commercial launch (wording fixes,
+  // the rewritten TAMA 38 answer, Ron Zahavi's profile, the new FAQ links).
+  "": "2026-11-01",
+  "/practice-areas/real-estate": "2026-11-01",
+  "/practice-areas/commercial": "2026-11-01",
+  "/team/ron-zahavi": "2026-11-01",
+  "/team/anat-zahavi": "2026-11-01",
   // 2026-10-19 entries: the legal content review of 19.10 (memo findings).
   "/about": "2026-10-19",
   "/publications": "2026-10-19",
   "/practice-areas/labor-law": "2026-10-19",
   "/practice-areas/family-law": "2026-10-19",
-  "/practice-areas/real-estate": "2026-10-19",
   "/practice-areas/litigation": "2026-10-19",
   "/practice-areas/wills-estates": "2026-10-19",
   "/faq": "2026-10-19",

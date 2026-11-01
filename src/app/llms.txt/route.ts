@@ -153,14 +153,22 @@ export async function GET() {
   }
 
   /* --- Articles ---------------------------------------------------------- */
-  if (articles.length > 0) {
+  // One section per practice area that has published articles.
+  const articleAreaHeadings: Record<string, string> = {
+    "labor-law": "## Labor-law articles (Hebrew)",
+    "real-estate": "## Real-estate articles (Hebrew)",
+    commercial: "## Commercial & corporate articles (Hebrew)",
+  };
+  for (const [areaKey, heading] of Object.entries(articleAreaHeadings)) {
+    const areaArticles = articles.filter((g) => g.area === areaKey);
+    if (areaArticles.length === 0) continue;
     push(
-      "## Labor-law articles (Hebrew)",
+      heading,
       "",
       "Each article answers one question, written by a named attorney, with",
       "statutory sources. Hebrew only.",
       "",
-      ...articles.map(
+      ...areaArticles.map(
         (g) =>
           `- ${g.h1}: ${g.answer} ${abs(localePath("he", `/articles/${g.slug}`))}`,
       ),
@@ -172,7 +180,7 @@ export async function GET() {
   // One line per page: its meta title, its meta description, its URL -
   // exactly the approved copy already live on the page, nothing new.
   push(
-    "## Labor-law landing pages (Hebrew)",
+    "## Campaign landing pages (Hebrew)",
     "",
     ...landingPages.map(
       ({ path, content }) =>
