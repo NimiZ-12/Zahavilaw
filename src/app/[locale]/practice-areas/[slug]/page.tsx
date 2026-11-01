@@ -8,7 +8,7 @@ import { localePath } from "@/lib/routes";
 import { pageMetadata } from "@/lib/metadata";
 import { buildGraph, faqNode, serviceNode } from "@/lib/schema";
 import { articles } from "@/i18n/articles";
-import { articlesHub } from "@/i18n/articles/hub";
+import { articleAreas } from "@/i18n/articles/hub";
 import JsonLd from "@/components/JsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { ButtonLink } from "@/components/Button";
@@ -158,29 +158,41 @@ export default async function PracticeAreaPage({
                 </div>
               </section>
             )}
-            {/* Labor-law articles, Hebrew only, rendered once the first
-                approved article is published. Same linked-entry principle as
-                the FAQ items above - no redesign of the page. */}
-            {typedLocale === "he" && slug === "labor-law" && articles.length > 0 && (
+            {/* The area's articles, Hebrew only, rendered on every practice
+                area that has published articles (up to 6). Same linked-entry
+                principle as the FAQ items above - no redesign of the page. */}
+            {typedLocale === "he" &&
+              slug in articleAreas &&
+              articles.some((g) => g.area === slug) && (
               <section className="mt-12" aria-labelledby="articles-heading">
                 <h2 id="articles-heading" className="text-2xl">
                   <Link
-                    href={localePath("he", "/articles")}
+                    href={localePath(
+                      "he",
+                      articleAreas[slug as keyof typeof articleAreas].articlesPath,
+                    )}
                     className="inline-flex items-baseline gap-2 transition-colors hover:text-gold-600"
                   >
-                    {articlesHub.sectionLinkLabel}
+                    {articleAreas[slug as keyof typeof articleAreas].sectionLinkLabel}
                     <ArrowIcon className="h-5 w-5 shrink-0 self-center text-gold rtl:-scale-x-100" />
                   </Link>
                 </h2>
                 <div className="mt-6 space-y-6">
-                  {articles.map((g) => (
+                  {articles
+                    .filter((g) => g.area === slug)
+                    .sort((a, b) => b.published.localeCompare(a.published))
+                    .slice(0, 6)
+                    .map((g) => (
                     <article
                       key={g.slug}
                       className="rounded-xl border border-border bg-surface p-6"
                     >
                       <h3 className="text-base font-semibold text-navy">
                         <Link
-                          href={localePath("he", `/articles/${g.slug}`)}
+                          href={localePath(
+                            "he",
+                            `${articleAreas[g.area].articlesPath}/${g.slug}`,
+                          )}
                           className="inline-flex items-baseline gap-1.5 transition-colors hover:text-gold-600"
                         >
                           {g.h1}

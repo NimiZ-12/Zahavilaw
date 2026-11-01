@@ -76,7 +76,7 @@ export default async function SeverancePayPage({
 
   const dict = await getDictionary("he");
   const content = lpSeverancePay;
-  const laborLaw = dict.practiceAreas.items.find((a) => a.slug === "labor-law");
+  const area = dict.practiceAreas.items.find((a) => a.slug === content.area);
 
   const trail = [
     { name: content.breadcrumb.area, path: content.breadcrumb.areaPath },
@@ -92,7 +92,7 @@ export default async function SeverancePayPage({
     description: content.meta.description,
     trail,
     nodes: [
-      ...(laborLaw ? [serviceNode("he", laborLaw, dict)] : []),
+      ...(area ? [serviceNode("he", area, dict)] : []),
       faqNode("he", PATH, content.faq),
     ],
   });

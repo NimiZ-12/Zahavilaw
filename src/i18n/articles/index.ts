@@ -16,6 +16,8 @@ import { workplaceBullying } from "./workplace-bullying";
 import { howToDismissAnEmployee } from "./how-to-dismiss-an-employee";
 import { noticePeriod } from "./notice-period";
 import { dismissalLetter } from "./dismissal-letter";
+import { coOwnershipDissolution } from "./co-ownership-dissolution";
+import { foundersAgreement } from "./founders-agreement";
 
 export type { Article };
 
@@ -28,6 +30,8 @@ export const articles: Article[] = [
   howToDismissAnEmployee,
   noticePeriod,
   dismissalLetter,
+  coOwnershipDissolution,
+  foundersAgreement,
 ];
 
 export function getArticle(slug: string): Article | undefined {

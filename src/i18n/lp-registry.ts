@@ -14,6 +14,8 @@ import { lpHearing } from "./lp-hearing";
 import { lpSeverancePay } from "./lp-severance-pay";
 import { lpUnpaidWages } from "./lp-unpaid-wages";
 import { lpProtectedPeriod } from "./lp-protected-period";
+import { lpPropertyTransaction } from "./lp-property-transaction";
+import { lpCommercialLawyer } from "./lp-commercial-lawyer";
 
 /** The fields every landing-page module shares, whatever its template:
  *  LpPage (CampaignLanding) and LpProtectedPeriod both satisfy this. */
@@ -29,4 +31,6 @@ export const landingPages: { path: string; content: LandingPageContent }[] = [
   { path: "/lp/severance-pay", content: lpSeverancePay },
   { path: "/lp/unpaid-wages", content: lpUnpaidWages },
   { path: "/lp/protected-period", content: lpProtectedPeriod },
+  { path: "/lp/property-transaction", content: lpPropertyTransaction },
+  { path: "/lp/commercial-lawyer", content: lpCommercialLawyer },
 ];

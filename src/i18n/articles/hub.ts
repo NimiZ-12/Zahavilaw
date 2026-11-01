@@ -56,3 +56,63 @@ export const articlesHub = {
   disclaimer:
     "האמור בעמוד זה הוא מידע כללי בלבד, אינו מהווה ייעוץ משפטי ואינו תחליף לו, ואין להסתמך עליו בלי בחינה פרטנית של נסיבות המקרה. אין באמור משום התחייבות לתוצאה כלשהי.",
 };
+
+/* ----------------------------------------------------------------------------
+   Per-department shell data for the articles sections (1.11.2026 brief).
+   ---------------------------------------------------------------------------
+   Labor-law keeps its original section at /he/articles, wordings unchanged;
+   real-estate and commercial each get their own articles page under their
+   practice-area path. Every Hebrew string below is the client-approved
+   wording from the brief - never reword it here.
+---------------------------------------------------------------------------- */
+export const articleAreas = {
+  "labor-law": {
+    name: "דיני עבודה",
+    path: "/practice-areas/labor-law",
+    articlesPath: "/articles",
+    kicker: "מאמר - דיני עבודה",
+    sectionLinkLabel: "מאמרים בדיני עבודה",
+    ask: { title: articlesHub.ask.title, body: articlesHub.ask.body },
+    hub: null,
+  },
+  "real-estate": {
+    name: "מקרקעין ונדל״ן",
+    path: "/practice-areas/real-estate",
+    articlesPath: "/practice-areas/real-estate/articles",
+    kicker: "מאמר - מקרקעין ונדל״ן",
+    sectionLinkLabel: "מאמרים במקרקעין ונדל״ן",
+    ask: {
+      title: "רוצים לבדוק את המצב שלכם בנכס?",
+      body: "משרד זהבי-פריטי ושות׳ מלווה רוכשים, מוכרים ובעלי נכסים בעסקאות ובסכסוכי מקרקעין. לבירור ראשוני ללא התחייבות:",
+    },
+    hub: {
+      title: "מאמרים במקרקעין ונדל״ן",
+      description:
+        "מאמרים במקרקעין ונדל״ן מאת עורכי הדין של זהבי-פריטי ושות׳: עסקאות מכר ורכישה, פירוק שיתוף ועוד. כל מאמר עונה על שאלה אחת, עם הפניות לחוק.",
+      h1: "מאמרים במקרקעין ונדל״ן",
+      intro:
+        "כל מאמר עונה על שאלה אחת, בשפה פשוטה ועם הפניות לחוק. המאמרים נכתבים על ידי עורכי הדין של המשרד ומתעדכנים כשהדין משתנה.",
+    },
+  },
+  commercial: {
+    name: "מסחרי ודיני חברות",
+    path: "/practice-areas/commercial",
+    articlesPath: "/practice-areas/commercial/articles",
+    kicker: "מאמר - מסחרי ודיני חברות",
+    sectionLinkLabel: "מאמרים במשפט מסחרי ודיני חברות",
+    ask: {
+      title: "רוצים לבדוק חוזה או סכסוך עסקי?",
+      body: "משרד זהבי-פריטי ושות׳ מלווה חברות, יזמים ובעלי עסקים בחוזים, בהקמת חברות ובסכסוכים מסחריים. לבירור ראשוני ללא התחייבות:",
+    },
+    hub: {
+      title: "מאמרים במשפט מסחרי ודיני חברות",
+      description:
+        "מאמרים במשפט מסחרי ודיני חברות מאת עורכי הדין של זהבי-פריטי ושות׳: חוזים, הקמת חברות והסכמי מייסדים. כל מאמר עונה על שאלה אחת, עם הפניות לחוק.",
+      h1: "מאמרים במשפט מסחרי ודיני חברות",
+      intro:
+        "כל מאמר עונה על שאלה אחת, בשפה פשוטה ועם הפניות לחוק. המאמרים נכתבים על ידי עורכי הדין של המשרד ומתעדכנים כשהדין משתנה.",
+    },
+  },
+} as const;
+
+export type ArticleAreaKey = keyof typeof articleAreas;

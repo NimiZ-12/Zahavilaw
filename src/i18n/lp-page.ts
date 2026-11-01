@@ -23,6 +23,9 @@ export type LpSection = {
 };
 
 export type LpPage = {
+  /** Practice area the page belongs to; drives the Service node in the
+   *  structured data and the floating button's page grouping. */
+  area: "labor-law" | "real-estate" | "commercial";
   meta: { title: string; description: string };
   /** ISO date (YYYY-MM-DD) of the last content change; feeds the sitemap's
    *  lastModified, so update it whenever this file's copy changes. */

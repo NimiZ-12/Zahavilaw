@@ -6,6 +6,9 @@ import { getDictionary } from "@/i18n/dictionaries";
 import { SITE_URL, localePath } from "@/lib/routes";
 import { buildGraph } from "@/lib/schema";
 import { articles } from "@/i18n/articles";
+
+// Only labor-law articles belong to this section (1.11.2026 brief).
+const laborArticles = articles.filter((g) => g.area === "labor-law");
 import { articlesHub } from "@/i18n/articles/hub";
 import JsonLd from "@/components/JsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -21,7 +24,7 @@ import { ArrowIcon } from "@/components/Icons";
 const PATH = "/articles";
 
 export function generateStaticParams() {
-  return articles.length > 0 ? [{ locale: "he" }] : [];
+  return laborArticles.length > 0 ? [{ locale: "he" }] : [];
 }
 
 export async function generateMetadata({
@@ -30,7 +33,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  if (locale !== "he" || articles.length === 0) return {};
+  if (locale !== "he" || laborArticles.length === 0) return {};
   const { meta } = articlesHub;
   const url = localePath("he", PATH);
   return {
@@ -57,7 +60,7 @@ export default async function ArticlesHubPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  if (!isLocale(locale) || locale !== "he" || articles.length === 0) notFound();
+  if (!isLocale(locale) || locale !== "he" || laborArticles.length === 0) notFound();
 
   const dict = await getDictionary("he");
   const trail = [
@@ -100,7 +103,7 @@ export default async function ArticlesHubPage({
       <section className="section">
         <div className="container-x">
           <ul className="grid gap-5 sm:grid-cols-2">
-            {articles.map((g) => (
+            {laborArticles.map((g) => (
               <li key={g.slug}>
                 <Link
                   href={localePath("he", `${PATH}/${g.slug}`)}

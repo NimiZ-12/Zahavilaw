@@ -57,10 +57,22 @@ const KNOWN_PATHS = new Set<string>([
   ...he.publications.groups.flatMap((g) =>
     (g.rulings ?? []).map((r) => `/publications/rulings/${r.slug}`),
   ),
-  // The articles section exists only once the first article is published;
-  // until then /articles 404s and must not get the locale redirect.
+  // The articles sections exist only once the first article is published;
+  // until then the paths 404 and must not get the locale redirect.
+  // Labor-law articles live under /articles; the other departments'
+  // articles live under their practice-area path.
   ...(articles.length > 0
-    ? ["/articles", ...articles.map((g) => `/articles/${g.slug}`)]
+    ? [
+        "/articles",
+        ...articles.map((g) =>
+          g.area === "labor-law"
+            ? `/articles/${g.slug}`
+            : `/practice-areas/${g.area}/articles/${g.slug}`,
+        ),
+        ...[...new Set(articles.filter((g) => g.area !== "labor-law").map((g) => g.area))].map(
+          (a) => `/practice-areas/${a}/articles`,
+        ),
+      ]
     : []),
 ]);
 

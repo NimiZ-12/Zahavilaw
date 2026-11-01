@@ -4,6 +4,7 @@ import type { Article } from "./types";
    Do not reword: content changes go back through the marketing agent. */
 export const dismissalDuringSickLeave: Article = {
   slug: "dismissal-during-sick-leave",
+  area: "labor-law",
   shortName: "פיטורים בזמן מחלה",
   meta: {
     title: "פיטורים בזמן מחלה: מתי זה מותר ומתי לא",

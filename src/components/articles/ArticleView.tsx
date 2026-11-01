@@ -19,7 +19,7 @@ import {
 } from "@/components/lp/shared";
 import { ArrowIcon } from "@/components/Icons";
 import type { Article } from "@/i18n/articles";
-import { articlesHub } from "@/i18n/articles/hub";
+import { articlesHub, articleAreas } from "@/i18n/articles/hub";
 import LawCheckedNote from "@/components/LawCheckedNote";
 
 function formatHebrewDate(iso: string): string {
@@ -30,11 +30,14 @@ function formatHebrewDate(iso: string): string {
 
 function AskBox({ article, phone }: { article: Article; phone: string }) {
   const { ask } = articlesHub;
+  // Title and lead sentence follow the article's department; the shared
+  // labels (CTA, form, phone) stay the same across departments.
+  const areaAsk = articleAreas[article.area].ask;
   const message = articlesHub.whatsappTemplate.replace("{name}", article.shortName);
   return (
     <div className="rounded-2xl border border-border bg-surface p-8">
-      <h2 className="text-xl">{ask.title}</h2>
-      <p className="mt-3 text-sm leading-relaxed text-muted">{ask.body}</p>
+      <h2 className="text-xl">{areaAsk.title}</h2>
+      <p className="mt-3 text-sm leading-relaxed text-muted">{areaAsk.body}</p>
       <div className="mt-6 flex flex-col gap-3">
         <WhatsappCta message={message} label={ask.cta} block />
         <FormCta

@@ -11,6 +11,7 @@
 import type { LpPage } from "./lp-page";
 
 export const lpWrongfulDismissal: LpPage = {
+  area: "labor-law",
   updated: "2026-10-19",
   lawCheckedAt: "2026-10-19",
   meta: {

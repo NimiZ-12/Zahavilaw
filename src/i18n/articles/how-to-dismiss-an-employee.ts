@@ -4,6 +4,7 @@ import type { Article } from "./types";
    Do not reword: content changes go back through the marketing agent. */
 export const howToDismissAnEmployee: Article = {
   slug: "how-to-dismiss-an-employee",
+  area: "labor-law",
   shortName: "פיטורי עובד כחוק",
   meta: {
     title: "איך לפטר עובד כחוק: מה המעסיק חייב לעשות, שלב אחר שלב",

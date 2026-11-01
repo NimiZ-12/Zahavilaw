@@ -13,6 +13,7 @@
 import type { LpPage } from "./lp-page";
 
 export const lpHearing: LpPage = {
+  area: "labor-law",
   updated: "2026-10-12",
   lawCheckedAt: "2026-10-19",
   meta: {

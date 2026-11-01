@@ -67,6 +67,8 @@ export type LpTrack = {
 };
 
 export type LpProtectedPeriod = {
+  /** Practice area the page belongs to. */
+  area: "labor-law" | "real-estate" | "commercial";
   meta: { title: string; description: string };
   /** ISO date (YYYY-MM-DD) of the last content change; feeds the sitemap. */
   updated: string;
@@ -311,6 +313,7 @@ const reserve: LpTrack = {
 };
 
 export const lpProtectedPeriod: LpProtectedPeriod = {
+  area: "labor-law",
   updated: "2026-10-19",
   lawCheckedAt: "2026-10-19",
   meta: {
