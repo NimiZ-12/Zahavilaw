@@ -153,15 +153,19 @@ export async function GET() {
   }
 
   /* --- Articles ---------------------------------------------------------- */
-  // One section per practice area that has published articles.
+  // One section per department that has published articles. Labor-law keeps
+  // its original /articles URLs; the other departments live under their
+  // practice-area path.
   const articleAreaHeadings: Record<string, string> = {
     "labor-law": "## Labor-law articles (Hebrew)",
     "real-estate": "## Real-estate articles (Hebrew)",
-    commercial: "## Commercial & corporate articles (Hebrew)",
+    commercial: "## Commercial and corporate law articles (Hebrew)",
   };
   for (const [areaKey, heading] of Object.entries(articleAreaHeadings)) {
     const areaArticles = articles.filter((g) => g.area === areaKey);
     if (areaArticles.length === 0) continue;
+    const base =
+      areaKey === "labor-law" ? "/articles" : `/practice-areas/${areaKey}/articles`;
     push(
       heading,
       "",
@@ -170,7 +174,7 @@ export async function GET() {
       "",
       ...areaArticles.map(
         (g) =>
-          `- ${g.h1}: ${g.answer} ${abs(localePath("he", `/articles/${g.slug}`))}`,
+          `- ${g.h1}: ${g.answer} ${abs(localePath("he", `${base}/${g.slug}`))}`,
       ),
       "",
     );

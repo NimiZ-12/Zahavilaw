@@ -34,7 +34,8 @@ async function main() {
       (p) =>
         /^\/he\/lp\//.test(p) ||
         /^\/he\/articles\/.+/.test(p) ||
-        /^\/(he|en)\/practice-areas\/.+/.test(p) ||
+        // Department article LISTING pages are navigation, not legal content.
+        (/^\/(he|en)\/practice-areas\/.+/.test(p) && !/\/articles$/.test(p)) ||
         /^\/(he|en)\/faq$/.test(p),
     );
 

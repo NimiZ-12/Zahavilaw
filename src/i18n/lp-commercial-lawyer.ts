@@ -80,7 +80,7 @@ export const lpCommercialLawyer: LpPage = {
     links: [
       {
         label: "הסכם מייסדים: הסעיפים המרכזיים, הבשלת מניות ומנגנוני הגנה",
-        href: "/he/articles/founders-agreement",
+        href: "/he/practice-areas/commercial/articles/founders-agreement",
       },
       {
         label: "מסחרי ודיני חברות במשרד",

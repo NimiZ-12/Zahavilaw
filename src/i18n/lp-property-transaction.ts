@@ -85,7 +85,7 @@ export const lpPropertyTransaction: LpPage = {
     links: [
       {
         label: "פירוק שיתוף במקרקעין: זכויות, דרכים ועלויות ההליך",
-        href: "/he/articles/co-ownership-dissolution",
+        href: "/he/practice-areas/real-estate/articles/co-ownership-dissolution",
       },
       {
         label: "מקרקעין ונדל״ן במשרד",

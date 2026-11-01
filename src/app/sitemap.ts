@@ -127,16 +127,31 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entries.push(hebrewOnlyEntry(path, content.updated, 0.6));
   }
 
-  // Articles hub + articles (Hebrew only). The hub exists only once the first
-  // approved article is in; its date is the newest article's.
-  if (articles.length > 0) {
-    const newest = articles
+  // Articles (Hebrew only). Labor-law keeps its original section at
+  // /articles; the other departments' articles live under their
+  // practice-area path. Each listing page's date is its newest article's.
+  const laborArticles = articles.filter((g) => g.area === "labor-law");
+  if (laborArticles.length > 0) {
+    const newest = laborArticles
       .map((g) => g.updated)
       .sort()
       .at(-1)!;
     entries.push(hebrewOnlyEntry("/articles", newest, 0.7));
-    for (const g of articles) {
+    for (const g of laborArticles) {
       entries.push(hebrewOnlyEntry(`/articles/${g.slug}`, g.updated, 0.7));
+    }
+  }
+  for (const dept of ["real-estate", "commercial"] as const) {
+    const deptArticles = articles.filter((g) => g.area === dept);
+    if (deptArticles.length === 0) continue;
+    const base = `/practice-areas/${dept}/articles`;
+    const newest = deptArticles
+      .map((g) => g.updated)
+      .sort()
+      .at(-1)!;
+    entries.push(hebrewOnlyEntry(base, newest, 0.7));
+    for (const g of deptArticles) {
+      entries.push(hebrewOnlyEntry(`${base}/${g.slug}`, g.updated, 0.7));
     }
   }
 

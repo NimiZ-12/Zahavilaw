@@ -167,7 +167,10 @@ export default async function PracticeAreaPage({
               <section className="mt-12" aria-labelledby="articles-heading">
                 <h2 id="articles-heading" className="text-2xl">
                   <Link
-                    href={localePath("he", `/articles#${slug}`)}
+                    href={localePath(
+                      "he",
+                      articleAreas[slug as keyof typeof articleAreas].articlesPath,
+                    )}
                     className="inline-flex items-baseline gap-2 transition-colors hover:text-gold-600"
                   >
                     {articleAreas[slug as keyof typeof articleAreas].sectionLinkLabel}
@@ -177,6 +180,7 @@ export default async function PracticeAreaPage({
                 <div className="mt-6 space-y-6">
                   {articles
                     .filter((g) => g.area === slug)
+                    .sort((a, b) => b.published.localeCompare(a.published))
                     .slice(0, 6)
                     .map((g) => (
                     <article
@@ -185,7 +189,10 @@ export default async function PracticeAreaPage({
                     >
                       <h3 className="text-base font-semibold text-navy">
                         <Link
-                          href={localePath("he", `/articles/${g.slug}`)}
+                          href={localePath(
+                            "he",
+                            `${articleAreas[g.area].articlesPath}/${g.slug}`,
+                          )}
                           className="inline-flex items-baseline gap-1.5 transition-colors hover:text-gold-600"
                         >
                           {g.h1}

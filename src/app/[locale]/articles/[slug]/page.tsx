@@ -15,8 +15,12 @@ import ArticleView from "@/components/articles/ArticleView";
  * named attorney. Hebrew only, like the hub - see src/i18n/articles/types.ts.
  */
 
+// Only labor-law articles live under /he/articles; the other departments'
+// articles are served under their practice-area path (1.11.2026 brief).
 export function generateStaticParams() {
-  return articles.map((g) => ({ locale: "he", slug: g.slug }));
+  return articles
+    .filter((g) => g.area === "labor-law")
+    .map((g) => ({ locale: "he", slug: g.slug }));
 }
 
 export async function generateMetadata({
@@ -58,14 +62,20 @@ export default async function ArticlePage({
 }) {
   const { locale, slug } = await params;
   const article = getArticle(slug);
-  if (!isLocale(locale) || locale !== "he" || !article) notFound();
+  if (
+    !isLocale(locale) ||
+    locale !== "he" ||
+    !article ||
+    article.area !== "labor-law"
+  )
+    notFound();
 
   const dict = await getDictionary("he");
   const path = `/articles/${article.slug}`;
   const area = articleAreas[article.area];
   const trail = [
     { name: area.name, path: area.path },
-    { name: articlesHub.breadcrumb.current, path: `/articles#${article.area}` },
+    { name: articlesHub.breadcrumb.current, path: "/articles" },
     { name: article.shortName, path },
   ];
 

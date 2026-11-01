@@ -33,13 +33,17 @@ const HEBREW_ONLY_PATHS = new Set([
   "/he/lp/property-transaction",
   "/he/lp/commercial-lawyer",
 ]);
-/** The articles section is Hebrew-only as a whole, so it is matched by prefix
- *  rather than listing every slug here. */
+/** The articles sections are Hebrew-only as a whole, so they are matched by
+ *  prefix rather than listing every slug here. */
 function isHebrewOnly(pathname) {
   return (
     HEBREW_ONLY_PATHS.has(pathname) ||
     pathname === "/he/articles" ||
-    pathname.startsWith("/he/articles/")
+    pathname.startsWith("/he/articles/") ||
+    pathname === "/he/practice-areas/real-estate/articles" ||
+    pathname.startsWith("/he/practice-areas/real-estate/articles/") ||
+    pathname === "/he/practice-areas/commercial/articles" ||
+    pathname.startsWith("/he/practice-areas/commercial/articles/")
   );
 }
 
@@ -112,7 +116,10 @@ const lawPages = urls
     (p) =>
       /^\/he\/lp\//.test(p) ||
       /^\/he\/articles\/.+/.test(p) ||
-      /^\/(he|en)\/practice-areas\/.+/.test(p) ||
+      // Practice-area pages and department article pages carry the line;
+      // a department's articles LISTING page is navigation, not legal
+      // content, so it is excluded.
+      (/^\/(he|en)\/practice-areas\/.+/.test(p) && !/\/articles$/.test(p)) ||
       /^\/(he|en)\/faq$/.test(p),
   );
 for (const path of lawPages) {
