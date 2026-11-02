@@ -615,7 +615,7 @@ const he: Dictionary = {
         items: [],
       },
       {
-        heading: "מאמרים",
+        heading: "כתבות",
         items: [
           {
             title: "רצה לפרק את החברה - ובסוף רכש אותה ב-4.4 מיליון ש״ח",
