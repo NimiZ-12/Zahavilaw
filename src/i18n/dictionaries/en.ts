@@ -547,6 +547,18 @@ const en: Dictionary = {
         heading: "Court Rulings",
         rulings: [
           {
+            slug: "shareholders-claim-dismissed",
+            title: "Monetary claim between shareholders in joint companies dismissed - Ron Zahavi, Adv.",
+            summary:
+              "A monetary claim of about NIS 1 million (about USD 297,000) filed against the defendant by his former business partner, after the wind-up of a joint fish-feed marketing and distribution venture in Nigeria that operated through jointly owned foreign companies. The plaintiff sought to hold the defendant personally liable for half the value of goods containers, letters of credit, inventory, employee wages, equipment and vehicles, and management fees. The court dismissed the claim in full: under final rulings of the District Court, the parties share equal ownership of companies, the accounting runs between the shareholders and the joint companies rather than between the shareholders personally, and no component of the claim was proven to be a personal debt of the defendant. The plaintiff was ordered to pay costs of NIS 9,000 and legal fees of NIS 30,000. The firm represented the defendant. (Haifa Magistrates' Court, CC 22847-11-21, 28.9.2026)",
+          },
+          {
+            slug: "hedge-fund-arbitration",
+            title: "Arbitration award in investors' claim against a hedge fund - Ron Zahavi, Adv.",
+            summary:
+              "A claim by two private investors, a father and son who invested about NIS 1.7 million in a hedge fund, against the fund, its general partner and the person who recruited them to it. The proceedings began in the Haifa District Court and were referred to arbitration. The arbitrator allowed the claim in part: the allegations of misrepresentation at the investment stage were rejected, but it was held that after the claimant filed a request to redeem USD 280,000, the respondent persuaded him to cancel it without disclosing the state of the fund, and that the continued non-disclosure of the losses constituted a breach of the duty of care and conduct lacking good faith. The respondents were ordered to pay the claimants, jointly and severally, USD 201,115 in shekels plus interest, as well as legal fees of NIS 60,000 plus VAT. The firm represented the claimants. (HaMishkan Center for Arbitration and Dispute Resolution, arbitration award by arbitrator Danya Keret-Meir, retired judge, 6.9.2026)",
+          },
+          {
             slug: "dismissal-in-limine",
             title: "Dismissal of the claim in limine - Ron Zahavi, Adv.",
             summary: "A monetary claim of NIS 74,941 for damage to a vehicle caused by falling construction materials, filed against a development company after the plaintiff had already concluded an earlier proceeding against it with a settlement agreement that was honoured. The plaintiff argued that they had been misled when signing the settlement. The court dismissed the claim in limine: no basis was laid for the misrepresentation claim, and weight must be given to the finality of proceedings and to a settlement agreement that was honoured. The plaintiff was ordered to pay costs of NIS 8,000. The firm represented the defendant. (Herzliya Magistrates' Court, Fast-Track Civil Case 9950-05-25, 25.6.2026)",
