@@ -547,6 +547,12 @@ const en: Dictionary = {
         heading: "Court Rulings",
         rulings: [
           {
+            slug: "hedge-fund-arbitration",
+            title: "Arbitration award in investors' claim against a hedge fund - Ron Zahavi, Adv.",
+            summary:
+              "A claim by two private investors, a father and son who invested about NIS 1.7 million in a hedge fund, against the fund, its general partner and the person who recruited them to it. The proceedings began in the Haifa District Court and were referred to arbitration. The arbitrator allowed the claim in part: the allegations of misrepresentation at the investment stage were rejected, but it was held that after the claimant filed a request to redeem USD 280,000, the respondent persuaded him to cancel it without disclosing the state of the fund, and that the continued non-disclosure of the losses constituted a breach of the duty of care and conduct lacking good faith. The respondents were ordered to pay the claimants, jointly and severally, USD 201,115 in shekels plus interest, as well as legal fees of NIS 60,000 plus VAT. The firm represented the claimants. (HaMishkan Center for Arbitration and Dispute Resolution, arbitration award by arbitrator Danya Keret-Meir, retired judge, 6.9.2026)",
+          },
+          {
             slug: "dismissal-in-limine",
             title: "Dismissal of the claim in limine - Ron Zahavi, Adv.",
             summary: "A monetary claim of NIS 74,941 for damage to a vehicle caused by falling construction materials, filed against a development company after the plaintiff had already concluded an earlier proceeding against it with a settlement agreement that was honoured. The plaintiff argued that they had been misled when signing the settlement. The court dismissed the claim in limine: no basis was laid for the misrepresentation claim, and weight must be given to the finality of proceedings and to a settlement agreement that was honoured. The plaintiff was ordered to pay costs of NIS 8,000. The firm represented the defendant. (Herzliya Magistrates' Court, Fast-Track Civil Case 9950-05-25, 25.6.2026)",
