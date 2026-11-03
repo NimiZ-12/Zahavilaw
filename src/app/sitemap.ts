@@ -16,8 +16,9 @@ import { SITE_URL, localePath, navItems } from "@/lib/routes";
  */
 const RELAUNCH = "2026-08-30";
 const PAGE_DATES: Record<string, string> = {
-  // 2026-11-03: the hedge-fund arbitration award added to the rulings group.
+  // 2026-11-03: two new rulings added to the rulings group.
   "/publications/rulings/hedge-fund-arbitration": "2026-11-03",
+  "/publications/rulings/shareholders-claim-dismissed": "2026-11-03",
   // 2026-11-01 entries: the real-estate / commercial launch (wording fixes,
   // the rewritten TAMA 38 answer, Ron Zahavi's profile, the new FAQ links).
   "": "2026-11-01",

@@ -547,6 +547,12 @@ const en: Dictionary = {
         heading: "Court Rulings",
         rulings: [
           {
+            slug: "shareholders-claim-dismissed",
+            title: "Monetary claim between shareholders in joint companies dismissed - Ron Zahavi, Adv.",
+            summary:
+              "A monetary claim of about NIS 1 million (about USD 297,000) filed against the defendant by his former business partner, after the wind-up of a joint fish-feed marketing and distribution venture in Nigeria that operated through jointly owned foreign companies. The plaintiff sought to hold the defendant personally liable for half the value of goods containers, letters of credit, inventory, employee wages, equipment and vehicles, and management fees. The court dismissed the claim in full: under final rulings of the District Court, the parties share equal ownership of companies, the accounting runs between the shareholders and the joint companies rather than between the shareholders personally, and no component of the claim was proven to be a personal debt of the defendant. The plaintiff was ordered to pay costs of NIS 9,000 and legal fees of NIS 30,000. The firm represented the defendant. (Haifa Magistrates' Court, CC 22847-11-21, 28.9.2026)",
+          },
+          {
             slug: "hedge-fund-arbitration",
             title: "Arbitration award in investors' claim against a hedge fund - Ron Zahavi, Adv.",
             summary:
