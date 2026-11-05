@@ -18,6 +18,11 @@ import { noticePeriod } from "./notice-period";
 import { dismissalLetter } from "./dismissal-letter";
 import { coOwnershipDissolution } from "./co-ownership-dissolution";
 import { foundersAgreement } from "./founders-agreement";
+import { beforeBuyingAnApartment } from "./before-buying-an-apartment";
+import { warningNote } from "./warning-note";
+import { capitalGainsSingleApartment } from "./capital-gains-single-apartment";
+import { apartmentDeliveryDelay } from "./apartment-delivery-delay";
+import { constructionDefects } from "./construction-defects";
 
 export type { Article };
 
@@ -32,6 +37,11 @@ export const articles: Article[] = [
   dismissalLetter,
   coOwnershipDissolution,
   foundersAgreement,
+  beforeBuyingAnApartment,
+  warningNote,
+  capitalGainsSingleApartment,
+  apartmentDeliveryDelay,
+  constructionDefects,
 ];
 
 export function getArticle(slug: string): Article | undefined {
