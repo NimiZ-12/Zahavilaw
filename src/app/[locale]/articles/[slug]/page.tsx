@@ -3,7 +3,13 @@ import { notFound } from "next/navigation";
 import { isLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { SITE_URL, localePath } from "@/lib/routes";
-import { articleNode, buildGraph, faqNode, personNode } from "@/lib/schema";
+import {
+  articleNode,
+  buildGraph,
+  faqNode,
+  personNode,
+  videoNode,
+} from "@/lib/schema";
 import { getArticle, articles } from "@/i18n/articles";
 import { articlesHub, articleAreas } from "@/i18n/articles/hub";
 import JsonLd from "@/components/JsonLd";
@@ -103,6 +109,20 @@ export default async function ArticlePage({
         dateModified: article.updated,
       }),
       faqNode("he", path, article.faq),
+      // The embedded video's VideoObject, with the same thumbnail the
+      // visible card shows (5.11 brief). No labor article carries a video
+      // today; this keeps the field working for any future one.
+      ...(article.video
+        ? [
+            videoNode({
+              id: article.video.id,
+              title: article.video.title,
+              uploadDate: article.video.uploadDate,
+              duration: article.video.duration,
+              thumbnailUrl: `https://img.youtube.com/vi/${article.video.id}/hqdefault.jpg`,
+            }),
+          ]
+        : []),
     ],
   });
 

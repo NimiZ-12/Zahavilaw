@@ -21,6 +21,7 @@ import { ArrowIcon } from "@/components/Icons";
 import type { Article } from "@/i18n/articles";
 import { articlesHub, articleAreas } from "@/i18n/articles/hub";
 import LawCheckedNote from "@/components/LawCheckedNote";
+import ArticleVideoCard from "@/components/articles/ArticleVideoCard";
 
 function formatHebrewDate(iso: string): string {
   return new Intl.DateTimeFormat("he-IL", { dateStyle: "long" }).format(
@@ -90,6 +91,10 @@ export default function ArticleView({
                 {article.answer}
               </p>
             </div>
+
+            {/* Optional video card: right after the answer box, before the
+                first section heading (5.11 brief). */}
+            {article.video && <ArticleVideoCard video={article.video} />}
 
             {article.sections.map((s) => (
               <div key={s.q} className="mt-12">

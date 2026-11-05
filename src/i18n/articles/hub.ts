@@ -38,6 +38,15 @@ export const articlesHub = {
   sourcesTitle: "מקורות",
   relatedTitle: "נושאים קשורים",
 
+  /** The click-to-play video card under the answer box (5.11 brief).
+   *  The lead line and the aria prefix are the client-approved wording. */
+  videoCard: {
+    lead: "רוצים את העיקר בדקה? צפו בסרטון",
+    playAriaPrefix: "הפעלת הסרטון: ",
+    seconds: "שניות",
+    minutes: "דקות",
+  },
+
   ask: {
     title: "רוצים לבדוק איפה אתם עומדים?",
     body: "משרד זהבי-פריטי ושות׳ מלווה עובדים ומעסיקים בדיני עבודה. לבירור ראשוני ללא התחייבות:",

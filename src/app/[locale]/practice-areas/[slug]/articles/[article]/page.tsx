@@ -3,7 +3,13 @@ import { notFound } from "next/navigation";
 import { isLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { SITE_URL, localePath } from "@/lib/routes";
-import { buildGraph, personNode, articleNode, faqNode } from "@/lib/schema";
+import {
+  buildGraph,
+  personNode,
+  articleNode,
+  faqNode,
+  videoNode,
+} from "@/lib/schema";
 import { articles, getArticle } from "@/i18n/articles";
 import {
   articlesHub,
@@ -109,6 +115,19 @@ export default async function DepartmentArticlePage({
         dateModified: article.updated,
       }),
       faqNode("he", path, article.faq),
+      // The embedded video's VideoObject, with the same thumbnail the
+      // visible card shows (5.11 brief).
+      ...(article.video
+        ? [
+            videoNode({
+              id: article.video.id,
+              title: article.video.title,
+              uploadDate: article.video.uploadDate,
+              duration: article.video.duration,
+              thumbnailUrl: `https://img.youtube.com/vi/${article.video.id}/hqdefault.jpg`,
+            }),
+          ]
+        : []),
     ],
   });
 

@@ -13,7 +13,7 @@ import type { LpPage } from "./lp-page";
 
 export const lpPropertyTransaction: LpPage = {
   area: "real-estate",
-  updated: "2026-11-01",
+  updated: "2026-11-05",
   lawCheckedAt: "2026-11-01",
   meta: {
     title: "עורך דין מקרקעין לקניית דירה ולמכירת דירה",
@@ -86,6 +86,10 @@ export const lpPropertyTransaction: LpPage = {
       {
         label: "פירוק שיתוף במקרקעין: זכויות, דרכים ועלויות ההליך",
         href: "/he/practice-areas/real-estate/articles/co-ownership-dissolution",
+      },
+      {
+        label: "עורך דין פירוק שיתוף במקרקעין: בהסכמה או בתביעה",
+        href: "/he/lp/co-ownership-dissolution",
       },
       {
         label: "מקרקעין ונדל״ן במשרד",
