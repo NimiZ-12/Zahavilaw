@@ -58,6 +58,7 @@ export const constructionDefects: Article = {
     { q: "האם הקבלן אחראי לליקויי בנייה גם כלפי קונה שרכש את הדירה יד שנייה?", a: "כן. סעיף 4(א) לחוק המכר (דירות), תשל״ג-1973 מטיל על הקבלן אחריות כלפי ״הקונה או קונה המשנה״, וסעיף 1 לחוק מגדיר קונה משנה כמי שרוכש דירה מקונה. עם זאת, התקופות נספרות מהעמדת הדירה לרשות הקונה המקורי, ולכן רוכש המשך נהנה רק מהיתרה שנותרה מתקופות הבדק והאחריות." },
   ],
   related: [
+    { label: "עורך דין ליקויי בנייה ואיחור במסירת דירה מקבלן", href: "/he/lp/contractor-claims" },
     { label: "קניית דירה ומכירת דירה", href: "/he/lp/property-transaction" },
     { label: "איחור במסירת דירה מקבלן: חישוב פיצויים וזכויות", href: "/he/practice-areas/real-estate/articles/apartment-delivery-delay" },
     { label: "עורך דין קניית דירה: הבדיקות לפני חתימת חוזה", href: "/he/practice-areas/real-estate/articles/before-buying-an-apartment" },

@@ -92,6 +92,10 @@ export const lpPropertyTransaction: LpPage = {
         href: "/he/lp/co-ownership-dissolution",
       },
       {
+        label: "עורך דין ליקויי בנייה ואיחור במסירת דירה מקבלן",
+        href: "/he/lp/contractor-claims",
+      },
+      {
         label: "עורך דין קניית דירה: הבדיקות לפני חתימת חוזה",
         href: "/he/practice-areas/real-estate/articles/before-buying-an-apartment",
       },
