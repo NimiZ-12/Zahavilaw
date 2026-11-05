@@ -164,6 +164,7 @@ export function webPageNode({
   name,
   description,
   primaryImage,
+  mainEntity,
 }: {
   locale: Locale;
   path: string;
@@ -173,6 +174,9 @@ export function webPageNode({
   name: string;
   description: string;
   primaryImage?: string;
+  /** The node this page is about, e.g. the Person on a ProfilePage.
+   *  Search Console treats a ProfilePage without it as an error. */
+  mainEntity?: { "@id": string };
 }): JsonLdNode {
   return clean({
     "@type": type,
@@ -181,6 +185,7 @@ export function webPageNode({
     url: absoluteUrl(locale, path),
     name,
     description,
+    mainEntity,
     isPartOf: { "@id": ID.website },
     about: { "@id": ID.organization },
     publisher: { "@id": ID.organization },
@@ -431,6 +436,7 @@ export function buildGraph({
   name,
   description,
   primaryImage,
+  mainEntity,
   trail = [],
   nodes = [],
 }: {
@@ -443,13 +449,24 @@ export function buildGraph({
   name: string;
   description: string;
   primaryImage?: string;
+  /** The node this page is about, e.g. the Person on a ProfilePage. */
+  mainEntity?: { "@id": string };
   trail?: { name: string; path: string }[];
   nodes?: JsonLdNode[];
 }) {
   const graph: JsonLdNode[] = [
     organizationNode(locale, dict),
     websiteNode(locale, dict),
-    webPageNode({ locale, path, type: pageType, lastReviewed, name, description, primaryImage }),
+    webPageNode({
+      locale,
+      path,
+      type: pageType,
+      lastReviewed,
+      name,
+      description,
+      primaryImage,
+      mainEntity,
+    }),
   ];
 
   if (path !== "/") {
