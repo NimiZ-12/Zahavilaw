@@ -6,7 +6,7 @@ import { isLocale, locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { SITE_URL, localePath } from "@/lib/routes";
 import { pageMetadata } from "@/lib/metadata";
-import { buildGraph, personNode } from "@/lib/schema";
+import { buildGraph, personNode, ID } from "@/lib/schema";
 import JsonLd from "@/components/JsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { practiceAreaIcons } from "@/lib/practice-icons";
@@ -72,6 +72,9 @@ export default async function TeamMemberPage({
     dict,
     path,
     pageType: "ProfilePage",
+    // Search Console requires a ProfilePage to name its subject; this points
+    // at the same Person node the graph already carries.
+    mainEntity: { "@id": ID.person(member.slug) },
     name: `${member.name} - ${member.role}`,
     description: member.bio,
     primaryImage: `${SITE_URL}/team/${slug}.webp`,
