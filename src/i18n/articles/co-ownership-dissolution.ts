@@ -18,6 +18,14 @@ export const coOwnershipDissolution: Article = {
   published: "2026-11-01",
   lawCheckedAt: "2026-11-01",
   updated: "2026-11-01",
+  // The firm's own YouTube video, shown as a click-to-play card under the
+  // answer box (5.11 brief); also listed on the publications page.
+  video: {
+    id: "PbHMB57A9ac",
+    title: "מקרקעין - פירוק שיתוף במקרקעין",
+    duration: "PT53S",
+    uploadDate: "2026-11-02T14:00:00+02:00",
+  },
   sections: [
     {
       q: "האם שותף יכול לדרוש פירוק שיתוף במקרקעין גם כשהשותפים האחרים מתנגדים?",

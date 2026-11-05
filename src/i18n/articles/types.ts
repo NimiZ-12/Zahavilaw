@@ -41,6 +41,10 @@ export type Article = {
   lawCheckedAt?: string;
   /** ISO date (YYYY-MM-DD); feeds the sitemap and the visible byline. */
   updated: string;
+  /** Optional click-to-play video card, rendered right after the answer box
+   *  and emitted as a VideoObject node (5.11 brief). `duration` is ISO 8601
+   *  ("PT53S"); `uploadDate` is a full ISO timestamp with offset. */
+  video?: { id: string; title: string; duration: string; uploadDate: string };
   sections: {
     /** Subheading phrased as a question. */
     q: string;

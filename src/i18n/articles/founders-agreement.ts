@@ -63,6 +63,7 @@ export const foundersAgreement: Article = {
     { q: "מה ההבדל בין זכות Drag-Along לבין Tag-Along?", a: "זכות הצטרפות למכירה (Tag-Along) מגנה על בעלי מניות המיעוט, ומאפשרת להם להצטרף למכירת מניות של בעל השליטה. זכות גרירה למכירה (Drag-Along) מאפשרת לרוב לחייב את המיעוט למכור את מניותיו בעסקה למכירת החברה כולה." },
   ],
   related: [
+    { label: "עורך דין מסחרי: חוזים, חברות וסכסוכים עסקיים", href: "/he/lp/commercial-lawyer" },
     { label: "מסחרי ודיני חברות במשרד", href: "/he/practice-areas/commercial" },
     { label: "עו״ד רון זהבי", href: "/he/team/ron-zahavi" },
   ],

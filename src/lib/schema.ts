@@ -302,6 +302,10 @@ export function videoNode(video: {
   title: string;
   date?: string;
   uploadDate?: string;
+  /** ISO 8601 duration, e.g. "PT53S". */
+  duration?: string;
+  /** Override when the page's visible thumbnail uses a different host. */
+  thumbnailUrl?: string;
   /** Outlet that produced the video, for interviews filmed by someone else. */
   credit?: string;
 }): JsonLdNode {
@@ -309,8 +313,10 @@ export function videoNode(video: {
     "@type": "VideoObject",
     name: video.title,
     description: video.title,
-    thumbnailUrl: `https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`,
+    thumbnailUrl:
+      video.thumbnailUrl ?? `https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`,
     uploadDate: video.uploadDate,
+    duration: video.duration,
     embedUrl: `https://www.youtube-nocookie.com/embed/${video.id}`,
     contentUrl: `https://www.youtube.com/watch?v=${video.id}`,
     // Claiming the firm as publisher of a third party's interview would be
