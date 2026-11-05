@@ -33,6 +33,8 @@ const HEBREW_ONLY_PATHS = new Set([
   "/he/lp/property-transaction",
   "/he/lp/commercial-lawyer",
   "/he/lp/co-ownership-dissolution",
+  "/he/lp/contractor-claims",
+  "/he/lp/urban-renewal",
 ]);
 /** The articles sections are Hebrew-only as a whole, so they are matched by
  *  prefix rather than listing every slug here. */
