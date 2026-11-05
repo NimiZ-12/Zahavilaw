@@ -88,6 +88,7 @@ export const coOwnershipDissolution: Article = {
     { q: "מה ההבדל בין חלוקה בעין לבין מכירה?", a: "חלוקה בעין היא חלוקה פיזית של המקרקעין לחלקים נפרדים, שנרשמים על שם כל שותף (סעיף 39 לחוק). מכירה היא מכירת הנכס בשלמותו וחלוקת הפדיון בין השותפים (סעיף 40 לחוק)." },
   ],
   related: [
+    { label: "עורך דין פירוק שיתוף במקרקעין: בהסכמה או בתביעה", href: "/he/lp/co-ownership-dissolution" },
     { label: "מקרקעין ונדל״ן במשרד", href: "/he/practice-areas/real-estate" },
     { label: "עו״ד רון זהבי", href: "/he/team/ron-zahavi" },
   ],
