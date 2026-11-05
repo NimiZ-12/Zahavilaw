@@ -64,6 +64,9 @@ export const foundersAgreement: Article = {
   ],
   related: [
     { label: "עורך דין מסחרי: חוזים, חברות וסכסוכים עסקיים", href: "/he/lp/commercial-lawyer" },
+    { label: "פירוק שותפות עסקית: סכסוך שותפים, היפרדות ומנגנונים", href: "/he/practice-areas/commercial/articles/partner-dispute" },
+    { label: "קיפוח בעלי מניות מיעוט בחברה: סעדים, זכויות ותביעות", href: "/he/practice-areas/commercial/articles/minority-shareholder-oppression" },
+    { label: "הקמת חברה בע״מ: שלבי רישום, מסמכים ותקנון חברה", href: "/he/practice-areas/commercial/articles/company-formation" },
     { label: "מסחרי ודיני חברות במשרד", href: "/he/practice-areas/commercial" },
     { label: "עו״ד רון זהבי", href: "/he/team/ron-zahavi" },
   ],

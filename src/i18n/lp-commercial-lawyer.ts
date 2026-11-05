@@ -13,7 +13,7 @@ import type { LpPage } from "./lp-page";
 
 export const lpCommercialLawyer: LpPage = {
   area: "commercial",
-  updated: "2026-11-01",
+  updated: "2026-11-06",
   lawCheckedAt: "2026-11-01",
   meta: {
     title: "עורך דין מסחרי: חוזים, חברות וסכסוכים עסקיים",
@@ -81,6 +81,30 @@ export const lpCommercialLawyer: LpPage = {
       {
         label: "הסכם מייסדים: הסעיפים המרכזיים, הבשלת מניות ומנגנוני הגנה",
         href: "/he/practice-areas/commercial/articles/founders-agreement",
+      },
+      {
+        label: "חוק החוזים תרופות: סעדים בשל הפרת חוזה עסקי",
+        href: "/he/practice-areas/commercial/articles/breach-of-contract-remedies",
+      },
+      {
+        label: "פירוק שותפות עסקית: סכסוך שותפים, היפרדות ומנגנונים",
+        href: "/he/practice-areas/commercial/articles/partner-dispute",
+      },
+      {
+        label: "קיפוח בעלי מניות מיעוט בחברה: סעדים, זכויות ותביעות",
+        href: "/he/practice-areas/commercial/articles/minority-shareholder-oppression",
+      },
+      {
+        label: "מכתב התראה לפני תביעה: רכיבים, משמעות ותשובה",
+        href: "/he/practice-areas/commercial/articles/warning-letter-before-lawsuit",
+      },
+      {
+        label: "גביית חובות מלקוחות עסקיים: צעדים, הוצאה לפועל ובטוחות",
+        href: "/he/practice-areas/commercial/articles/business-debt-collection",
+      },
+      {
+        label: "הקמת חברה בע״מ: שלבי רישום, מסמכים ותקנון חברה",
+        href: "/he/practice-areas/commercial/articles/company-formation",
       },
       {
         label: "מסחרי ודיני חברות במשרד",

@@ -13,7 +13,7 @@ import type { LpPage } from "./lp-page";
 
 export const lpPropertyTransaction: LpPage = {
   area: "real-estate",
-  updated: "2026-11-05",
+  updated: "2026-11-06",
   lawCheckedAt: "2026-11-01",
   meta: {
     title: "עורך דין מקרקעין לקניית דירה ולמכירת דירה",
@@ -90,6 +90,26 @@ export const lpPropertyTransaction: LpPage = {
       {
         label: "עורך דין פירוק שיתוף במקרקעין: בהסכמה או בתביעה",
         href: "/he/lp/co-ownership-dissolution",
+      },
+      {
+        label: "עורך דין קניית דירה: הבדיקות לפני חתימת חוזה",
+        href: "/he/practice-areas/real-estate/articles/before-buying-an-apartment",
+      },
+      {
+        label: "הערת אזהרה בטאבו: הגנה על קונה, רישום וביטול",
+        href: "/he/practice-areas/real-estate/articles/warning-note",
+      },
+      {
+        label: "איחור במסירת דירה מקבלן: חישוב פיצויים וזכויות",
+        href: "/he/practice-areas/real-estate/articles/apartment-delivery-delay",
+      },
+      {
+        label: "ליקויי בנייה בדירה חדשה: אחריות קבלן, בדק ותביעות",
+        href: "/he/practice-areas/real-estate/articles/construction-defects",
+      },
+      {
+        label: "מס שבח דירה יחידה: תנאי פטור, חזקות ודיווח",
+        href: "/he/practice-areas/real-estate/articles/capital-gains-single-apartment",
       },
       {
         label: "מקרקעין ונדל״ן במשרד",

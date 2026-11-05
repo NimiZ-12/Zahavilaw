@@ -18,6 +18,23 @@ import { noticePeriod } from "./notice-period";
 import { dismissalLetter } from "./dismissal-letter";
 import { coOwnershipDissolution } from "./co-ownership-dissolution";
 import { foundersAgreement } from "./founders-agreement";
+import { apartmentDeliveryDelay } from "./apartment-delivery-delay";
+import { constructionDefects } from "./construction-defects";
+import { beforeBuyingAnApartment } from "./before-buying-an-apartment";
+import { warningNote } from "./warning-note";
+import { capitalGainsSingleApartment } from "./capital-gains-single-apartment";
+import { tenantEviction } from "./tenant-eviction";
+import { urbanRenewalTenants } from "./urban-renewal-tenants";
+import { tama38AfterExpiry } from "./tama-38-after-expiry";
+import { farmPlotCapitalization } from "./farm-plot-capitalization";
+import { breachOfContractRemedies } from "./breach-of-contract-remedies";
+import { warningLetterBeforeLawsuit } from "./warning-letter-before-lawsuit";
+import { partnerDispute } from "./partner-dispute";
+import { minorityShareholderOppression } from "./minority-shareholder-oppression";
+import { piercingTheCorporateVeil } from "./piercing-the-corporate-veil";
+import { businessDebtCollection } from "./business-debt-collection";
+import { companyFormation } from "./company-formation";
+import { securityForCostsCompany } from "./security-for-costs-company";
 
 export type { Article };
 
@@ -32,6 +49,23 @@ export const articles: Article[] = [
   dismissalLetter,
   coOwnershipDissolution,
   foundersAgreement,
+  apartmentDeliveryDelay,
+  constructionDefects,
+  beforeBuyingAnApartment,
+  warningNote,
+  capitalGainsSingleApartment,
+  tenantEviction,
+  urbanRenewalTenants,
+  tama38AfterExpiry,
+  farmPlotCapitalization,
+  breachOfContractRemedies,
+  warningLetterBeforeLawsuit,
+  partnerDispute,
+  minorityShareholderOppression,
+  piercingTheCorporateVeil,
+  businessDebtCollection,
+  companyFormation,
+  securityForCostsCompany,
 ];
 
 export function getArticle(slug: string): Article | undefined {
