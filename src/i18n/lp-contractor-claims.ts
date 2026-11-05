@@ -16,6 +16,15 @@ export const lpContractorClaims: LpPage = {
   area: "real-estate",
   updated: "2026-11-06",
   lawCheckedAt: "2026-11-05",
+  // The firm's own YouTube video, shown as a click-to-play card at the top
+  // of the main column; also on the delivery-delay article and the
+  // publications page.
+  video: {
+    id: "H2j2rsOj4So",
+    title: "מקרקעין - איחור במסירת דירה",
+    duration: "PT1M",
+    uploadDate: "2026-11-06T00:01:02+02:00",
+  },
   meta: {
     title: "עורך דין ליקויי בנייה ואיחור במסירת דירה מקבלן",
     description: "קיבלתם דירה מקבלן עם ליקויים, או שהמסירה מתעכבת? מה הקבלן חייב לתקן, איזה פיצוי מגיע על איחור, ומה עושים כשהקבלן לא מתקן.",

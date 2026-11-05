@@ -22,6 +22,7 @@ import {
 } from "@/components/lp/shared";
 import type { LpPage } from "@/i18n/lp-page";
 import LawCheckedNote from "@/components/LawCheckedNote";
+import ArticleVideoCard from "@/components/articles/ArticleVideoCard";
 import Link from "next/link";
 import { ArrowIcon } from "@/components/Icons";
 
@@ -60,6 +61,12 @@ export default function CampaignLanding({
       <section className="section">
         <div className="container-x grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-8">
+            {/* Optional click-to-play video card: top of the main column,
+                right after the hero and before the first section. Same
+                component and behavior as the article card. */}
+            {content.video && (
+              <ArticleVideoCard video={content.video} className="mb-14" />
+            )}
             {content.sections.map((s, i) => (
               <div key={s.title} className={i === 0 ? undefined : "mt-14"}>
                 {s.eyebrow && <Eyebrow>{s.eyebrow}</Eyebrow>}

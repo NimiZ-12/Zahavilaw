@@ -34,6 +34,10 @@ export interface PracticeArea {
   description: string;
   points: string[];
   faq?: FaqItem[];
+  /** Cross-links to the area's campaign landing pages, rendered between
+   *  the FAQ and the articles list. Hebrew only: the landing pages have
+   *  no English versions, so the English items leave it unset. */
+  related?: { label: string; href: string }[];
   /** ISO date the page's legal content was last checked against current
    *  law. Set ONLY after an actual review; rendered by LawCheckedNote and
    *  verified by the site suite. Absent = the page has fixes pending. */
@@ -190,6 +194,8 @@ export interface Dictionary {
     inThisArea: string;
     faqTitle: string;
     needHelp: string;
+    /** Lead line of the related-links box ("מידע נוסף שעשוי להיות רלוונטי:"). */
+    relatedIntro: string;
     items: PracticeArea[];
   };
   about: {

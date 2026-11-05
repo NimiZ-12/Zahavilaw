@@ -114,6 +114,7 @@ const he: Dictionary = {
     inThisArea: "מה אנחנו עושים בתחום זה",
     faqTitle: "שאלות נפוצות",
     needHelp: "זקוקים לייעוץ בתחום זה?",
+    relatedIntro: "מידע נוסף שעשוי להיות רלוונטי:",
     items: [
       {
         slug: "litigation",
@@ -232,6 +233,13 @@ const he: Dictionary = {
             a: "כל שותף במקרקעין משותפים זכאי לדרוש בכל עת את פירוק השיתוף, גם כשהשותפים האחרים מתנגדים (סעיף 37(א) לחוק המקרקעין). אם אין הסכמה, בית המשפט מורה על חלוקה בעין כשהנכס ניתן לחלוקה. אם לא, הוא מורה על מכירה וחלוקת הכסף, או על רישום הבית כבית משותף. במאמר מוסבר איך זה עובד, מה קורה בין אחים, ומה העלויות.",
             href: "/he/practice-areas/real-estate/articles/co-ownership-dissolution",
           },
+        ],
+        // Cross-links to the area's campaign landing pages (6.11 brief);
+        // worded as the approved landing-page titles.
+        related: [
+          { label: "עורך דין ליקויי בנייה ואיחור במסירת דירה מקבלן", href: "/he/lp/contractor-claims" },
+          { label: "עורך דין פינוי בינוי: ייצוג בעלי הדירות מול היזם", href: "/he/lp/urban-renewal" },
+          { label: "עורך דין פירוק שיתוף במקרקעין: בהסכמה או בתביעה", href: "/he/lp/co-ownership-dissolution" },
         ],
       },
       {
@@ -523,6 +531,11 @@ const he: Dictionary = {
         // The firm's own video series (date, no credit). Default home for a
         // new video the client sends.
         videos: [
+          {
+            id: "H2j2rsOj4So",
+            title: "מקרקעין - איחור במסירת דירה",
+            date: "נובמבר 2026",
+          },
           {
             id: "PbHMB57A9ac",
             title: "מקרקעין - פירוק שיתוף במקרקעין",

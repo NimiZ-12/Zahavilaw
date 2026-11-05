@@ -158,6 +158,29 @@ export default async function PracticeAreaPage({
                 </div>
               </section>
             )}
+            {/* Cross-links to the area's campaign landing pages - same lead
+                line and box design as the related block on the landing pages
+                themselves. Hebrew only (the field is unset in English). */}
+            {area.related && area.related.length > 0 && (
+              <div className="mt-12 rounded-xl border border-gold/30 bg-gold-soft p-6">
+                <p className="font-semibold text-navy">
+                  {practiceAreas.relatedIntro}
+                </p>
+                <ul className="mt-2 space-y-1.5">
+                  {area.related.map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className="inline-flex items-center gap-1.5 text-sm font-semibold text-navy underline underline-offset-2 hover:text-gold-600"
+                      >
+                        {link.label}
+                        <ArrowIcon className="h-4 w-4 rtl:-scale-x-100" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
             {/* The area's articles, Hebrew only, rendered on every practice
                 area that has published articles (up to 6). Same linked-entry
                 principle as the FAQ items above - no redesign of the page. */}
