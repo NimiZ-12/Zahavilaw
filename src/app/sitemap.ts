@@ -17,6 +17,11 @@ import { isHebrewOnlyPath } from "@/lib/hebrew-only";
  */
 const RELAUNCH = "2026-08-30";
 const PAGE_DATES: Record<string, string> = {
+  // 2026-11-06: the "related information" boxes added to the three
+  // practice-area pages (6.11 brief, new article departments round).
+  "/practice-areas/family-law": "2026-11-06",
+  "/practice-areas/litigation": "2026-11-06",
+  "/practice-areas/wills-estates": "2026-11-06",
   // 2026-11-03: two new rulings added to the rulings group.
   "/publications/rulings/hedge-fund-arbitration": "2026-11-03",
   "/publications/rulings/shareholders-claim-dismissed": "2026-11-03",
@@ -31,9 +36,6 @@ const PAGE_DATES: Record<string, string> = {
   "/about": "2026-10-19",
   "/publications": "2026-11-03",
   "/practice-areas/labor-law": "2026-10-19",
-  "/practice-areas/family-law": "2026-10-19",
-  "/practice-areas/litigation": "2026-10-19",
-  "/practice-areas/wills-estates": "2026-10-19",
   "/faq": "2026-10-19",
   "/privacy": "2026-10-19",
   "/accessibility": "2026-10-19",
@@ -153,7 +155,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       entries.push(hebrewOnlyEntry(`/articles/${g.slug}`, g.updated, 0.7));
     }
   }
-  for (const dept of ["real-estate", "commercial"] as const) {
+  for (const dept of [
+    "real-estate",
+    "commercial",
+    "wills-estates",
+    "family-law",
+    "litigation",
+  ] as const) {
     const deptArticles = articles.filter((g) => g.area === dept);
     if (deptArticles.length === 0) continue;
     const base = `/practice-areas/${dept}/articles`;

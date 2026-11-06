@@ -43,10 +43,7 @@ function isHebrewOnly(pathname) {
     HEBREW_ONLY_PATHS.has(pathname) ||
     pathname === "/he/articles" ||
     pathname.startsWith("/he/articles/") ||
-    pathname === "/he/practice-areas/real-estate/articles" ||
-    pathname.startsWith("/he/practice-areas/real-estate/articles/") ||
-    pathname === "/he/practice-areas/commercial/articles" ||
-    pathname.startsWith("/he/practice-areas/commercial/articles/")
+    /^\/he\/practice-areas\/[^/]+\/articles(\/[^/]+)?$/.test(pathname)
   );
 }
 

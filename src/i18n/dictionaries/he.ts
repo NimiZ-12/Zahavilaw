@@ -151,6 +151,14 @@ const he: Dictionary = {
             a: "כן, ככלל. חוזה בעל פה מחייב כמו חוזה כתוב, אלא אם החוק או הסכם בין הצדדים קובעים צורה מסוימת כתנאי לתוקפו - למשל, התחייבות לעשות עסקה במקרקעין טעונה מסמך בכתב. בכל מקרה קשה יותר להוכיח את תנאיו של חוזה בעל פה, ובית המשפט יבחן ראיות כגון התכתבויות, עדויות ותשלומים.",
           },
         ],
+        // Cross-links to existing pages (6.11 brief, new article
+        // departments); every label is an existing approved title.
+        related: [
+          { label: "תביעת דיבה - לשון הרע - עו״ד רון זהבי", href: "/he/publications/rulings/defamation" },
+          { label: "פסק בוררות בתביעת משקיעים בקרן גידור - עו״ד רון זהבי", href: "/he/publications/rulings/hedge-fund-arbitration" },
+          { label: "מכתב התראה לפני תביעה: רכיבים, משמעות ותשובה", href: "/he/practice-areas/commercial/articles/warning-letter-before-lawsuit" },
+          { label: "גביית חובות מלקוחות עסקיים: צעדים, הוצאה לפועל ובטוחות", href: "/he/practice-areas/commercial/articles/business-debt-collection" },
+        ],
       },
       {
         slug: "labor-law",
@@ -307,6 +315,12 @@ const he: Dictionary = {
             a: "בתיקים פשוטים - לרוב מספר חודשים מהגשת הבקשה לרשם לענייני ירושה. כאשר יש מחלוקות בין יורשים, או כאשר מוגשת התנגדות לצוואה, ההליך עלול להימשך שנים. פנייה מוקדמת לעורך דין מאפשרת לייעל את התהליך.",
           },
         ],
+        // Cross-links to existing pages (6.11 brief, new article
+        // departments); every label is an existing approved title.
+        related: [
+          { label: "עורך דין פירוק שיתוף במקרקעין: בהסכמה או בתביעה", href: "/he/lp/co-ownership-dissolution" },
+          { label: "פירוק שיתוף במקרקעין: זכויות שותפים, דרכים ועלויות", href: "/he/practice-areas/real-estate/articles/co-ownership-dissolution" },
+        ],
       },
       {
         slug: "family-law",
@@ -338,6 +352,11 @@ const he: Dictionary = {
             q: "מה ניתן לקבוע בהסכם ממון?",
             a: "כמעט כל היבט כלכלי של הנישואין: הפרדת רכוש, הסדרי מזונות במקרה של פרידה, חלוקת נכסים ספציפיים, זכויות פנסיוניות ועוד. הסכם ממון יכול להיערך לפני הנישואין ובמהלכם, ומעניק לשני הצדדים ודאות וביטחון.",
           },
+        ],
+        // Cross-links to existing pages (6.11 brief, new article
+        // departments); every label is an existing approved title.
+        related: [
+          { label: "פירוק שיתוף במקרקעין: זכויות שותפים, דרכים ועלויות", href: "/he/practice-areas/real-estate/articles/co-ownership-dissolution" },
         ],
       },
     ],

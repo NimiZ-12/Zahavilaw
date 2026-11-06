@@ -160,6 +160,9 @@ export async function GET() {
     "labor-law": "## Labor-law articles (Hebrew)",
     "real-estate": "## Real-estate articles (Hebrew)",
     commercial: "## Commercial and corporate law articles (Hebrew)",
+    "wills-estates": "## Wills and estates articles (Hebrew)",
+    "family-law": "## Family law articles (Hebrew)",
+    litigation: "## Civil and commercial litigation articles (Hebrew)",
   };
   for (const [areaKey, heading] of Object.entries(articleAreaHeadings)) {
     const areaArticles = articles.filter((g) => g.area === areaKey);
