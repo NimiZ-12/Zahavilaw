@@ -35,8 +35,6 @@ import { piercingTheCorporateVeil } from "./piercing-the-corporate-veil";
 import { businessDebtCollection } from "./business-debt-collection";
 import { companyFormation } from "./company-formation";
 import { securityForCostsCompany } from "./security-for-costs-company";
-// TEMPORARY smoke-test rows - staging only, removed before merge.
-import { smokeWills, smokeFamily, smokeLitigation } from "./_smoke-test";
 
 export type { Article };
 
@@ -68,10 +66,6 @@ export const articles: Article[] = [
   businessDebtCollection,
   companyFormation,
   securityForCostsCompany,
-  // TEMPORARY smoke-test rows - staging only, removed before merge.
-  smokeWills,
-  smokeFamily,
-  smokeLitigation,
 ];
 
 export function getArticle(slug: string): Article | undefined {
