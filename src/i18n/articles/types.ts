@@ -15,7 +15,13 @@
 
 /** Practice areas the articles section covers; drives the kicker label,
  *  breadcrumbs, the hub's per-area sections and the contact box wording. */
-export type ArticleArea = "labor-law" | "real-estate" | "commercial";
+export type ArticleArea =
+  | "labor-law"
+  | "real-estate"
+  | "commercial"
+  | "wills-estates"
+  | "family-law"
+  | "litigation";
 
 export type Article = {
   /** URL segment under /he/articles/. Permanent: never change after publish. */
