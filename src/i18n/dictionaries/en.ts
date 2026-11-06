@@ -114,6 +114,9 @@ const en: Dictionary = {
     inThisArea: "What we do in this area",
     faqTitle: "Frequently Asked Questions",
     needHelp: "Need advice in this area?",
+    // Rendered only when an area carries `related` links; the landing
+    // pages are Hebrew-only, so no English area sets them.
+    relatedIntro: "More information that may be relevant:",
     items: [
       {
         slug: "litigation",
@@ -510,6 +513,11 @@ const en: Dictionary = {
         // The firm's own video series (date, no credit). Default home for a
         // new video the client sends.
         videos: [
+          {
+            id: "H2j2rsOj4So",
+            title: "Real Estate - Late Delivery of a New Apartment",
+            date: "November 2026",
+          },
           {
             id: "PbHMB57A9ac",
             title: "Real Estate - Dissolution of Co-Ownership",

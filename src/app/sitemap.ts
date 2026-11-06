@@ -4,6 +4,7 @@ import { getDictionary } from "@/i18n/dictionaries";
 import { landingPages } from "@/i18n/lp-registry";
 import { articles } from "@/i18n/articles";
 import { SITE_URL, localePath, navItems } from "@/lib/routes";
+import { isHebrewOnlyPath } from "@/lib/hebrew-only";
 
 /**
  * Real last-modified dates per locale-less path. A sitemap in which every
@@ -84,6 +85,14 @@ function hebrewOnlyEntry(
   updated: string,
   priority: number,
 ): MetadataRoute.Sitemap[number] {
+  // The language switcher sends these pages' English link to /en based on
+  // the same patterns; failing the build here keeps the two in step when a
+  // new Hebrew-only path family is added.
+  if (!isHebrewOnlyPath(path)) {
+    throw new Error(
+      `hebrewOnlyEntry("${path}") is not covered by HEBREW_ONLY_PATTERNS in src/lib/hebrew-only.ts - add the new path family there first.`,
+    );
+  }
   return {
     url: `${SITE_URL}${localePath("he", path)}`,
     lastModified: new Date(`${updated}T00:00:00Z`),

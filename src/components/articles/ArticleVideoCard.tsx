@@ -31,15 +31,20 @@ function displayDuration(iso: string): string {
 
 export default function ArticleVideoCard({
   video,
+  className = "mt-6",
 }: {
   video: { id: string; title: string; duration: string };
+  /** Outer margin; articles keep the default, landing pages pass their own. */
+  className?: string;
 }) {
   const [playing, setPlaying] = useState(false);
   const name = displayName(video.title);
 
   if (playing) {
     return (
-      <div className="mt-6 overflow-hidden rounded-xl border border-gold/30 bg-navy">
+      <div
+        className={`${className} overflow-hidden rounded-xl border border-gold/30 bg-navy`}
+      >
         <iframe
           src={`https://www.youtube-nocookie.com/embed/${video.id}?autoplay=1`}
           title={video.title}
@@ -56,7 +61,7 @@ export default function ArticleVideoCard({
       type="button"
       onClick={() => setPlaying(true)}
       aria-label={`${articlesHub.videoCard.playAriaPrefix}${name}`}
-      className="group mt-6 flex w-full items-center gap-4 rounded-xl border border-gold/30 bg-white p-3 text-start transition-all hover:border-gold/60 hover:shadow-sm sm:gap-5 sm:p-4"
+      className={`group ${className} flex w-full items-center gap-4 rounded-xl border border-gold/30 bg-white p-3 text-start transition-all hover:border-gold/60 hover:shadow-sm sm:gap-5 sm:p-4`}
     >
       <span className="relative block w-[150px] shrink-0 overflow-hidden rounded-lg bg-navy">
         {/* Raw <img>, like VideoCard: a YouTube thumbnail gains nothing from

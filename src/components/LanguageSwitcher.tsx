@@ -3,12 +3,20 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { locales, localeLabel, type Locale } from "@/i18n/config";
+import { isHebrewOnlyPath } from "@/lib/hebrew-only";
 
-/** Swaps the locale segment of the current path while keeping the page. */
+/** Swaps the locale segment of the current path while keeping the page.
+ *  Pages that exist in Hebrew only have no counterpart to swap to, so
+ *  their non-Hebrew link goes to that locale's homepage instead of a URL
+ *  that would answer 404. */
 function swapLocale(pathname: string, target: Locale): string {
   const segments = pathname.split("/");
   // segments[0] is "" (leading slash), segments[1] is the current locale.
   if (segments.length > 1 && (locales as readonly string[]).includes(segments[1])) {
+    const rest = segments.length > 2 ? `/${segments.slice(2).join("/")}` : "";
+    if (target !== "he" && isHebrewOnlyPath(rest)) {
+      return `/${target}`;
+    }
     segments[1] = target;
     return segments.join("/") || "/";
   }

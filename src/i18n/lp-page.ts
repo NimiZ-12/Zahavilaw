@@ -34,6 +34,10 @@ export type LpPage = {
    *  law. Set ONLY after an actual review; rendered by LawCheckedNote and
    *  verified by the site suite. Absent = the page has fixes pending. */
   lawCheckedAt?: string;
+  /** Optional click-to-play video card at the top of the main column,
+   *  same shape and component as Article.video; also emitted as a
+   *  VideoObject node by the page's route. */
+  video?: { id: string; title: string; duration: string; uploadDate: string };
   breadcrumb: { area: string; areaPath: string; current: string };
   hero: { title: string; lead: string };
   sections: LpSection[];

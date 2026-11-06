@@ -18,6 +18,15 @@ export const apartmentDeliveryDelay: Article = {
   published: "2026-11-06",
   lawCheckedAt: "2026-11-05",
   updated: "2026-11-06",
+  // The firm's own YouTube video, shown as a click-to-play card under the
+  // answer box; also listed on the publications page and on the
+  // contractor-claims landing page.
+  video: {
+    id: "H2j2rsOj4So",
+    title: "מקרקעין - איחור במסירת דירה",
+    duration: "PT1M",
+    uploadDate: "2026-11-06T00:01:02+02:00",
+  },
   sections: [
     {
       q: "מה החוק קובע על איחור במסירת דירה מקבלן וממתי הפיצוי נספר?",

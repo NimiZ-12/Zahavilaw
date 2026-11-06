@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { isLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { SITE_URL, localePath } from "@/lib/routes";
-import { buildGraph, faqNode, serviceNode } from "@/lib/schema";
+import { buildGraph, faqNode, serviceNode, videoNode } from "@/lib/schema";
 import { lpContractorClaims } from "@/i18n/lp-contractor-claims";
 import JsonLd from "@/components/JsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -94,6 +94,19 @@ export default async function ContractorClaimsPage({
     nodes: [
       ...(area ? [serviceNode("he", area, dict)] : []),
       faqNode("he", PATH, content.faq),
+      // The embedded video's VideoObject, with the same thumbnail the
+      // visible card shows - same pattern as the article pages.
+      ...(content.video
+        ? [
+            videoNode({
+              id: content.video.id,
+              title: content.video.title,
+              uploadDate: content.video.uploadDate,
+              duration: content.video.duration,
+              thumbnailUrl: `https://img.youtube.com/vi/${content.video.id}/hqdefault.jpg`,
+            }),
+          ]
+        : []),
     ],
   });
 
