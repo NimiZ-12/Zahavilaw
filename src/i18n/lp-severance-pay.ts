@@ -15,7 +15,7 @@ import type { LpPage } from "./lp-page";
 
 export const lpSeverancePay: LpPage = {
   area: "labor-law",
-  updated: "2026-10-19",
+  updated: "2026-11-07",
   lawCheckedAt: "2026-10-19",
   meta: {
     title: "פיצויי פיטורים - מתי הם מגיעים ואיך בודקים את הסכום",
@@ -80,6 +80,14 @@ export const lpSeverancePay: LpPage = {
       {
         label: "התפטרות בדין מפוטר",
         href: "/he/articles/resignation-as-dismissal",
+      },
+      {
+        label: "פיצויים לעובד שפוטר: מה מגיע לכם",
+        href: "/he/articles/rights-after-dismissal",
+      },
+      {
+        label: "הודעה מוקדמת: כמה ימים לפי החוק",
+        href: "/he/articles/notice-period",
       },
     ],
   },

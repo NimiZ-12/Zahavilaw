@@ -14,7 +14,7 @@ import type { LpPage } from "./lp-page";
 
 export const lpHearing: LpPage = {
   area: "labor-law",
-  updated: "2026-10-12",
+  updated: "2026-11-07",
   lawCheckedAt: "2026-10-19",
   meta: {
     title: "שימוע לפני פיטורים - מה הזכויות שלכם בהליך",
@@ -84,6 +84,14 @@ export const lpHearing: LpPage = {
       {
         label: "כמה זמן אחרי שימוע אפשר לפטר",
         href: "/he/articles/hearing-timeline-and-documents",
+      },
+      {
+        label: "מכתב פיטורין: מה חייב להופיע בו",
+        href: "/he/articles/dismissal-letter",
+      },
+      {
+        label: "פיצויים לעובד שפוטר: מה מגיע לכם",
+        href: "/he/articles/rights-after-dismissal",
       },
     ],
   },

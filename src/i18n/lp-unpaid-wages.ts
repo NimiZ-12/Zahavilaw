@@ -14,7 +14,7 @@ import type { LpPage } from "./lp-page";
 
 export const lpUnpaidWages: LpPage = {
   area: "labor-law",
-  updated: "2026-10-19",
+  updated: "2026-11-07",
   lawCheckedAt: "2026-10-19",
   meta: {
     title: "הלנת שכר - מה הדין כשהמשכורת לא משולמת במועד",
@@ -73,6 +73,10 @@ export const lpUnpaidWages: LpPage = {
       {
         label: "התפטרות בדין מפוטר",
         href: "/he/articles/resignation-as-dismissal",
+      },
+      {
+        label: "פיצויים לעובד שפוטר: מה מגיע לכם",
+        href: "/he/articles/rights-after-dismissal",
       },
     ],
   },

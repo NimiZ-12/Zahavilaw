@@ -17,7 +17,7 @@ import type { LpPage } from "./lp-page";
 
 export const lpCoOwnershipDissolution: LpPage = {
   area: "real-estate",
-  updated: "2026-11-05",
+  updated: "2026-11-07",
   lawCheckedAt: "2026-11-05",
   meta: {
     title: "עורך דין פירוק שיתוף במקרקעין: בהסכמה או בתביעה",
@@ -98,6 +98,14 @@ export const lpCoOwnershipDissolution: LpPage = {
       {
         label: "מקרקעין ונדל״ן במשרד",
         href: "/he/practice-areas/real-estate",
+      },
+      {
+        label: "דירה שעוברת בירושה",
+        href: "/he/practice-areas/wills-estates/articles/inherited-apartment",
+      },
+      {
+        label: "חלוקת רכוש בגירושין",
+        href: "/he/practice-areas/family-law/articles/property-division-in-divorce",
       },
     ],
   },
