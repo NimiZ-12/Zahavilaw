@@ -62,6 +62,14 @@ export const articlesHub = {
   /** Label of the hub link in the Hebrew footer and on the labor-law page. */
   sectionLinkLabel: "מאמרים בדיני עבודה",
 
+  /** The "Articles" section on the publications page (7.11 brief): one card
+   *  per department that has articles. Client-approved wording; `{n}` in the
+   *  link template is the department's article count. */
+  publicationsSection: {
+    heading: "מאמרים",
+    allTemplate: "לכל {n} המאמרים",
+  },
+
   disclaimer:
     "האמור בעמוד זה הוא מידע כללי בלבד, אינו מהווה ייעוץ משפטי ואינו תחליף לו, ואין להסתמך עליו בלי בחינה פרטנית של נסיבות המקרה. אין באמור משום התחייבות לתוצאה כלשהי.",
 };
