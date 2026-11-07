@@ -35,6 +35,15 @@ import { piercingTheCorporateVeil } from "./piercing-the-corporate-veil";
 import { businessDebtCollection } from "./business-debt-collection";
 import { companyFormation } from "./company-formation";
 import { securityForCostsCompany } from "./security-for-costs-company";
+import { willContest } from "./will-contest";
+import { durablePowerOfAttorney } from "./durable-power-of-attorney";
+import { inheritanceOrderAndProbate } from "./inheritance-order-and-probate";
+import { draftingAWill } from "./drafting-a-will";
+import { mutualWill } from "./mutual-will";
+import { intestateSuccession } from "./intestate-succession";
+import { inheritedApartment } from "./inherited-apartment";
+import { guardianshipForElderlyParent } from "./guardianship-for-elderly-parent";
+import { estateAdministrator } from "./estate-administrator";
 
 export type { Article };
 
@@ -66,6 +75,15 @@ export const articles: Article[] = [
   businessDebtCollection,
   companyFormation,
   securityForCostsCompany,
+  willContest,
+  durablePowerOfAttorney,
+  inheritanceOrderAndProbate,
+  draftingAWill,
+  mutualWill,
+  intestateSuccession,
+  inheritedApartment,
+  guardianshipForElderlyParent,
+  estateAdministrator,
 ];
 
 export function getArticle(slug: string): Article | undefined {

@@ -23,9 +23,8 @@ import {
 
 /**
  * Per-department image for the "Articles" cards below, reusing the photos
- * already serving this page. Wills-estates has no agreed photo yet (its own
- * brief will set one); until then its card renders without an image, like a
- * news card without one.
+ * already serving this page. The wills-estates photo (a hand signing a
+ * document) was set by the 7.11 wills-estates articles brief.
  */
 const ARTICLE_AREA_IMAGES: Record<ArticleAreaKey, string | null> = {
   "labor-law": images.articleFields.labor,
@@ -33,7 +32,7 @@ const ARTICLE_AREA_IMAGES: Record<ArticleAreaKey, string | null> = {
   commercial: images.articleFields.commercial,
   "family-law": images.articleFields.family,
   litigation: images.ruling,
-  "wills-estates": null,
+  "wills-estates": images.articleFields.classAction,
 };
 
 /**
