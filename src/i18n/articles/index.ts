@@ -44,6 +44,14 @@ import { intestateSuccession } from "./intestate-succession";
 import { inheritedApartment } from "./inherited-apartment";
 import { guardianshipForElderlyParent } from "./guardianship-for-elderly-parent";
 import { estateAdministrator } from "./estate-administrator";
+import { prenuptialAgreement } from "./prenuptial-agreement";
+import { propertyDivisionInDivorce } from "./property-division-in-divorce";
+import { commonLawPartners } from "./common-law-partners";
+import { childSupport } from "./child-support";
+import { startingDivorceProceedings } from "./starting-divorce-proceedings";
+import { divorceAgreement } from "./divorce-agreement";
+import { sharedCustody } from "./shared-custody";
+import { parentalAlienation } from "./parental-alienation";
 
 export type { Article };
 
@@ -84,6 +92,14 @@ export const articles: Article[] = [
   inheritedApartment,
   guardianshipForElderlyParent,
   estateAdministrator,
+  prenuptialAgreement,
+  propertyDivisionInDivorce,
+  commonLawPartners,
+  childSupport,
+  startingDivorceProceedings,
+  divorceAgreement,
+  sharedCustody,
+  parentalAlienation,
 ];
 
 export function getArticle(slug: string): Article | undefined {
