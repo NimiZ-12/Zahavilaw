@@ -14,6 +14,27 @@ import SectionHeading from "@/components/SectionHeading";
 import Link from "next/link";
 import { ArrowIcon } from "@/components/Icons";
 import VideoCard from "@/components/VideoCard";
+import { articles } from "@/i18n/articles";
+import {
+  articleAreas,
+  articlesHub,
+  type ArticleAreaKey,
+} from "@/i18n/articles/hub";
+
+/**
+ * Per-department image for the "Articles" cards below, reusing the photos
+ * already serving this page. Wills-estates has no agreed photo yet (its own
+ * brief will set one); until then its card renders without an image, like a
+ * news card without one.
+ */
+const ARTICLE_AREA_IMAGES: Record<ArticleAreaKey, string | null> = {
+  "labor-law": images.articleFields.labor,
+  "real-estate": images.articleFields.realEstate,
+  commercial: images.articleFields.commercial,
+  "family-law": images.articleFields.family,
+  litigation: images.ruling,
+  "wills-estates": null,
+};
 
 /**
  * Maps an article's legal-field label to one of a small set of neutral stock
@@ -59,6 +80,23 @@ export default async function PublicationsPage({
   const { publications } = dict;
 
   const typedLocale = locale as Locale;
+
+  // The "Articles" section (Hebrew only): one card per department that has
+  // published articles, in articleAreas order; three sample articles per
+  // card, in index.ts order (7.11 brief).
+  const articleAreaCards = (Object.keys(articleAreas) as ArticleAreaKey[])
+    .map((key) => {
+      const deptArticles = articles.filter((g) => g.area === key);
+      return {
+        key,
+        area: articleAreas[key],
+        count: deptArticles.length,
+        samples: deptArticles.slice(0, 3).map((g) => g.shortName),
+        photo: ARTICLE_AREA_IMAGES[key],
+      };
+    })
+    .filter((c) => c.count > 0);
+
   const trail = [{ name: publications.title, path: "/publications" }];
   const graph = buildGraph({
     locale: typedLocale,
@@ -239,6 +277,71 @@ export default async function PublicationsPage({
               ) : null}
             </div>
           ))}
+
+          {typedLocale === "he" && articleAreaCards.length > 0 && (
+            <div>
+              <h2 className="text-2xl">
+                {articlesHub.publicationsSection.heading}
+              </h2>
+              <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {articleAreaCards.map(({ key, area, count, samples, photo }) => (
+                  <li key={key}>
+                    <Link
+                      href={localePath("he", area.articlesPath)}
+                      className="group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-white transition-all hover:-translate-y-0.5 hover:border-gold/40 hover:shadow-md"
+                    >
+                      {photo && (
+                        <div className="relative h-40 w-full overflow-hidden">
+                          <Image
+                            src={photo}
+                            alt=""
+                            fill
+                            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                            className="object-cover"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-navy/10 to-navy/0" />
+                          <span className="absolute bottom-3 right-3 rtl:right-3 ltr:left-3 inline-flex rounded-full bg-gold-soft px-3 py-1 text-xs font-semibold text-gold-600">
+                            {area.name}
+                          </span>
+                        </div>
+                      )}
+                      <div className="flex flex-1 flex-col p-7">
+                        {!photo && (
+                          <span className="mb-3 inline-flex w-fit rounded-full bg-gold-soft px-3 py-1 text-xs font-semibold text-gold-600">
+                            {area.name}
+                          </span>
+                        )}
+                        <h3 className="text-lg leading-snug text-navy">
+                          {area.sectionLinkLabel}
+                        </h3>
+                        <ul className="mt-3 flex-1 space-y-1.5">
+                          {samples.map((name) => (
+                            <li
+                              key={name}
+                              className="flex items-start gap-2 text-sm text-muted"
+                            >
+                              <span
+                                aria-hidden
+                                className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-gold"
+                              />
+                              {name}
+                            </li>
+                          ))}
+                        </ul>
+                        <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-gold-600">
+                          {articlesHub.publicationsSection.allTemplate.replace(
+                            "{n}",
+                            String(count),
+                          )}
+                          <ArrowIcon className="h-4 w-4 transition-transform group-hover:translate-x-1 rtl:-scale-x-100 rtl:group-hover:-translate-x-1" />
+                        </span>
+                      </div>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </section>
     </>
