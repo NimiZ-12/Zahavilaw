@@ -320,7 +320,7 @@ const reserve: LpTrack = {
 
 export const lpProtectedPeriod: LpProtectedPeriod = {
   area: "labor-law",
-  updated: "2026-10-19",
+  updated: "2026-11-07",
   lawCheckedAt: "2026-10-19",
   meta: {
     title: "פיטורים בתקופה מוגנת - היריון ומילואים",
@@ -355,6 +355,14 @@ export const lpProtectedPeriod: LpProtectedPeriod = {
       {
         label: "פיטורים בזמן מחלה",
         href: "/he/articles/dismissal-during-sick-leave",
+      },
+      {
+        label: "כמה זמן אחרי שימוע אפשר לפטר",
+        href: "/he/articles/hearing-timeline-and-documents",
+      },
+      {
+        label: "פיצויים לעובד שפוטר: מה מגיע לכם",
+        href: "/he/articles/rights-after-dismissal",
       },
     ],
   },

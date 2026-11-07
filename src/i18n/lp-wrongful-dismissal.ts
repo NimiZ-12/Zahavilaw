@@ -12,7 +12,7 @@ import type { LpPage } from "./lp-page";
 
 export const lpWrongfulDismissal: LpPage = {
   area: "labor-law",
-  updated: "2026-10-19",
+  updated: "2026-11-07",
   lawCheckedAt: "2026-10-19",
   meta: {
     title: "פיטורים שלא כדין - מתי פיטורים אינם חוקיים ומה עושים",
@@ -96,6 +96,18 @@ export const lpWrongfulDismissal: LpPage = {
       {
         label: "התעמרות בעבודה",
         href: "/he/articles/workplace-bullying",
+      },
+      {
+        label: "כמה זמן אחרי שימוע אפשר לפטר",
+        href: "/he/articles/hearing-timeline-and-documents",
+      },
+      {
+        label: "מכתב פיטורין: מה חייב להופיע בו",
+        href: "/he/articles/dismissal-letter",
+      },
+      {
+        label: "פיצויים לעובד שפוטר: מה מגיע לכם",
+        href: "/he/articles/rights-after-dismissal",
       },
     ],
   },
