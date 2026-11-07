@@ -52,6 +52,14 @@ import { startingDivorceProceedings } from "./starting-divorce-proceedings";
 import { divorceAgreement } from "./divorce-agreement";
 import { sharedCustody } from "./shared-custody";
 import { parentalAlienation } from "./parental-alienation";
+import { defamationLawsuit } from "./defamation-lawsuit";
+import { defamationDefenses } from "./defamation-defenses";
+import { openingAnEnforcementFile } from "./opening-an-enforcement-file";
+import { arbitration } from "./arbitration";
+import { classAction } from "./class-action";
+import { insolvencyProceedings } from "./insolvency-proceedings";
+import { statementOfDefense } from "./statement-of-defense";
+import { injunctionsAndInterimRelief } from "./injunctions-and-interim-relief";
 
 export type { Article };
 
@@ -100,6 +108,14 @@ export const articles: Article[] = [
   divorceAgreement,
   sharedCustody,
   parentalAlienation,
+  defamationLawsuit,
+  defamationDefenses,
+  openingAnEnforcementFile,
+  arbitration,
+  classAction,
+  insolvencyProceedings,
+  statementOfDefense,
+  injunctionsAndInterimRelief,
 ];
 
 export function getArticle(slug: string): Article | undefined {
