@@ -182,8 +182,9 @@ export default async function PracticeAreaPage({
               </div>
             )}
             {/* The area's articles, Hebrew only, rendered on every practice
-                area that has published articles (up to 6). Same linked-entry
-                principle as the FAQ items above - no redesign of the page. */}
+                area that has published articles - all of the area's articles,
+                in index.ts order. Same linked-entry principle as the FAQ
+                items above - no redesign of the page. */}
             {typedLocale === "he" &&
               slug in articleAreas &&
               articles.some((g) => g.area === slug) && (
@@ -200,11 +201,9 @@ export default async function PracticeAreaPage({
                     <ArrowIcon className="h-5 w-5 shrink-0 self-center text-gold rtl:-scale-x-100" />
                   </Link>
                 </h2>
-                <div className="mt-6 space-y-6">
+                <div className="mt-6 grid gap-6 md:grid-cols-2">
                   {articles
                     .filter((g) => g.area === slug)
-                    .sort((a, b) => b.published.localeCompare(a.published))
-                    .slice(0, 6)
                     .map((g) => (
                     <article
                       key={g.slug}
