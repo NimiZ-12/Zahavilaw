@@ -18,7 +18,15 @@ export const rightsAfterDismissal: Article = {
   author: "anat-zahavi",
   published: "2026-10-13",
   lawCheckedAt: "2026-11-06",
-  updated: "2026-11-06",
+  updated: "2026-11-08",
+  // The firm's own YouTube video, shown as a click-to-play card under the
+  // answer box; also listed on the publications page.
+  video: {
+    id: "Sr0CnAriIVo",
+    title: 'דיני עבודה - פיטורים בזמן "תקופה מוגנת"',
+    duration: "PT50S",
+    uploadDate: "2026-08-30T10:32:08+03:00",
+  },
   sections: [
     {
       q: "מה חייב לקבל עובד שפוטר?",
