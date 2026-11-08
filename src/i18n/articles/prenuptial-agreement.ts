@@ -19,7 +19,15 @@ export const prenuptialAgreement: Article = {
   author: "ron-zahavi",
   published: "2026-11-07",
   lawCheckedAt: "2026-11-07",
-  updated: "2026-11-07",
+  updated: "2026-11-08",
+  // The firm's own YouTube video, shown as a click-to-play card under the
+  // answer box; also listed on the publications page.
+  video: {
+    id: "-IV0h5LDYv4",
+    title: "דיני משפחה - הסכם ממון",
+    duration: "PT1M3S",
+    uploadDate: "2026-11-01T21:15:19+02:00",
+  },
   sections: [
     {
       q: "מה זה הסכם ממון ומה ניתן להסדיר במסגרתו?",

@@ -18,7 +18,15 @@ export const howToDismissAnEmployee: Article = {
   author: "anat-zahavi",
   published: "2026-10-13",
   lawCheckedAt: "2026-11-06",
-  updated: "2026-11-06",
+  updated: "2026-11-08",
+  // The firm's own YouTube video, shown as a click-to-play card under the
+  // answer box; also listed on the publications page.
+  video: {
+    id: "H5QCZkxlM4Q",
+    title: "דיני עבודה - פיטורי עובדים כדין",
+    duration: "PT50S",
+    uploadDate: "2026-06-23T10:45:36+03:00",
+  },
   sections: [
     {
       q: "מהי עילה לפיטורי עובד, ואילו סיבות לפטר עובד מקובלות?",
