@@ -120,8 +120,12 @@ export function proxy(request: NextRequest) {
 
 export const config = {
   matcher: [
-    // Skip Next internals, API routes and files with an extension (assets).
-    "/((?!_next|api|.*\\..*).*)",
+    // Skip Next internals, API routes, files with an extension (assets),
+    // and every path that already carries a locale (/he, /he/..., /en,
+    // /en/...): for those the proxy only returned NextResponse.next(), but
+    // it still ran - with the whole dictionary and every article in its
+    // bundle - on every page view. 13.11 speed brief.
+    "/((?!_next|api|he(?:/|$)|en(?:/|$)|.*\\..*).*)",
     // The dead WordPress families again, explicitly: the catch-all above
     // skips dotted paths, but /wp-content/foo.jpg must still answer 410.
     "/feed/:path*",

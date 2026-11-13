@@ -61,6 +61,12 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   // Never advertise the framework version to attackers.
   poweredByHeader: false,
+  // Inline the (Tailwind, ~52KB raw) stylesheet into the HTML so first-time
+  // mobile visitors - most of them arrive from ads to a single page - don't
+  // wait for a separate render-blocking CSS request. 13.11 speed brief.
+  experimental: {
+    inlineCss: true,
+  },
   // Allow optimizing stock photos served from Unsplash (placeholders until the
   // firm's real photography is added to /public).
   images: {
