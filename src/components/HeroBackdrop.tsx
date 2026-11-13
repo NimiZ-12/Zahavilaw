@@ -35,7 +35,11 @@ export default function HeroBackdrop({
       fill
       sizes="100vw"
       quality={quality}
-      preload={priority}
+      // The above-the-fold backdrop is the page's LCP element. Next 16's docs
+      // recommend fetchPriority="high" + eager over `preload` for this case;
+      // `preload` emitted a normal-priority <link> and Lighthouse measured a
+      // 300ms resource-load delay on /he. 13.11 hero-priority brief.
+      fetchPriority={priority ? "high" : undefined}
       loading={priority ? "eager" : "lazy"}
       className={`pointer-events-none select-none object-cover object-center ${opacity}`}
     />
